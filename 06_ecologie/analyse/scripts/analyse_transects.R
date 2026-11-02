@@ -22,7 +22,14 @@
 #     par transect ;
 #   - sorties/transects_grands_arbres_resume.csv : densite globale (arbres/ha)
 #     et erreur-type ;
-#   - sorties/transects_chablis.csv : effectifs par transect et par classe.
+#   - sorties/transects_chablis.csv : effectifs par transect et par classe ;
+#   - sorties/transects_grands_arbres_classes_N.csv : densite (arbres/ha) par
+#     classe de diametre de 2,5 cm (memes classes que les placettes) ;
+#   - sorties/transects_grands_arbres_classes_G.csv : surface terriere (m2/ha)
+#     par classe de diametre de 5 cm a partir de 2,5 cm.
+#   Densites et surfaces terrieres par classe : effectif (ou somme des g) de
+#   tous les transects rapporte a la surface totale prospectee (approche du
+#   dispositif, comme la densite globale), sans intervalle de confiance.
 #
 # Utilisation :
 #   source("06_ecologie/analyse/scripts/analyse_transects.R")
@@ -79,6 +86,29 @@ resumeGA <- tibble(
   erreurType_ha = erreurTypeRatio * 10000
 )
 
+### Grands arbres par classe de diametre ###
+
+# DBH = CBH / pi ; g = pi / 4 * (DBH / 100)^2 (meme formule que fonctionsStructure.R)
+grandsArbresTransects <- grandsArbres |>
+  filter(cdTransect %in% parTransect$cdTransect) |>
+  mutate(dbh_cm = circ_cm / pi,
+         g_m2 = pi / 4 * (dbh_cm / 100)^2)
+
+surfaceTotaleGA_m2 <- sum(parTransect$surface_m2)
+
+classesN_GA <- grandsArbresTransects |>
+  mutate(classeDiam = floor(dbh_cm / 2.5) * 2.5) |>
+  group_by(classeDiam) |>
+  summarise(nbArbres = n(), .groups = "drop") |>
+  mutate(N_ha = nbArbres / surfaceTotaleGA_m2 * 10000)
+
+classesG_GA <- grandsArbresTransects |>
+  mutate(borneInf = 2.5 + floor((dbh_cm - 2.5) / 5) * 5,
+         borneSup = borneInf + 5) |>
+  group_by(borneInf, borneSup) |>
+  summarise(nbArbres = n(), G_m2 = sum(g_m2), .groups = "drop") |>
+  mutate(G_ha = G_m2 / surfaceTotaleGA_m2 * 10000)
+
 ### Chablis (provisoire) ###
 
 chablisEffectifs <- chablis |>
@@ -95,6 +125,10 @@ write_csv(parTransect, file.path(dossierSorties, "transects_grands_arbres.csv"))
 write_csv(resumeGA, file.path(dossierSorties,
                               "transects_grands_arbres_resume.csv"))
 write_csv(chablisEffectifs, file.path(dossierSorties, "transects_chablis.csv"))
+write_csv(classesN_GA, file.path(dossierSorties,
+                                 "transects_grands_arbres_classes_N.csv"))
+write_csv(classesG_GA, file.path(dossierSorties,
+                                 "transects_grands_arbres_classes_G.csv"))
 
 message("✅ Grands arbres : ", resumeGA$nbArbres, " arbres sur ",
         resumeGA$longueurTotale_m, " m (", m, " transects) ; densite = ",

@@ -28,7 +28,7 @@
     let debut = query(<debut-corps>).first().location().page()
     if here().page() >= debut {
       let pg = counter(page).get().first()
-      let gauche = [Caractérisation écologique et sociale de Tsiazombazaha]
+      let gauche = [Diagnostic écologique et social de Tsiazombazaha]
       let num = counter(page).display("1")
       set text(size: 10pt)
       if calc.odd(pg) {
@@ -51,40 +51,56 @@
 
 // Figures et tableaux
 #show figure.where(kind: table): set figure.caption(position: top)
-#show figure.caption: set par(justify: true)
-#show figure.caption: set text(size: 11pt)
-#show table.cell: set par(justify: true)
+#show figure.where(kind: image): set figure(supplement: [Figure]) // étiquette « Figure » et non « Fig. » (critère 148 du guide)
+#set figure.caption(separator: [ : ])
+#show figure: set block(spacing: 2em) // espacement au-dessus et en dessous, légende incluse
+#show figure.caption: set par(justify: true, leading: 0.5em)
+#show figure.caption: set text(size: 10pt)
+#show table: set text(size: 10pt)
+// Fond gris léger sur une ligne sur deux (lignes de données impaires) pour la lisibilité
+#set table(fill: (x, y) => if y > 0 and calc.even(y) { luma(85.0%) })
+// Traits horizontaux seulement : au-dessus et sous l'en-tête, en pied de tableau (guide GEEFT, critère 159)
+#set table(stroke: (x, y) => if y == 0 { (top: 0.8pt, bottom: 0.5pt) })
+#show table: it => block(stroke: (bottom: 0.8pt), it)
+#show table.cell: set par(justify: false, leading: 0.5em)
 #show table.cell: set align(horizon)
 #show table.cell.where(y: 0): set text(weight: "bold")
-// Largeur des colonnes : proportionnelle pour les tableaux
-#show table: set table.columns: auto
-#show table: set table.column-gutter: 0.5em
 
-// Bibliographie avec Hayagriva
-#import "@preview/hayagriva:0.1.0": bibliography, cite
-#bibliography("hayagriva.bib", title: "Références bibliographiques")
+// Titres courts des listes de figures et tableaux (voir TitresCourts.typ)
+#import "TitresCourts.typ": titres-courts
+#show outline.entry: it => context {
+  let d = titres-courts.final()
+  let court = if it.element.func() == figure and it.element.label != none {
+    d.at(str(it.element.label), default: none)
+  }
+  if court == none { it } else {
+    link(it.element.location(), it.indented(it.prefix(), [#court #box(width: 1fr, repeat[.]) #it.page()]))
+  }
+}
 
 // Pièces liminaires
-// #set heading(numbering: none, outlined: false)
-// #include "Couverture.typ"
-// #include "PageDeTitre.typ"
-// #include "Dedicace.typ"
-// #include "Remerciements.typ"
-// #include "Resume.typ"
-// #outline(title: [Table des matières], depth: 4)
+#set heading(numbering: none, outlined: false)
+#include "Couverture.typ"
+#include "PageDeTitre.typ"
+#include "Dedicace.typ"
+#include "Remerciements.typ"
+#include "Resume.typ"
+#outline(title: [Table des matières], depth: 4)
 
 // Corps du texte
 #set heading(numbering: "1.1", outlined: true)
-// #include "Introduction.typ"
-// #include "Problematique.typ"
+#include "Introduction.typ"
+#include "Problematique.typ"
 #include "MaterielMethodes.typ"
 #include "Resultats.typ"
-// #include "ResultatsSocio.typ"
-// #include "Discussion.typ"
-// #include "Conclusion.typ"
-// #include "ApresPropos.typ"
-// #include "Listes.typ"
-// #include "Annexes.typ"
+#include "ResultatsSocio.typ"
+#include "Discussion.typ"
+#include "Conclusion.typ"
+#include "ApresPropos.typ"
 
-// Bibliographie (générée automatiquement depuis hayagriva.bib)
-#bibliography
+// Bibliographie (générée automatiquement depuis hayagriva.yml)
+#bibliography("hayagriva.yml", title: "Références bibliographiques", style: "apa", full: true)
+
+#include "Listes.typ"
+#include "Annexes.typ"
+

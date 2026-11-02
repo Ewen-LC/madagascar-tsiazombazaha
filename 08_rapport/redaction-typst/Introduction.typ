@@ -1,144 +1,117 @@
-// Introduction — fondation.
-// Style : Typst simple (titres « = », paragraphe, commentaires « // »), sans fonctions personnalisées.
-// Conventions : guillemets « », virgule décimale, espaces insécables avant les signes doubles.
-// Marquage : // TODO = à compléter ; // REF? = référence à confirmer avant citation ;
-//            // ATTENTION = point à signaler à l'auteur.
+#import "TitresCourts.typ": titre-court
 
 = Introduction <debut-corps>
 
-// Plan de l'introduction (cadrage scientifique, du global au local) :
-// 1. Les forêts tropicales humides dans le monde
-// 2. Madagascar : histoire de la déforestation
-// 3. Madagascar : un hotspot de biodiversité
-// 4. Causes de la déforestation et moyens de subsistance
-// 5. Gouvernance forestière malgache et transferts de gestion
-// 6. La côte Est et la région Fitovinany
-// 7. Définitions des termes du titre
-// La commande (Inter Aide, projet EcoBois), la problématique et les hypothèses
-// sont exposées dans la section Problématique.
-// Le VOI Maharitra et les détails du fragment sont exposés dans M&M, Site d'étude.
-// Principe : l'Introduction reste générale ; les détails propres à Tsiazombazaha vont en Site d'étude.
-
-// Consigne du brouillon « redaction-foresterie-brouillon » : « Le cadrage
-// scientifique : état actuel des connaissances sur le thème, du général et/ou
-// global au particulier et/ou local, + une ou des définitions du terme du titre ».
-
 // TODO : Fig. — Frise chronologique de l'histoire de Madagascar
 // (colonisation austronésienne, royauté…).
-// TODO : Fig./Tab. — Données de déforestation (globale puis malgache) / frise de
-// la déforestation.
+// Réécriture du 02/11/2026 (sauvegarde : sauvegardes/Introduction_2026-11-02b_avant-reecriture.typ) :
+// citations regroupées en fin de paragraphe ; chiffres du CEPF vérifiés dans le profil d'écosystème (PDF du 10/11/2022) ;
+// gouvernance raccourcie ; FAOLEX retiré ; frise de déforestation remplacée par un graphique des estimations ;
+// définitions adaptées au titre définitif.
+// Titre définitif : « Diagnostic écologique et social de la forêt tropicale humide de Tsiazombazaha, sud-est de Madagascar ».
 
-== Les forêts tropicales humides dans le monde
+== Les forêts tropicales dans le monde
 
-Les forêts couvrent 32 % de la superficie terrestre et abritent plus de 80 % des espèces terrestres d'animaux, de plantes et d'insectes (FAO, 2025). À l'échelle mondiale, la déforestation concerne 10,9 millions d'hectares par an sur les 4,14 milliards d'hectares de forêt (FAO, 2025). Les forêts tropicales humides, particulièrement riches en espèces et particulièrement menacées, concentrent une part disproportionnée de cette perte.
-// Depuis la sédentarisation de l'être humain (_Homo sapiens_), la superficie des forêts... intox ?
-// ATTENTION : « intox ? » non résolu. Les chiffres 32 % et 4,14 Md ha sont ceux de FAO (2025) ; à vérifier dans FAO FRA 2025 si doute.
+Les forêts couvrent 32~% de la superficie terrestre et abritent plus de 80~% des espèces terrestres d'animaux, de plantes et d'insectes. À l'échelle mondiale, la déforestation concerne 10,9~millions d'hectares par an sur les 4,14~milliards d'hectares de forêt (FAO, 2025). Les forêts tropicales, particulièrement riches en espèces, concentrent plus de 90~% de la déforestation mondiale entre 2000 et 2018, et l'expansion agricole en est responsable à près de 90~% (FAO, 2022).
+// REF? : FAO (2022), FRA 2020 Remote Sensing Survey. « Plus de 90 % » : part des forêts tropicales dans la déforestation mondiale 2000–2018 (157 Mha), d'après le communiqué FAO du 3 mai 2022 (https://www.fao.org/newsroom/detail/global-deforestation-slowing-but-rainforests-under-threat-fao-report-shows-030522/en). « Près de 90 % » (88,1 %) : part de l'expansion agricole, d'après le communiqué FAO du 6 novembre 2021. Rapport non lu ; titre, collection et DOI à confirmer.
+// Relecture : « part disproportionnée » (sans source) remplacé par le chiffre FAO. Le chiffre porte sur les forêts tropicales en général, pas sur les seules forêts humides.
+// TODO : sous-section courte (un seul paragraphe) ; à étoffer ou à fusionner avec la suivante.
 
-== Madagascar : histoire de la déforestation
+== Madagascar, zone critique de biodiversité
 
-Madagascar a été colonisée massivement par _Homo sapiens_ il y a 1 500 à 2 000 ans. À cette époque, les forêts tropicales humides de l'est de l'île couvraient 11,2 millions d'hectares. La déforestation, d'abord liée aux pratiques agricoles des colons austronésiens, a réduit cette surface à 7,6 millions d'hectares en 1950 (soit une perte de 33 %), puis à 3,8 millions en 1985 (soit une perte de 66 %), avec un taux annuel de déforestation de 111 000 ha/an entre 1950 et 1985. En 2014, les forêts tropicales humides naturelles couvraient 4,4 millions d'hectares, soit la moitié des forêts naturelles de Madagascar. Entre 1953 et 2014, le pays a perdu 44 % de ses forêts naturelles, avec un taux de déforestation annuel de 99 000 ha/an (soit 1,1 %/an) entre 2010 et 2014 (Vieilledent et al., 2018).
-// HOULA HARD VERIFIER LES CHIFFRES
-// ATTENTION, calculs sur les valeurs écrites :
-//   - 11,2 → 7,6 Mha : perte de 32 % (3,6 / 11,2 = 32,1 %), et non 33 %. Possible arrondi de la source : à vérifier chez Vieilledent et al. (2018).
-//   - 7,6 → 3,8 Mha sur 35 ans : environ 108 600 ha/an, et non 111 000 ha/an.
-//   - 99 000 ha/an = 1,1 %/an implique une base d'environ 9 Mha ; or les forêts naturelles sont à 4,4 Mha en 2014 (soit environ 2,2 %/an). Vérifier la base du pourcentage.
-// Harmonisé : « Vieilledent et al., 2018 » (APA 7, sept auteurs). Entrée à compléter dans References.typ.
-// Théorie de l'ile verte (Mada 100 % de foret, vis à vis diversité des milieux ouverts VS forêts)
-// ATTENTION : concept absent des sources du projet. À sourcer avant d'écrire ; « 100 % de forêt » à présenter comme hypothèse historique, non comme fait.
+L'île est comprise entièrement dans la zone critique de biodiversité «~Madagascar et îles de l'océan Indien~» (Myers et al., 2000~; CEPF, 2022), en particulier l'écorégion des «~Forêts tropicales humides des basses terres de Madagascar~» (Olson et al., 2001). Sa flore compte environ 11~500~espèces de plantes vasculaires indigènes, dont 82~% sont endémiques (Antonelli et al., 2022). Le taux d'endémisme dépasse 90~% pour plusieurs groupes~: 221 des 231~espèces de mammifères indigènes, dont la totalité des primates, environ 420~espèces de reptiles à 98~% endémiques, avec un important centre de diversité pour les caméléons, et 4~032 des 4~220~espèces d'arbres et de grands arbustes. Sur les 7~737~espèces évaluées pour la Liste rouge de l'Union internationale pour la conservation de la nature (UICN), 3~058 sont mondialement menacées, c'est-à-dire en danger critique, en danger ou vulnérables, espèces marines et d'eau douce comprises (CEPF, 2022). Entre 1950 et 2000, la déforestation aurait causé l'extinction de 9,1~% des espèces de l'île, immédiate ou différée (Allnutt et al., 2008).
+// Vérifié le 02/11/2026 dans CEPF (2022), profil d'écosystème, version française du 10/11/2022 : mammifères p. 35 (tableau 7, 221/231, primates 100 %) ; reptiles p. 36 (« environ 420 espèces … 98 % endémiques », « important centre de diversité pour les caméléons » : le mot « mondial » est retiré) ; arbres et grands arbustes p. 37 (4 220 espèces dont 4 032 endémiques) ; Liste rouge p. 65-66 (7 737 évaluées, 3 058 menacées, « chiffre incluant les espèces marines aussi bien que terrestres et eaux douces »).
+// Relecture : (1) « dont environ 90 % d'endémiques » remplacé par Antonelli et al. (2022) : le CEPF écrit « environ 90 % » (p. 37) mais son propre tableau 10 donne 9 329 endémiques sur 11 399, soit 82 %. (2) « 4 032 sur 4 220, soit 93 % » était faux : le 93 % du CEPF porte sur 3 118 espèces d'arbres (Beech et al., 2021), pas sur les 4 220 arbres et grands arbustes ; aucun pourcentage n'est plus donné. (3) « menacées par la perte d'habitat causée par la déforestation, particulièrement dans les forêts humides de l'Est » retiré : le CEPF n'attribue pas ces 3 058 espèces à la déforestation.
+// REF? : Antonelli et al. (2022), https://doi.org/10.1126/science.abf0869 : 11 516 espèces, 82 % d'endémiques (communiqué de Kew, à vérifier dans l'article). Valeur arrondie à « environ 11 500 ».
+// REF? : Myers et al. (2000), https://doi.org/10.1038/35002501 ; Olson et al. (2001), https://doi.org/10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2. Non lus.
+// ATTENTION : chiffres à plus de trois chiffres significatifs (4 032, 4 220, 7 737, 3 058 ; critère 125 du guide). À arbitrer avec le référent.
 
-== Madagascar : un hotspot de biodiversité
+Ces deux zonages reposent toutefois sur des conventions discutées. Le label de zone critique combine deux critères~: au moins 1~500~espèces végétales endémiques et la perte de plus de 70~% de la végétation primaire. Madagascar satisfait sans difficulté le premier. Le second suppose un état de référence, celui d'une couverture forestière originelle, qu'aucune donnée ne permet d'établir~: au regard des quelque 9~millions d'hectares de forêts actuelles, il impliquerait qu'environ 35~millions d'hectares de forêts aient existé à une époque indéterminée, chiffre qu'aucune étude n'a avancé. Les écorégions du Fonds mondial pour la nature (WWF) résultent quant à elles de la simplification d'une carte bioclimatique établie à partir des seuls indicateurs climatiques, dont les zones ont ensuite été réinterprétées comme des zones de végétation (Amelot, 2017). Ces réserves ne remettent pas en cause la richesse et l'endémisme exceptionnels de la flore malgache, mais invitent à lire avec prudence les chiffres de perte forestière.
+// Vérifié dans Amelot (2017, p. 47-49) : critères du hotspot, 9 Mha, 35 Mha, carte bioclimatique de Cornet (1974) reprise par Schatz (2000) puis par le WWF.
+// ATTENTION : Amelot (2017, p. 48) compte « environ 12 000 espèces végétales endémiques », écart avec Antonelli et al. (2022) ; non repris.
 
-L'île est comprise entièrement dans la zone critique de biodiversité « Madagascar et îles de l'Océan Indien » (Conservation International, 2000), en particulier l'écorégion des « Forêts tropicales humides des basses terres de Madagascar » (Armstrong, 2011). Elle se caractérise par une diversité spécifique très élevée et un taux d'endémisme supérieur à 90 % pour certains taxons, telles que les plantes, les lémuriens et les caméléons. Cependant, entre 1950 et 2000, la déforestation a causé l'extinction de 9,1 % des espèces de Madagascar (Allnutt et al., 2008).
-// ATTENTION : « Armstrong (2011) » ici contre « Armstrong, Shugart et Fatoyinbo (2011) » dans la bibliographie du projet de stage (« Armstrong et al., 2011 » en APA 7). À arbitrer.
+== Histoire de la déforestation à Madagascar
 
-== Causes de la déforestation et moyens de subsistance
+Madagascar est peuplée tardivement à l'échelle de l'histoire humaine~: l'essentiel du peuplement est attribué à des navigateurs austronésiens venus d'Indonésie en canots à balancier, arrivés entre le V#super[e]~siècle avant l'ère commune et le VIII#super[e]~siècle de l'ère commune (Deschamps, 1961). Des traces de découpe sur des ossements d'oiseaux-éléphants suggèrent toutefois une présence humaine bien plus ancienne, il y a plus de 10~500~ans (Hansford et al., 2018).
+// REF? : Deschamps (1961), ouvrage non lu ; une référence récente serait préférable. Hansford et al. (2018), https://doi.org/10.1126/sciadv.aat6925 : résumé seul lu ; interprétation débattue.
+// TODO : l'apport africain (bantou) au peuplement n'est pas mentionné ; à ajouter si utile.
 
-L'expansion agricole, responsable de près de 90 % de la déforestation mondiale en 2015 (ONU), est principalement associée, à Madagascar, à des pratiques d'abattis-brûlis (_tavy_) pour la culture du riz, du manioc ou des légumes, ainsi qu'à la production de bois de construction, de bois de feu ou de charbon de bois (// REF? : référence à confirmer ; le projet de stage porte ici un « (XXX) » en attente). Or, alors que 79,9 % de la population rurale se situe déjà sous le seuil de pauvreté (Banque mondiale, 2024), la disparition des forêts entraîne celle des moyens de subsistance des communautés rurales, une augmentation des émissions de carbone, une diminution de la biodiversité et une dégradation des sols (ONU, 2015).
-// REF? : « ONU » (2015) : référence exacte à préciser (le projet de stage mentionne « ONU » et « ONU, 2015 » sans document complet ; « ONU, 20XX » apparaît aussi).
-// REF? : référence du « (XXX) » du projet de stage (source des usages du bois) à confirmer.
+L'hypothèse d'une «~île verte~», relique d'une immense forêt primitive qui aurait couvert presque toute l'île, est aujourd'hui regardée comme un mythe. Apparue à la fin du XIX#super[e]~siècle dans le discours des forestiers coloniaux et popularisée par les botanistes Perrier de La Bâthie et Humbert, elle reste mobilisée pour légitimer les politiques environnementales. Elle ignore notamment les phases d'aridification, accompagnées de feux naturels et de savanisation, que les travaux de palynologie, d'entomologie et de génétique situent avant l'arrivée de l'homme, en particulier vers 6~000 à 3~000~ans avant le présent. Dans le prolongement de ce mythe, les estimations de la couverture forestière divergent fortement selon les auteurs, et parfois chez un même auteur~: de 1,4~million d'hectares selon Heim à 17~millions selon Perrier de La Bâthie dans les années 1930, de 12,4 à 19,5~millions d'hectares pour les années 1950 à partir des mêmes photographies aériennes, et encore de 9 à près de 16~millions d'hectares pour 2005–2010 à partir de données satellitaires (Amelot, 2017).
+// Vérifié dans Amelot (2017, p. 34-38). Seul arrondi : Guichon (1960), 12 378 000 ha -> 12,4 Mha. Heim (1935) et Perrier de La Bâthie (1936) sont cités d'après Amelot.
 
-// TODO : paragraphe sur la gouvernance forestière malgache : code forestier colonial (1930),
-// loi GELOSE 96-025 (Leroy et Mermet, 2014), GCF, VOI. À rédiger avec la frise des politiques
-// publiques forestières.
+Les premières séries chiffrées spatialement explicites datent du milieu du XX#super[e]~siècle. Deux d'entre elles permettent de suivre la déforestation depuis lors (@fig-estimations-forestieres). Green et Sussman (1990) portent sur les seules forêts tropicales humides de l'Est, cartographiées à partir de photographies aériennes de 1950 et d'images Landsat de 1972–1973 et 1984–1985. Vieilledent et al. (2018) couvrent l'ensemble des forêts naturelles de l'île, en combinant cartes forestières historiques et données annuelles de perte de couvert arboré. Pour les forêts humides, elles donnent 7,6~millions d'hectares en 1950 pour la première et 8,58~millions en 1953 pour la seconde, puis décrivent un recul rapide~: 3,8~millions d'hectares en 1985 selon Green et Sussman, soit 111~000~ha/an (1,5~%/an) entre 1950 et 1985, et un taux national de 205~000~ha/an (1,6~%/an) sur 1973–1990 selon Vieilledent et al. La déforestation a d'abord touché les basses terres et les zones de forte densité de population, de sorte que les derniers grands massifs de forêt primaire se trouvent aujourd'hui dans le nord-est de l'île et dans les zones de montagne (Green et Sussman, 1990).
+// REF? : Green et Sussman (1990), https://doi.org/10.1126/science.248.4952.212, non lu. Vieilledent et al. (2018), https://doi.org/10.1016/j.biocon.2018.04.008 : valeurs vérifiées dans les tableaux 1 et 2 de la prépublication bioRxiv (https://doi.org/10.1101/147827) ; à contrôler dans la version publiée. Forêt humide 1953 : 8 578 299 ha -> 8,58 Mha.
 
-// TODO : paragraphe de transition local : région Fitovinany, district de Manakara-Atsimo,
-// fragment de Tsiazombazaha (450 ha), projet EcoBois. Renvoi à la section Problématique
-// pour la commande détaillée.
-// // « Seul réservoir » : la formulation est à corriger. Avec des fragments situés à 5, 10 et 15 km, l’expression ne tient plus. La formulation défendable est : « le plus grand fragment de forêt naturelle de la région Fitovinany ». // TODO : à confirmer selon le statut de la forêt de près de 1 000 ha du sud de la région.
+Green et Sussman (1990) estiment en outre la surface des forêts humides de l'Est à 11,2~millions d'hectares à l'arrivée de l'homme, ce qui ferait de 1950 et 1985 respectivement 67~% et 34~% de cette surface originelle~; une telle reconstitution relève toutefois de l'image d'une forêt primitive discutée plus haut. Selon Vieilledent et al. (2018), le taux de déforestation, tombé à 42~000~ha/an (0,4~%/an) sur 2000–2005, est ensuite remonté à 99~000~ha/an (1,1~%/an) sur 2010–2014. Les forêts naturelles ne couvraient plus que 8,9~millions d'hectares en 2014 (15~% du territoire), soit une perte de 44~% en six décennies (37~% depuis 1973), dont 4,4~millions d'hectares de forêts humides. Cette dernière valeur, supérieure aux 3,8~millions d'hectares estimés par Green et Sussman pour 1985, illustre à son tour la divergence des estimations~: les deux séries, fondées sur des sources et des méthodes de cartographie différentes, ne sont pas directement comparables en valeur absolue, seules leurs tendances le sont. La fragmentation progresse en parallèle~: en 2014, 46~% de la forêt se situait à moins de 100~m d'une lisière, contre 27~% en 1973 (Vieilledent et al., 2018).
+// Relecture : la mention d'Amelot (2018) sur les « cartes produites par des scientifiques en lien étroit avec des ONG » est retirée (pas de polémique en Introduction ; source = diapositives). Piste pour la Discussion.
+// ATTENTION : Amelot (2017, p. 46) écrit que la déforestation récente concerne surtout les forêts sèches du sud-ouest et semi-décidues du nord-ouest, et « très peu » les forêts humides de l'Est (d'après ONE et al., 2013), alors que Vieilledent et al. (2018) donnent un recul marqué des forêts humides. Contradiction entre sources, non tranchée.
 
-// TODO : définitions des termes du titre : « fragment de forêt tropicale » (théorie des
-// la définition générique du terme « fragment », sans chiffres sur Tsiazombazaha.
-// « forêt tropicale humide de basse altitude », « caractérisation écologique et sociale ».
+// FIGURE : estimations publiées de la surface forestière. Données et script R : documents-brouillons/figure-estimations-forestieres/ (valeurs recopiées des publications, sans calcul).
+#figure(
+  image("analyse-figures/estimations_surface_forestiere.svg",
+    alt: "Surface forestière de Madagascar en millions d'hectares selon l'année, de 1920 à 2014 : deux séries de Vieilledent et al. (2018), une série de Green et Sussman (1990) et des estimations isolées compilées par Amelot (2017)."),
+  caption: [Estimations publiées de la surface forestière de Madagascar, en millions d'hectares. Séries~: forêts naturelles de l'île et forêts humides (Vieilledent et al., 2018) et forêts humides de l'Est (Green et Sussman, 1990). Triangles gris~: estimations isolées de l'ensemble des forêts compilées par Amelot (2017)~; la barre verticale de 1927 donne la fourchette de 2 à 3~millions d'hectares de Humbert. Les estimations de 2005–2010 sont placées en 2008. Les périmètres et les méthodes diffèrent d'une source à l'autre.],
+) <fig-estimations-forestieres>
+#titre-court(<fig-estimations-forestieres>)[Estimations de la surface forestière de Madagascar]
 
-// dette d'extinction : une ou deux phrases pour poser le concept. Il justifie l’enjeu de conservation d’un fragment ancien et isolé.
-// défintion générique "d'état de conservation initial"
+== Les causes de la déforestation
 
-// Hending et al. (2023) : Introduction et Discussion.
+À Madagascar, la culture sur abattis-brûlis (_tavy_), riziculture pluviale pratiquée dans la zone forestière de l'Est depuis l'arrivée des Austronésiens, est présentée comme la principale cause de la déforestation, à laquelle s'ajoutent les besoins en bois de chauffe et de construction, le pâturage, l'exploitation minière et l'abattage illégal de bois précieux (Deschamps, 1961~; Aubert et al., 2003~; CEPF, 2022). Cette hiérarchie est discutée~: pour Amelot (2017), la conversion des terres en cultures de rente, la production de charbon de bois autour des villes et le long des axes de communication, les coupes illicites et l'activité minière pèsent au moins autant que les pratiques agricoles et pastorales traditionnelles, dont l'impact sur la forêt serait secondaire et en grande partie réversible.
+// Vérifié dans CEPF (2022, p. 142-143) : « La principale cause de la déforestation est la technique agricole traditionnelle, le tavy » ; bois pour l'énergie et la construction, mines, abattage illégal de bois précieux, pâturage. Vérifié dans Amelot (2017, p. 34 : tavy = « riziculture pluviale sur défriche-brûlis » ; p. 46 : hiérarchie des causes, d'après Elmqvist et al., 2007).
+// Relecture : titre « L'expansion agricole, cause de la déforestation » remplacé ; l'expansion agricole est conservée (FAO, 2022, sous-section 1, et CEPF, 2022). Le manioc est retiré (aucune source). Deschamps (1961) est conservé pour l'ancienneté du tavy dans l'Est (ouvrage non lu, REF?).
+// REF? : Aubert et al. (2003), ouvrage non lu.
 
-// Note de travail (ancienne consigne, à ne pas reprendre dans le texte) :
-// Introduction : une phrase de contexte dans la définition du fragment (c). Elle indique que, dans une forêt de transition du nord-ouest de Madagascar, la fragmentation et les effets de lisière réduisent la diversité spécifique, la taille des arbres et la diversité structurale. Elle sert à montrer que la fragmentation a des conséquences mesurables sur la structure forestière, donc sur tes indicateurs.
-// La phrase rédigée figure au paragraphe 7 (Hending et al., 2023).
-
+Ces pressions pèsent sur une population rurale dont 79,9~% vivait sous le seuil de pauvreté en 2022 (Banque mondiale, 2024). La déforestation menace les fonctions écologiques et les services écosystémiques dont dépendent le bien-être et le développement socio-économique du pays. Parmi ces services, l'eau est perçue comme le plus évident~: la protection des ressources en eau par le couvert forestier, notamment pour la riziculture, est invoquée à toutes les échelles, alors que ses effets, souvent surestimés, dépendent fortement des situations (CEPF, 2022~; Andriamahefazafy et al., 2012).
+// REF? Andriamahefazafy et al. (2012), VertigO 12(3), https://doi.org/10.4000/vertigo.12875 : lu en ligne, § 36, 59-60, 62, 64-65.
+// Relecture : l'ancienne phrase « Or, alors que … (Nations unies, 2015) » mêlait deux idées dans une construction incomplète, et sa source n'était pas identifiée. Les conséquences sont maintenant sourcées par CEPF (2022, p. 142). Nations unies (2015) n'est plus cité.
 
 == Gouvernance forestière malgache et transferts de gestion
 
-Dès l'époque coloniale, la gestion des forêts malgaches est encadrée par la loi : le premier code forestier date de 1930, et la recherche « Forêt » pour Madagascar dans la base FAOLEX recense 109 textes juridiques entre 1930 et 2026.
-// TODO : date de consultation de FAOLEX à indiquer (le nombre peut évoluer) ; référence de la base à compléter. Chiffre issu du projet de stage (diagramme PRISMA de l'étude de la législation prévu).
+// Chronologie resserrée (02/11/2026) sur deux fils : la déforestation et sa répression, puis la genèse et l'évolution des transferts de gestion.
+// Sauvegarde : sauvegardes/Introduction_2026-11-02c_avant-chronologie.typ.
 
-En 1996, la loi GELOSE 96-025, issue d'une expérimentation de gestion patrimoniale, introduit le transfert de gestion des ressources naturelles à des communautés locales (Leroy et Mermet, 2014).
-// REF? : source non lue. La filiation gestion patrimoniale -> GELOSE vient du projet de stage, qui cite Leroy et Mermet (2014) ; à vérifier dans l'article, ainsi que le contenu exact de la loi.
-// TODO : entrée Leroy et Mermet (2014) incomplète dans References.typ.
+La régulation des usages forestiers précède la colonisation. Sous la royauté merina, Andrianampoinimerina (1787–1810) interdit le feu en forêt et le code des 305~articles (1881) en proscrit l'incendie~; ces règles, peu appliquées, coexistent avec des régulations locales, comme les forêts sacrées protégées par des interdits (_fady_). La colonisation de 1896 fait de la forêt un domaine de l'État. De 1913 à 1930, un régime forestier répressif, dont le décret du 25~janvier 1930 est l'acte fondateur, assimile la déforestation au _tavy_ paysan~: il proscrit cette pratique et les feux, sur la foi d'estimations de la déforestation aujourd'hui jugées sujettes à caution (plus de 200~000~ha/an selon Perrier de La Bâthie). La conservation passe alors par l'exclusion des usagers, avec la création en 1927 de six réserves naturelles soustraites aux droits d'usage (Montagne et Ramamonjisoa, 2006~; Tengö et al., 2007).
+// REF? : Montagne et Ramamonjisoa (2006), https://doi.org/10.4000/economierurale.894 : lu en ligne (résumé détaillé), à relire. Montagne et Ramamonjisoa ne mentionnent ni fady ni forêts sacrées (le dina n'y apparaît que dans les années 1990, § 39) : « conventions collectives (dina) » retiré ici, le dina étant défini plus bas avec les COBA.
+// REF? Tengö et al. (2007), Ambio 36(8), 683-691, https://doi.org/10.1579/0044-7447(2007)36[683:TAFGIP]2.0.CO;2 : résumé seulement (forêts protégées par des tabous dans l'Androy, sud de Madagascar) ; à lire pour confirmer la portée générale.
+// La borne « 1937 » proposée pour la fin du régime répressif n'a pas été retrouvée dans les sources : la période est arrêtée à 1930 (décret fondateur).
 
-Dans ce cadre, la gestion contractualisée des forêts (GCF) est la modalité par laquelle le transfert de gestion se formalise : un contrat de gestion lie la communauté locale à l'État (Blanc-Pamard et Ramiarantsoa, 2007). La @frisechronologiquegouvernanceforestiere replace ces dispositifs dans leur chronologie.
-// REF? : source non lue (seul le titre est connu) : https://doi.org/10.1051/nss:2007055. Le rôle exact de l'État et la forme du contrat sont à vérifier. Le projet de stage mentionne un « contrat de gestion » de la forêt à lire et décrire.
-// TODO : date et texte d'application de la GCF (rattachée à la GELOSE, à préciser).
-// TODO : vérifier que Blanc-Pamard et Ramiarantsoa (2007) figure dans References.typ.
-// // FAUX la GCF fait partie de la GELOSE => corriger tout ça !!!
-// Corrigé ci-dessus : la GCF est présentée comme modalité du transfert de gestion, non comme dispositif parallèle.
+L'indépendance ne rompt pas avec cette logique~: les ordonnances n°~60-127 et 60-128 de 1960 maintiennent la réglementation des défrichements et des feux et la répression des infractions forestières. Le tournant vient de la Charte de l'environnement (loi n°~90-033 du 21~décembre 1990). Partant du constat d'échec des actions menées jusque-là, elle fait de la réconciliation de la population avec son environnement l'objectif du Plan d'action environnemental, prévu en trois programmes de 1991 à 2005, et met l'accent sur la prise en charge, par les communautés de base, de la protection et de la gestion de leurs terroirs. Le premier instrument juridique de cette gestion locale est la loi n°~96-025 relative à la gestion locale des ressources naturelles renouvelables, dite loi GELOSE (gestion locale sécurisée)~; elle renoue avec une gestion locale dont on retrouve des formes dès la période royale (Bertrand et al., 2009~; CEPF, 2022). Elle permet de confier la gestion de ressources (forêts, faune, flore, eau) à une communauté de base (COBA), appelée _Vondron'Olona Ifotony_ (VOI) en malgache~: un groupement volontaire d'habitants doté de la personnalité morale, d'une assemblée générale et d'une structure de gestion élue, lié à l'État ou à la collectivité propriétaire par un contrat de gestion et dont les membres sont tenus par un _dina_. La loi forestière n°~97-017 et ses décrets de 1998 ouvrent ce transfert aux forêts de l'État, et le décret n°~2001-122 en fixe les modalités sous le nom de gestion contractualisée des forêts (GCF)~: un contrat de trois ans, renouvelable pour dix ans après évaluation, couvrant les droits d'usage, la valorisation économique et la protection de la forêt. Plus d'un millier de contrats de transfert de gestion ont depuis été signés, toutes ressources confondues, mais leur efficacité reste limitée par le manque de moyens de l'administration, des organismes d'appui et des COBA elles-mêmes (CEPF, 2022).
+// Sources primaires lues en entier : loi n° 90-033 (Charte de l'environnement et annexe : constat d'échec, PNE, PAE en trois programmes PE I 1991–1995, PE II 1996–2000, PE III 2001–2005 ; « accent particulier sur les communautés de base devant prendre en charge la protection et la gestion de leurs propres terroirs ») ; loi n° 96-025 ; loi n° 97-017 (art. 24) ; décrets n° 98-781 et 98-782 (art. 3) ; décret n° 2000-027 ; décret n° 2001-122 (art. 4, 7, 9).
+// Lu dans CEPF (2022, p. 197) : « loi 025-1996 dite loi GELOSE (Gestion Locale Sécurisée) », premier instrument juridique de la gestion locale (d'après Bertrand et al., 2009) ; p. 215-216 : « plus d'un millier de contrats de transfert de gestion (toutes ressources confondues) » (source MEDD) et limites d'efficacité.
+// Date de la loi 96-025 : 30 septembre 1996, d'après les visas du décret 2013-785 (lu en entier) ; les visas du décret 98-782 donnent aussi le 23 septembre. Résolu en faveur du 30 septembre, à confirmer dans le texte de la loi.
+// ATTENTION : la proposition de chronologie suggérait de retirer la loi 97-017 et les décrets de 1998, « qui régissent le régime d'exploitation, non les transferts de gestion ». C'est inexact : le décret 98-782 (art. 3) ouvre le transfert de gestion des forêts de l'État aux communautés de base, et le décret 2001-122 applique la loi 97-017. Ils sont retirés de la frise pour la lisibilité, mais conservés dans le texte.
+// REF? : Bertrand et al. (2009), VertigO, résumé seul lu.
+// TODO : bilan des transferts de gestion à compléter par la littérature scientifique : Blanc-Pamard et Rakoto Ramiarantsoa (2007, en bibliographie) ; Rasolofoson et al. (2015), https://doi.org/10.1016/j.biocon.2015.01.027 (REF?, proposée de mémoire).
 
-Dans ces dispositifs, la gestion d'un espace forestier est confiée à une communauté locale de base (COBA), appelée VOI (Vondron'Olona Ifotony) à Madagascar, dont les membres du bureau sont responsables des actions de conservation au sein de leur périmètre (Cooke, 2007).
-// REF? : source non lue ; le rôle du bureau vient du projet de stage, qui cite Cooke (2007). Définitions de COBA et de VOI à confirmer dans un texte réglementaire.
-// TODO : vérifier la présence de Cooke (2007) dans References.typ ; le titre porte une coquille dans le projet de stage (« trasnfert »).
-// ATTENTION : orthographe « Cooke » (2007, transferts de gestion) à distinguer de Cook (1995, classification des usages, source non retrouvée). Incohérence n° 9 de ETAT_AVANCEMENT.md.
+Après 2001, le cadre s'étend aux aires protégées et à d'autres gestionnaires que les communautés. En 2003, la «~Vision Durban~» engage l'État à tripler la surface des aires protégées et ouvre la voie à l'intégration des communautés locales dans leur gestion (CEPF, 2022). La crise politique de 2009–2010 s'accompagne d'une exploitation illégale massive de bois de rose et d'ébène, estimée à 100~000~arbres abattus en 2009 dans le nord-est, pour une large part dans les parcs nationaux de Masoala et de Marojejy, et favorisée par l'instabilité de la réglementation forestière (Randriamalala et Liu, 2010). Le décret n°~2013-785 organise la délégation de gestion des forêts de l'État à des personnes publiques ou privées sous diverses formes (concession, location-gérance, bail, cogestion), le transfert aux communautés restant régi par la loi GELOSE. Enfin, la refonte du Code de gestion des aires protégées (loi n°~2015-005) reconnaît les aires protégées communautaires et fait de la cogestion avec les parties prenantes, dont les communautés locales, un principe de gouvernance (@frisechronologiquegouvernanceforestiere).
+// Vision Durban : CEPF (2022, p. 21, note 3) : « tripler la superficie de ses Aires Protégées qui à l'époque (2003), était d'un peu plus de 2 millions d'hectare » ; p. 22 et 25 : intégration des communautés locales dans la gestion des nouvelles aires protégées (SAPM).
+// ATTENTION : chiffres de la Vision Durban divergents : « de 1,7 à 6 millions d'hectares » (proposition de chronologie, presse, Wikipédia) contre « un peu plus de 2 millions d'hectares » à tripler (CEPF, 2022). Le texte de la loi 2015-005 lu en entier ne mentionne pas la Vision Durban (pas d'exposé des motifs dans la version lue). Seul l'objectif de triplement est retenu ; à arbitrer.
+// Lu (12 pages sur 13 environ) : Randriamalala et Liu (2010), https://doi.org/10.4314/mcd.v5i1.57336 : campagne 2009 d'au moins 52 000 t de bois précieux, environ 100 000 arbres de bois de rose et d'ébène, dont plus de 60 000 dans les aires protégées, un tiers de la région de Marojejy et deux tiers de celle de Masoala ; « Poor governance and a lack of clarity in forest regulation have facilitated timber trafficking ».
+// Lu en entier : décret n° 2013-785 du 22 octobre 2013 (FAOLEX, https://faolex.fao.org/docs/pdf/mad142366.pdf) : délégation aux personnes publiques ou privées (art. 9), aires protégées et sites Koloala (art. 2), formes : concession de service, location-gérance, sous-traitance, bail, cogestion, transfert de gestion (chap. IV) ; art. 45 : le transfert aux communautés locales de base « reste soumis » à la loi 96-025.
+// Lu en entier : loi n° 2015-005 du 26 février 2015 (JO n° 3610 du 23 mars 2015 ; https://www.cms.int/cami/sites/default/files/document/cms_nlp_mdg_loi_2015-005.pdf) : art. 1 (définitions de l'aire protégée communautaire et de la cogestion), art. 2, art. 6 (types de gouvernance dont la gouvernance communautaire ; cogestion et convention de gestion communautaire comme principes), art. 83 (abroge la loi 2001-005 du 11 février 2003, premier Code des aires protégées).
+// Retiré à la demande de l'auteur (pertinence faible pour la problématique) : CITES (2011–2013), REDD+ (2014), décrets carbone (2024–2025).
 
-// TODO : bilan des transferts de gestion (résultats, limites) avec source ; contenu des contrats de gestion ; raisons de la mise en place des transferts (le projet de stage prévoit de les « décrire ») ; rôle de la DREDD ; premiers bilans.
-// TODO : Montagne (2006), présent dans le projet de stage (transfert de gestion et décentralisation), pourrait servir au cadrage général ; source non lue.
-// Note pour le paragraphe 6 : le VOI Maharitra (fondé en 2004 dans le cadre de la GCF, renouvelé en 2025 pour 1 068 ha) est traité en M&M, Site d'étude, et non dans l'Introduction.
-// ATTENTION : 1 068 ha (surface transférée au VOI) vs 450 ha (forêt, selon le TODO de transition local et le Résumé). Deux objets possibles, à préciser en Site d'étude.
+// Frise chronologique sur deux lignes. Mode d'emploi : ajouter ou retirer une ligne dans une des deux listes, EN ORDRE CHRONOLOGIQUE ;
+// annee : texte au-dessus du point ; niveau : "national" (au-dessus de l'axe) ou "local" (en dessous) ; texte : libellé court.
+// Lisible jusqu'à environ 6 ou 7 événements par ligne. Point noir = national, blanc = local.
 
-// Frise chronologique : gouvernance forestière (national) et transferts de gestion (local).
-// Mode d'emploi : ajouter ou retirer une ligne dans « evenements », EN ORDRE CHRONOLOGIQUE.
-//   annee  : texte affiché au-dessus du point (accepte « 20XX » ou « 1997-2001 »)
-//   niveau : "national" (texte au-dessus de l'axe) ou "local" (texte en dessous)
-//   texte  : libellé court (2 à 6 mots de préférence)
-// Les colonnes s'adaptent toutes seules au nombre d'événements.
-// Aucune fonction personnalisée : seulement une liste de données et une boucle.
-// Capacité : lisible jusqu'à environ 6 événements (texte à 10 pt, largeur de page A4).
-// Au-delà, les libellés se chevauchent (testé à 9) : raccourcir les libellés, ou scinder en
-// deux figures (une par niveau) en copiant ce bloc.
-// Espaces insécables : « ~ » dans le texte. Niveaux de gris : point noir = national, blanc = local.
-// Le nom « evenements » reste local à ce fichier tant qu'il est inclus avec #include.
+#let evenements-1 = (
+  (annee: "1881", niveau: "national", texte: [Code des 305~articles~: incendie de forêt proscrit]),
+  (annee: "1896", niveau: "national", texte: [Colonisation~: forêt domaine de l'État]),
+  (annee: "1913–1930", niveau: "national", texte: [Régime répressif~; _tavy_ et feux proscrits]),
+  (annee: "1960", niveau: "national", texte: [Ord. 60-127 et 60-128~: continuité répressive]),
+  (annee: "1990", niveau: "national", texte: [Charte de l'environnement~; Plan d'action environnemental]),
+  (annee: "1996", niveau: "national", texte: [Loi GELOSE n°~96-025~: transferts de gestion]),
+)
 
-#let evenements = (
-  (annee: "1930", niveau: "national", texte: [Code forestier colonial]),
-  // REF? : source = projet de stage (étude FAOLEX), à citer proprement.
-  (annee: "1996", niveau: "national", texte: [Loi GELOSE 96-025]),
-  // REF? : Leroy et Mermet (2014), source non lue.
-  (annee: "2004", niveau: "local", texte: [Création du VOI Maharitra ; premier transfert de gestion (GCF, 3~ans)]),
-  // REF? : document de transfert de gestion de 2004, à citer.
-  (annee: "2025", niveau: "local", texte: [Renouvellement du transfert de gestion (1~068~ha)]),
-  // TODO : valeur à valider (1~068 ha de surface transférée, projet de stage) ;
-  // ATTENTION : à distinguer des 450 ha de la forêt (Résumé, TODO de transition).
-
-  // ---- Événements possibles, à décommenter après vérification ----
-  // GCF : date et texte instituant la GCF inconnus.
-  //   (annee: "20XX", niveau: "national", texte: [Gestion contractualisée des forêts (GCF)]),
-  // REF? : textes présents dans la bibliographie du projet de stage (Acte jurid., FAOLEX), rôle exact à confirmer.
-  //   (annee: "2017", niveau: "national", texte: [Politique forestière de Madagascar]),
-  //   (annee: "2020", niveau: "national", texte: [Directives nationales de reboisement]),
-  // Contexte local (projet de stage) ; EcoBois relève plutôt de la Problématique.
-  //   (annee: "2016", niveau: "local", texte: [Inter Aide : reboisement communautaire]),
-  //   (annee: "2025", niveau: "local", texte: [Lancement du projet EcoBois (juillet)]),
+#let evenements-2 = (
+  (annee: "2000–2001", niveau: "national", texte: [Décrets 2000-027 (COBA) et 2001-122 (GCF)]),
+  (annee: "2003", niveau: "national", texte: [Vision Durban~: tripler les aires protégées]),
+  (annee: "2004", niveau: "local", texte: [Création du VOI Maharitra~; transfert (GCF)]),
+  (annee: "2009–2010", niveau: "national", texte: [Crise politique~; bois de rose]),
+  (annee: "2013", niveau: "national", texte: [Décret 2013-785~: délégation de gestion]),
+  (annee: "2015", niveau: "national", texte: [Loi 2015-005~: Code des aires protégées]),
+  (annee: "2025", niveau: "local", texte: [Renouvellement du transfert (1~068~ha)]),
 )
 
 #figure(
@@ -148,16 +121,17 @@ Dans ces dispositifs, la gestion d'un espace forestier est confiée à une commu
   // Dans la figure : texte non justifié, sans césure, interligne serré.
   set par(justify: false, leading: 0.55em)
   set text(hyphenate: false)
+  // Ligne 1 : période royale et coloniale
   grid(
-    columns: (1fr,) * evenements.len(),
+    columns: (1fr,) * evenements-1.len(),
     row-gutter: 5pt,
-    // Ligne 1 : événements nationaux (au-dessus de l'axe)
-    ..for e in evenements {
+    // Événements nationaux (au-dessus de l'axe)
+    ..for e in evenements-1 {
       let c = if e.niveau == "national" { align(center + bottom, pad(x: 5pt, text(size: 10pt, e.texte))) } else { [] }
       (c,)
     },
-    // Ligne 2 : axe, années et points (noir plein = national, blanc = local)
-    ..for e in evenements {
+    // Axe, années et points (noir plein = national, blanc = local)
+    ..for e in evenements-1 {
       let a = stack(
         dir: ttb,
         spacing: 3pt,
@@ -169,84 +143,75 @@ Dans ces dispositifs, la gestion d'un espace forestier est confiée à une commu
       )
       (a,)
     },
-    // Ligne 3 : événements locaux (en dessous de l'axe)
-    ..for e in evenements {
+    // Événements locaux (en dessous de l'axe)
+    ..for e in evenements-1 {
+      let c = if e.niveau == "local" { align(center + top, pad(x: 5pt, text(size: 10pt, e.texte))) } else { [] }
+      (c,)
+    },
+  )
+  v(14pt)
+  // Ligne 2 : de l'indépendance à nos jours
+  grid(
+    columns: (1fr,) * evenements-2.len(),
+    row-gutter: 5pt,
+    ..for e in evenements-2 {
+      let c = if e.niveau == "national" { align(center + bottom, pad(x: 5pt, text(size: 10pt, e.texte))) } else { [] }
+      (c,)
+    },
+    ..for e in evenements-2 {
+      let a = stack(
+        dir: ttb,
+        spacing: 3pt,
+        align(center, text(size: 10pt, weight: "bold", e.annee)),
+        box(width: 100%, height: 10pt, {
+          place(horizon, line(length: 100%, stroke: 0.8pt))
+          place(center + horizon, circle(radius: 3.5pt, stroke: 0.8pt, fill: if e.niveau == "national" { black } else { white }))
+        }),
+      )
+      (a,)
+    },
+    ..for e in evenements-2 {
       let c = if e.niveau == "local" { align(center + top, pad(x: 5pt, text(size: 10pt, e.texte))) } else { [] }
       (c,)
     },
   )
   },
-  // REF? : sources de la légende à confirmer (FAOLEX ; Leroy et Mermet, 2014 ; documents de transfert de gestion du VOI Maharitra, 2004 et 2025).
-  caption: [Frise chronologique de la gouvernance forestière à Madagascar (au-dessus de l'axe, points noirs) et des transferts de gestion à Tsiazombazaha (en dessous, points blancs).],
+  // REF? : sources de la légende à confirmer (documents de transfert de gestion du VOI Maharitra, 2004 et 2025).
+  caption: [Frise chronologique de la gouvernance forestière à Madagascar, de 1881 à 1996 (en haut) et de 2000 à 2025 (en bas)~: répression de la déforestation, puis genèse et évolution des transferts de gestion. Points noirs au-dessus de l'axe~: textes et événements nationaux~; points blancs en dessous~: transferts de gestion à Tsiazombazaha. Sources~: Montagne et Ramamonjisoa (2006)~; CEPF (2022)~; Randriamalala et Liu (2010)~; textes législatifs et réglementaires malgaches~; documents de transfert de gestion du VOI Maharitra (2004, 2025).],
 ) <frisechronologiquegouvernanceforestiere>
+#titre-court(<frisechronologiquegouvernanceforestiere>)[Frise chronologique de la gouvernance forestière]
 
 == La côte Est et la région Fitovinany
 
-// ---- Paragraphe 6 : transition vers le local (côte Est, Fitovinany, Tsiazombazaha) ----
-// Rôle : passer du cadrage national au fragment étudié, sans monographie. Les détails du site
-// (coordonnées, climat, sols, découpage administratif, unités paysagères, matrice, VOI Maharitra) vont dans
-// M&M, Site d'étude (critères 30 et 31 du guide). La commande (Inter Aide, EcoBois) va dans la
-// Problématique.
+// Rôle : passer du cadrage national au fragment étudié, sans monographie. Les détails du site vont en M&M, Site d'étude
+// (critères 30 et 31 du guide) ; la commande (Inter Aide, EcoBois) va dans la Problématique.
 
-Sur la côte Est de Madagascar, les forêts tropicales humides de basse altitude ne subsistent plus, pour l'essentiel, qu'à l'état de fragments isolés au sein d'une matrice agricole (Vieilledent et al., 2018).
-// REF? : affirmation à vérifier dans l'article (le titre porte sur la déforestation ET la fragmentation, mais le contenu n'a pas été lu). https://doi.org/10.1016/j.biocon.2018.04.008
-// ATTENTION : l'entrée est incomplète dans References.typ.
+Sur la côte Est, les forêts humides de basse altitude sont celles que la déforestation a touchées en premier (Green et Sussman, 1990), et les seules qu'Amelot (2017) excepte de la relative stabilité du couvert forestier de l'île depuis la fin du XIX#super[e]~siècle~: elles auraient été détruites très progressivement au cours des derniers siècles. Ce qu'il en reste se présente aujourd'hui, pour l'essentiel, sous forme de fragments au sein d'une matrice agricole. La forêt de Tsiazombazaha, dans la région Fitovinany (district de Manakara-Atsimo), au sud-est de l'île, est l'un de ces fragments, le plus grand de forêt naturelle de la région, isolé depuis au moins 1973 (Matériel et méthodes, «~Site d'étude~»). Elle offre donc un exemple de ces fragments de forêt humide de basse altitude de l'Est. Les connaissances à son sujet restent pourtant lacunaires, sur le plan écologique comme sur le plan social (@res-revue).
+// Amelot (2017, p. 38) s'appuie sur Serpantié et al. (2007) pour l'exception des forêts de basse altitude de l'Est.
+// « Fragments au sein d'une matrice agricole » (rizières et tanety) : observation de l'auteur, sans source (validé le 02/11/2026).
+// « Le plus grand fragment de forêt naturelle de la région » : mesure de l'auteur, sans source (validé le 02/11/2026).
+// TODO : remplacer le renvoi textuel au Site d'étude par une référence @ quand le titre « Site d'étude » de MaterielMethodes.typ aura une étiquette (fichier hors section, non modifié). L'isolement depuis 1973 vient de Romiguière (2025), cité au Site d'étude.
+// Résolu : « Fitovinany » est l'orthographe officielle (région créée en 2021). « Fitonivavy » (Resume.typ) est à corriger.
 
-La forêt de Tsiazombazaha, située dans la région Fitovinany (district de Manakara-Atsimo), est l'un de ces fragments, et constituerait le plus grand fragment de forêt naturelle de la région.
-// TODO : « le plus grand fragment » à confirmer (forêt de près de 1~000 ha au sud de la région, d'aspect plus clair sur les images satellites : statut non vérifié). Formulation conditionnelle en attendant ; source ou mesure à indiquer.
-// ATTENTION : orthographe « Fitovinany » (projet de stage, fichiers .typ) contre « Fitonivavy » (Resume.typ). À harmoniser.
-// ATTENTION : les distances aux autres fragments (5, 10 et 15 km, mesurées par l'auteur) ne sont volontairement pas citées ici. Données produites par l'étude : à placer en Résultats ou en Site d'étude selon l'arbitrage avec le référent (note 6 du guide).
-// REF? : la région Fitovinany serait issue de la scission de l'ancienne région Vatovavy-Fitovinany (connaissance générale, non vérifiée dans les sources du projet ; Ramiandrisoa, 2016, emploie encore « Vatovavy-Fitovinany »). À sourcer si mentionné.
-
-Le massif était déjà un fragment en 1973 ; l'essentiel de la déforestation à ses marges s'est produit entre 1973 et 1990, et presque aucune déforestation n'y a été enregistrée depuis 2000 (Romiguière, 2025).
-// ATTENTION : cette phrase a été déplacée en M&M, Site d'étude. Elle est conservée ici à votre demande : à supprimer ici si elle figure bien en Site d'étude (doublon).
-// REF? : résultats de Romiguière (2025), d'après la figure 2 du projet de stage, elle-même adaptée de Vieilledent et al. (2018). Vérifier dans le manuscrit. Entrée incomplète dans References.typ.
-// ATTENTION : orthographe « Romiguière » (fichiers .typ) contre « Romiguiere » (bibliographie du projet de stage) ; prénom Félix.
-
-Les connaissances sur ce fragment restent pourtant lacunaires, sur le plan écologique comme sur le plan social.
-// REF? : constat formulé dans le projet de stage ; il s'appuie sur la revue de littérature, dont les résultats sont présentés en Résultats (section « Revue de littérature »). Prévoir un renvoi vers cette section.
-// TODO : phrase de transition vers la Problématique (commande d'Inter Aide, projet EcoBois), à écrire une fois la Problématique rédigée.
-// Note : l'étymologie de Tsiazombazaha (« Là où les blancs ne peuvent pas aller ») et l'existence d'au moins quatre autres forêts homonymes sur la côte Est vont en Site d'étude (projet de stage). L'étymologie est aussi évoquée dans Discussion.typ.
-// ATTENTION (hors Introduction, relevé au passage) : fokontany « Tsarano » (tableaux du projet de stage) contre « Tsararano » (Discussion.typ). À harmoniser.
+C'est dans ce contexte que s'inscrit la commande d'Inter Aide dans le cadre du projet EcoBois, qui porte sur le diagnostic de ce fragment et sur la compréhension de ses dynamiques de gestion. La commande, la problématique qu'elle soulève et les questions de recherche retenues sont exposées dans la section Problématique.
+// ATTENTION (hors Introduction, relevé au passage) : fokontany « Tsarano » (projet de stage) contre « Tsararano » (Discussion.typ). À harmoniser.
 
 == Définitions des termes du titre
 
-// ---- Paragraphe 7 : définitions des termes du titre ----
-// Titre de travail utilisé : « Caractérisation écologique et sociale du fragment de forêt tropicale de Tsiazombazaha » (page de garde du projet de stage).
-// TODO : titre définitif du mémoire (PageDeTitre.typ est vide). Adapter ces définitions si le titre change.
-// Ordre : fragment, conséquences de la fragmentation (île, dette d'extinction, lisière), forêt tropicale humide, caractérisation écologique et sociale, état de conservation initial.
-// Les éléments propres à Tsiazombazaha (surface, historique, matrice, distances) sont en Site d'étude, pas ici.
-// TODO typographie : ce paragraphe utilise « ~ » (espace insécable) avant « : » et « ; ». Les paragraphes 1 à 6 utilisent des espaces simples. À harmoniser dans tout le mémoire.
+// Titre définitif (02/11/2026) : « Diagnostic écologique et social de la forêt tropicale humide de Tsiazombazaha, sud-est de Madagascar ».
+// TODO : reporter ce titre dans PageDeTitre.typ et Couverture.typ (fichiers hors section, non modifiés).
 
-Un fragment forestier désigne ici une tache de forêt naturelle résiduelle, séparée des autres massifs forestiers par une matrice de milieux non forestiers (Forman, 1995). Il se caractérise par sa surface, son isolement et son historique.
-// REF? : Forman, R. T. T. (1995). Land Mosaics: The Ecology of Landscapes and Regions. Cambridge University Press. Ouvrage non lu ; vocabulaire tache, matrice, corridor de l'écologie du paysage.
+Le diagnostic écologique et social désigne ici la description conjointe, à une date donnée, de l'état de la forêt (composition floristique, structure, diversité, stock de carbone et évolution du couvert forestier) et des relations que les sociétés riveraines entretiennent avec elle~: usages, perceptions, pressions, historique et gestion. Ce diagnostic fournit un état initial auquel les évolutions ultérieures de la forêt pourront être comparées.
+// Relecture : « caractérisation écologique et sociale » remplacé par « diagnostic écologique et social » (titre définitif). L'ancienne définition de « l'état de conservation initial », terme absent du titre, est fondue dans la seconde phrase. REF? : définition générique sans source.
+// ATTENTION : le projet de stage mentionne aussi « l'intérêt sylvicole », et le brouillon du Résumé une modélisation des écoulements (hydrologie). Ni l'un ni l'autre ne figure dans cette définition.
 
-Par analogie avec les îles, un fragment de petite taille et isolé tend à abriter moins d'espèces et à en perdre au cours du temps, les extinctions n'y étant plus compensées par les colonisations (MacArthur et Wilson, 1967).
-// REF? : MacArthur, R. H., & Wilson, E. O. (1967). The Theory of Island Biogeography. Princeton University Press. Ouvrage non lu.
-// Cette analogie suppose une matrice hostile aux espèces forestières natives. Pour Tsiazombazaha, la justifier en Site d'étude : matrice de cultures, d'espèces généralistes des milieux ouverts et de reboisements exotiques en plein (observation de l'auteur ; unités paysagères de Fabiani, 2025, établies autour de Vorovoka).
-// ATTENTION : ne pas confondre cette relation surface-richesse ENTRE fragments avec la courbe aire-espèce du §3.7, qui est une courbe d'échantillonnage À L'INTÉRIEUR du fragment.
+La forêt tropicale humide désigne ici les forêts denses humides sempervirentes de basse altitude, entre 0 et 800~m, du domaine de l'Est, au sein de l'écorégion des forêts humides de l'Est définie par l'administration malgache (BNC-REDD+, 2017).
+// Définition reprise de MaterielMethodes.typ (Site d'étude, l. 35), même source, pour la cohérence entre sections. L'écorégion du WWF (Olson et al., 2001) citée plus haut est un découpage distinct.
+// TODO : altitude de Tsiazombazaha (analyse WorldClim/MNT prévue), pour confirmer qu'elle est sous 800 m.
 
-Ces extinctions peuvent survenir longtemps après l'isolement : un fragment isolé depuis plusieurs décennies peut encore abriter des espèces vouées à disparaître, ce que désigne la notion de dette d'extinction (Tilman et al., 1994~; Kuussaari et al., 2009).
-// REF? : Tilman et al. (1994), Nature, https://doi.org/10.1038/371065a0 ; Kuussaari et al. (2009), Trends in Ecology & Evolution, https://doi.org/10.1016/j.tree.2009.04.011. Références proposées de mémoire, DOI non vérifiés, articles non lus.
-// Le concept est posé ici et développé en Discussion (interprétation de la richesse, de la régénération et des espèces rares ; il n'est pas testé).
-// TODO : renvoi vers Site d'étude, où figure l'ancienneté de l'isolement de Tsiazombazaha (déjà fragmenté en 1973, Romiguière, 2025). Sans ce renvoi, le lien entre la dette d'extinction et le cas étudié n'apparaît pas dans l'Introduction.
-
-La fragmentation s'accompagne en outre d'effets de lisière, qui modifient le milieu forestier sur ses marges (Laurance, 2008). À Madagascar, dans deux forêts de transition du nord-ouest, la fragmentation et les effets de lisière réduisent la diversité spécifique, la taille des arbres et la diversité structurale (Hending et al., 2023).
-// REF? : Laurance, W. F. (2008), Biological Conservation, https://doi.org/10.1016/j.biocon.2008.05.011. Proposée de mémoire, non lue.
-// REF? : Hending et al. (2023), Biodiversity and Conservation, https://doi.org/10.1007/s10531-023-02657-0. Retrouvée par recherche ; seul le résumé a été lu. Liste des auteurs et pagination à compléter.
-// ATTENTION : forêts de transition (décidues et sempervirentes) du parc national de Sahamalaza-Îles Radama, nord-ouest. Ce n'est PAS une forêt humide de l'Est : transposition prudente. Source à réutiliser en Discussion (§3.2 structure, §3.4 diversité).
-// Brown et al. (2018), Journal of Applied Ecology, https://doi.org/10.1111/1365-2664.12985 (lisière contre intérieur en forêt humide malgache, sans différence de biomasse aérienne) : réservée à la Discussion (§3.3 carbone). REF? : site d'étude et auteurs à vérifier.
-// Le dispositif (placettes le long des chemins de ronde, non stratifiées par distance à la lisière) ne permet pas de tester l'effet de lisière : limite à signaler en M&M et en Discussion.
-
-// Forêt tropicale humide : terme déjà introduit au paragraphe 3 (écorégion des « Forêts tropicales humides des basses terres de Madagascar »). Pas de définition supplémentaire tant que le titre ne précise pas « humide de basse altitude ».
-// TODO si le titre le précise : seuil d'altitude des « basses terres » (source à trouver) et altitude de Tsiazombazaha (analyse WorldClim/MNT prévue dans le projet de stage).
-// ATTENTION : « Armstrong (2011) » au paragraphe 3 contre « Armstrong, Shugart et Fatoyinbo (2011) » dans la bibliographie du projet de stage, donc « Armstrong et al., 2011 » en APA 7. Déjà signalé dans References.typ.
-
-La caractérisation écologique et sociale désigne ici la description conjointe de l'état de la forêt (composition floristique, structure, diversité et stock de carbone) et des relations que les sociétés riveraines entretiennent avec elle~: usages, perceptions, historique et gouvernance.
-// Source : objectifs du stage (projet de stage, « Commande » : intérêt écologique et sylvicole, usages, perceptions, historique) et deux volets du mémoire.
-// ATTENTION : le projet de stage mentionne aussi « l'intérêt sylvicole », et le brouillon du Résumé une modélisation des écoulements (hydrologie). Ni l'un ni l'autre ne figure dans cette définition : les ajouter s'ils restent dans le mémoire.
-
-L'état de conservation initial désigne enfin l'état de l'écosystème à une date de référence, décrit par un ensemble d'indicateurs, auquel ses évolutions ultérieures pourront être comparées.
-// REF? : définition générique sans source. Piste possible : la Directive 92/43/CEE (« Habitats »), article 1, définit « l'état de conservation d'un habitat naturel » (non vérifié ici ; cadre européen, à transposer avec prudence).
-// TODO : préciser « initial » par rapport à quoi (début du projet EcoBois en juillet 2025 ? relevés de terrain de 2026 ?). La forêt n'est pas intacte : « initial » ne veut pas dire « originel ».
-// Le lien avec le suivi-évaluation d'Inter Aide va dans la Problématique (analyse de la commande). La définition opérationnelle de chaque indicateur va dans M&M, Analyse des données (§3.2 à 3.7 du document d'étape).
+Tsiazombazaha est un fragment forestier, c'est-à-dire une tache de forêt naturelle résiduelle séparée des autres massifs par une matrice de milieux non forestiers et caractérisée par sa surface, son isolement et son historique (Forman, 1995). Par analogie avec les îles, un fragment petit et isolé tend à abriter moins d'espèces et à en perdre au cours du temps, les extinctions n'y étant plus compensées par les colonisations (MacArthur et Wilson, 1967). Ces extinctions peuvent survenir longtemps après l'isolement~: un fragment isolé depuis plusieurs décennies, comme Tsiazombazaha, peut encore abriter des espèces vouées à disparaître, ce que désigne la notion de dette d'extinction (Tilman et al., 1994~; Kuussaari et al., 2009). La fragmentation s'accompagne enfin d'effets de lisière, qui modifient le milieu forestier sur ses marges (Laurance, 2008)~; à Madagascar, dans deux forêts de transition du nord-ouest, fragmentation et effets de lisière réduisent la diversité spécifique, la taille des arbres et la diversité structurale (Hending et al., 2023).
+// Relecture : le terme « fragment » ne figure plus dans le titre ; les notions de fragmentation sont conservées comme cadre (utilisées en Discussion), regroupées en un paragraphe.
+// REF? : Forman (1995), MacArthur et Wilson (1967), Tilman et al. (1994), Kuussaari et al. (2009), Laurance (2008) : non lus. Hending et al. (2023), https://doi.org/10.1007/s10531-023-02657-0 : résumé seul lu ; forêts de transition du nord-ouest, pas humides de l'Est.
+// ATTENTION : l'entrée tilman_et_al_1994 de hayagriva.yml a un titre erroné (« Dette d'extinction ») ; titre probable « Habitat destruction and the extinction debt ».
+// ATTENTION : ne pas confondre la relation surface-richesse ENTRE fragments avec la courbe aire-espèce du §3.7 (échantillonnage À L'INTÉRIEUR du fragment).
+// Le dispositif ne permet pas de tester l'effet de lisière : limite à signaler en M&M et en Discussion.

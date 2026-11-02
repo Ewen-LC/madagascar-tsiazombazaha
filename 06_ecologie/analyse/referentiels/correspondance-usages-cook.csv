@@ -30,3 +30,9 @@ poutre,600,materiaux,604,Wood,
 the,100,alimentaire,101,Unspecified Parts,
 tressage,600,materiaux,603,Cane etc.,
 aphrodisiaque,1100,medicinale,1107,Genitourinary System Disorders,
+charpente,600,materiaux,604,Wood,usage de Romiguière (2025)
+poteau,600,materiaux,604,Wood,usage de Romiguière (2025)
+cloture,600,materiaux,604,Wood,usage de Romiguière (2025) ; clôture en bois
+outils,600,materiaux,604,Wood,usage de Romiguière (2025)
+vertiges,1100,medicinale,1108,Ill-defined Symptoms,usage de Romiguière (2025)
+colle,600,materiaux,,,usage de Romiguière (2025) ; code de second niveau à préciser

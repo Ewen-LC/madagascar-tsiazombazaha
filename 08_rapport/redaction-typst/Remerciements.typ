@@ -15,5 +15,3 @@ Bien évidemment, je remercie chaleureusement toutes les personnes qui ont accep
 A mes amis, pour m'avoir dépaysé lors des moments difficiles.
 
 Enfin, et le plus important, à ma famille, pour son soutien incessant depuis le début des mes études, il y a six ans de cela. Je ne serais pas arrivé aussi loin sans eux.
-
-#page(header: none, footer: none)[]

@@ -1,0 +1,1662 @@
+# Fichier bibliographique (format Hayagriva YAML, lu nativement par Typst)
+# Style : APA 7e édition
+# 01/11/2026 : champs journal/volume/issue/pages/doi convertis au format Hayagriva (parent, page-range, serial-number) ;
+# entrées citées par le M&M et les Résultats corrigées ou ajoutées. Sauvegarde : sauvegardes/hayagriva_2026-11-01.yml
+
+allnutt_et_al_2008:
+  type: article
+  author:
+  - Allnutt, T. F.
+  - Ferrier, S.
+  - Manion, G.
+  - Powell, G. V. N.
+  - Ricketts, T. H.
+  - Fisher, B. L.
+  - Harper, G. J.
+  - Irwin, M. E.
+  - Kremen, C.
+  - Labat, J.-N.
+  - Lees, D. C.
+  - Pearce, T. A.
+  - Rakotondrainibe, F.
+  title: A method for quantifying biodiversity loss and its application to a 50-year record of deforestation across Madagascar
+  date: 2008
+  parent:
+    type: periodical
+    title: Conservation Letters
+    volume: 1
+    issue: 4
+  page-range: 173-181
+  serial-number:
+    doi: 10.1111/j.1755-263x.2008.00027.x
+american_psychological_association_2020:
+  type: book
+  author:
+  - American Psychological Association
+  title: Publication manual of the American Psychological Association
+  edition: 7e éd.
+  publisher: American Psychological Association
+  date: 2020
+armstrong_et_al_2011:
+  type: article
+  author:
+  - Armstrong, A. H.
+  - Shugart, H. H.
+  - Fatoyinbo, T. E.
+  title: Characterization of community composition and forest structure in a Madagascar lowland rainforest
+  note: Première description quantitative de la forêt primaire de basse altitude de la Réserve Naturelle Intégrale de Betampona
+  date: 2011
+  parent:
+    type: periodical
+    title: Tropical Conservation Science
+    volume: 4
+    issue: 4
+  page-range: 428-444
+  serial-number:
+    doi: 10.1177/194008291100400406
+banque_mondiale_2024:
+  type: report
+  author:
+  - Banque mondiale
+  title: 'Madagascar Poverty Assessment: Navigating Two Decades of High Poverty and Charting a Course for Change'
+  url: https://www.banquemondiale.org/fr/country/madagascar/publication/madagascar-afe-poverty-assessment-navigating-two-decades-of-high-poverty-and-charting-a-course-for-change
+  note: 'En 2022, 75,2 % de la population nationale était pauvre : 79,9 % dans les zones rurales, 55,5 % dans les zones urbaines. Publié en février 2024.'
+  date: 2024
+blanc_pamard_ramiarantsoa_2007:
+  type: article
+  author:
+  - Blanc-Pamard, C.
+  - Rakoto Ramiarantsoa, H.
+  title: 'Normes environnementales, transferts de gestion et recompositions territoriales en pays betsileo (Madagascar) : La gestion contractualisée des forêts'
+  note: Gestion contractualisée des forêts (GCF)
+  date: 2007
+  parent:
+    type: periodical
+    title: Natures Sciences Sociétés
+    volume: 15
+    issue: 3
+  page-range: 253-268
+  serial-number:
+    doi: 10.1051/nss:2007055
+brokaw_1982:
+  type: article
+  author:
+  - Brokaw, N. V. L.
+  title: The definition of treefall gap and its effect on measures of forest dynamics
+  date: 1982
+  parent:
+    type: periodical
+    title: Biotropica
+    volume: 14
+    issue: 2
+  page-range: 158-160
+bnc_redd_2017:
+  type: report
+  author:
+  - BNC-REDD+
+  title: Niveaux d'émissions de référence des forêts de Madagascar pour la réduction des émissions dues à la déforestation et à la dégradation des forêts
+  publisher: CCNUCC
+  note: Soumission à la CCNUCC, juillet 2017. §2.2, p. 13-15
+  date: 2017
+brown_et_al_2018:
+  type: article
+  author:
+  - Razafindratsima, O. H.
+  - Brown, K. A.
+  - Carvalho, F.
+  - Johnson, S. E.
+  - Wright, P. C.
+  - Dunham, A. E.
+  title: Edge effects on components of diversity and above-ground biomass in a tropical rainforest
+  note: Lisière vs intérieur en forêt tropicale humide de Madagascar
+  date: 2018
+  parent:
+    type: periodical
+    title: Journal of Applied Ecology
+    volume: 55
+    issue: 2
+  page-range: 977-985
+  serial-number:
+    doi: 10.1111/1365-2664.12985
+burnham_overton_1979:
+  type: article
+  author:
+  - Burnham, K. P.
+  - Overton, W. S.
+  title: Robust estimation of population size when capture probabilities vary among animals
+  date: 1979
+  parent:
+    type: periodical
+    title: Ecology
+    volume: 60
+    issue: 5
+  page-range: 927-936
+chaave_et_al_2014:
+  type: article
+  author:
+  - Chave, J.
+  - Réjou-Méchain, M.
+  - Búrquez, A.
+  - Chidumayo, E. N.
+  - Colgan, M. S.
+  - Delitti, W. B. C.
+  - Duque, A.
+  - Eid, T.
+  - Fearnside, P. M.
+  - Goodman, R. C.
+  - Henry, M.
+  - Martínez-Yrízar, A.
+  - Mugasha, W. A.
+  - Muller-Landau, H. C.
+  - Mencuccini, M.
+  - Nelson, B. W.
+  - Ngomanda, A.
+  - Nogueira, E. M.
+  - Ortiz-Malavassi, E.
+  - '...'
+  - Vieilledent, G.
+  title: Improved allometric models to estimate the aboveground biomass of tropical trees
+  date: 2014
+  parent:
+    type: periodical
+    title: Global Change Biology
+    volume: 20
+    issue: 10
+  page-range: 3177-3190
+  serial-number:
+    doi: 10.1111/gcb.12629
+clement_et_al_1973:
+  type: article
+  author:
+  - Clément, J.
+  - et al.
+  title: Les objectifs des inventaires forestiers
+  note: Objectifs des inventaires forestiers
+  date: 1973
+conservation_international_2000:
+  type: report
+  author:
+  - Conservation International
+  title: 'Hotspots: Earth''s biologically richest and most endangered terrestrial ecoregions'
+  note: 'En relation avec Myers et al. Zone critique de biodiversité : Madagascar et îles de l''Océan Indien'
+  date: 2000
+conservation_international_2011:
+  type: report
+  author:
+  - Conservation International
+  title: Protocole pour la restauration passive et active
+  note: Citée dans le protocole pour la restauration passive/active
+  date: 2011
+cook_1995:
+  type: book
+  author:
+  - Cook, F. E. M.
+  date: 1995
+  title: Economic Botany Data Collection Standard
+  publisher: Royal Botanic Gardens, Kew
+cooke_2007:
+  type: article
+  author:
+  - Cooke, B.
+  title: Le rôle du bureau du VOI dans le transfert de gestion
+  note: Transfert de gestion, rôle du bureau du VOI
+  date: 2007
+crozier_friedberg_1976:
+  type: book
+  author:
+  - Crozier, M.
+  - Friedberg, E.
+  title: L'acteur et le système
+  publisher: Seuil
+  note: Vérifier l'édition citée
+  date: 1976
+curtis_mcintosh_1951:
+  type: article
+  author:
+  - Curtis, J. T.
+  - McIntosh, R. P.
+  title: An upland forest continuum in the prairie-forest border region of Wisconsin
+  date: 1951
+  parent:
+    type: periodical
+    title: Ecology
+    volume: 32
+    issue: 3
+  page-range: 476-496
+eggleston_et_al_2006:
+  type: report
+  author:
+  - Eggleston, H. S.
+  - Buendia, L.
+  - Miwa, K.
+  - Ngara, T.
+  - Tanabe, K.
+  title: 'Lignes directrices 2006 du GIEC pour les inventaires nationaux de gaz à effet de serre, Volume 4 : Agriculture, foresterie et autres affectations des terres, chapitre 4 : Terres forestières'
+  publisher: Institut des stratégies environnementales mondiales (IGES)
+  date: 2006
+fao_2025:
+  type: report
+  author:
+  - Food and Agriculture Organization of the United Nations (FAO)
+  title: Global Forest Resources Assessment 2025
+  publisher: FAO
+  url: https://doi.org/10.4060/cd6709en
+  note: '32 % de couverture forestière mondiale, 10,9 Mha/an de déforestation. Base de données : https://fra-data.fao.org/'
+  date: 2025
+fick_hijmans_2017:
+  type: article
+  author:
+  - Fick, S. E.
+  - Hijmans, R. J.
+  title: 'WorldClim 2: new 1-km spatial resolution climate surfaces for global land areas'
+  date: 2017
+  parent:
+    type: periodical
+    title: International Journal of Climatology
+    volume: 37
+    issue: 12
+  page-range: 4302-4315
+  serial-number:
+    doi: 10.1002/joc.5086
+forman_1995:
+  type: book
+  author:
+  - Forman, R. T. T.
+  title: 'Land Mosaics: The Ecology of Landscapes and Regions'
+  publisher: Cambridge University Press
+  note: Concept de tache, matrice, corridor en écologie du paysage
+  date: 1995
+gaudin_2025:
+  type: report
+  author:
+  - Gaudin, A.
+  title: Consignes de projet de stage
+  note: Consignes de projet de stage (AgroParisTech/UFR G-ENV)
+gytarsky_et_al_2019:
+  type: chapter
+  author:
+  - Gytarsky, M.
+  - Birdsey, R.
+  - Clark, S.
+  - Wilson, D.
+  title: 'Chapitre 4 : Terres forestières'
+  date: 2019
+  parent:
+    type: book
+    title: Réaffirmation 2019 des Lignes directrices 2006 du GIEC
+    publisher: IGES
+  note: Auteurs et titre exacts du chapitre à vérifier (Refinement 2019, vol. 4, chap. 4)
+harmon_sexton_1996:
+  type: report
+  author:
+  - Harmon, M. E.
+  - Sexton, J.
+  date: 1996
+  title: Guidelines for measurements of woody detritus in forest ecosystems (US LTER Publication No. 20)
+  publisher: US LTER Network Office, University of Washington
+  location: Seattle
+hansen_et_al_2013:
+  type: article
+  author:
+  - Hansen, M. C.
+  - Potapov, P. V.
+  - Moore, R.
+  - Hancher, M.
+  - Turubanova, S. A.
+  - Tyukavina, A.
+  - Thau, D.
+  - Stehman, S. V.
+  - Goetz, S. J.
+  - Loveland, T. R.
+  - Kommareddy, A.
+  - Egorov, A.
+  - Chini, L.
+  - Justice, C. O.
+  - Townshend, J. R. G.
+  title: High-Resolution Global Maps of 21st-Century Forest Cover Change
+  note: Global Forest Watch, données de perte de couvert
+  date: 2013
+  parent:
+    type: periodical
+    title: Science
+    volume: 342
+    issue: 6160
+  page-range: 850-853
+  serial-number:
+    doi: 10.1126/science.1244693
+hending_et_al_2023:
+  type: article
+  author:
+  - Hending, D.
+  - Randrianarison, H.
+  - Andriamavosoloarisoa, N. N. M.
+  - Ranohatra-Hending, C.
+  - Holderied, M.
+  - McCabe, G.
+  - Cotton, S.
+  title: Forest fragmentation and its associated edge-effects reduce tree species diversity, size, and structural diversity in Madagascar's transitional forests
+  note: Fragmentation et effets de lisière dans le nord-ouest de Madagascar (parc national de Sahamalaza-îles Radama)
+  date: 2023
+  parent:
+    type: periodical
+    title: Biodiversity and Conservation
+    volume: 32
+    issue: 10
+  page-range: 3329-3353
+  serial-number:
+    doi: 10.1007/s10531-023-02657-0
+hill_1973:
+  type: article
+  author:
+  - Hill, M. O.
+  title: 'Diversity and evenness: a unifying notation and its consequences'
+  date: 1973
+  parent:
+    type: periodical
+    title: Ecology
+    volume: 54
+    issue: 2
+  page-range: 427-432
+hsieh_ma_chao_2016:
+  type: article
+  author:
+  - Hsieh, T. C.
+  - Ma, K. H.
+  - Chao, A.
+  title: 'iNEXT: an R package for rarefaction and extrapolation of species diversity (Hill numbers)'
+  date: 2016
+  parent:
+    type: periodical
+    title: Methods in Ecology and Evolution
+    volume: 7
+    issue: 12
+  page-range: 1451-1456
+inter_aide_2025:
+  type: report
+  author:
+  - name: Inter Aide
+  title: '[Document de projet EcoBois]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 2025
+inter_aide_weforest_2025:
+  type: report
+  author:
+  - Inter Aide
+  - WeForest
+  title: Document projet EcoBois
+  note: Budget total 4 953 020 euros, FFEM 1 875 000 euros (38%)
+inter_aide_2026:
+  type: web
+  author:
+  - Inter Aide
+  title: Qui sommes-nous
+  url: https://interaide.org/
+  date: 2026
+jost_2006:
+  type: article
+  author:
+  - Jost, L.
+  title: Entropy and diversity
+  date: 2006
+  parent:
+    type: periodical
+    title: Oikos
+    volume: 113
+    issue: 2
+  page-range: 363-375
+  serial-number:
+    doi: 10.1111/j.2006.0030-1299.14714.x
+jost_2007:
+  type: article
+  author:
+  - Jost, L.
+  title: Partitioning diversity into independent alpha and beta components
+  date: 2007
+  parent:
+    type: periodical
+    title: Ecology
+    volume: 88
+    issue: 10
+  page-range: 2427-2439
+  serial-number:
+    doi: 10.1890/06-1736.1
+kruskal_1964:
+  type: article
+  author:
+  - Kruskal, J. B.
+  title: Multidimensional scaling by optimizing goodness of fit to a nonmetric hypothesis
+  date: 1964
+  parent:
+    type: periodical
+    title: Psychometrika
+    volume: 29
+    issue: 1
+  page-range: 1-28
+lande_1996:
+  type: article
+  author:
+  - Lande, R.
+  title: Statistics and partitioning of species diversity, and similarity among multiple communities
+  date: 1996
+  parent:
+    type: periodical
+    title: Oikos
+    volume: 76
+  page-range: 5-13
+lee_chao_1994:
+  type: article
+  author:
+  - Lee, S.-M.
+  - Chao, A.
+  title: Estimating population size via sample coverage for closed capture-recapture models
+  date: 1994
+  parent:
+    type: periodical
+    title: Biometrics
+    volume: 50
+    issue: 1
+  page-range: 88-97
+leroy_mermet_2014:
+  type: article
+  author:
+  - Leroy, M.
+  - Mermet, L.
+  title: Loi GELOSE 96-025 et gestion patrimoniale
+  note: Loi GELOSE 96-025, gestion patrimoniale
+  date: 2014
+macarthur_wilson_1967:
+  type: book
+  author:
+  - MacArthur, R. H.
+  - Wilson, E. O.
+  title: The Theory of Island Biogeography
+  publisher: Princeton University Press
+  note: Analogie fragment-île
+  date: 1967
+mermet_et_al_2005:
+  type: article
+  author:
+  - Mermet, L.
+  - Billé, R.
+  - Leroy, M.
+  - Narcy, J.-B.
+  - Poux, X.
+  title: 'L''analyse stratégique de la gestion environnementale : un cadre théorique pour penser l''efficacité en matière d''environnement'
+  url: https://hal.science/hal-01466591
+  note: Analyse stratégique de la gestion environnementale (ASGE)
+  date: 2005
+  parent:
+    type: periodical
+    title: Natures Sciences Sociétés
+    volume: 13
+    issue: 2
+  page-range: 127-137
+  serial-number:
+    doi: 10.1051/nss:2005052
+mille_louppe_2015:
+  type: book
+  author:
+  - Mille, G.
+  - Louppe, D.
+  title: Mémento du forestier tropical
+  publisher: Éditions Quæ
+  date: 2015
+mokany_et_al_2006:
+  type: article
+  author:
+  - Mokany, K.
+  - Raison, R. J.
+  - Prokushkin, A. S.
+  title: Critical analysis of root:shoot ratios in terrestrial biomes
+  date: 2006
+  parent:
+    type: periodical
+    title: Global Change Biology
+    volume: 12
+    issue: 1
+  page-range: 84-96
+montgolfier_natali_1987:
+  type: book
+  author:
+  - Montgolfier
+  - J. de
+  - Natali, J.-M.
+  title: Gestion patrimoniale
+  note: Gestion patrimoniale, cité avec Weber (1996)
+  date: 1987
+muttenzer_2010:
+  type: article
+  author:
+  - Muttenzer, A.
+  title: Loi et perceptions locales
+  note: Loi et perceptions locales
+oksanen_et_al_2026:
+  type: book
+  author:
+  - Oksanen, J.
+  - et al.
+  title: 'vegan: Community Ecology Package (R package version 2.7-6)'
+  publisher: CRAN
+  date: 2026
+  url: https://CRAN.R-project.org/package=vegan
+  note: Auteurs complets à reprendre de citation("vegan")
+ostrom_1990:
+  type: book
+  author:
+  - Ostrom, E.
+  title: 'Governing the commons: The evolution of institutions for collective action'
+  publisher: Cambridge University Press
+  date: 1990
+ostrom_2009:
+  type: article
+  author:
+  - Ostrom, E.
+  title: A general framework for analyzing sustainability of social-ecological systems
+  date: 2009
+  parent:
+    type: periodical
+    title: Science
+    volume: 325
+  page-range: 419-422
+  serial-number:
+    doi: 10.1126/science.1172133
+page_et_al_2021:
+  type: article
+  author:
+  - Page, M. J.
+  - et al.
+  title: 'The PRISMA 2020 statement: an updated guideline for reporting systematic reviews'
+  date: 2021
+  parent:
+    type: periodical
+    title: BMJ
+    volume: 372
+  page-range: n71
+  serial-number:
+    doi: 10.1136/bmj.n71
+pielou_1966:
+  type: book
+  author:
+  - Pielou, E. C.
+  title: Équitabilité
+  note: Équitabilité
+  date: 1966
+pullin_stewart_2006:
+  type: article
+  author:
+  - Pullin, A. S.
+  - Stewart, G. B.
+  title: Guidelines for systematic review in conservation and environmental management
+  date: 2006
+  parent:
+    type: periodical
+    title: Conservation Biology
+    volume: 20
+    issue: 6
+  page-range: 1647-1656
+  serial-number:
+    doi: 10.1111/j.1523-1739.2006.00485.x
+rajaonson_et_al_2010:
+  type: article
+  author:
+  - Rajaonson, A.
+  - Ratolojanahary, M.
+  - Ratsimbazafy, J.
+  - Feistner, A.
+  - King, T.
+  title: Enquête préliminaire de la distribution des lémuriens de bambou dans et autour du Corridor forestier Fandriana-Vondrozo, Madagascar
+  date: 2010
+  parent:
+    type: periodical
+    title: Lemur News
+    volume: 15
+  page-range: 34-39
+ramiandrisoa_2016:
+  type: report
+  author:
+  - Ramiandrisoa, L.
+  title: Document administratif utilisant Vatovavy-Fitovinany pour la région
+  note: Utilise encore 'Vatovavy-Fitovinany' pour la région
+  date: 2016
+rcore_team_2026:
+  type: book
+  author:
+  - name: R Core Team
+  date: 2026
+  title: 'R: A language and environment for statistical computing (version 4.6.1)'
+  publisher: R Foundation for Statistical Computing
+  location: Vienne
+  url: https://www.R-project.org/
+requier_1966:
+  type: report
+  author:
+  - Riquier, J.
+  title: '[Carte ou notice pédologique de Madagascar : ferralsols]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 1966
+romiguiere_2025:
+  type: thesis
+  author:
+  - Romiguière, F.
+  title: '[Mémoire : étude socio-écologique des fragments forestiers de Vorovoka et de Tsiazombazaha, pour Inter Aide]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 2025
+schatz_2001:
+  type: book
+  author:
+  - Schatz, G. E.
+  date: 2001
+  title: Generic tree flora of Madagascar
+  publisher: Royal Botanic Gardens, Kew & Missouri Botanical Garden
+shannon_weaver_1949:
+  type: book
+  author:
+  - Shannon, C. E.
+  - Weaver, W.
+  title: The mathematical theory of communication
+  publisher: University of Illinois Press
+  date: 1949
+simpson_1949:
+  type: article
+  author:
+  - Simpson, E. H.
+  title: Measurement of diversity
+  date: 1949
+  parent:
+    type: periodical
+    title: Nature
+    volume: 163
+  page-range: '688'
+smith_van_belle_1984:
+  type: article
+  author:
+  - Smith, E. P.
+  - van Belle, G.
+  title: Nonparametric estimation of species richness
+  date: 1984
+  parent:
+    type: periodical
+    title: Biometrics
+    volume: 40
+    issue: 1
+  page-range: 119-129
+soule_1985:
+  type: article
+  author:
+  - Soulé, M. E.
+  title: What is conservation biology?
+  date: 1985
+  parent:
+    type: periodical
+    title: BioScience
+    volume: 35
+    issue: 11
+  page-range: 727-734
+# Notice corrigée le 02/11/2026 d'après Crossref (titre et auteurs erronés auparavant).
+tilman_et_al_1994:
+  type: article
+  author:
+  - Tilman, D.
+  - May, R. M.
+  - Lehman, C. L.
+  - Nowak, M. A.
+  title: Habitat destruction and the extinction debt
+  note: Dette d'extinction
+  date: 1994
+  parent:
+    type: periodical
+    title: Nature
+    volume: 371
+    issue: 6492
+  page-range: 65-66
+  serial-number:
+    doi: 10.1038/371065a0
+van_wagner_1968:
+  type: article
+  author:
+  - Van Wagner, C. E.
+  title: The line intersect method in forest fuel sampling
+  date: 1968
+  parent:
+    type: periodical
+    title: Forest Science
+    volume: 14
+    issue: 1
+  page-range: 20-26
+vieilledent_et_al_2018:
+  type: article
+  author:
+  - Vieilledent, G.
+  - Grinand, C.
+  - Rakotomalala, F. A.
+  - Ranaivosoa, R.
+  - Rakotoarijaona, J. R.
+  - Allnutt, T. F.
+  - Achard, F.
+  title: Combining global tree cover loss data with historical national forest cover maps to look at six decades of deforestation and forest fragmentation in Madagascar
+  note: Déforestation et fragmentation à Madagascar. Taux de 99 000 ha/an (1,1 %/an) entre 2010-2014
+  date: 2018
+  parent:
+    type: periodical
+    title: Biological Conservation
+    volume: 222
+  page-range: 189-197
+  serial-number:
+    doi: 10.1016/j.biocon.2018.04.008
+walter_lieth_1960:
+  type: book
+  author:
+  - Walter, H.
+  - Lieth, H.
+  title: Klimadiagramm-Weltatlas
+  publisher: Gustav Fischer
+  note: Échelle de Gaussen (P = 2T)
+  date: 1960
+weber_1996:
+  type: article
+  author:
+  - Weber, J.
+  title: Médiation patrimoniale
+  note: Médiation patrimoniale
+  date: 1996
+whittaker_1960:
+  type: article
+  author:
+  - Whittaker, R. H.
+  title: Vegetation of the Siskiyou Mountains, Oregon and California
+  date: 1960
+  parent:
+    type: periodical
+    title: Ecological Monographs
+    volume: 30
+    issue: 3
+  page-range: 279-338
+white_edwards_2000:
+  type: book
+  editor:
+  - White, L.
+  - Edwards, A.
+  date: 2000
+  title: 'Conservation research in the African rain forests: a technical handbook'
+  publisher: Wildlife Conservation Society
+  location: New York
+wickham_2016:
+  type: book
+  author:
+  - Wickham, H.
+  date: 2016
+  title: 'ggplot2: Elegant graphics for data analysis'
+  publisher: Springer
+  location: New York
+nishigaki_et_al_2020:
+  type: article
+  author:
+  - Nishigaki, T.
+  - et al.
+  title: '[Article sur les sols de Madagascar : cartes pédologiques anciennes ou à petite échelle]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 2020
+charpentier_2026:
+  type: report
+  author:
+  - Charpentier, M.
+  title: Feux provenant du fokontany de Tsararano
+  note: Foncier et appropriation par la plantation
+fabiani_2025:
+  type: report
+  author:
+  - Fabiani, O.
+  title: '[Unités de paysage autour de la forêt de Vorovoka, projet EcoBois]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 2025
+madron_2025:
+  type: report
+  author:
+  - Madron, T.
+  title: 5 étapes d'aménagement des forêts communautaires
+  note: 5 étapes d'aménagement des forêts communautaires
+pereches_et_al_2025:
+  type: article
+  author:
+  - Pérèches, J.
+  - et al.
+  title: Typologie de la participation
+  note: Typologie de la participation
+razanaka_et_al_2019:
+  type: article
+  author:
+  - Razanaka, S.
+  - et al.
+  title: Restauration RNA/active
+  note: Restauration RNA/active
+velasco_bautista:
+  type: article
+  author:
+  - Velasco-Bautista, A.
+  title: Placettes circulaires/carrées
+  note: Placettes circulaires/carrées
+voi_maharitra_2025:
+  type: report
+  author:
+  - name: VOI Maharitra
+  title: '[Document de renouvellement du transfert de gestion de la forêt de Tsiazombazaha]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 2025
+gaquiere_2024:
+  type: report
+  author:
+  - Gaquière, P.
+  title: Taux de chablis en forêt primaire
+  note: Taux de chablis en forêt primaire
+godin_2015:
+  type: report
+  author:
+  - Godin, C.
+  title: Littérature grise
+  note: Littérature grise
+jabiol_et_al_2016:
+  type: book
+  author:
+  - Jabiol, B.
+  - et al.
+  title: '[Clé d''identification des formes d''humus]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 2016
+thomas_paul_2018:
+  type: article
+  author:
+  - Thomas, S. H.
+  - Paul
+  - et al.
+  title: Biais de bordure de placette
+  note: Biais de bordure de placette
+beaud_weber_2010:
+  type: book
+  author:
+  - Beaud, S.
+  - Weber, F.
+  date: 2010
+  title: 'Guide de l''enquête de terrain : produire et analyser des données ethnographiques'
+  edition: 4
+  publisher: La Découverte
+  location: Paris
+  note: Édition à vérifier
+bnccreddplus_et_al_2020:
+  type: report
+  author:
+  - name: BNCCREDD+
+  - name: DRGPF
+  - name: MEDD
+  date: 2020
+  title: Proposition technique de l'inventaire des forêts humides et sèches de Madagascar
+  publisher: Bureau national des changements climatiques et de la REDD+
+  location: Antananarivo
+def_et_al_1996:
+  type: report
+  author:
+  - name: Direction des Eaux et Forêts
+  - name: DFS Deutsche Forstservice GmbH
+  - name: Entreprise d'études de développement rural « Mamokatra »
+  - name: FTM
+  date: 1996
+  title: 'Inventaire écologique forestier national : problématique, objectifs, méthodes, résultats, analyses et recommandations'
+  publisher: Ministère de l'Environnement
+  location: Antananarivo
+  note: Année et lieu à vérifier
+walker_et_al_2018:
+  type: report
+  author:
+  - Walker, S. M.
+  - Pearson, T. R. H.
+  - Casarim, F. M.
+  - Harris, N.
+  - Petrova, S.
+  - Grais, A. M.
+  - Swails, E.
+  - Netzer, M.
+  - Goslee, K. M.
+  - Brown, S.
+  - Sidman, G.
+  date: 2018
+  title: Standard operating procedures for terrestrial carbon measurement
+  publisher: Winrock International
+  url: https://winrock.org/wp-content/uploads/2013/08/Winrock_Terrestrial_Carbon_Field_SOP_Manual_Feb2018.pdf
+cochran_1977:
+  type: book
+  author:
+  - Cochran, W. G.
+  date: 1977
+  title: Sampling techniques
+  edition: 3
+  publisher: Wiley
+  location: New York
+rejou_mechain_et_al_2017:
+  type: article
+  author:
+  - Réjou-Méchain, M.
+  - Tanguy, A.
+  - Piponiot, C.
+  - Chave, J.
+  - Hérault, B.
+  title: 'BIOMASS: an R package for estimating above-ground biomass and its uncertainty in tropical forests'
+  date: 2017
+  parent:
+    type: periodical
+    title: Methods in Ecology and Evolution
+    volume: 8
+    issue: 9
+  page-range: 1163-1167
+  serial-number:
+    doi: 10.1111/2041-210X.12753
+brown_1997:
+  type: report
+  author:
+  - Brown, S.
+  date: 1997
+  title: 'Estimating biomass and biomass change of tropical forests: a primer (FAO Forestry Paper 134)'
+  publisher: FAO
+  location: Rome
+  url: https://www.fao.org/4/w4095e/w4095e00.htm
+reyes_et_al_1992:
+  type: report
+  author:
+  - Reyes, G.
+  - Brown, S.
+  - Chapman, J.
+  - Lugo, A. E.
+  date: 1992
+  title: Wood densities of tropical tree species (General Technical Report SO-88)
+  publisher: USDA Forest Service, Southern Forest Experiment Station
+  location: New Orleans
+ccnucc_2010:
+  type: report
+  author:
+  - CCNUCC
+  date: 2010
+  title: Estimation of carbon stocks and change in carbon stocks in dead wood and litter in A/R CDM project activities (A/R methodological tool, version 01.1.0)
+  publisher: CDM Executive Board
+  url: https://cdm.unfccc.int/methodologies/ARmethodologies/tools/ar-am-tool-12-v1.1.0.pdf
+  note: EB 58, annexe 14 ; année à vérifier
+fisher_et_al_1943:
+  type: article
+  author:
+  - Fisher, R. A.
+  - Corbet, A. S.
+  - Williams, C. B.
+  title: The relation between the number of species and the number of individuals in a random sample of an animal population
+  date: 1943
+  parent:
+    type: periodical
+    title: Journal of Animal Ecology
+    volume: 12
+    issue: 1
+  page-range: 42-58
+  serial-number:
+    doi: 10.2307/1411
+bray_curtis_1957:
+  type: article
+  author:
+  - Bray, J. R.
+  - Curtis, J. T.
+  title: An ordination of the upland forest communities of southern Wisconsin
+  date: 1957
+  parent:
+    type: periodical
+    title: Ecological Monographs
+    volume: 27
+    issue: 4
+  page-range: 325-349
+  serial-number:
+    doi: 10.2307/1942268
+chao_1984:
+  type: article
+  author:
+  - Chao, A.
+  title: Nonparametric estimation of the number of classes in a population
+  date: 1984
+  parent:
+    type: periodical
+    title: Scandinavian Journal of Statistics
+    volume: 11
+    issue: 4
+  page-range: 265-270
+chao_1987:
+  type: article
+  author:
+  - Chao, A.
+  title: Estimating the population size for capture-recapture data with unequal catchability
+  date: 1987
+  parent:
+    type: periodical
+    title: Biometrics
+    volume: 43
+    issue: 4
+  page-range: 783-791
+  serial-number:
+    doi: 10.2307/2531532
+chao_jost_2012:
+  type: article
+  author:
+  - Chao, A.
+  - Jost, L.
+  title: 'Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size'
+  date: 2012
+  parent:
+    type: periodical
+    title: Ecology
+    volume: 93
+    issue: 12
+  page-range: 2533-2547
+  serial-number:
+    doi: 10.1890/11-1952.1
+chao_et_al_2014:
+  type: article
+  author:
+  - Chao, A.
+  - Gotelli, N. J.
+  - Hsieh, T. C.
+  - Sander, E. L.
+  - Ma, K. H.
+  - Colwell, R. K.
+  - Ellison, A. M.
+  title: 'Rarefaction and extrapolation with Hill numbers: a framework for sampling and estimation in species diversity studies'
+  date: 2014
+  parent:
+    type: periodical
+    title: Ecological Monographs
+    volume: 84
+    issue: 1
+  page-range: 45-67
+  serial-number:
+    doi: 10.1890/13-0133.1
+voi_maharitra_2004:
+  type: report
+  author:
+  - name: VOI Maharitra
+  title: '[Document de transfert de gestion de la forêt de Tsiazombazaha]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  date: 2004
+memoire_foncier_inconnu:
+  type: thesis
+  author:
+  - name: '[Auteur à préciser]'
+  title: '[Mémoire sur le foncier dans les communes riveraines de la forêt de Tsiazombazaha]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+memoire_ecotourisme_inconnu:
+  type: thesis
+  author:
+  - name: '[Auteur à préciser]'
+  title: '[Mémoire sur le potentiel écotouristique de la forêt de Tsiazombazaha, pour l''association Fiantso]'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+blog_ethnographie_inconnu:
+  type: web
+  author:
+  - name: '[Auteur à préciser]'
+  title: 'Contribution à l''ethnographie d''un village du sud-est malgache : sur le « choc des cultures »'
+  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+  url: https://www.anthropologieenligne.com/pages/zafimahavitaM.html
+radford_et_al_2023:
+  type: article
+  author:
+  - Radford, A.
+  - Kim, J. W.
+  - Xu, T.
+  - Brockman, G.
+  - McLeavey, C.
+  - Sutskever, I.
+  date: 2023
+  title: Robust speech recognition via large-scale weak supervision
+  parent:
+    type: proceedings
+    title: Proceedings of the 40th International Conference on Machine Learning
+    volume: 202
+  url: https://arxiv.org/abs/2212.04356
+gbif_2026:
+  type: web
+  author:
+  - name: GBIF
+  date: 2026-04
+  title: 'Global Biodiversity Information Facility : occurrences autour de la forêt de Tsiazombazaha'
+  url: https://www.gbif.org
+  note: Consulté en avril 2026 ; DOI du téléchargement à ajouter si disponible
+plantnet_2026:
+  type: web
+  author:
+  - name: Pl@ntNet
+  title: 'Pl@ntNet : application d''identification des plantes'
+  url: https://identify.plantnet.org
+  note: Date d'accès à préciser
+tropicos_2026:
+  type: web
+  author:
+  - name: Missouri Botanical Garden
+  title: 'Tropicos : Catalogue of the Vascular Plants of Madagascar'
+  url: https://www.tropicos.org/project/mada
+  note: Date d'accès à préciser
+inaturalist_2026:
+  type: web
+  author:
+  - name: iNaturalist
+  title: iNaturalist
+  url: https://www.inaturalist.org
+  note: Date d'accès à préciser
+# ---- 02/11/2026 : entrées ajoutées pour l'Introduction (relecture). Toutes « REF? » tant que non vérifiées par l'auteur.
+# REF? : ouvrage non lu ; éditeur et édition à confirmer.
+deschamps_1961:
+  type: book
+  author:
+  - Deschamps, H.
+  title: Histoire de Madagascar
+  publisher: Berger-Levrault
+  location: Paris
+  date: 1961
+# REF? : résumé lu (recherche en ligne, 02/11/2026).
+hansford_et_al_2018:
+  type: article
+  author:
+  - Hansford, J.
+  - Wright, P. C.
+  - Rasoamiaramanana, A.
+  - Pérez, V. R.
+  - Godfrey, L. R.
+  - Errickson, D.
+  - Thompson, T.
+  - Turvey, S. T.
+  title: Early Holocene human presence in Madagascar evidenced by exploitation of avian megafauna
+  date: 2018
+  parent:
+    type: periodical
+    title: Science Advances
+    volume: 4
+    issue: 9
+  page-range: eaat6925
+  serial-number:
+    doi: 10.1126/sciadv.aat6925
+# Chapitre lu en entier (PDF fourni par l'auteur, 02/11/2026).
+amelot_2017:
+  type: chapter
+  author:
+  - Amelot, X.
+  title: 'Dire la Nature à Madagascar : des mythes contre des cartes'
+  date: 2017
+  parent:
+    type: book
+    title: Dire l'Océan Indien
+    volume: 1
+    editor:
+    - Combeau, Y.
+    - Gallat, T.
+    - Rolland, Y.
+    publisher: OSOI, Université de La Réunion, Epica
+    location: Saint-Denis de La Réunion
+  page-range: 32-53
+  url: https://hal.science/hal-02359273
+# REF? : notice vérifiée en ligne (02/11/2026), article non lu.
+green_sussman_1990:
+  type: article
+  author:
+  - Green, G. M.
+  - Sussman, R. W.
+  title: Deforestation history of the eastern rain forests of Madagascar from satellite images
+  date: 1990
+  parent:
+    type: periodical
+    title: Science
+    volume: 248
+    issue: 4952
+  page-range: 212-215
+  serial-number:
+    doi: 10.1126/science.248.4952.212
+# Lu (chapitres 4 et 7, 02/11/2026) : PDF fourni par l'auteur (02_Bibliographie/articles). Cité « CEPF, 2022 ».
+cepf_2022:
+  type: report
+  author:
+  - name: Critical Ecosystem Partnership Fund
+  title: 'Profil d''écosystème : hotspot de Madagascar et des îles de l''océan Indien'
+  note: 'Préparé par le groupement Conservation International, Biotope, Missouri Botanical Garden et Asity Madagascar'
+  date: 2022-11-10
+  url: https://www.cepf.net/resources/documents/working-group-70-madio-ecosystem-profile-full
+# REF? : titre, numéro de collection et DOI à confirmer (FAO Forestry Paper n° 186 ?). Résultat : 88,1 % de la déforestation 2000-2018 due à l'expansion agricole.
+fao_2022:
+  type: report
+  author:
+  - name: FAO
+  title: 'FRA 2020 Remote Sensing Survey'
+  date: 2022
+  publisher: FAO
+  location: Rome
+  serial-number:
+    doi: 10.4060/cb9970en
+# REF? : proposée de mémoire, non lue.
+laurance_2008:
+  type: article
+  author:
+  - Laurance, W. F.
+  title: 'Theory meets reality: How habitat fragmentation research has transcended island biogeographic theory'
+  date: 2008
+  parent:
+    type: periodical
+    title: Biological Conservation
+    volume: 141
+    issue: 7
+  page-range: 1731-1744
+  serial-number:
+    doi: 10.1016/j.biocon.2008.05.011
+# REF? : proposée de mémoire, non lue ; liste complète des auteurs à vérifier.
+kuussaari_et_al_2009:
+  type: article
+  author:
+  - Kuussaari, M.
+  - Bommarco, R.
+  - Heikkinen, R. K.
+  - Helm, A.
+  - Krauss, J.
+  - Lindborg, R.
+  - Öckinger, E.
+  - Pärtel, M.
+  - Pino, J.
+  - Rodà, F.
+  - Stefanescu, C.
+  - Teder, T.
+  - Zobel, M.
+  - Steffan-Dewenter, I.
+  title: 'Extinction debt: a challenge for biodiversity conservation'
+  date: 2009
+  parent:
+    type: periodical
+    title: Trends in Ecology & Evolution
+    volume: 24
+    issue: 10
+  page-range: 564-571
+  serial-number:
+    doi: 10.1016/j.tree.2009.04.011
+# REF? : article lu en ligne (résumé détaillé, 02/11/2026). Source de la chronologie royale et coloniale de l'Introduction.
+montagne_ramamonjisoa_2006:
+  type: article
+  author:
+  - Montagne, P.
+  - Ramamonjisoa, B.
+  title: Politiques forestières à Madagascar entre répression et autonomie des acteurs
+  date: 2006
+  parent:
+    type: periodical
+    title: Économie rurale
+    issue: 294-295
+  page-range: 9-26
+  serial-number:
+    doi: 10.4000/economierurale.894
+# REF? : seul le résumé a été lu (continuité entre gestion locale royale et transferts de gestion).
+bertrand_et_al_2009:
+  type: article
+  author:
+  - Bertrand, A.
+  - Rabesahala Horning, N.
+  - Montagne, P.
+  title: 'Gestion communautaire ou préservation des ressources renouvelables : histoire inachevée d''une évolution majeure de la politique environnementale à Madagascar'
+  date: 2009
+  parent:
+    type: periodical
+    title: VertigO
+    volume: 9
+    issue: 3
+  url: https://www.erudit.org/fr/revue/vertigo/2009/v9/n3/044190ar.pdf
+# REF? : ouvrage non lu ; notice vérifiée en ligne (catalogue Nantilus, Quae). Réédition en 2014 (ISBN 978-2-87614-824-6).
+aubert_et_al_2003:
+  type: book
+  editor:
+  - Aubert, S.
+  - Razafiarison, S.
+  - Bertrand, A.
+  title: 'Déforestation et systèmes agraires à Madagascar : les dynamiques des tavy sur la côte orientale'
+  publisher: CIRAD, CITE, FOFIFA
+  location: Montpellier, Antananarivo
+  date: 2003
+  serial-number:
+    isbn: 2-87614-495-6
+# REF? : notice proposée de mémoire, non lue.
+myers_et_al_2000:
+  type: article
+  author:
+  - Myers, N.
+  - Mittermeier, R. A.
+  - Mittermeier, C. G.
+  - da Fonseca, G. A. B.
+  - Kent, J.
+  title: Biodiversity hotspots for conservation priorities
+  date: 2000
+  parent:
+    type: periodical
+    title: Nature
+    volume: 403
+    issue: 6772
+  page-range: 853-858
+  serial-number:
+    doi: 10.1038/35002501
+# REF? : notice proposée de mémoire, non lue ; liste complète des auteurs à compléter.
+olson_et_al_2001:
+  type: article
+  author:
+  - Olson, D. M.
+  - et al.
+  title: 'Terrestrial ecoregions of the world: a new map of life on Earth'
+  date: 2001
+  parent:
+    type: periodical
+    title: BioScience
+    volume: 51
+    issue: 11
+  page-range: 933-938
+  serial-number:
+    doi: 10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2
+# TODO : date de consultation à indiquer.
+faolex_2026:
+  type: web
+  author:
+  - name: FAO
+  title: 'FAOLEX : base de données de législation nationale'
+  url: https://www.fao.org/faolex
+  date: 2026
+# ---- 02/11/2026 : entrées ajoutées pour la Discussion (endémisme, milieux ouverts, friches de tavy). Notices vérifiées via Crossref ; seuls les résumés ont été lus : « REF? ».
+# REF? : 11 516 plantes vasculaires natives, 82 % d'endémiques ; 1 215 bryophytes, 28 % (communiqué de Kew, à vérifier dans l'article). Liste complète des 84 auteurs reprise de Crossref le 02/11/2026.
+antonelli_et_al_2022:
+  type: article
+  author:
+  - Antonelli, A.
+  - Smith, R. J.
+  - Perrigo, A. L.
+  - Crottini, A.
+  - Hackel, J.
+  - Testo, W.
+  - Farooq, H.
+  - Torres Jiménez, M. F.
+  - Andela, N.
+  - Andermann, T.
+  - Andriamanohera, A. M.
+  - Andriambololonera, S.
+  - Bachman, S. P.
+  - Bacon, C. D.
+  - Baker, W. J.
+  - Belluardo, F.
+  - Birkinshaw, C.
+  - Borrell, J. S.
+  - Cable, S.
+  - Canales, N. A.
+  - Carrillo, J. D.
+  - Clegg, R.
+  - Clubbe, C.
+  - Cooke, R. S. C.
+  - Damasco, G.
+  - Dhanda, S.
+  - Edler, D.
+  - Faurby, S.
+  - de Lima Ferreira, P.
+  - Fisher, B. L.
+  - Forest, F.
+  - Gardiner, L. M.
+  - Goodman, S. M.
+  - Grace, O. M.
+  - Guedes, T. B.
+  - Henniges, M. C.
+  - Hill, R.
+  - Lehmann, C. E. R.
+  - Lowry, P. P.
+  - Marline, L.
+  - Matos-Maraví, P.
+  - Moat, J.
+  - Neves, B.
+  - Nogueira, M. G. C.
+  - Onstein, R. E.
+  - Papadopulos, A. S. T.
+  - Perez-Escobar, O. A.
+  - Phelps, L. N.
+  - Phillipson, P. B.
+  - Pironon, S.
+  - Przelomska, N. A. S.
+  - Rabarimanarivo, M.
+  - Rabehevitra, D.
+  - Raharimampionona, J.
+  - Rajaonah, M. T.
+  - Rajaonary, F.
+  - Rajaovelona, L. R.
+  - Rakotoarinivo, M.
+  - Rakotoarisoa, A. A.
+  - Rakotoarisoa, S. E.
+  - Rakotomalala, H. N.
+  - Rakotonasolo, F.
+  - Ralaiveloarisoa, B. A.
+  - Ramirez-Herranz, M.
+  - Randriamamonjy, J. E. N.
+  - Randriamboavonjy, T.
+  - Randrianasolo, V.
+  - Rasolohery, A.
+  - Ratsifandrihamanana, A. N.
+  - Ravololomanana, N.
+  - Razafiniary, V.
+  - Razanajatovo, H.
+  - Razanatsoa, E.
+  - Rivers, M.
+  - Sayol, F.
+  - Silvestro, D.
+  - Vorontsova, M. S.
+  - Walker, K.
+  - Walker, B. E.
+  - Wilkin, P.
+  - Williams, J.
+  - Ziegler, T.
+  - Zizka, A.
+  - Ralimanana, H.
+  title: 'Madagascar''s extraordinary biodiversity: Evolution, distribution, and use'
+  date: 2022
+  parent:
+    type: periodical
+    title: Science
+    volume: 378
+    issue: 6623
+  page-range: eabf0869
+  serial-number:
+    doi: 10.1126/science.abf0869
+# REF? : 11 220 espèces vasculaires ; 82 % d'endémisme pour les vasculaires indigènes, 84 % pour les angiospermes (sources secondaires, à vérifier dans l'article).
+callmander_et_al_2011:
+  type: article
+  author:
+  - Callmander, M. W.
+  - Phillipson, P. B.
+  - Schatz, G. E.
+  - Andriambololonera, S.
+  - Rabarimanarivo, M.
+  - Rakotonirina, N.
+  - Raharimampionona, J.
+  - Chatelain, C.
+  - Gautier, L.
+  - Lowry II, P. P.
+  title: The endemic and non-endemic vascular flora of Madagascar updated
+  date: 2011
+  parent:
+    type: periodical
+    title: Plant Ecology and Evolution
+    volume: 144
+    issue: 2
+  page-range: 121-125
+  serial-number:
+    doi: 10.5091/plecevo.2011.513
+# REF? : 541 graminées dont 217 endémiques (d'après Kew) ; une partie des prairies serait antérieure à l'homme.
+vorontsova_et_al_2016:
+  type: article
+  author:
+  - Vorontsova, M. S.
+  - Besnard, G.
+  - Forest, F.
+  - Malakasi, P.
+  - Moat, J.
+  - Clayton, W. D.
+  - Ficinski, S. Z.
+  - Savva, G. M.
+  - Nanjarisoa, O. P.
+  - Razanatsoa, J.
+  - Randriatsara, F. O.
+  - Kimeu, J. M.
+  - Luke, W. R. Q.
+  - Kayombo, C.
+  - Linder, H. P.
+  title: 'Madagascar''s grasses and grasslands: anthropogenic or natural?'
+  date: 2016
+  parent:
+    type: periodical
+    title: Proceedings of the Royal Society B
+    volume: 283
+    issue: 1823
+  page-range: '20152262'
+  serial-number:
+    doi: 10.1098/rspb.2015.2262
+# REF? : position opposée à Vorontsova et al. (2016) et Bond et al. (2008) pour les hautes terres centrales.
+joseph_seymour_2021:
+  type: article
+  author:
+  - Joseph, G. S.
+  - Seymour, C. L.
+  title: 'The unlikely ‘antiquity of Madagascar''s grasslands’: Disproportionately forest-limited endemic fauna support anthropogenic transformation from woodland'
+  date: 2021
+  parent:
+    type: periodical
+    title: Journal of Biogeography
+    volume: 48
+    issue: 8
+  page-range: 2111-2115
+  serial-number:
+    doi: 10.1111/jbi.14132
+# REF? : réponse à Joseph et Seymour (2021). Mis en ligne en 2022, numéro de mars 2023.
+bond_et_al_2023:
+  type: article
+  author:
+  - Bond, W. J.
+  - Silander, J. A.
+  - Ratsirarson, J.
+  title: Madagascar's grassy biomes are ancient and there is much to learn about their ecology and evolution
+  date: 2023
+  parent:
+    type: periodical
+    title: Journal of Biogeography
+    volume: 50
+    issue: 3
+  page-range: 614-621
+  serial-number:
+    doi: 10.1111/jbi.14494
+# REF? : nord-est de Madagascar, 80 placettes, 355 espèces herbacées (60 endémiques, 180 natives non endémiques, 57 exotiques, 58 d'origine inconnue).
+raveloaritiana_et_al_2021:
+  type: article
+  author:
+  - Raveloaritiana, E.
+  - Wurz, A.
+  - Grass, I.
+  - Osen, K.
+  - Soazafy, M. R.
+  - Martin, D. A.
+  - Faliniaina, L.
+  - Rakotomalala, N. H.
+  - Vorontsova, M. S.
+  - Tscharntke, T.
+  - Rakouth, B.
+  title: Land-use intensification increases richness of native and exotic herbaceous plants, but not endemics, in Malagasy vanilla landscapes
+  date: 2021
+  parent:
+    type: periodical
+    title: Diversity and Distributions
+    volume: 27
+    issue: 5
+  page-range: 784-798
+  serial-number:
+    doi: 10.1111/ddi.13226
+# REF? : région betsimisaraka ; succession des friches de tavy vers des espèces exotiques envahissantes et des herbacées.
+styger_et_al_2007:
+  type: article
+  author:
+  - Styger, E.
+  - Rakotondramasy, H. M.
+  - Pfeffer, M. J.
+  - Fernandes, E. C. M.
+  - Bates, D. M.
+  title: Influence of slash-and-burn farming practices on fallow succession and land degradation in the rainforest region of Madagascar
+  date: 2007
+  parent:
+    type: periodical
+    title: Agriculture, Ecosystems & Environment
+    volume: 119
+  page-range: 257-269
+  serial-number:
+    doi: 10.1016/j.agee.2006.07.012
+# REF? : Ranomafana (altitude plus élevée que Tsiazombazaha). Mis en ligne en 2009, numéro de janvier 2010.
+klanderud_et_al_2010:
+  type: article
+  author:
+  - Klanderud, K.
+  - Mbolatiana, H. Z. H.
+  - Vololomboahangy, M. N.
+  - Radimbison, M. A.
+  - Roger, E.
+  - Totland, Ø.
+  - Rajeriarison, C.
+  title: Recovery of plant species richness and composition after slash-and-burn agriculture in a tropical rainforest in Madagascar
+  date: 2010
+  parent:
+    type: periodical
+    title: Biodiversity and Conservation
+    volume: 19
+    issue: 1
+  page-range: 187-204
+  serial-number:
+    doi: 10.1007/s10531-009-9714-3
+# Lu (PDF journalmcd.com, 02/11/2026). Crise politique de 2009-2010 et exploitation du bois de rose.
+randriamalala_liu_2010:
+  type: article
+  author:
+  - Randriamalala, H.
+  - Liu, Z.
+  title: 'Rosewood of Madagascar: Between democracy and conservation'
+  date: 2010
+  url: https://journalmcd.com/index.php/mcd/article/view/167/128
+  parent:
+    type: periodical
+    title: Madagascar Conservation & Development
+    volume: 5
+    issue: 1
+  serial-number:
+    doi: 10.4314/mcd.v5i1.57336
+# REF? Lu en ligne (OpenEdition), § 36, 59-60, 62, 64-65 : service hydrologique des forêts. Cité dans l'Introduction et la Discussion.
+andriamahefazafy_et_al_2012:
+  type: article
+  author:
+  - Andriamahefazafy, F.
+  - Bidaud, C.
+  - Méral, P.
+  - Serpantié, G.
+  - Toillier, A.
+  title: L'introduction de la notion de service environnemental et écosystémique à Madagascar
+  date: 2012
+  parent:
+    type: periodical
+    title: VertigO - la revue électronique en sciences de l'environnement
+    volume: 12
+    issue: 3
+  serial-number:
+    doi: 10.4000/vertigo.12875
+# REF? Métadonnées vérifiées sur Crossref ; résumé seulement (forêts protégées par des tabous, Androy).
+tengo_et_al_2007:
+  type: article
+  author:
+  - Tengö, M.
+  - Johansson, K.
+  - Rakotondrasoa, F.
+  - Lundberg, J.
+  - Andriamaherilala, J.-A.
+  - Rakotoarisoa, J.-A.
+  - Elmqvist, T.
+  title: 'Taboos and forest governance: informal protection of hot spot dry forest in southern Madagascar'
+  date: 2007
+  parent:
+    type: periodical
+    title: 'AMBIO: A Journal of the Human Environment'
+    volume: 36
+    issue: 8
+  page-range: 683-691
+  serial-number:
+    doi: 10.1579/0044-7447(2007)36[683:TAFGIP]2.0.CO;2

@@ -1,7 +1,7 @@
 #pagebreak(weak: true)
 
 #align(right)[
-  #text(size: 18pt, weight: "bold")[Titre du mémoire]
+  #text(size: 18pt, weight: "bold")[Diagnostic écologique et social de la forêt tropicale \ humide de Tsiazombazaha, sud-est de Madagascar]
 
   #text(size: 14pt)[Ewen LE COEUR]
 

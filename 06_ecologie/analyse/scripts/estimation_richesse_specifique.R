@@ -327,15 +327,20 @@ resultats <- tibble(
 # SpadeR::Spade(freq, datatype = "incidence_freq")   # fournit ICE + IC
 
 # --- Figure (colonnes iNEXT : m, D, LCL, UCL) ----------------------------------
-figureRarefaction <- ggplot(courbe_data, aes(x = surface_m2, y = .data[[colD]])) +
+# Abscisse : nombre de placettes (unite d'echantillonnage du modele
+# d'incidence) ; axe secondaire : surface horizontale cumulee correspondante
+# (nombre de placettes x surface moyenne, colonne surface_m2)
+figureRarefaction <- ggplot(courbe_data, aes(x = t, y = .data[[colD]])) +
   geom_ribbon(aes(ymin = .data[[colLCL]], ymax = .data[[colUCL]]),
               alpha = 0.5, fill = "grey60") +
   geom_line(linewidth = 0.9) +
-  geom_vline(xintercept = surfaceProspectee, linetype = "dashed", color = "grey40") +
-  labs(x = "Surface cumulée (m²)",
-       y = "Richesse spécifique (espèces)",
-       title = "Courbe de raréfaction-extrapolation",
-       subtitle = paste("Données :", nPlacettes, "placettes, gamma =", gamma, "espèces")) +
+  geom_vline(xintercept = nPlacettes, linetype = "dashed", color = "grey40") +
+  scale_x_continuous(breaks = seq(0, endpointUnites, by = 14),
+                     sec.axis = sec_axis(~ . * surfaceMoyenne,
+                                         name = "Surface horizontale cumulée (m²)")) +
+  labs(x = "Nombre de placettes",
+       y = "Richesse spécifique (espèces)") +
+  # Pas de titre dans l'image (critère du mémoire) : la légende Typst le porte
   theme_axes
 
 # Sauvegarde en SVG (vectoriel)

@@ -4,7 +4,7 @@
 
 === Inter Aide
 
-Inter Aide est une organisation non gouvernementale (ONG) française, créée en 1980, qui conçoit et met en œuvre des programmes de développement auprès de populations rurales défavorisées (https://interaide.org/). Le fonctionnement de l'ONG repose sur la séparation entre un siège qui s'occupe de l'administratif et de la collecte de fonds et des équipes de terrain entièrement techniques et aux prises avec la réalité du terrain // @organigramme. 
+Inter Aide est une organisation non gouvernementale (ONG) française, créée en 1980, qui conçoit et met en œuvre des programmes de développement auprès de populations rurales défavorisées (https://interaide.org/). Le fonctionnement de l'ONG repose sur la séparation entre un siège qui s'occupe de l'administratif et de la collecte de fonds et des équipes de terrain entièrement techniques et aux prises avec la réalité du terrain. // @organigramme 
 
 // #figure(
 // ) <organigramme>
@@ -14,10 +14,12 @@ Inter Aide est une organisation non gouvernementale (ONG) française, créée en
 // Projets agro (Manakara)
 // RP / vice-RP -> RH / coordo -> techniciens <-> bénéficiaires
 
-L'ONG est présente dans le sud-est de Madagascar depuis XXXX. sur des projets d'agriculture, d'eau et de santé. Le programme agriculture de Manakara a été lancé en 19XX, travaillant d'abord sur des programmes d'intensification de l'agriculture, de diversification des cultures et de construction de barrages. L'équipe de Manakara compte actuellement sept membres de bureau ainsi qu'une douzaine de techniciens résidant dans les fokontany d'intervention du projet EcoBois. 
+L'ONG est présente dans le sud-est de Madagascar sur des projets d'agriculture, d'eau et de santé. Le programme agriculture de Manakara a été lancé dans les années 1990, travaillant d'abord sur des programmes d'intensification de l'agriculture, de diversification des cultures et de construction de barrages. L'équipe de Manakara compte actuellement sept membres de bureau ainsi qu'une douzaine de techniciens résidant dans les fokontany d'intervention du projet EcoBois. 
 
 // à reprendre
-Depuis 2016, l'équipe travaille sur le reboisement des collines dégradées (_tanety_) avec essences exotiques : acacia mangium _Acacia mangium_ Willd. et Kinina _Eucalyptus sp._, afin de restaurer les collines abandonnées et a déjà planté 2,5 millions d'arbres. Cette approche s'appuie sur les communautés lignagères tranobe (une famille au sens large avec père + tous les fils, oncles, cousins, etc), lohatrano (un ménage père + fils) pour réaliser les reboisements et les payements par des parcelles collectives.
+Depuis 2016, l'équipe travaille sur le reboisement des collines dégradées (_tanety_) avec essences exotiques : acacia mangium _Acacia mangium_ Willd. et Kinina _Eucalyptus sp._, afin de restaurer les collines abandonnées et a déjà planté 2,5 millions d'arbres. Cette approche s'appuie sur les communautés lignagères tranobe (une famille au sens large avec père + tous les fils, oncles, cousins, etc), lohatrano (un ménage père + fils) pour réaliser les reboisements et les payements par des parcelles collectives. Chez les Antemoro des communes riveraines de Tsiazombazaha, le _tranobe_ désigne aussi la grande maison sacrée où chaque lignage accomplit les rituels ancestraux, ainsi que le grand tombeau du lignage~; au milieu des années 2000, ces lignages étaient au nombre de treize, chacun représenté par un chef, l'_ampanjaka_ (Müller et Evers, s. d.).
+// REF? Müller, D. F. & Evers, S. J. T. M. (s. d.). Case studies of land access practices in Fianarantsoa province, Madagascar. VU University Amsterdam. — lu (note 70, p. 3) ; terrain de 2006 ; support de publication et année à identifier (le chapitre IRD d'OpenEdition proposé le 01/11/2026 est un autre texte : Moreau, 2005).
+// TODO : vérifier auprès des enquêtés ou d'Inter Aide que le nombre de lignages et leur organisation sont toujours d'actualité.
 
 === Le projet EcoBois
 
@@ -70,7 +72,7 @@ Le stage s'est déroulé du 15 avril 2026 au 14 octobre 2026, avec cinq mois au 
 // a. Écologique : connaissances lacunaires (« peu de données disponibles, à notre connaissance, pour
 //    les deux forêts résiduelles ciblées », NEP, p. 35) ; espèces menacées déjà signalées
 //    (Romiguière, 2025 ; Rajaonson et al., 2010).
-Étant donné que le projet vise récemment les forêts, il n'y a aucune connaissance au sein d'Inter Aide vis à vis des forêts du projet. Celle de Vorovoka a été réalisée par Felix Romiguière en 2025, il reste celle de Tsiazombazaha à réaliser. Il s'agit d'évaluer l'état de dégradation de la forêt, sa patrimonialité par la présence d'espèces menacées, et l'historique de sa dégradation.
+Étant donné que le projet vise récemment les forêts, il n'y a aucune connaissance au sein d'Inter Aide vis à vis des forêts du projet. Celle de Vorovoka a été réalisée par Romiguière (2025) au cours d'un stage de trois mois. Pour Tsiazombazaha, la seule donnée disponible provient de ce même stage : deux semaines de terrain exploratoire, avec cinq entretiens et huit relevés de placettes. Il s'agit d'évaluer l'état de dégradation de la forêt, sa patrimonialité par la présence d'espèces menacées, et l'historique de sa dégradation.
 
 // b. Hydrique et agricole : l'Offre qualifie l'eau, notamment pour les rizières, de « préoccupation
 //    prioritaire pour les populations environnantes ».
@@ -160,7 +162,7 @@ Elle se décline en trois sous-questions :
 + SQ3~: Comment s'organise la gestion de la forêt~: par qui, selon quelles règles, et comment ces règles sont-elles appliquées et perçues~? (section Résultats, volet social 2)
 // TODO : remplacer les renvois entre parenthèses par des références Typst aux sections.
 
-L'étude combine ainsi deux volets. Le premier, écologique, repose sur un inventaire forestier en placettes et l'observation des images satellites (SQ1). Le second, social, repose sur des entretiens semi-directifs, des sorties en forêt avec des habitants et l'étude des documents de transfert de gestion (SQ2 et SQ3). Les deux volets ont été menés et analysés séparément, puis croisés en discussion à l'aide de la grille socio-écologique pour répondre à la question centrale et formuler des recommandations pour Inter Aide. Les protocoles sont détaillés dans les sections Matériel et méthodes et Méthodologie. 
+L'étude combine ainsi deux volets. Le premier, écologique, repose sur un inventaire forestier en placettes et l'observation des images satellites (SQ1). Le second, social, repose sur des entretiens semi-directifs, des sorties en forêt avec des habitants et l'étude des documents de transfert de gestion (SQ2 et SQ3). Les deux volets ont été menés et analysés séparément, puis croisés en discussion à l'aide de la grille socio-écologique pour répondre à la question centrale et formuler des recommandations pour Inter Aide. Les protocoles sont détaillés dans la section Matériel et méthodes. 
 
 // Ces questions sont exploratoires : aucune hypothèse n'est testée. (???)
 

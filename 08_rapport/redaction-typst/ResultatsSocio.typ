@@ -1,3 +1,4 @@
+#import "TitresCourts.typ": titre-court
 // Résultats — volet social (SQ2 et SQ3).
 // Version révisée le 31/10/2026 (seconde lecture) : relecture des comptes rendus bruts à l'aide d'une
 // table de lecture des erreurs de transcription (en fin de fichier), vérification de chaque affirmation
@@ -132,10 +133,10 @@ Certains animaux se feraient plus rares. Un grand lémurien noir et blanc ne ser
 
 #figure(
   table(
-    columns: (auto, auto, auto, auto),
+    columns: (1.5fr, 1fr, 1fr, 1.5fr),
     align: (left, left, left, left),
     inset: 8pt,
-    [*Usage*], [*Catégorie (Cook, 1995)*], [*Rapporté par*], [*Observé*],
+    table.header([*Usage*], [*Catégorie (Cook, 1995)*], [*Rapporté par*], [*Observé*]),
     [Bois de construction], [Matériaux], [E3, E5, E7, E9, E13, E21, E28], [Coupes autorisées (T01)~; coupe sous un permis expiré (S8)],
     [Planches et _batan_ pour la vente], [Matériaux], [E9, E11, E15, E18], [Coupes récentes de _Voapaka_ (S4, S12, S13~; T02)],
     [_Ravinala_ et lianes (murs, planchers, toiture)], [Matériaux], [E9, E14, E28], [Ancienne coupe de _Ravinala_ (T01)],
@@ -159,6 +160,7 @@ Certains animaux se feraient plus rares. Un grand lémurien noir et blanc ne ser
   ),
   caption: [Usages de la forêt de Tsiazombazaha rapportés en entretien ou en sortie, catégorie de premier niveau de la classification de Cook (1995) et observations de terrain correspondantes. «~Hors Cook~»~: usage qui ne porte pas sur une plante. T01, T02~: deux premiers transects.],
 ) <tab-socio-usages>
+#titre-court(<tab-socio-usages>)[Usages de la forêt rapportés par les enquêtés]
 // TODO : codes de second niveau (correspondance-usages-cook.csv) ; identité de la plante utilisée en magie (S14).
 // ATTENTION : la classification de Cook (1995) porte sur les plantes ; « hors Cook » est un choix à valider.
 
@@ -170,10 +172,10 @@ Libre avant le VOI, la coupe en forêt est désormais soumise à une demande et 
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (1fr, 2.5fr, 1fr),
     align: (left, left, left),
     inset: 8pt,
-    [*Espèce plantée*], [*Usages rapportés*], [*Sources*],
+    table.header([*Espèce plantée*], [*Usages rapportés*], [*Sources*]),
     [_Eucalyptus_ spp.], [Poutres, de préférence (E9, E20)~; charpente, murs et portes (E28)~; planches et bois carrés (E9, E19, E24)~; charbon (E9, E10, E19)], [E9, E10, E19, E20, E24, E28],
     [_Pinus_ sp.], [Charpente seulement, bois peu dur (E19)~; planches (E9, E20)~; murs et portes (E28)~; allumage du feu (S7)], [E9, E19, E20, E28, S7],
     [_Acacia_ sp.], [Poutres et charpente (E19)~; charpente seulement, car il pourrit en terre (E20)~; planches et charbon (E20, S4, S17)~; jamais en planches (E9)~; maisons (E22)], [E9, E19, E20, E22, S4, S17],
@@ -183,6 +185,7 @@ Libre avant le VOI, la coupe en forêt est désormais soumise à une demande et 
   ),
   caption: [Usages des principales espèces plantées pour la construction et le combustible, tels que rapportés par les enquêtés. Les divergences entre enquêtés sont conservées.],
 ) <tab-socio-bois-plantes>
+#titre-court(<tab-socio-bois-plantes>)[Usages des principales espèces plantées]
 // TODO : identités réconciliées des espèces plantées absentes de reconciliation-taxonomique.csv.
 // Ancien brouillon (carnet) : gaules de 1 à 2 cm pour les clôtures, sans distinction d'espèces ; haies
 //   reposant désormais surtout sur Gliricidia sepium, à multiplication végétative aisée (Ambahatrazo, Mizilo Gara).
@@ -242,10 +245,10 @@ Plusieurs des usages décrits plus haut, la coupe, le charbon, le miel ou la cha
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (1fr, 1fr, 1.5fr),
     align: (left, left, left),
     inset: 8pt,
-    [*Pression*], [*Rapportée par*], [*Observée*],
+    table.header([*Pression*], [*Rapportée par*], [*Observée*]),
     [Feux, _tavy_], [E3, E11, E18, E20, E27, E28~; R20 à R24], [Zone sans arbres après un feu (S13)~; feu en forêt (S14)],
     [Coupes illicites], [E2, E3, E10, E11, E12, E15, E18], [Coupes récentes (S4, S9, S12, S13, S14)~; plus de sept coupes non autorisées (T02)~; coupe sous un permis expiré (S8)],
     [Exploitation de bois précieux], [E8, E9, E18, S5], [Rejet de souche de bois de rose dans un champ de manioc (S5)],
@@ -259,6 +262,7 @@ Plusieurs des usages décrits plus haut, la coupe, le charbon, le miel ou la cha
   ),
   caption: [Pressions sur la forêt de Tsiazombazaha~: sources qui les rapportent et observations de terrain correspondantes. T02~: second transect.],
 ) <tab-socio-pressions>
+#titre-court(<tab-socio-pressions>)[Pressions sur la forêt]
 // TODO : remplacer les comptages T01-T02 (relevés d'étape, README) par les données définitives des transects
 //   (06_ecologie/analyse/donnees/transects.csv), avec le nombre de coupes par transect.
 
@@ -269,10 +273,10 @@ Les enquêtés qui évoquent l'histoire de la forêt la décrivent comme autrefo
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (1.5fr, 1fr, 1fr),
     align: (left, left, left),
     inset: 8pt,
-    [*Surface citée*], [*Date de référence*], [*Source*],
+    table.header([*Surface citée*], [*Date de référence*], [*Source*]),
     [3~600~ha, puis 650~ha], [1998, puis 2026], [E7],
     [600~ha], [2003], [E11],
     [environ 500~ha (massif forestier)], [2025], [Inter Aide (2025)],
@@ -280,6 +284,7 @@ Les enquêtés qui évoquent l'histoire de la forêt la décrivent comme autrefo
   ),
   caption: [Surfaces de la forêt de Tsiazombazaha citées en entretien et dans les documents du projet. Les deux dernières lignes rappellent les valeurs du site d'étude~; elles ne désignent pas le même objet.],
 ) <tab-socio-surfaces>
+#titre-court(<tab-socio-surfaces>)[Surfaces de la forêt citées]
 // E20 (transcription brute) cite 300 ha puis « 4 ha » : passage inintelligible, écarté.
 
 ==== Feux
@@ -334,10 +339,10 @@ La gestion de la forêt mobilise des acteurs de plusieurs niveaux (@tab-socio-ac
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (1fr, 2fr, 1fr),
     align: (left, left, left),
     inset: 8pt,
-    [*Acteur*], [*Rôle rapporté*], [*Sources*],
+    table.header([*Acteur*], [*Rôle rapporté*], [*Sources*]),
     [Membres du VOI], [Cotisation~; participation aux chantiers~; droit de coupe préférentiel], [E2, E3, E9, E21],
     [Bureau du VOI], [Instruction des demandes de coupe~; convocations et amendes~; assemblées~; relations avec l'administration et les projets], [E3, E11, E21],
     [Comités du VOI], [Signalement des infractions~; fixation des sanctions~; recherche de ressources~; encadrement des feux], [E2, E11, E20],
@@ -353,13 +358,14 @@ La gestion de la forêt mobilise des acteurs de plusieurs niveaux (@tab-socio-ac
   ),
   caption: [Acteurs de la gestion de la forêt de Tsiazombazaha et rôles que leur attribuent les enquêtés.],
 ) <tab-socio-acteurs>
+#titre-court(<tab-socio-acteurs>)[Acteurs de la gestion de la forêt]
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (1fr, 1.5fr, 1fr),
     align: (left, left, left),
     inset: 8pt,
-    [*Projet ou organisme*], [*Domaine et période rapportés*], [*Sources*],
+    table.header([*Projet ou organisme*], [*Domaine et période rapportés*], [*Sources*]),
     [Inter Aide], [Santé (2004 à 2022)~; riziculture et barrages~; reboisement avec les _tranobe_ (depuis 2016) et le VOI (depuis 2025)], [E1, E2, E8, E14, E22, S5, S14],
     [FIANTSO], [Transfert de gestion, route, reboisement, écotourisme (2004-2006)], [E7, E8, E20, E21],
     [Projet de financement des patrouilles], [Patrouilles et plantations (2006-2016)], [E8, E15],
@@ -375,6 +381,7 @@ La gestion de la forêt mobilise des acteurs de plusieurs niveaux (@tab-socio-ac
   ),
   caption: [Projets et organismes cités par les enquêtés autour de la forêt de Tsiazombazaha, avec le domaine et la période rapportés.],
 ) <tab-socio-projets>
+#titre-court(<tab-socio-projets>)[Projets et organismes cités par les enquêtés]
 // TODO : noms exacts à vérifier (FOLUR / FOULUR ; « GRISLAND » dans E8 et E15, transcription incertaine,
 //   d'où l'intitulé générique) ; abréviations à ajouter à la liste (ADRA, FAO, FID, FOLUR, FORMAPROD, PAM, PSDR).
 // OPTION : passer ce tableau en annexe.
@@ -389,10 +396,10 @@ L'initiative du premier transfert est attribuée à l'administration (E3, S5~; c
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (1fr, 2fr, 1.5fr),
     align: (left, left, left),
     inset: 8pt,
-    [*Date*], [*Événement rapporté*], [*Sources et versions divergentes*],
+    table.header([*Date*], [*Événement rapporté*], [*Sources et versions divergentes*]),
     [1967], [Grand feu~; mesures de protection de l'État], [E3],
     [Années 1960 à 1975], [Défrichements pour l'installation de familles, libres puis autorisés], [E20~; E9~; S19 (vers 1975)],
     [Vers 1970-1975], [Exploitation de bois de rose par camions], [E18],
@@ -420,6 +427,7 @@ L'initiative du premier transfert est attribuée à l'administration (E3, S5~; c
   ),
   caption: [Chronologie de la gestion de la forêt de Tsiazombazaha telle que rapportée par les enquêtés. Les dates divergentes sont données avec leur source.],
 ) <tab-socio-chronologie>
+#titre-court(<tab-socio-chronologie>)[Chronologie de la gestion rapportée]
 // TODO : confronter aux documents de transfert de 2004 et de 2025 (dates, durée, surface).
 // TODO : figure possible — frise chronologique en niveaux de gris, à la place du tableau.
 // ATTENTION : M&M donne un transfert de trois ans en 2004 ; E7 dit 2004-2014 ; E3 dit 2004-2012.
@@ -436,10 +444,10 @@ Le nombre de membres du VOI n'est pas connu avec précision~: les effectifs cit�
 
 #figure(
   table(
-    columns: (auto, auto, auto, auto),
+    columns: (2fr, 2.5fr, 2.5fr, 1fr),
     align: (left, left, left, left),
     inset: 8pt,
-    [*Effectif*], [*Commune ou fokontany*], [*Valeur rapportée*], [*Source*],
+    table.header([*Effectif*], [*Commune ou fokontany*], [*Valeur rapportée*], [*Source*]),
     [Membres], [Mizilo Gara], [96 en 2025, 110 en 2026], [E3],
     [Membres], [Mizilo Gara], [120 inscrits, dont 100 cotisants], [E8],
     [Membres], [Mizilo Gara], [99], [S18],
@@ -456,6 +464,7 @@ Le nombre de membres du VOI n'est pas connu avec précision~: les effectifs cit�
   ),
   caption: [Effectifs du VOI Maharitra rapportés en entretien et en sortie (juin à septembre 2026). Les dates de référence ne sont pas toujours précisées.],
 ) <tab-socio-effectifs>
+#titre-court(<tab-socio-effectifs>)[Effectifs du VOI Maharitra]
 // TODO : obtenir le registre des membres (carnet du secrétaire, E8, E11) pour un effectif daté.
 
 Les raisons d'adhérer sont l'accès au bois à un tarif préférentiel (E1, E6, E9, E13), la protection de la forêt et de l'eau (E11, E14, E15, E27) et l'incitation d'un voisin ou d'un responsable (E9, E26, E27, E28). L'adhésion est parfois décrite comme une obligation~: un riverain dit que le VOI oblige ceux qui habitent près de la forêt à acheter un carnet (E26). Ceux qui n'adhèrent pas invoquent le manque d'argent (E6), les déplacements (E5), l'absence de bénéfice (E26) ou le refus d'avoir à dénoncer leurs voisins (E13). À Ambalavolo, deux enquêtés ne connaissent pas le VOI ou n'ont jamais été contactés (E22, E23). Pour beaucoup d'habitants, selon un élu, le VOI se confond avec son bureau (E7)~; un enquêté le définit d'ailleurs ainsi (E28), et d'autres ne le distinguent pas de l'ancienne COBA (E28, S16).
@@ -488,10 +497,10 @@ Le @tab-socio-regles récapitule les règles rapportées. Trois traits s'en dég
 
 #figure(
   table(
-    columns: (auto, auto, auto, auto),
+    columns: (1fr, 2fr, 2fr, 1fr),
     align: (left, left, left, left),
     inset: 8pt,
-    [*Objet*], [*Règle rapportée*], [*Versions divergentes*], [*Sources*],
+    table.header([*Objet*], [*Règle rapportée*], [*Versions divergentes*], [*Sources*]),
     [Entrée en forêt], [Autorisation du VOI~; droit d'entrée de 30~000~Ar pour les visiteurs et les chercheurs], [Libre sur les sentiers (S4)~; droit inscrit au contrat (E18) ou au règlement intérieur (E2)], [E2, E18, S4, S5, S8],
     [Coupe pour la construction], [Demande, droit de coupe, désignation des arbres par un polisin'ala (@tab-socio-droits)], [Réservée aux membres (E7) ou plus chère pour les non-membres (E2, E8, E21)], [E2, E3, E7, E8, E21],
     [Coupe pour la vente], [Interdite], [--], [E2, E10, E11],
@@ -510,6 +519,7 @@ Le @tab-socio-regles récapitule les règles rapportées. Trois traits s'en dég
   ),
   caption: [Règles d'usage de la forêt de Tsiazombazaha telles que rapportées par les enquêtés, avec les versions divergentes. Les règles écrites (contrat de transfert, cahier des charges, _dina_) n'ont pas été analysées.],
 ) <tab-socio-regles>
+#titre-court(<tab-socio-regles>)[Règles d'usage rapportées]
 // REF? Charpentier (2026) : étude sur les feux autour de Tsiazombazaha, restitution du 05/08/2026
 //   (05_Sociologie/donnees/OBS_restitution_Manon.txt) ; déjà citée dans Discussion.typ ; référence à compléter.
 // TODO : confronter chaque ligne au cahier des charges et au dina (via l'interprète).
@@ -520,10 +530,10 @@ Couper pour construire suppose une procédure en plusieurs étapes~: une demande
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (2.5fr, 3fr, 1fr),
     align: (left, left, left),
     inset: 8pt,
-    [*Montant rapporté*], [*Objet*], [*Source*],
+    table.header([*Montant rapporté*], [*Objet*], [*Source*]),
     [50~Ar~; 100~Ar~; 2~000~Ar], [Gaulette~; bois rond de 20 à 25~cm~; gros bois de 70 à 80~cm de diamètre], [E21],
     [3~000~Ar (membre)~; davantage pour un non-membre], [Grand arbre], [E2],
     [10~000~Ar (membre)~; 30~000~Ar (non-membre)], [Par arbre], [E8],
@@ -535,6 +545,7 @@ Couper pour construire suppose une procédure en plusieurs étapes~: une demande
   ),
   caption: [Droits de coupe rapportés en entretien (juin à août 2026). Les montants n'ont pas été confrontés au contrat de transfert de gestion.],
 ) <tab-socio-droits>
+#titre-court(<tab-socio-droits>)[Droits de coupe rapportés]
 // TODO : confronter au cahier des charges du transfert de 2025 (tarifs officiels).
 // Ancien brouillon : tableau prévu « objet / membre / non-membre » (petit bois, gaule pour haie 100 Ar,
 //   gros bois) ; « gaule pour haie : 100 Ar » sans source retrouvée.
@@ -551,10 +562,10 @@ Le cas de coupe illicite du premier semestre 2026 à Ambila illustre ces écarts
 
 #figure(
   table(
-    columns: (auto, auto),
+    columns: (2fr, 1fr),
     align: (left, left),
     inset: 8pt,
-    [*Version rapportée*], [*Source et date de l'entretien*],
+    table.header([*Version rapportée*], [*Source et date de l'entretien*]),
     [Deux personnes prises, dont un mineur~; 15 personnes dénoncées, dont 5 se présentent~; 13 convoqués], [E2 (16/06)],
     [Six coupeurs sanctionnés localement~; cinq acheteurs transmis à l'administration, dont un emprisonné], [E11 (08/07)],
     [Coupeurs connus, partis ou emprisonnés~; cas daté de mars 2026], [E10 (08/07)],
@@ -565,6 +576,7 @@ Le cas de coupe illicite du premier semestre 2026 à Ambila illustre ces écarts
   ),
   caption: [Versions du cas de coupe illicite du premier semestre 2026 à Ambila, selon sept entretiens conduits en juin et juillet 2026. Coupes de _Voapaka_ observées en mars et avril 2026 (S4) et en juin (S12).],
 ) <tab-socio-cas-2026>
+#titre-court(<tab-socio-cas-2026>)[Cas de coupe illicite du premier semestre 2026]
 // ATTENTION : sensibilité forte (cas judiciaire récent, lieu et période précis) : envisager l'annexe ou flouter le lieu.
 // ATTENTION : seuls E10 et E15 datent le cas de mars ; E12 et S12 parlent de juin : rattachement de toutes les
 //   versions à un même cas à vérifier.

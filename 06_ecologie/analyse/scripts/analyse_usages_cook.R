@@ -27,7 +27,9 @@
 #   - sorties/usages_cook_categories.csv : par categorie de premier niveau,
 #     nombre d'especes et usages normalises cites ;
 #   - sorties/usages_cook_resume.csv : nombre d'especes avec au moins un
-#     usage classe, avec la seule mention « aucun », sans mention (NA).
+#     usage classe, avec la seule mention « aucun », sans mention (NA) ;
+#   - sorties/liste_flore.csv et liste_flore_resume.csv : liste de la flore
+#     (une ligne par espece) et ses effectifs, pour l'annexe du rapport.
 #
 # Utilisation :
 #   source("06_ecologie/analyse/scripts/analyse_usages_cook.R")
@@ -123,11 +125,58 @@ usagesReferentiel <- especes |>
   mutate(usage = str_trim(usages)) |>
   select(-usages)
 
+# Usages notes par Romiguiere (2025) sur les tiges de Tsiazombazaha : noms
+# rattaches aux especes de l'etude par la correspondance validee par l'auteur,
+# libelles ramenes au referentiel par normalisation-usages-romiguiere.csv
+# (02/11/2026). Toutes les especes de Romiguiere sont reprises, avec un usage
+# NA quand aucun n'est note.
+correspondanceRom <- read_csv(
+  file.path(dossierReferentiels, "correspondance-romiguiere-2025.csv"),
+  col_types = cols(.default = col_character())
+) |>
+  transmute(nomRom = str_trim(`nom-vernaculaire-romiguiere`),
+            espece = str_trim(`nom-vernaculaire-reconcilie`)) |>
+  filter(!is.na(espece), espece != "")
+
+normalisationRom <- read_csv(
+  file.path(dossierReferentiels, "normalisation-usages-romiguiere.csv"),
+  col_types = cols(.default = col_character())
+) |>
+  transmute(usageBrut = str_to_lower(str_trim(`usage-brut-romiguiere`)),
+            usage = str_trim(`usage-normalise`))
+
+usagesRomBruts <- read_csv(
+  file.path("06_ecologie/analyse/donnees", "romiguiere-2025-tiges.csv"),
+  col_types = cols(.default = col_character())
+) |>
+  transmute(nomRom = str_trim(`nom-vernaculaire-brut`), usageBrut = usages) |>
+  separate_rows(usageBrut, sep = ",| et ") |>
+  mutate(usageBrut = str_to_lower(str_trim(usageBrut))) |>
+  filter(!is.na(usageBrut), usageBrut != "")
+
+usagesRomNonNormalises <- usagesRomBruts |>
+  filter(usageBrut != "na") |>
+  anti_join(normalisationRom |> filter(!is.na(usage)), by = "usageBrut") |>
+  distinct(usageBrut)
+if (nrow(usagesRomNonNormalises) > 0) {
+  message("⚠️ Usages de Romiguiere non classes (ignores) : ",
+          paste(usagesRomNonNormalises$usageBrut, collapse = ", "))
+}
+
+usagesRom <- bind_rows(
+  usagesRomBruts |>
+    inner_join(correspondanceRom, by = "nomRom") |>
+    inner_join(normalisationRom |> filter(!is.na(usage)), by = "usageBrut") |>
+    select(espece, usage),
+  correspondanceRom |> distinct(espece) |> mutate(usage = NA_character_)
+)
+
 # Une ligne par espece x usage normalise (toutes sources)
 # (especes indeterminees exclues, comme dans les autres analyses)
-usagesEspeces <- bind_rows(usagesReferentiel, usagesFlore) |>
+usagesEspeces <- bind_rows(usagesReferentiel, usagesFlore, usagesRom) |>
   mutate(usage = na_if(usage, "NA")) |>
-  filter(str_to_lower(str_trim(espece)) != "espèce indéterminée") |>
+  filter(str_to_lower(str_trim(espece)) != "espèce indéterminée",
+         espece != "N/A") |>
   distinct()
 
 usagesClasses <- usagesEspeces |>
@@ -177,10 +226,196 @@ resume <- tibble(
   nbEspecesSansMention = especesNA
 )
 
+### Liste de la flore (annexe du rapport) ###
+
+# Une ligne par espece reconciliee (especes indeterminees exclues) : nom
+# binomial, nombre de types decrits (maximum des valeurs saisies), categories
+# Cook de premier niveau et source de la mention (02/11/2026) :
+#   - « Relevé » : placettes (flore.csv) et grands arbres des transects ;
+#   - « Observation » : observations hors releve (autres-observations-flore.csv,
+#     phenologie.csv) ;
+#   - « Romiguière (2025) » : tiges et regeneration relevees a Tsiazombazaha
+#     (donnees/romiguiere-2025-*.csv), rattachees aux especes de l'etude par
+#     referentiels/correspondance-romiguiere-2025.csv (decisions de l'auteur,
+#     02/11/2026) ;
+#   - « Transfert de gestion (2004) » : a ajouter quand la liste sera saisie.
+# Les noms bruts sont rapproches de la reconciliation sans tenir compte de la
+# casse (« Ambilazo / Fagnotavahatra » dans autres-observations-flore.csv).
+libellesCookFr <- c(
+  alimentaire = "Alimentation", materiaux = "Matériaux",
+  combustible = "Combustibles", poison = "Poisons des non-vertébrés",
+  sociale_culturelle = "Usages sociaux", medicinale = "Médicaments",
+  environnementale = "Usages environnementaux"
+)
+
+lireNoms <- function(fichier, source) {
+  read_csv(file.path("06_ecologie/analyse/donnees", fichier),
+           col_types = cols(.default = col_character())) |>
+    transmute(nomBrut = str_trim(`nom-vernaculaire-brut`), source = source)
+}
+sourcesEspeces <- bind_rows(
+  lireNoms("flore.csv", "Placettes"),
+  lireNoms("grands-arbres.csv", "Transects (grands arbres)"),
+  lireNoms("autres-observations-flore.csv", "Hors placettes"),
+  lireNoms("phenologie.csv", "Phénologie")
+) |>
+  mutate(cle = str_to_lower(nomBrut)) |>
+  inner_join(reconciliation |>
+               transmute(cle = str_to_lower(nomBrut), espece) |>
+               distinct(cle, .keep_all = TRUE),
+             by = "cle") |>
+  distinct(espece, source)
+
+# Nom scientifique d'apres Romiguiere (2025), pour les especes sans nom dans
+# l'etude : identifications de ses deux sites (Tsiazombazaha et Vorovoka) pour
+# les noms rattaches a l'espece. Regle (auteur, 02/11/2026) : une seule espece
+# -> l'espece ; un seul genre -> le genre ; plusieurs genres d'une meme famille
+# -> la famille ; sinon, aucun nom. Coquilles de Romiguiere corrigees avant
+# comparaison.
+corrigerGenre <- c(Cinamonum = "Cinnamomum", Dracanea = "Dracaena",
+                   Phyllarthon = "Phyllarthron", Sizygium = "Syzygium",
+                   Zanthoxyllum = "Zanthoxylum", Tricalyia = "Tricalysia",
+                   Berteria = "Bertiera")
+corrigerFamille <- c(Cunnoniaceae = "Cunoniaceae")
+
+idsRom <- read_csv(
+  file.path("06_ecologie/analyse/donnees", "romiguiere-2025-noms-latins.csv"),
+  col_types = cols(.default = col_character())
+) |>
+  transmute(cle = str_to_lower(str_trim(`nom-vernaculaire-brut`)),
+            nomLatin = na_if(str_squish(`nom-latin`), ""),
+            famille = na_if(str_trim(famille), "")) |>
+  mutate(genre = word(nomLatin, 1),
+         genre = coalesce(unname(corrigerGenre[genre]), genre),
+         epithete = str_to_lower(word(nomLatin, 2)),
+         epithete = if_else(epithete %in% c("sp", "sp.", "spp", "spp."),
+                            NA_character_, epithete),
+         famille = coalesce(unname(corrigerFamille[famille]), famille))
+
+# Famille d'un genre : la plus frequente chez Romiguiere (une ligne isolee
+# donne par exemple Dracaena reflexa dans les Strelitziaceae) ; elle remplace
+# la famille de la ligne quand le genre est connu.
+familleGenre <- idsRom |>
+  filter(!is.na(genre), !is.na(famille)) |>
+  count(genre, famille) |>
+  group_by(genre) |>
+  slice_max(n, n = 1, with_ties = FALSE) |>
+  ungroup() |>
+  select(genre, familleDuGenre = famille)
+idsRom <- idsRom |>
+  left_join(familleGenre, by = "genre") |>
+  mutate(famille = coalesce(familleDuGenre, famille))
+
+taxonConsensus <- function(genre, epithete, famille) {
+  g <- unique(na.omit(genre))
+  f <- unique(na.omit(famille))
+  if (length(f) > 1 && length(g) <= 1) return(NA_character_)
+  if (length(g) == 1) {
+    e <- unique(epithete[!is.na(genre)])
+    if (length(e) == 1 && !is.na(e)) return(paste(g, e))
+    return(g)
+  }
+  if (length(f) == 1) return(f)
+  NA_character_
+}
+
+nomsLatinsRom <- correspondanceRom |>
+  mutate(cle = str_to_lower(nomRom)) |>
+  inner_join(idsRom, by = "cle", relationship = "many-to-many") |>
+  group_by(espece) |>
+  summarise(nomLatinRom = taxonConsensus(genre, epithete, famille),
+            .groups = "drop")
+nomsRomSansDecision <- setdiff(
+  c(read_csv(file.path("06_ecologie/analyse/donnees", "romiguiere-2025-tiges.csv"),
+             col_types = cols(.default = col_character()))$`nom-vernaculaire-brut`,
+    read_csv(file.path("06_ecologie/analyse/donnees", "romiguiere-2025-regeneration.csv"),
+             col_types = cols(.default = col_character()))$`nom-vernaculaire-brut`) |>
+    str_trim() |> unique(),
+  correspondanceRom$nomRom)
+if (length(nomsRomSansDecision) > 0) {
+  message("⚠️ Noms de Romiguiere sans decision de correspondance : ",
+          paste(nomsRomSansDecision, collapse = ", "))
+}
+sourcesEspeces <- bind_rows(
+  sourcesEspeces,
+  correspondanceRom |> distinct(espece) |> mutate(source = "Romiguière (2025)")
+)
+
+# Base : especes du referentiel, des releves et des usages reunies (une espece
+# relevee ou citee peut manquer du referentiel du 12/10/2026)
+nbTypesMax <- function(x) {
+  v <- suppressWarnings(as.numeric(str_split_1(x, "\\|")))
+  if (all(is.na(v))) NA_real_ else max(v, na.rm = TRUE)
+}
+listeFlore <- tibble(espece = unique(c(especes$espece, sourcesEspeces$espece,
+                                       usagesEspeces$espece))) |>
+  filter(!is.na(espece), espece != "N/A",
+         str_to_lower(str_trim(espece)) != "espèce indéterminée") |>
+  left_join(especes |> transmute(espece, nomBinomial = `nom-binomial`,
+                                 typesBruts = `nb-types`), by = "espece") |>
+  mutate(nbTypes = vapply(coalesce(typesBruts, "NA"), nbTypesMax, numeric(1)),
+         nomBinomial = na_if(na_if(nomBinomial, "NA"), "?")) |>
+  select(-typesBruts) |>
+  left_join(nomsLatinsRom, by = "espece") |>
+  left_join(
+    usagesClasses |>
+      distinct(espece, cookN1, cookN1Libelle) |>
+      arrange(cookN1) |>
+      group_by(espece) |>
+      summarise(usagesCook = paste(unique(libellesCookFr[cookN1Libelle]),
+                                   collapse = ", "), .groups = "drop"),
+    by = "espece"
+  ) |>
+  left_join(
+    sourcesEspeces |>
+      group_by(espece) |>
+      summarise(
+        enPlacettes = any(source == "Placettes"),
+        enEtude = any(source != "Romiguière (2025)"),
+        sources = paste(c("Relevé", "Observation", "Romiguière (2025)")[c(
+          any(source %in% c("Placettes", "Transects (grands arbres)")),
+          any(source %in% c("Hors placettes", "Phénologie")),
+          any(source == "Romiguière (2025)"))],
+          collapse = ", "),
+        .groups = "drop"),
+    by = "espece"
+  ) |>
+  mutate(enPlacettes = coalesce(enPlacettes, FALSE),
+         enEtude = coalesce(enEtude, FALSE),
+         # Especes sans nom scientifique dans l'etude : nom d'apres Romiguiere
+         nomRomiguiere = (is.na(nomBinomial) | nomBinomial == "++") &
+           !is.na(nomLatinRom),
+         nomBinomial = if_else(nomRomiguiere, nomLatinRom, nomBinomial)) |>
+  select(-nomLatinRom) |>
+  arrange(espece)
+
+nomsSansSource <- listeFlore$espece[is.na(listeFlore$sources)]
+if (length(nomsSansSource) > 0) {
+  message("⚠️ Especes du referentiel sans mention dans les releves ou observations : ",
+          paste(nomsSansSource, collapse = ", "))
+}
+
 ### Exports ###
 
 write_csv(categories, file.path(dossierSorties, "usages_cook_categories.csv"))
 write_csv(resume, file.path(dossierSorties, "usages_cook_resume.csv"))
+write_csv(listeFlore |> select(-enPlacettes, -enEtude),
+          file.path(dossierSorties, "liste_flore.csv"), na = "")
+
+# Effectifs de la liste pour le texte
+resumeFlore <- tibble(
+  nbEspeces = nrow(listeFlore),
+  nbPlacettes = sum(listeFlore$enPlacettes),
+  nbHorsPlacettesSeulement = sum(!listeFlore$enPlacettes & listeFlore$enEtude),
+  nbRomiguiere = sum(str_detect(coalesce(listeFlore$sources, ""), "Romiguière")),
+  nbRomiguiereSeulement = sum(!listeFlore$enEtude &
+                                str_detect(coalesce(listeFlore$sources, ""), "Romiguière")),
+  nbNomScientifique = sum(!is.na(listeFlore$nomBinomial) &
+                            listeFlore$nomBinomial != "++"),
+  nbNomScientifiqueRomiguiere = sum(listeFlore$nomRomiguiere),
+  nbPlusieursTypes = sum(listeFlore$nbTypes > 1, na.rm = TRUE)
+)
+write_csv(resumeFlore, file.path(dossierSorties, "liste_flore_resume.csv"))
 
 message("✅ Usages (Cook, 1995) : ", especesAvecUsage,
         " especes avec au moins un usage classe sur ",
