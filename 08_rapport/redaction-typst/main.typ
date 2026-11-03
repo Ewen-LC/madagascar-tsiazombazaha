@@ -14,10 +14,6 @@
 #set heading(numbering: "1.1")
 #show heading: set text(size: 11pt)
 #show heading: set block(above: 1.6em, below: 1.1em)
-#show heading.where(level: 1): it => { 
-  pagebreak(weak: true) 
-  it
-} // Chaque titre de niveau 1 commence sur une nouvelle page.
 
 // Pagination
 #set page(
@@ -57,14 +53,14 @@
 #show figure.caption: set par(justify: true, leading: 0.5em)
 #show figure.caption: set text(size: 10pt)
 #show table: set text(size: 10pt)
-// Fond gris léger sur une ligne sur deux (lignes de données impaires) pour la lisibilité
-#set table(fill: (x, y) => if y > 0 and calc.even(y) { luma(85.0%) })
 // Traits horizontaux seulement : au-dessus et sous l'en-tête, en pied de tableau (guide GEEFT, critère 159)
 #set table(stroke: (x, y) => if y == 0 { (top: 0.8pt, bottom: 0.5pt) })
 #show table: it => block(stroke: (bottom: 0.8pt), it)
 #show table.cell: set par(justify: false, leading: 0.5em)
 #show table.cell: set align(horizon)
-#show table.cell.where(y: 0): set text(weight: "bold")
+#show table.cell.where(y: 0): set text(weight: "bold", hyphenate: false) // en-têtes sans césure
+// Marges intérieures identiques dans tous les tableaux
+#set table(inset: (x: 4pt, y: 3pt))
 
 // Titres courts des listes de figures et tableaux (voir TitresCourts.typ)
 #import "TitresCourts.typ": titres-courts
@@ -82,9 +78,11 @@
 #set heading(numbering: none, outlined: false)
 #include "Couverture.typ"
 #include "PageDeTitre.typ"
-#include "Dedicace.typ"
+// #include "Dedicace.typ"
 #include "Remerciements.typ"
 #include "Resume.typ"
+
+#pagebreak(weak: true)
 #outline(title: [Table des matières], depth: 4)
 
 // Corps du texte
@@ -99,7 +97,9 @@
 #include "ApresPropos.typ"
 
 // Bibliographie (générée automatiquement depuis hayagriva.yml)
-#bibliography("hayagriva.yml", title: "Références bibliographiques", style: "apa", full: true)
+#pagebreak(weak: true)
+#heading(level: 1)[Références bibliographiques]
+#bibliography("hayagriva.yml", title: none, style: "apa", full: true)
 
 #include "Listes.typ"
 #include "Annexes.typ"

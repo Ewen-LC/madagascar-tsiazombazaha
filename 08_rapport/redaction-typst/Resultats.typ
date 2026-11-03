@@ -6,14 +6,15 @@
 // citée porte son n et un // TODO date-jeu-de-données pour revalidation avant dépôt.
 // Figures : importées depuis leur chemin canonique, jamais copiées.
 
+#pagebreak(weak: true)
 = Résultats
 
-== Revue de littérature <res-revue>
+== Revue de la littérature <res-revue>
 
 // Rédigé le 01/11/2026 à partir de documents-brouillons/PRISMA_resultats.ods (onglets « resultats-generaux » et « resultats-conserves », exportés en CSV). TODO : valeurs à valider (auteur).
-// Les effectifs sont donnés par base, sans total calculé à la main ; le total de 7 documents retenus, dont 6 récupérés, est celui des notes de l'auteur (M&M, commentaire « Pour la section Résultats »).
-La requête « Tsiazombazaha » a renvoyé 18 enregistrements dans Google Scholar, 15 dans Internet Archive Scholar et aucun dans Web of Science (@fig-prisma). Après retrait des doublons (4 et 6), 14 et 9 documents ont été examinés. Parmi eux, 11 et 5 portaient sur une forêt homonyme, 1 et 3 sur une forêt non localisable. Deux documents de Google Scholar et un d'Internet Archive Scholar portent sur la forêt d'étude ; ce dernier n'a pas pu être récupéré. Le moteur de recherche Google a fourni un document supplémentaire et les documents internes d'Inter Aide trois. Au total, sept documents ont été retenus, dont six ont été récupérés.
-// ATTENTION : le M&M indique un tri « sur le texte intégral », mais le document d'Internet Archive Scholar retenu est introuvable : préciser sur quelle base il a été jugé pertinent (titre, résumé ?), ou nuancer la phrase du M&M.
+// Les effectifs sont donnés par base, sans total calculé à la main ; le total de 8 documents retenus, dont 7 récupérés, est celui des notes de l'auteur (M&M, commentaire « Pour la section Résultats »), RefSeek compris (auteur, 03/11/2026 : 8 résultats, 6 doublons, 1 autre forêt, 1 document pertinent).
+La requête « Tsiazombazaha » a renvoyé 18 enregistrements dans Google Scholar, 15 dans Internet Archive Scholar, 8 dans RefSeek et aucun dans Web of Science (@fig-prisma). Après retrait des doublons (4, 6 et 6), 14, 9 et 2 documents ont été examinés. Parmi eux, 11, 5 et 1 portaient sur une forêt homonyme ; 1 document de Google Scholar et 3 d'Internet Archive Scholar portaient sur une forêt non localisable. Deux documents de Google Scholar, un d'Internet Archive Scholar et un de RefSeek portent sur la forêt d'étude ; celui d'Internet Archive Scholar n'a pas pu être récupéré. Le moteur de recherche Google a fourni un document supplémentaire et les documents internes d'Inter Aide trois. Au total, huit documents ont été retenus, dont sept ont été récupérés.
+// RefSeek : 2 documents examinés = 8 résultats − 6 doublons (effectifs de l'auteur, 03/11/2026).
 
 // Diagramme PRISMA 2020 (Page et al., 2021), tracé en Typst ; effectifs par base, sans total.
 #let boitePrisma(corps, largeur: 100%) = rect(width: largeur, inset: 6pt, stroke: 0.6pt + black, align(left, corps))
@@ -28,21 +29,21 @@ La requête « Tsiazombazaha » a renvoyé 18 enregistrements dans Google Schola
       align: horizon,
       // Identification
       phasePrisma[Identi\-fication],
-      boitePrisma[Enregistrements identifiés dans les bases bibliographiques :\ Google Scholar (n = 18)\ Web of Science (n = 0)\ Internet Archive Scholar (n = 15)],
+      boitePrisma[Enregistrements identifiés dans les bases bibliographiques et RefSeek :\ Google Scholar (n = 18)\ Web of Science (n = 0)\ Internet Archive Scholar (n = 15)\ RefSeek (n = 8)],
       align(center)[→],
-      boitePrisma[Doublons retirés :\ Google Scholar (n = 4)\ Internet Archive Scholar (n = 6)],
+      boitePrisma[Doublons retirés :\ Google Scholar (n = 4)\ Internet Archive Scholar (n = 6)\ RefSeek (n = 6)],
       [],
       boitePrisma[Documents identifiés par d'autres méthodes :\ moteur de recherche Google (n = 1)\ documents internes d'Inter Aide (n = 3)],
       // Sélection
       [], align(center)[↓], [], [], [], align(center)[↓],
       phasePrisma[Sélection],
-      boitePrisma[Documents examinés :\ Google Scholar (n = 14)\ Internet Archive Scholar (n = 9)],
+      boitePrisma[Documents examinés :\ Google Scholar (n = 14)\ Internet Archive Scholar (n = 9)\ RefSeek (n = 2)],
       align(center)[→],
-      boitePrisma[Documents exclus :\ forêt homonyme (n = 11 ; 5)\ forêt non localisable (n = 1 ; 3)],
+      boitePrisma[Documents exclus :\ forêt homonyme (n = 11 ; 5 ; 1)\ forêt non localisable (n = 1 ; 3 ; 0)],
       [], [],
       [], align(center)[↓], [], [], [], align(center)[↓],
       phasePrisma[Éligibilité],
-      boitePrisma[Documents portant sur la forêt d'étude :\ Google Scholar (n = 2)\ Internet Archive Scholar (n = 1)],
+      boitePrisma[Documents portant sur la forêt d'étude :\ Google Scholar (n = 2)\ Internet Archive Scholar (n = 1)\ RefSeek (n = 1)],
       align(center)[→],
       boitePrisma[Document non récupéré :\ Internet Archive Scholar (n = 1)],
       [],
@@ -50,14 +51,20 @@ La requête « Tsiazombazaha » a renvoyé 18 enregistrements dans Google Schola
       // Inclusion
       [], align(center)[↓], [], [], [], align(center)[↓],
       phasePrisma[Inclusion],
-      grid.cell(colspan: 5, boitePrisma[Documents retenus : n = 7, dont 6 récupérés (@tab-revue-documents)]),
+      grid.cell(colspan: 5, boitePrisma[Documents retenus : n = 8, dont 7 récupérés (@tab-revue-documents)]),
     )
   },
-  caption: [Diagramme de sélection des documents portant sur la forêt de Tsiazombazaha, selon la déclaration PRISMA 2020 (Page et al., 2021). Requête : « Tsiazombazaha », avril 2026. Pour les exclusions, le premier effectif est celui de Google Scholar, le second celui d'Internet Archive Scholar.],
+  caption: [Diagramme de sélection des documents portant sur la forêt de Tsiazombazaha, selon la déclaration PRISMA 2020 (Page et al., 2021). Requête : « Tsiazombazaha », avril 2026. Pour les exclusions, les effectifs sont ceux de Google Scholar, d'Internet Archive Scholar et de RefSeek, dans cet ordre.],
 ) <fig-prisma>
 #titre-court(<fig-prisma>)[Diagramme PRISMA de la revue de littérature]
 
-Les sept documents retenus comprennent trois mémoires, deux documents officiels, un article scientifique et un article de blog (@tab-revue-documents). Deux documents seulement rapportent des relevés naturalistes faits dans la forêt. Rajaonson et al. (2010) y ont recherché les lémuriens au cours d'une journée de prospection, le 25 janvier 2009, et n'y ont trouvé que deux espèces, _Avahi laniger_ et _Eulemur rufus_. Romiguière (2025), au cours d'une prospection exploratoire de deux semaines, y a relevé la flore ligneuse sur huit placettes de 40~m² ; son étude porte principalement sur la forêt de Vorovoka (trois mois de terrain). Les documents de transfert de gestion de 2004 et de 2025 portent sur la gestion de la forêt par le VOI Maharitra ; celui de 2004 contient des listes d'espèces végétales et animales. Les autres documents traitent du foncier dans les communes riveraines, du potentiel écotouristique de la forêt et d'un litige lié à son exploitation.
+Les huit documents retenus comprennent trois mémoires, deux documents officiels, un article scientifique, un rapport de projet et un article de blog (@tab-revue-documents). Deux documents seulement rapportent des relevés naturalistes faits dans la forêt. Rajaonson et al. (2010) y ont recherché les lémuriens au cours d'une journée de prospection, le 25 janvier 2009, et n'y ont trouvé que deux espèces, _Avahi laniger_ et _Eulemur rufus_. Romiguière (2025), au cours d'une prospection exploratoire de deux semaines, y a relevé la flore ligneuse sur huit placettes de 40~m² ; son étude porte principalement sur la forêt de Vorovoka (trois mois de terrain). Les documents de transfert de gestion de 2004 et de 2025 portent sur la gestion de la forêt par le VOI Maharitra ; celui de 2004 contient des listes d'espèces végétales et animales. Les autres documents traitent du foncier dans les communes riveraines (Müller et Evers, s. d.), du potentiel écotouristique de la forêt ([auteur à préciser], s. d.) et d'un litige lié à son exploitation (Champion et al., s. d.). Le cadre de gestion environnementale et sociale du projet PIC 3 ne cite la forêt qu'une fois, parmi les sites que des participants à une consultation publique à Manakara proposent d'intégrer à de nouveaux circuits touristiques, en relevant que leur accès reste difficile (Banque mondiale, 2021).
+// Banque mondiale (2021) : tableau 96, p. 235 du PDF (02_Bibliographie/articles/revue-tzba-mentiondevlpttourisme.pdf, lu le 03/11/2026) ; seule mention de Tsiazombazaha dans les 436 pages. Cette étude foncière renseigne aussi l'organisation sociale des communes riveraines. Chez les Antemoro, le _tranobe_ désigne à la fois le lignage, la grande maison sacrée où il accomplit les rituels ancestraux et son grand tombeau~; au milieu des années 2000, ces lignages étaient au nombre de treize, chacun représenté par un chef, l'_ampazaka_ (Müller et Evers, s. d.).
+// ATTENTION : graphie « ampazaka » retenue partout (auteur, 02/11/2026) ; vérifier la graphie employée par Müller et Evers (s. d.) (« ampanjaka » auparavant).
+// Déplacé depuis Problematique.typ (COR, 02/11/2026).
+// REF? Müller, D. F. & Evers, S. J. T. M. (s. d.). Case studies of land access practices in Fianarantsoa province, Madagascar. VU University Amsterdam. — lu (note 70, p. 3) ; terrain de 2006 ; support de publication et année à identifier (le chapitre IRD d'OpenEdition proposé le 01/11/2026 est un autre texte : Moreau, 2005).
+// Müller et Evers (s. d.) = mémoire sur le foncier retenu par la revue (Google Scholar ; auteur, 03/11/2026) : ligne du tableau et entrée muller_evers_sd de hayagriva.yml mises à jour.
+// TODO : vérifier auprès des enquêtés ou d'Inter Aide que le nombre de lignages et leur organisation sont toujours d'actualité.
 // Rajaonson et al. (2010), p. 37 (lu le 01/11/2026) : forêt visitée le 25/01/2009 (une journée), aucun bambou ; nomenclature de la source (« Eulemur rufus »).
 // Romiguière (2025) : huit placettes de 40 m² (M&M, « Données complémentaires ») ; deux semaines exploratoires à Tsiazombazaha, trois mois à Vorovoka (auteur, 01/11/2026).
 // TODO : nombre d'espèces citées par le transfert de gestion de 2004 et par Romiguière (2025), une fois les listes consolidées.
@@ -70,11 +77,11 @@ Les sept documents retenus comprennent trois mémoires, deux documents officiels
     align: (left, left, left, left, center),
     inset: 6pt,
     table.header([*Document*], [*Type*], [*Source*], [*Contenu relatif à la forêt*], [*Récupéré*]),
-    [// TODO : auteur et année
-      Mémoire (auteur à préciser)], [Mémoire], [Google Scholar], [Foncier dans les communes riveraines de la forêt], [Oui],
+    [Müller et Evers (s. d.)], [Mémoire], [Google Scholar], [Foncier dans les communes riveraines de la forêt], [Oui],
     [Rajaonson et al. (2010)], [Article scientifique], [Google Scholar], [Lémuriens : une journée de prospection dans la forêt], [Oui],
     [// TODO : auteur et année
       Mémoire (auteur à préciser)], [Mémoire], [Internet Archive Scholar], [Potentiel écotouristique de la forêt, pour l'association Fiantso], [Non],
+    [Banque mondiale (2021)], [Rapport de projet], [RefSeek], [Mention de la forêt parmi les sites touristiques proposés lors d'une consultation publique à Manakara], [Oui],
     [« Contribution à l'ethnographie d'un village du sud-est malgache : sur le "choc des cultures" »], [Article de blog], [Google], [Mention d'un cas litigieux d'exploitation de la forêt], [Oui],
     [Romiguière (2025)], [Mémoire], [Documents internes], [Étude socio-écologique des fragments de Vorovoka et de Tsiazombazaha, pour Inter Aide], [Oui],
     [VOI Maharitra (2004)], [Document officiel], [Documents internes], [Transfert de gestion de la forêt au VOI Maharitra], [Oui],
@@ -109,10 +116,38 @@ L'inventaire porte sur 1~999 tiges, tiges mesurées et gaulis, réparties dans 2
 // Règle (guide, critère 49) : résultats seulement ; comparaisons avec la littérature et interprétations en Discussion.
 // Figures et tableaux : activés le 01/11/2026 (valeurs revérifiées contre les CSV de sorties/) ; renvois Typst vers les figures, tableaux et entrées de Annexes.typ. Les versions R des deux histogrammes restent en réserve, commentées.
 
-=== Listes d'espèces et usages
+=== Description de la forêt
+
+
+*Caractéristiques des placettes.* La pente varie de 0 à 53~%, avec une médiane de 21,5~%. Sur les 112 quadrants, le recouvrement de la canopée est le plus souvent de 25 à 50~% (49 quadrants), puis de 50 à 75~% (33), de 0 à 25~% (25) et de 75 à 100~% (5). Les strates herbacée et arbustive sont présentes dans les 28 placettes, la canopée inférieure dans 17 et la canopée supérieure dans 7 (@tab-caracteristiques-placettes).
+
+L'humus est un oligomull dans 8 placettes, un dysmull dans 5, un mésomull dans 4, un mull dans 2 et un hydromull dans 1. Dans les autres, deux types ont été notés ensemble : Dysmull / Oligomull (2 placettes), Dysmull / Hemimoder, Mull / Hemimoder et Oligomull / Mesomull (1 placette chacune) ; l'humus n'a pas été déterminé dans 3 placettes. Le sol était sec dans 25 placettes et humide dans 3 ; aucune placette n'avait un sol saturé.
+
+Les lichens sont portés par plus de 10 arbres dans 24 placettes et les champignons par 0 à 2 arbres dans 24 placettes. Les lianes sont portées par plus de 10 arbres dans 21 placettes. Les épiphytes et les mousses le sont par 0 à 2 arbres dans 21 et 18 placettes respectivement. Le détail par placette figure en @annexe-caracteristiques-placettes.
+// Source : analyse-tables/placettes_caracteristiques_resume.csv (08_rapport/donnees/description_placettes.R, 03/11/2026). Épiphytes, mousses, lichens, lianes et champignons non notés sur P21 à P24 (NA dans les tableaux, sans mention dans le texte, auteur, 03/11/2026). Situation topographique (6 placettes notées) retirée à la demande de l'auteur.
+// P02 à P05 (découpage de l'ancienne P2) : comptées comme quatre placettes, sans mention (auteur, 03/11/2026).
+// ATTENTION : « Sec » (données) = « sèche » (classe du protocole, M&M).
+
+#let caracPlac = csv("analyse-tables/placettes_caracteristiques_resume.csv").slice(1)
+#let caracVariables = caracPlac.map(r => r.at(0)).dedup()
+#figure(
+  table(
+    columns: (1fr, 2fr),
+    align: (left, left),
+    inset: 6pt,
+    table.header([*Caractéristique*], [*Classes (nombre de placettes)*]),
+    ..caracVariables.map(v => (
+      v,
+      caracPlac.filter(r => r.at(0) == v).map(r => r.at(2) + " (" + r.at(3).replace(".", ",") + ")").join(" ; "),
+    )).flatten(),
+  ),
+  caption: [Caractéristiques des 28 placettes : nombre de placettes par classe ; pour le recouvrement de la canopée, nombre de quadrants (4 par placette, 112 au total) ; pour la pente, minimum, médiane et maximum (%). Épiphytes, mousses, lichens, lianes et champignons : nombre d'arbres porteurs. Sec : sol sec. NA : non noté.],
+) <tab-caracteristiques-placettes>
+#titre-court(<tab-caracteristiques-placettes>)[Caractéristiques des placettes]
+
 
 // Liste de la flore régénérée le 02/11/2026 (liste_flore.csv) ; ancien TODO : « TODO : valeurs à produire. La liste définitive de la flore n'a pas été régénérée depuis la réconciliation et les corrections de flore.csv (anciens chiffres du 08/10/2026 conservés en commentaire en fin de sous-section). Seule la richesse des placettes (242 espèces) vient d'une sortie à jour (estimateurs_richesse_gamma.csv). »
-Les 28 placettes comptent 242 espèces. La liste de la flore réunit au total 283 espèces : 242 relevées dans les placettes, 18 notées seulement hors des placettes et 23 citées seulement par Romiguière (2025), qui en cite 91 au total (@annexe-flore). Parmi elles, 92 sont rattachées à un nom scientifique, dont 33 d'après les identifications de Romiguière (2025). Les polisin'ala ont décrit plusieurs types pour 95 espèces.
+*Listes d'espèces et usages.* Les 28 placettes comptent 242 espèces. La liste de la flore réunit au total 303 espèces : 242 relevées dans les placettes, 18 notées seulement hors des placettes, 23 citées seulement par Romiguière (2025), qui en cite 91 au total, et 20 seulement citées par l'inventaire du transfert de gestion (2004) (@annexe-flore). Parmi elles, 120 sont rattachées à un nom scientifique, dont 37 d'après l'inventaire du transfert de gestion et 31 d'après les identifications de Romiguière (2025). Les _polisinala_ ont décrit plusieurs types pour 53 espèces.
 // Source : liste_flore_resume.csv (analyse_usages_cook.R, 02/11/2026). Romiguière (2025) : correspondance des noms validée par l'auteur (referentiels/correspondance-romiguiere-2025.csv). TODO (auteur) : espèces du transfert de gestion de 2004 à ajouter ; niveau de rattachement (espèce, genre, famille) à faire exporter si utile.
 // Source : diversite_indeterminees.csv (export ajouté à analyse_diversite_alpha.R le 01/11/2026) ; 1 948 + 51 = 1 999 tiges (structure_resume.csv). Mise à jour du 01/11/2026 : « Valotra / Voamalimpangady » (P06, 2 gaulis) reconnu comme espèce indéterminée (auteur), d'où 51 tiges indéterminées et γ = 242.
 
@@ -126,16 +161,16 @@ Dans la liste de la flore, 64 espèces comptent au moins une tige de DBH $>=$ 5~
     align: (left, right, right, right, right),
     inset: 8pt,
     table.header([*Étape (ordre d'ajout)*], [*Tiges ou observations*], [*Espèces présentes*], [*Espèces nouvelles*], [*Cumul*]),
-    [Tiges des placettes, DBH $>=$ 5~cm], [154], [64], [64], [64],
-    [Tiges des placettes, 2,5 $<=$ DBH < 5~cm], [325], [100], [60], [124],
-    [Gaulis des placettes (DBH < 2,5~cm)], [1~469], [214], [118], [242],
+    [Tiges des placettes, DBH $>=$ 5 cm], [154], [64], [64], [64],
+    [Tiges des placettes, 2,5 $<=$ DBH < 5 cm], [325], [100], [60], [124],
+    [Gaulis des placettes (DBH < 2,5 cm)], [1 469], [214], [118], [242],
     [Hors placettes (grands arbres, observations, phénologie)], [137], [59], [18], [260],
   ),
   caption: [Nombre d'espèces ajoutées à la liste à chaque étape, dans l'ordre indiqué : seules sont comptées comme nouvelles les espèces absentes des étapes précédentes. DBH = CBH / π. Gaulis : effectif compté. Espèces : identités réconciliées, espèces indéterminées exclues.],
 ) <tab-seuil>
 #titre-court(<tab-seuil>)[Espèces nouvelles par classe de diamètre]
 
-Les usages cités par les polisin'ala, au cours de l'étude et lors des relevés de Romiguière (2025), concernent 111 des 283 espèces de la liste ; 11 espèces n'ont que la mention « aucun » et 161 n'ont aucune mention d'usage. La catégorie d'usage de Cook (1995) la plus représentée est celle des matériaux, avec 90 espèces, suivie des médicaments (12 espèces) et des usages sociaux (9 espèces) (@tab-usages).
+Les usages cités par les _polisinala_, au cours de l'étude et lors des relevés de Romiguière (2025), concernent 117 des 303 espèces de la liste ; 11 espèces n'ont que la mention « aucun » et 175 n'ont aucune mention d'usage. La catégorie d'usage de Cook (1995) la plus représentée est celle des matériaux, avec 96 espèces, suivie des médicaments (12 espèces) et des usages sociaux (9 espèces) (@tab-usages).
 // Source : usages_cook_categories.csv et usages_cook_resume.csv (analyse_usages_cook.R, 01/11/2026) : usages de flore.csv (via reconciliation-taxonomique.csv et normalisation-usages.csv) réunis avec ceux de liste-especes-usages-types.csv, classés par correspondance-usages-cook.csv.
 // Correction du 01/11/2026 : le référentiel du 12/10 seul donnait 52 espèces (36 lignes de flore.csv, surtout P21 à P28, absentes). L'ancien brouillon (08/10) donnait 70.
 // Mise à jour du 01/11/2026 : « Hazodandy » ajouté à la réconciliation (espèce propre) et « Valotra / Voamalimpangady » rattaché à « Espèce indéterminée » (auteur) ; usages des grands arbres reportés dans une colonne « usages » de grands-arbres.csv et de l'ODS, et lus par le script ; espèces indéterminées exclues des usages.
@@ -147,21 +182,21 @@ Les usages cités par les polisin'ala, au cours de l'étude et lors des relevés
     align: (left, right, left),
     inset: 8pt,
     table.header([*Catégorie d'usage (Cook, 1995)*], [*Nombre d'espèces*], [*Usages cités*]),
-    [Matériaux], [90], [Balai, batan, bois de construction, canaux d'irrigation, charpente, clôture, colle, construction de maison, corde, fixation de toiture, guitare, manche de bêche, menuiserie, outils, panier, pilon, pirogue, planche, plancher, poteau, poutre, tressage],
+    [Matériaux], [96], [Balai, batan, bois de construction, canaux d'irrigation, charpente, clôture, colle, construction de maison, corde, fixation de toiture, guitare, manche de bêche, menuiserie, outils, panier, pilon, pirogue, planche, plancher, poteau, poutre, sculpture, tressage],
     [Médicaments], [12], [Aphrodisiaque, douleurs dentaires, fatigue, gonflements, vertiges, usage médicinal non précisé],
-    [Usages sociaux], [9], [Anti-foudre, magie],
-    [Alimentation], [3], [Écorce sucrée, fruit comestible, thé],
+    [Usages sociaux], [9], [Antifoudre, magie],
+    [Alimentation], [4], [Écorce sucrée, fruit comestible, source d'eau, thé],
     [Combustibles], [2], [Bois de chauffage],
     [Usages environnementaux], [2], [Haie],
     [Poisons des non-vertébrés], [1], [Insecticide],
   ),
-  caption: [Nombre d'espèces citées pour chaque catégorie d'usage de premier niveau de la classification de Cook (1995) : 111 espèces à usage classé sur les 283 de la liste, d'après les usages recueillis au cours de l'étude et ceux notés par Romiguière (2025) sur ses tiges de Tsiazombazaha ; une espèce peut relever de plusieurs catégories. Les usages cités relèvent du second niveau ; leurs codes figurent en @annexe-codes-cook.],
+  caption: [Nombre d'espèces citées pour chaque catégorie d'usage de premier niveau de la classification de Cook (1995) : 117 espèces à usage classé sur les 303 de la liste, d'après les usages recueillis au cours de l'étude et ceux notés par Romiguière (2025) sur ses tiges de Tsiazombazaha ; une espèce peut relever de plusieurs catégories. Les usages cités relèvent du second niveau ; leurs codes figurent en @annexe-codes-cook.],
 ) <tab-usages>
 #titre-court(<tab-usages>)[Usages par catégorie de premier niveau]
 
-Les espèces animales relevées sont au nombre de [X] : [X] observées directement ou indirectement au cours des cheminements, et [X] citées seulement par les sources complémentaires (@annexe-faune). Les traces d'activités humaines rencontrées sont données à titre indicatif : [X].
+Les espèces animales recensées sont au nombre de 64 : 13 observées directement ou indirectement au cours des cheminements, 49 citées seulement par le transfert de gestion (2004) et 2 seulement par Rajaonson et al. (2010), qui y ont relevé _Avahi laniger_ et _Eulemur rufus_. Le téléchargement GBIF du 3 novembre 2026, cité en @gbif_2026, ajoute 28 taxons de non-vertébrés relevés à Tsiazombazaha (mollusques, araignées, diplopodes ; 204 occurrences au total). La liste compte ainsi 92 taxons animaux (@annexe-faune). Les traces d'activités humaines rencontrées sont données à titre indicatif : [X].
 // TODO (auteur) : aucune annexe ne présente les traces d'activités humaines (l'ancienne annexe « observations » ne contenait que la phénologie, retirée le 02/11/2026) : les décrire ici en une phrase ou retirer la mention, ainsi qu'en M&M.
-// TODO : valeurs à tirer de la liste de faune une fois nettoyée (« T1-T2-faune », notes de sortie, transfert de gestion 2004, GBIF, Rajaonson et al., 2010).
+// TODO : valeurs à tirer de la liste de faune une fois nettoyée (« T1-T2-faune », notes de sortie, transfert de gestion 2004, Rajaonson et al., 2010).
 
 // --- Ancien brouillon (chiffres du 08/10/2026, antérieurs à la réconciliation : NE PAS CITER) ---
 // Au total, 335 noms vernaculaires normalisés ; 230 identités ; 130 avec une identification botanique au sens large (61 avec un taxon proposé, 69 avec une correspondance vers au moins deux genres).
@@ -175,7 +210,7 @@ Les espèces animales relevées sont au nombre de [X] : [X] observées directeme
 //     [*Catégorie d'usage (Cook, 1995)*], [*Nombre d'espèces*], [*Usages cités*],
 //     [Matériaux], [48], [Balai, batan, bois de construction, canaux d'irrigation, construction de maison, corde, fixation de toiture, guitare, manche de bêche, menuiserie, panier, pilon, pirogue, planche, plancher, poutre, tressage],
 //     [Médicaments], [11], [Aphrodisiaque, douleurs dentaires, fatigue, gonflements, usage médicinal],
-//     [Usages sociaux], [9], [Anti-foudre, magie],
+//     [Usages sociaux], [9], [Antifoudre, magie],
 //     [Alimentation], [3], [Écorce sucrée, fruit comestible, thé],
 //     [Combustibles], [2], [Bois de chauffage],
 //     [Usages environnementaux], [2], [Haie],
@@ -184,11 +219,12 @@ Les espèces animales relevées sont au nombre de [X] : [X] observées directeme
 //   caption: [Répartition des espèces à usage cité par catégorie de premier niveau de la classification de Cook (1995). Les usages cités relèvent du second niveau ; leurs codes figurent en annexe.],
 // ) <tab-usages-ancien>
 
-=== Structure forestière
+=== Structure et stock de carbone
+
 
 // Source : structure_resume.csv (copie de structure_resume_indices.csv) ; surface : courbe_raréfaction_extrapolation.csv (531,09 m² à 28 placettes) et message du script de structure (531,1 m²).
 // Arrondis : deux décimales ; densités à l'hectare arrondies à l'unité (arbitrage auteur, 15/10/2026).
-La densité est estimée à 37~569~±~2~552 tiges/ha et la surface terrière à 37,30~±~5,30~m²/ha (moyenne ± erreur-type, n = 28 ; @tab-structure). Avec les huit placettes de Romiguière (2025), la surface terrière est de 41,77~±~4,78~m²/ha (n = 36).
+*Structure forestière.* La densité est estimée à 37~569~±~2~552 tiges/ha et la surface terrière à 37,30~±~5,30~m²/ha (moyenne ± erreur-type, n = 28 ; @tab-structure). Avec les huit placettes de Romiguière (2025), la surface terrière est de 41,77~±~4,78~m²/ha (n = 36).
 // Source G (36 placettes) : sensibilite_romiguiere.csv (analyse_sensibilite_romiguiere.R, 02/11/2026).
 // Écart-type pour la dispersion entre placettes (tiges par placette), erreur-type pour les estimations à l'hectare (N, G) : arbitrage auteur du 01/11/2026 ; erreurType ajouté à resumer() (fonctionsStructure.R) et exporté dans structure_resume_indices.csv.
 
@@ -200,7 +236,7 @@ La densité est estimée à 37~569~±~2~552 tiges/ha et la surface terrière à 
     inset: 8pt,
     table.header([*Indicateur (unité)*], [*Placettes*], [*Moyenne*], [*Écart-type*], [*Erreur-type*], [*IC 95 %*]),
     [Tiges par placette (tiges)], [Étude (28)], [71,39], [26,41], [4,99], [[61,15 ; 81,63]],
-    [Densité N (tiges/ha)], [Étude (28)], [37~569], [13~506], [2~552], [[32~332 ; 42~806]],
+    [Densité N (tiges/ha)], [Étude (28)], [37 569], [13 506], [2 552], [[32 332 ; 42 806]],
     [Surface terrière G (m²/ha)], [Étude (28)], [37,30], [28,04], [5,30], [[26,43 ; 48,17]],
     [Surface terrière G (m²/ha)], [Étude + Romiguière (36)], [41,77], [28,71], [4,78], [[32,05 ; 51,48]],
   ),
@@ -385,43 +421,44 @@ La surface terrière la plus élevée est celle de la classe 2,5-7,5~cm (10,71~m
 Le long de 5~305~m de chemins répartis sur cinq transects, soit 53~050~m² de bande prospectée, 77 arbres de CBH $>=$ 126~cm ont été relevés. La densité de grands arbres est estimée à 14,51~±~3,42 arbres/ha (erreur-type).
 // ATTENTION : longueur de T19 incertaine (« 300 ? » dans l'ODS) ; la densité de T19 et l'estimation globale en dépendent.
 
-Les chablis n'ont été dénombrés, à ce jour, que le long de deux itinéraires : 2 petits bois (diamètre inférieur à 30~cm) et 5 bois moyens ou gros sur T01 ; 20 petits bois, 20 bois moyens (30 à 60~cm) et 18 gros bois (plus de 60~cm) sur T02. Faute de longueur prospectée, aucune densité n'est calculée.
+Les chablis n'ont été dénombrés, à ce jour, que le long de deux itinéraires : 2 petits bois (circonférence inférieure à 30~cm) et 5 bois moyens ou gros sur T01 ; 20 petits bois, 20 bois moyens (30 à 60~cm) et 18 gros bois (plus de 60~cm) sur T02. Faute de longueur prospectée, aucune densité n'est calculée.
 // TODO (auteur) : mettre à jour ce paragraphe après correction des chablis (définition, transects T19 et T20, longueurs, unité des classes) ; le script analyse_transects.R n'exporte pour l'instant que les effectifs.
 
 // Source : regeneration_resume.csv (analyse_regeneration.R, créé et lancé le 01/11/2026) ; moyenne entre placettes ± erreur-type (arbitrage auteur : valeurs seules, en tiges/m²).
 Sur les sept placettes où elle a été comptée, la régénération de moins de 1,30~m de haut compte 5,04~±~0,41 tiges/m² de moins de 30~cm et 2,29~±~0,38 tiges/m² de 30 à 130~cm (moyenne ± erreur-type).
 // Piste (auteur) : regrouper ces valeurs dans un tableau de synthèse des caractéristiques de la forêt ?
 
-=== Stock de carbone
 
-// Source : analyse-tables/carbone_stocks.csv (copie de la sortie du 01/11/2026 ; E = 0,10, ρ = 0,58, facteurs MDP, graine 2026).
-Les tiges des placettes portent le stock de carbone le plus élevé (112,48~tC/ha, et 146,20~tC/ha avec les placettes de Romiguière, 2025), devant les grands arbres des transects (19,68~tC/ha), le bois mort au sol (6,13~tC/ha) et le bois mort sur pied (2,70~tC/ha) (@tab-carbone). Les volumes de bois mort, au sol et sur pied, sont de 22,47 et 9,92~m³/ha (@annexe-carbone).
-// TODO : stock total à l'hectare et stock de la forêt entière — à faire exporter par le script (pas de somme à la main) ; stock de la forêt en attente de la surface QGIS (500 ha provisoires dans le script).
+// Source : analyse-tables/carbone_stocks.csv et carbone_total_foret.csv (copies des sorties du 03/11/2026, surface 640 ha ; E = 0,10, ρ = 0,58, facteurs MDP, graine 2026).
+*Stock de carbone.* Les tiges des placettes portent le stock de carbone le plus élevé (112,48~tC/ha, et 146,20~tC/ha avec les placettes de Romiguière, 2025), devant les grands arbres des transects (19,68~tC/ha), le bois mort au sol (6,13~tC/ha) et le bois mort sur pied (2,70~tC/ha) (@tab-carbone). Les volumes de bois mort, au sol et sur pied, sont de 22,47 et 9,92~m³/ha (@tab-carbone). Les quatre compartiments de l'étude stockent au total 140,99~tC/ha (IC 95~% : [103,12~; 186,75]), soit environ 90~231~tC ([65~998~; 119~522]) et 331~148~tCO₂ rapportés aux 640~ha de la forêt.
 // Longueurs prospectées pour les grands arbres (transects.csv, 01/11/2026, d'après le tableau de l'onglet grands-arbres de l'ODS) : T05 1 940 m, T06 1 800 m, T16 205 m, T19 300 m, T20 1 060 m, soit 53 050 m² (message du script carbone). Les IC des autres compartiments changent légèrement (bootstrap à graine fixe, tirages décalés).
 // ATTENTION : T19 = « 300 ? » dans l'ODS (valeur incertaine) ; T16 = 190 m auparavant dans transects.csv, « ~ 205 » dans l'ODS.
 
 // TABLEAU : stocks par compartiment (IC 95 % par bootstrap, 1 000 rééchantillonnages).
 #figure(
   table(
-    columns: (1.5fr, 1.3fr, 1fr, 1.5fr, 1.5fr),
-    align: (left, left, right, right, right),
+    columns: (1.5fr, 1.3fr, 1.4fr, 1fr, 1.5fr, 1.5fr),
+    align: (left, left, right, right, right, right),
     inset: 8pt,
-    table.header([*Compartiment*], [*Données*], [*Biomasse (tMS/ha)*], [*Carbone (tC/ha)*], [*CO₂ (tCO₂/ha)*]),
-    [Tiges des placettes], [Étude (28)], [199,43], [112,48 [75,39 ; 156,52]], [412,80 [276,68 ; 574,42]],
-    [Tiges des placettes], [Étude + Romiguière (36)], [259,22], [146,20 [107,49 ; 193,21]], [536,56 [394,49 ; 709,08]],
-    [Grands arbres des transects], [Étude], [34,89], [19,68 [13,21 ; 31,18]], [72,22 [48,47 ; 114,43]],
-    [Bois mort au sol], [Étude], [13,03], [6,13 [2,58 ; 10,27]], [22,48 [9,48 ; 37,68]],
-    [Bois mort sur pied], [Étude], [5,75], [2,70 [0,78 ; 5,08]], [9,92 [2,87 ; 18,64]],
+    table.header([*Compartiment*], [*Données*], [*Volume (m³/ha)*], [*Biomasse (tMS/ha)*], [*Carbone (tC/ha)*], [*CO₂ (tCO₂/ha)*]),
+    [Tiges des placettes], [Étude (28)], [343,84 [230,46 ; 478,47]], [199,43], [112,48 [75,39 ; 156,52]], [412,80 [276,68 ; 574,42]],
+    [Tiges des placettes], [Étude + Romiguière (36)], [–], [259,22], [146,20 [107,49 ; 193,21]], [536,56 [394,49 ; 709,08]],
+    [Grands arbres des transects], [Étude], [60,16 [40,37 ; 95,32]], [34,89], [19,68 [13,21 ; 31,18]], [72,22 [48,47 ; 114,43]],
+    [Bois mort au sol], [Étude], [22,47 [9,48 ; 37,66]], [13,03], [6,13 [2,58 ; 10,27]], [22,48 [9,48 ; 37,68]],
+    [Bois mort sur pied], [Étude], [9,92 [2,87 ; 18,63]], [5,75], [2,70 [0,78 ; 5,08]], [9,92 [2,87 ; 18,64]],
+    [Total], [Étude], [–], [–], [140,99 [103,12 ; 186,75]], [517,42 [378,46 ; 685,38]],
+    [Forêt entière (640 ha)], [Étude], [–], [–], [90 231 tC [65 998 ; 119 522]], [331 148 tCO₂ [242 212 ; 438 645]],
   ),
-  caption: [Stocks de biomasse, de carbone et de CO₂ par compartiment. Étude + Romiguière : 28 placettes de l'étude et 8 placettes de 40 m² de Romiguière (2025), même seuil de mesure, non corrigées de la pente. Entre crochets : IC 95 % par bootstrap (1~000 rééchantillonnages des placettes ou des transects). Biomasse vivante : biomasse aérienne seule ; le carbone et le CO₂ du vivant incluent la biomasse souterraine ($R = "0,20"$). Paramètres : $E = "0,10"$, $rho = "0,58"$~g/cm³, $"CF" = "0,47"$. Volumes et IC de la biomasse en @annexe-carbone.],
+  caption: [Stocks de biomasse, de carbone et de CO₂ par compartiment. Étude + Romiguière : 28 placettes de l'étude et 8 placettes de 40 m² de Romiguière (2025), même seuil de mesure, non corrigées de la pente. Entre crochets : IC 95 % par bootstrap (1~000 rééchantillonnages des placettes ou des transects). Biomasse vivante : biomasse aérienne seule ; le carbone et le CO₂ du vivant incluent la biomasse souterraine ($R = "0,20"$). Paramètres : $E = "0,10"$, $rho = "0,58"$~g/cm³, $"CF" = "0,47"$. Volume : partie aérienne, IC 95 % entre crochets ; non calculé pour l'ensemble Étude + Romiguière (–). Total : somme des quatre compartiments de l'étude ; IC 95 % obtenu par propagation des IC des compartiments, supposés indépendants. Forêt entière : total rapporté aux 640 ha de la forêt, en tonnes.],
 ) <tab-carbone>
 #titre-court(<tab-carbone>)[Stocks de carbone par compartiment]
 
-=== Diversité alpha
+=== Diversité
+
 
 // Source : diversite_alpha_resume.csv ; valeurs par placette : 06_ecologie/analyse/sorties/diversite_alpha_placettes.csv.
-Une placette compte en moyenne 29,29~±~6,28 espèces, pour un indice de Shannon de 3,03~±~0,27 (moyenne ± écart-type, n = 28 ; @tab-div-alpha). L'écart-type entre placettes est le plus élevé pour l'alpha de Fisher. Les indices de chaque placette figurent en @annexe-indices-placettes.
-// ¹D et ²D en forme brute (arbitrage auteur, 01/11/2026) ; ²D recalculé (1 / Σp²) dans fonctionsDiversite.R, alpha relancé le 01/11/2026. L'ancienne valeur corrigée (22,05) était supérieure à ¹D.
+*Diversité alpha.* Une placette compte en moyenne 29,29~±~6,28 espèces, pour un indice de Shannon de 3,03~±~0,27 (moyenne ± écart-type, n = 28 ; @tab-div-alpha). L'écart-type entre placettes est le plus élevé pour l'alpha de Fisher. Les indices de chaque placette figurent en @annexe-indices-placettes.
+// Cadre de Hill et ¹D (exponentielle de Shannon) retirés du rapport (auteur, 03/11/2026) ; ²D présenté comme inverse de Simpson. ¹D et ²D en forme brute (arbitrage auteur, 01/11/2026) ; ²D recalculé (1 / Σp²) dans fonctionsDiversite.R, alpha relancé le 01/11/2026. L'ancienne valeur corrigée (22,05) était supérieure à ¹D.
 
 // TABLEAU : indices alpha (moyenne ± écart-type, IC 95 %, n = 28).
 #figure(
@@ -430,20 +467,18 @@ Une placette compte en moyenne 29,29~±~6,28 espèces, pour un indice de Shannon
     align: (left, right, right),
     inset: 8pt,
     table.header([*Indice (unité)*], [*Moyenne ± écart-type (n = 28)*], [*IC 95 %*]),
-    [Richesse spécifique S = ⁰D (espèces)], [29,29 ± 6,28], [[26,85 ; 31,72]],
+    [Richesse spécifique S (espèces)], [29,29 ± 6,28], [[26,85 ; 31,72]],
     [Indice de Shannon H′ (sans unité)], [3,03 ± 0,27], [[2,93 ; 3,13]],
-    [exp(H′) = ¹D (espèces communes effectives)], [21,38 ± 5,37], [[19,29 ; 23,46]],
-    [²D, inverse de Simpson (espèces dominantes effectives)], [15,93 ± 4,65], [[14,13 ; 17,74]],
+    [Inverse de l'indice de Simpson (sans unité)], [15,93 ± 4,65], [[14,13 ; 17,74]],
     [Alpha de Fisher (sans unité)], [22,01 ± 9,32], [[18,40 ; 25,62]],
   ),
-  caption: [Indices de diversité alpha par placette : moyenne entre 28 placettes ± écart-type ; IC 95 % par la loi de Student. Abondances : toutes les tiges comptées (tiges mesurées et gaulis), tiges indéterminées exclues. ¹D et ²D sous leur forme brute. Espèces : identités réconciliées. Valeurs par placette en @annexe-indices-placettes.],
+  caption: [Indices de diversité alpha par placette : moyenne entre 28 placettes ± écart-type ; IC 95 % par la loi de Student. Abondances : toutes les tiges comptées (tiges mesurées et gaulis), tiges indéterminées exclues. Shannon et inverse de Simpson sous leur forme brute. Espèces : identités réconciliées. Valeurs par placette en @annexe-indices-placettes.],
 ) <tab-div-alpha>
 #titre-court(<tab-div-alpha>)[Indices de diversité alpha]
 
-=== Diversité bêta
 
 // Sources : diversite_beta_resume_rapport.csv, diversite_beta_resume.csv, diversite_beta_whittaker.csv, diversite_beta_bray_niveaux.csv, diversite_beta_mono_commune.csv.
-La richesse de l'ensemble des placettes ($gamma$ = 242 espèces) est 8,26 fois plus élevée que la richesse moyenne d'une placette ($macron(alpha)$ = 29,29 espèces). Le bêta additif est de 212,71 espèces. La dissimilarité de Bray-Curtis moyenne entre les 378 paires de placettes est de 0,81~±~0,09 (moyenne ± écart-type).
+*Diversité bêta.* La richesse de l'ensemble des placettes ($gamma$ = 242 espèces) est 8,26 fois plus élevée que la richesse moyenne d'une placette ($macron(alpha)$ = 29,29 espèces). Le bêta additif est de 212,71 espèces. La dissimilarité de Bray-Curtis moyenne entre les 378 paires de placettes est de 0,81~±~0,09 (moyenne ± écart-type).
 
 L'ordination NMDS a un stress de 0,23 (@fig-beta-nmds). [Description de la disposition des placettes par itinéraire.]
 // TODO (à faire, auteur) : lire la figure NMDS (SVG du 31/10/2026) et décrire la disposition des placettes par itinéraire ; coordonnées dans diversite_beta_nmds_points.csv.
@@ -456,7 +491,7 @@ L'ordination NMDS a un stress de 0,23 (@fig-beta-nmds). [Description de la dispo
 ) <fig-beta-nmds>
 #titre-court(<fig-beta-nmds>)[Ordination NMDS des placettes]
 
-Pour les deux indices, les dissimilarités moyennes sont les plus faibles entre placettes d'un même itinéraire (Jaccard : 0,71~±~0,07, moyenne ± écart-type, 37 paires), puis entre placettes d'un même polisin'ala (0,74~±~0,09, 16 paires). Elles sont voisines entre placettes d'une même commune et de communes différentes (@tab-beta-niveaux).
+Pour les deux indices, les dissimilarités moyennes sont les plus faibles entre placettes d'un même itinéraire (Jaccard : 0,71~±~0,07, moyenne ± écart-type, 37 paires), puis entre placettes d'un même _polisinala_ (0,74~±~0,09, 16 paires). Elles sont voisines entre placettes d'une même commune et de communes différentes (@tab-beta-niveaux).
 // Jaccard « même commune » = 0,885 dans le CSV (trois décimales) ; arrondi à 0,89 (arbitrage auteur, 02/11/2026).
 // Comparaison descriptive seulement (paires non indépendantes, M&M) : aucun test cité.
 
@@ -468,8 +503,8 @@ Pour les deux indices, les dissimilarités moyennes sont les plus faibles entre 
     inset: 8pt,
     table.header([*Niveau partagé par la paire*], [*Paires*], [*Jaccard*], [*Bray-Curtis*]),
     [Même itinéraire], [37], [0,71 ± 0,07], [0,64 ± 0,10],
-    [Même polisin'ala (itinéraires différents)], [16], [0,74 ± 0,09], [0,76 ± 0,06],
-    [Même commune (polisin'ala différents)], [70], [0,89 ± 0,04], [0,83 ± 0,07],
+    [Même _polisinala_ (itinéraires différents)], [16], [0,74 ± 0,09], [0,76 ± 0,06],
+    [Même commune (_polisinala_ différents)], [70], [0,89 ± 0,04], [0,83 ± 0,07],
     [Communes différentes], [255], [0,86 ± 0,04], [0,83 ± 0,06],
   ),
   caption: [Dissimilarités moyennes ± écart-type entre paires de placettes selon le niveau le plus fin qu'elles partagent. Jaccard : présence-absence ; Bray-Curtis : abondances ; espèces réconciliées. Comparaison descriptive : les paires ne sont pas indépendantes.],
@@ -490,12 +525,11 @@ Pour les deux indices, les dissimilarités moyennes sont les plus faibles entre 
 Sur les 242 espèces, 69,4~% ne sont observées que dans une seule commune, contre 49,4~% en moyenne lorsque les communes sont réattribuées au hasard aux placettes (999 permutations ; $p$ = 0,001).
 // La ligne « noms vernaculaires bruts » du CSV (80,6 % contre 61,7 %) est un contrôle de la réconciliation : à citer en Discussion si besoin, pas ici.
 
-=== Espèces dominantes
 
 // Source : ivi_especes.csv (31/10/2026, relancé le 01/11/2026 après passage en gaulis des tiges de 7 cm de P06). IVI sur 100.
-Le classement porte sur 124 espèces, représentées par 479 tiges mesurées dans les 28 placettes, hors tiges indéterminées. L'IVI le plus élevé est celui de Babogna (6,59), devant Ambora (5,03) et Hazomainty (4,96) (@tab-ivi). Babogna a aussi la dominance relative la plus forte (9,96~%) et la fréquence relative la plus forte (4,59~%, 14 placettes) ; la densité relative la plus forte est celle de Hazomainty (6,05~%, 29 tiges). Six espèces ont un IVI supérieur à 3,5 ; l'IVI est inférieur à 1,5 à partir du rang 19.
+*Espèces dominantes.* Le classement porte sur 124 espèces, représentées par 479 tiges mesurées dans les 28 placettes, hors tiges indéterminées. L'IVI le plus élevé est celui de _Babogna_ (6,59), devant _Ambora_ (5,03) et _Hazomainty_ (4,96) (@tab-ivi). _Babogna_ a aussi la dominance relative la plus forte (9,96~%) et la fréquence relative la plus forte (4,59~%, 14 placettes) ; la densité relative la plus forte est celle de _Hazomainty_ (6,05~%, 29 tiges). Six espèces ont un IVI supérieur à 3,5 ; l'IVI est inférieur à 1,5 à partir du rang 19.
 
-Les trois composantes divergent pour certaines espèces. Ramiavogna et Sary, avec deux tiges chacune, ont une dominance relative de 5,00~% et de 4,50~%. Hasina, présente dans 12 placettes, a une fréquence relative de 3,93~% pour une dominance relative de 1,26~%. Cinquante-quatre espèces ne sont représentées que par une tige mesurée et 66 ne sont présentes que dans une placette ; à partir du rang 66, aucune espèce ne compte plus de deux tiges mesurées. Le classement complet figure en @annexe-ivi.
+Les trois composantes divergent pour certaines espèces. _Ramiavogna_ et _Sary_, avec deux tiges chacune, ont une dominance relative de 5,00~% et de 4,50~%. _Hasina_, présente dans 12 placettes, a une fréquence relative de 3,93~% pour une dominance relative de 1,26~%. Cinquante-quatre espèces ne sont représentées que par une tige mesurée et 66 ne sont présentes que dans une placette ; à partir du rang 66, aucune espèce ne compte plus de deux tiges mesurées. Le classement complet figure en @annexe-ivi.
 
 // TABLEAU : les quinze espèces de plus fort IVI.
 #figure(
@@ -524,10 +558,9 @@ Les trois composantes divergent pour certaines espèces. Ramiavogna et Sary, ave
 ) <tab-ivi>
 #titre-court(<tab-ivi>)[Les quinze espèces de plus fort IVI]
 
-=== Richesse spécifique totale
 
 // Sources : estimateurs_richesse_gamma.csv ; 06_ecologie/analyse/sorties/courbe_raréfaction_extrapolation.csv.
-Les 28 placettes totalisent 242 espèces observées. Tous les estimateurs donnent une richesse supérieure, de 285,83 espèces (bootstrap) à 382,00 espèces (jackknife d'ordre 2). Chao2, estimateur principal, donne 331,16 espèces (IC 95~% : [295,46~; 390,70]) ; toutes les autres estimations, sauf celle du bootstrap, sont comprises dans cet intervalle (@tab-gamma).
+*Richesse spécifique totale.* Les 28 placettes totalisent 242 espèces observées. Tous les estimateurs donnent une richesse supérieure, de 285,83 espèces (bootstrap) à 382,00 espèces (jackknife d'ordre 2). Chao2, estimateur principal, donne 331,16 espèces (IC 95~% : [295,46~; 390,70]) ; toutes les autres estimations, sauf celle du bootstrap, sont comprises dans cet intervalle (@tab-gamma).
 
 // TABLEAU : estimateurs de la richesse totale.
 #figure(
@@ -554,6 +587,9 @@ Les 28 placettes totalisent 242 espèces observées. Tous les estimateurs donnen
 // TODO (à faire, auteur) : lire la courbe et décrire sa forme (plateau ou non).
 
 // FIGURE : courbe de raréfaction-extrapolation (incidence, q = 0).
+// COR : enlever l'absciesse de surface horizontale cumulée, garder seulement la desc de la figure qui fait la correspondance nbplacettes et surface
+// COR : intersection abscisse/ordonnées à 0 et 0, en l'état il y a un décalage
+// COR TRES IMPORTANT : richesse spécifique -> dire que ce sont les noms vernaculaires, et non pas les espèces !!! // check la notion d'espèce vernaculaire ? sinon trouver un mot qui sera utilisé dans TOUTE la section pour ne pas guider en erreur entre espèce et nom vernaculaire / faire un disclaimer en début de section que espèce = nom vernaculaire ici et mettre en description des figures sytématiquement la correspondance ??!
 #figure(
   image("analyse-figures/courbe_raréfaction_extrapolation.svg",
     alt: "Courbe de richesse spécifique en fonction du nombre de placettes, interpolée jusqu'à 28 placettes puis extrapolée jusqu'à 112 placettes, avec sa bande de confiance ; axe secondaire en surface horizontale cumulée."),

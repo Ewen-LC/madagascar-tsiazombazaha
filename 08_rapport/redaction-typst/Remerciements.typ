@@ -1,17 +1,12 @@
-// Remerciements — liminaire.
-
 #pagebreak(weak: true)
 = Remerciements
 
-Je tiens d'abord à remercier Lucas, traducteur. Sans lui
+Je remercie Lucas Ramiandrisoa, traducteur-interprète, pour son travail de traduction et d'interprétariat.
 
-A Manon Charpentier, sans qui je n'aurais probablement pas supporté ce calvaire / qui rendit Madagascar appréciable.
+Merci à Manon Charpentier, collègue et amie, qui a rendu le séjour à Madagascar plus agréable, a nourri mes réflexions et a essuyé les plâtres avant moi.
 
-A tous ceux qui m'ont apporté leurs réflexions à des degrés variés : en particulier Léna Aguillhon, Alexandre Gaudin, (Damien Duportal) et Eric qui ont enrichi au fur et à mesure ce stage.
-Aux personnes concernées d'Inter Aide et d'AgroParisTech pour leur soutien logistique et administritifs.
+Merci à Léna Aguilhon, Alexandre Gaudin, Damien Duportal, Eric Ravelomanarivo et Sarah Mettetal pour leurs réflexions, qui ont enrichi ce stage au fil des mois.
 
-Bien évidemment, je remercie chaleureusement toutes les personnes qui ont accepté de me rencontrer et de m'accompagner sur le terrain. Elles sont la substantive moelle de ce stage.
+Merci aux équipes d'AgroParisTech et d'Inter Aide pour leur soutien administratif et logistique.
 
-A mes amis, pour m'avoir dépaysé lors des moments difficiles.
-
-Enfin, et le plus important, à ma famille, pour son soutien incessant depuis le début des mes études, il y a six ans de cela. Je ne serais pas arrivé aussi loin sans eux.
+Enfin, je remercie toutes les personnes qui ont accepté de me parler et de m'accompagner sur le terrain~: elles en sont à la fois la matière et l'essence.

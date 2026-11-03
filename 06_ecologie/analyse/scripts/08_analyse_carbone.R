@@ -24,10 +24,10 @@
 #   source("06_ecologie/analyse/scripts/08_analyse_carbone.R")
 
 # Surface totale de la forêt (ha) pour l'extrapolation des stocks.
-# VALEUR PROVISOIRE : 500 ha (ordre de grandeur de la Problématique), en
-# attendant le calcul de la surface réelle sous QGIS par l'auteur.
+# 640 ha : 639,76 ha (zone protégée 583,88 ha + droits d'usage 55,88 ha),
+# contrat de transfert de gestion du 19/06/2025, p. 3, art. 1 (03/11/2026).
 # Modifier cette seule ligne puis relancer le script.
-SURFACE_TSIAZOMBAZAHA <- 500
+SURFACE_TSIAZOMBAZAHA <- 640
 
 ### Modules ###
 
@@ -425,5 +425,35 @@ message(sprintf(
   "\n=== Total forêt (%.0f ha) ===\n  Carbone : %.0f tC\n  CO2     : %.0f tCO2",
   SURFACE_TSIAZOMBAZAHA, total_carbone, total_co2
 ))
+
+# Export du total (somme des quatre compartiments)
+# IC 95 % du total : propagation des IC des compartiments, supposés
+# indépendants (somme quadratique des écarts à l'estimation, calculée
+# séparément pour la borne basse et la borne haute, les IC bootstrap
+# n'étant pas symétriques).
+ic_somme <- function(est, bas, haut) {
+  c(bas = sum(est) - sqrt(sum((est - bas)^2)),
+    haut = sum(est) + sqrt(sum((haut - est)^2)))
+}
+ic_carbone <- with(resultats, ic_somme(carbone_tC_ha, carbone_ic95_bas, carbone_ic95_haut))
+ic_co2 <- with(resultats, ic_somme(co2_tCO2_ha, co2_ic95_bas, co2_ic95_haut))
+write_csv(
+  tibble(
+    surface_ha = SURFACE_TSIAZOMBAZAHA,
+    carbone_tC_ha = sum(resultats$carbone_tC_ha),
+    carbone_ic95_bas = ic_carbone[["bas"]],
+    carbone_ic95_haut = ic_carbone[["haut"]],
+    co2_tCO2_ha = sum(resultats$co2_tCO2_ha),
+    co2_ic95_bas = ic_co2[["bas"]],
+    co2_ic95_haut = ic_co2[["haut"]],
+    carbone_total_tC = total_carbone,
+    carbone_total_ic95_bas = ic_carbone[["bas"]] * SURFACE_TSIAZOMBAZAHA,
+    carbone_total_ic95_haut = ic_carbone[["haut"]] * SURFACE_TSIAZOMBAZAHA,
+    co2_total_tCO2 = total_co2,
+    co2_total_ic95_bas = ic_co2[["bas"]] * SURFACE_TSIAZOMBAZAHA,
+    co2_total_ic95_haut = ic_co2[["haut"]] * SURFACE_TSIAZOMBAZAHA
+  ),
+  file.path(dossierSorties, "carbone_total_foret.csv")
+)
 
 resultats

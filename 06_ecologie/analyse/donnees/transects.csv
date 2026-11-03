@@ -1,12 +1,12 @@
-transect,date,polisnala,objectifs-realises,longueur-prospection-grands-arbres,longueur-prospection-chablis,commune
-T01,18/08/26,Morafeno,P1,NA,Oui,Ambahatrazo
-T02,19/08/26,Claude JEAN,Chemin « Andriana »,NA,Oui,NA
-T03,20/08/26,Claude JEAN,P2 – P5,NA,?,Ambila
-T04,25/08/26,ENQ29,P6 P7,NA,?,Ambahatrazo
-T05,26/08/26,Célestin,P8 – P11,1940,?,Ambahatrazo
-T06,27/08/26,Célestin,Chemin « Mizilo »,1800,?,NA
-T14,02/09/26,Séraphin + vprez Mizilo,P12 – P15,NA,?,Mizilo
-T16,04/09/26,ENQ100,P16 Source,205,?,Mizilo
-T19,11/09/26,ENQ04,P17 – P20,300,Oui,Mizilo
-T20,15/09/26,ENQ50,P21 – P24,1060,Oui,Ambila
-T21,16/09/26,ENQ50,P24 – P28,NA,NA,Ambila
+transect,date,polisnala,objectifs-realises,longueur-prospection-grands-arbres,longueur-prospection-chablis,commune,sortie
+T01,18/08/26,Morafeno,P1,NA,Oui,Ambahatrazo,S8
+T02,19/08/26,Claude JEAN,Chemin « Andriana »,NA,Oui,NA,S9
+T03,20/08/26,Claude JEAN,P2 – P5,NA,?,Ambila,S10
+T04,25/08/26,ENQ29,P6 P7,NA,?,Ambahatrazo,S11
+T05,26/08/26,Célestin,P8 – P11,1940,?,Ambahatrazo,S12
+T06,27/08/26,Célestin,Chemin « Mizilo »,1800,?,NA,S13
+T14,02/09/26,Séraphin + vprez Mizilo,P12 – P15,NA,?,Mizilo,S14
+T16,04/09/26,ENQ100,P16 Source,205,?,Mizilo,S16
+T19,11/09/26,ENQ04,P17 – P20,300,Oui,Mizilo,S19
+T20,15/09/26,ENQ50,P21 – P24,1060,Oui,Ambila,S20
+T21,16/09/26,ENQ50,P24 – P28,NA,NA,Ambila,S21

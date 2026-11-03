@@ -171,9 +171,32 @@ usagesRom <- bind_rows(
   correspondanceRom |> distinct(espece) |> mutate(usage = NA_character_)
 )
 
+# Inventaire d'especes du transfert de gestion (2004), section 7 : noms
+# vernaculaires rattaches aux especes par la reconciliation (variantes
+# orthographiques comprises) ; noms scientifiques et usages donnes par le document.
+tfgInventaire <- read_csv(
+  file.path(dossierReferentiels, "transfert-gestion-2004-inventaire.csv"),
+  col_types = cols(.default = col_character())
+) |>
+  transmute(nomTfg = str_trim(`nom-vernaculaire-tfg`),
+            binomTfg = na_if(str_trim(`nom-binomial-tfg`), ""),
+            usageBrut = na_if(str_trim(`usage-tfg-brut`), ""),
+            espece = coalesce(reconciliation$espece[match(nomTfg, reconciliation$nomBrut)],
+                              nomTfg))
+normalisationTfg <- read_csv(
+  file.path(dossierReferentiels, "normalisation-usages-tfg.csv"),
+  col_types = cols(.default = col_character())
+) |>
+  transmute(usageBrut = str_trim(`usage-brut-tfg`),
+            usage = str_trim(`usage-normalise`))
+tfgUsages <- tfgInventaire |>
+  filter(!is.na(usageBrut)) |>
+  inner_join(normalisationTfg, by = "usageBrut") |>
+  select(espece, usage)
+
 # Une ligne par espece x usage normalise (toutes sources)
 # (especes indeterminees exclues, comme dans les autres analyses)
-usagesEspeces <- bind_rows(usagesReferentiel, usagesFlore, usagesRom) |>
+usagesEspeces <- bind_rows(usagesReferentiel, usagesFlore, usagesRom, tfgUsages) |>
   mutate(usage = na_if(usage, "NA")) |>
   filter(str_to_lower(str_trim(espece)) != "espèce indéterminée",
          espece != "N/A") |>
@@ -219,12 +242,6 @@ especesNA <- usagesEspeces |>
   filter(sansMention) |>
   nrow()
 
-resume <- tibble(
-  nbEspecesListe = n_distinct(usagesEspeces$espece),
-  nbEspecesUsageClasse = especesAvecUsage,
-  nbEspecesSeulementAucun = especesAucun,
-  nbEspecesSansMention = especesNA
-)
 
 ### Liste de la flore (annexe du rapport) ###
 
@@ -341,11 +358,18 @@ sourcesEspeces <- bind_rows(
   correspondanceRom |> distinct(espece) |> mutate(source = "Romiguière (2025)")
 )
 
+sourcesEspeces <- bind_rows(
+  sourcesEspeces,
+  tfgInventaire |> distinct(espece) |> mutate(source = "Transfert de gestion (2004)")
+)
+
 # Base : especes du referentiel, des releves et des usages reunies (une espece
 # relevee ou citee peut manquer du referentiel du 12/10/2026)
-nbTypesMax <- function(x) {
+# Numeros des types distincts, separes par « / » (ex. « 1/2 ») ; « NA » et « ++ » ignores
+typesDistincts <- function(x) {
   v <- suppressWarnings(as.numeric(str_split_1(x, "\\|")))
-  if (all(is.na(v))) NA_real_ else max(v, na.rm = TRUE)
+  v <- sort(unique(v[!is.na(v)]))
+  if (length(v) == 0) NA_character_ else paste(v, collapse = "/")
 }
 listeFlore <- tibble(espece = unique(c(especes$espece, sourcesEspeces$espece,
                                        usagesEspeces$espece))) |>
@@ -353,7 +377,7 @@ listeFlore <- tibble(espece = unique(c(especes$espece, sourcesEspeces$espece,
          str_to_lower(str_trim(espece)) != "espèce indéterminée") |>
   left_join(especes |> transmute(espece, nomBinomial = `nom-binomial`,
                                  typesBruts = `nb-types`), by = "espece") |>
-  mutate(nbTypes = vapply(coalesce(typesBruts, "NA"), nbTypesMax, numeric(1)),
+  mutate(types = vapply(coalesce(typesBruts, "NA"), typesDistincts, character(1)),
          nomBinomial = na_if(na_if(nomBinomial, "NA"), "?")) |>
   select(-typesBruts) |>
   left_join(nomsLatinsRom, by = "espece") |>
@@ -371,22 +395,42 @@ listeFlore <- tibble(espece = unique(c(especes$espece, sourcesEspeces$espece,
       group_by(espece) |>
       summarise(
         enPlacettes = any(source == "Placettes"),
-        enEtude = any(source != "Romiguière (2025)"),
-        sources = paste(c("Relevé", "Observation", "Romiguière (2025)")[c(
+        enEtude = any(!source %in% c("Romiguière (2025)", "Transfert de gestion (2004)")),
+        sources = paste(c("Relevé", "Observation", "Romiguière (2025)", "Transfert de gestion (2004)")[c(
           any(source %in% c("Placettes", "Transects (grands arbres)")),
           any(source %in% c("Hors placettes", "Phénologie")),
-          any(source == "Romiguière (2025)"))],
+          any(source == "Romiguière (2025)"),
+          any(source == "Transfert de gestion (2004)"))],
           collapse = ", "),
         .groups = "drop"),
     by = "espece"
   ) |>
+  left_join(tfgInventaire |> filter(!is.na(binomTfg)) |> distinct(espece, .keep_all = TRUE) |>
+              transmute(espece, nomTfgCand = binomTfg), by = "espece") |>
   mutate(enPlacettes = coalesce(enPlacettes, FALSE),
          enEtude = coalesce(enEtude, FALSE),
-         # Especes sans nom scientifique dans l'etude : nom d'apres Romiguiere
-         nomRomiguiere = (is.na(nomBinomial) | nomBinomial == "++") &
-           !is.na(nomLatinRom),
-         nomBinomial = if_else(nomRomiguiere, nomLatinRom, nomBinomial)) |>
-  select(-nomLatinRom) |>
+         # Nom scientifique : TFG (2004) > Romiguiere (2025) > personnel. Un nom de
+         # famille de Romiguiere ne remplace pas un nom personnel.
+         # Nom TFG (2004) retenu en premier
+         nomTfg = nomTfgCand,
+         nomRomiguiere = !is.na(nomLatinRom) & is.na(nomTfg) &
+           ((is.na(nomBinomial) | nomBinomial == "++") |
+              (!str_detect(nomLatinRom, "aceae$") &
+                 !str_detect(coalesce(nomBinomial, ""), fixed(nomLatinRom)))),
+         origineNom = case_when(!is.na(nomTfg) ~ "Transfert de gestion (2004)",
+                                nomRomiguiere ~ "Romiguière (2025)",
+                                !is.na(nomBinomial) & nomBinomial != "++" ~ "Personnel",
+                                TRUE ~ NA_character_),
+         nomBinomial = coalesce(nomTfg, if_else(nomRomiguiere, nomLatinRom, nomBinomial))) |>
+  select(-nomLatinRom, -nomTfg, -nomTfgCand) |>
+  left_join(
+    usagesEspeces |>
+      filter(!is.na(usage), usage != "aucun") |>
+      distinct(espece, usage) |>
+      group_by(espece) |>
+      summarise(usages = paste(sort(usage), collapse = " | "), .groups = "drop"),
+    by = "espece"
+  ) |>
   arrange(espece)
 
 nomsSansSource <- listeFlore$espece[is.na(listeFlore$sources)]
@@ -395,11 +439,27 @@ if (length(nomsSansSource) > 0) {
           paste(nomsSansSource, collapse = ", "))
 }
 
+# Liste de reference : especes du referentiel, des releves, des usages et de
+# l'inventaire du transfert de gestion (2004)
+nbEspecesListe <- tibble(espece = c(especes$espece, sourcesEspeces$espece,
+                                    usagesEspeces$espece)) |>
+  filter(!is.na(espece), espece != "N/A",
+         str_to_lower(str_trim(espece)) != "espèce indéterminée") |>
+  distinct() |> nrow()
+resume <- tibble(
+  nbEspecesListe = nbEspecesListe,
+  nbEspecesUsageClasse = especesAvecUsage,
+  nbEspecesSeulementAucun = especesAucun,
+  nbEspecesSansMention = nbEspecesListe - especesAvecUsage - especesAucun
+)
+
 ### Exports ###
 
 write_csv(categories, file.path(dossierSorties, "usages_cook_categories.csv"))
 write_csv(resume, file.path(dossierSorties, "usages_cook_resume.csv"))
-write_csv(listeFlore |> select(-enPlacettes, -enEtude),
+write_csv(listeFlore |> select(-enPlacettes, -enEtude) |>
+            select(espece, nomBinomial, types, usagesCook, sources,
+                   nomRomiguiere, usages, origineNom),
           file.path(dossierSorties, "liste_flore.csv"), na = "")
 
 # Effectifs de la liste pour le texte
@@ -413,7 +473,7 @@ resumeFlore <- tibble(
   nbNomScientifique = sum(!is.na(listeFlore$nomBinomial) &
                             listeFlore$nomBinomial != "++"),
   nbNomScientifiqueRomiguiere = sum(listeFlore$nomRomiguiere),
-  nbPlusieursTypes = sum(listeFlore$nbTypes > 1, na.rm = TRUE)
+  nbPlusieursTypes = sum(str_detect(coalesce(listeFlore$types, ""), "/"))
 )
 write_csv(resumeFlore, file.path(dossierSorties, "liste_flore_resume.csv"))
 

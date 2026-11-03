@@ -29,14 +29,6 @@ allnutt_et_al_2008:
   page-range: 173-181
   serial-number:
     doi: 10.1111/j.1755-263x.2008.00027.x
-american_psychological_association_2020:
-  type: book
-  author:
-  - American Psychological Association
-  title: Publication manual of the American Psychological Association
-  edition: 7e éd.
-  publisher: American Psychological Association
-  date: 2020
 armstrong_et_al_2011:
   type: article
   author:
@@ -54,42 +46,22 @@ armstrong_et_al_2011:
   page-range: 428-444
   serial-number:
     doi: 10.1177/194008291100400406
+banque_mondiale_2021:
+  type: report
+  author:
+  - name: Banque mondiale
+  date: 2021
+  title: 'Projet Pôles intégrés de croissance et corridors 3 (PIC 3) : cadre de gestion environnementale et sociale'
+  publisher: World Bank Group
+  note: 'Année d''après les métadonnées du PDF (mai 2021), à vérifier ; Tsiazombazaha cité p. 235 (tableau 96)'
 banque_mondiale_2024:
   type: report
   author:
-  - Banque mondiale
+  - name: Banque mondiale
   title: 'Madagascar Poverty Assessment: Navigating Two Decades of High Poverty and Charting a Course for Change'
   url: https://www.banquemondiale.org/fr/country/madagascar/publication/madagascar-afe-poverty-assessment-navigating-two-decades-of-high-poverty-and-charting-a-course-for-change
   note: 'En 2022, 75,2 % de la population nationale était pauvre : 79,9 % dans les zones rurales, 55,5 % dans les zones urbaines. Publié en février 2024.'
   date: 2024
-blanc_pamard_ramiarantsoa_2007:
-  type: article
-  author:
-  - Blanc-Pamard, C.
-  - Rakoto Ramiarantsoa, H.
-  title: 'Normes environnementales, transferts de gestion et recompositions territoriales en pays betsileo (Madagascar) : La gestion contractualisée des forêts'
-  note: Gestion contractualisée des forêts (GCF)
-  date: 2007
-  parent:
-    type: periodical
-    title: Natures Sciences Sociétés
-    volume: 15
-    issue: 3
-  page-range: 253-268
-  serial-number:
-    doi: 10.1051/nss:2007055
-brokaw_1982:
-  type: article
-  author:
-  - Brokaw, N. V. L.
-  title: The definition of treefall gap and its effect on measures of forest dynamics
-  date: 1982
-  parent:
-    type: periodical
-    title: Biotropica
-    volume: 14
-    issue: 2
-  page-range: 158-160
 bnc_redd_2017:
   type: report
   author:
@@ -165,28 +137,6 @@ chaave_et_al_2014:
   page-range: 3177-3190
   serial-number:
     doi: 10.1111/gcb.12629
-clement_et_al_1973:
-  type: article
-  author:
-  - Clément, J.
-  - et al.
-  title: Les objectifs des inventaires forestiers
-  note: Objectifs des inventaires forestiers
-  date: 1973
-conservation_international_2000:
-  type: report
-  author:
-  - Conservation International
-  title: 'Hotspots: Earth''s biologically richest and most endangered terrestrial ecoregions'
-  note: 'En relation avec Myers et al. Zone critique de biodiversité : Madagascar et îles de l''Océan Indien'
-  date: 2000
-conservation_international_2011:
-  type: report
-  author:
-  - Conservation International
-  title: Protocole pour la restauration passive et active
-  note: Citée dans le protocole pour la restauration passive/active
-  date: 2011
 cook_1995:
   type: book
   author:
@@ -194,22 +144,6 @@ cook_1995:
   date: 1995
   title: Economic Botany Data Collection Standard
   publisher: Royal Botanic Gardens, Kew
-cooke_2007:
-  type: article
-  author:
-  - Cooke, B.
-  title: Le rôle du bureau du VOI dans le transfert de gestion
-  note: Transfert de gestion, rôle du bureau du VOI
-  date: 2007
-crozier_friedberg_1976:
-  type: book
-  author:
-  - Crozier, M.
-  - Friedberg, E.
-  title: L'acteur et le système
-  publisher: Seuil
-  note: Vérifier l'édition citée
-  date: 1976
 curtis_mcintosh_1951:
   type: article
   author:
@@ -258,6 +192,7 @@ fick_hijmans_2017:
   page-range: 4302-4315
   serial-number:
     doi: 10.1002/joc.5086
+# REF? : non lu.
 forman_1995:
   type: book
   author:
@@ -266,12 +201,6 @@ forman_1995:
   publisher: Cambridge University Press
   note: Concept de tache, matrice, corridor en écologie du paysage
   date: 1995
-gaudin_2025:
-  type: report
-  author:
-  - Gaudin, A.
-  title: Consignes de projet de stage
-  note: Consignes de projet de stage (AgroParisTech/UFR G-ENV)
 gytarsky_et_al_2019:
   type: chapter
   author:
@@ -324,6 +253,7 @@ hansen_et_al_2013:
   page-range: 850-853
   serial-number:
     doi: 10.1126/science.1244693
+# REF? Résumé seul lu ; forêts de transition du nord-ouest, pas forêts humides de l'Est.
 hending_et_al_2023:
   type: article
   author:
@@ -371,27 +301,72 @@ hsieh_ma_chao_2016:
     volume: 7
     issue: 12
   page-range: 1451-1456
-inter_aide_2025:
-  type: report
-  author:
-  - name: Inter Aide
-  title: '[Document de projet EcoBois]'
-  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
-  date: 2025
 inter_aide_weforest_2025:
   type: report
   author:
-  - Inter Aide
-  - WeForest
-  title: Document projet EcoBois
-  note: Budget total 4 953 020 euros, FFEM 1 875 000 euros (38%)
-inter_aide_2026:
+  - name: Inter Aide
+  - name: WeForest
+  title: "Concilier préservation des écosystèmes et autonomie en bois (EcoBois) : note d'engagement de projet"
+  organization: Comité de pilotage du Fonds français pour l'environnement mondial
+  date: 2025-06
+  # Lu : version « 250602_NEP_InterAide_WeForest_EcoBois_vf modifs », 116 p. ; diffusion interne.
+inter_aide_2015:
+  type: report
+  author:
+  - name: Inter Aide
+  title: Les actions agricoles spécifiques pour les familles rurales très vulnérables de la côte sud-est de Madagascar
+  organization: Réseau Pratiques
+  date: 2015
+  url: https://reseau-pratiques.org/sites/default/files/capi_appui_paysans_vulnerables_madagascar.pdf
+  # REF? année déduite des métadonnées du PDF (créé le 09/02/2015) ; le document n'est pas daté. Lu en entier.
+inter_aide_sd:
   type: web
+  author:
+  - name: Inter Aide
+  title: Inter Aide is in Madagascar since 1994
+  url:
+    value: https://interaide.org/en/our-intervention-areas/madagascar/
+    date: 2026-11-02
+mettetal_2026:
+  type: report
+  author:
+  - Mettetal, S.
+  title: "Rapport d'étonnement, programme agro Manakara : mission du 7 au 10 septembre 2026"
+  organization: Inter Aide
+  date: 2026
+  # Rapport interne, non publié ; utilisé pour le contexte du programme seulement.
+# Page web lue le 03/11/2026 (article publié pour la journée mondiale des patrouilleurs du 31/07/2022). Graphie « Polisinala » dans le texte.
+wwf_2022:
+  type: report
+  author:
+  - WWF Madagascar
+  title: Les épreuves et défis des patrouilleurs communautaires à Madagascar
+  url:
+    value: https://www.wwf.mg/en/?7315466/Les-epreuves-et-defis-des-patrouilleurs-communautaires-a-Madagascar
+    date: 2026-11-03
+  date: 2022
+inter_aide_2026:
+  type: report
   author:
   - Inter Aide
   title: Qui sommes-nous
   url: https://interaide.org/
   date: 2026
+jaccard_1912:
+  type: article
+  author:
+  - Jaccard, P.
+  date: 1912
+  title: The distribution of the flora in the alpine zone
+  parent:
+    type: periodical
+    title: New Phytologist
+    volume: 11
+    issue: 2
+  page-range: 37-50
+  serial-number:
+    doi: 10.1111/j.1469-8137.1912.tb05611.x
+  note: 'REF? Non lu ; référence de définition ajoutée le 03/11/2026'
 jost_2006:
   type: article
   author:
@@ -456,14 +431,7 @@ lee_chao_1994:
     volume: 50
     issue: 1
   page-range: 88-97
-leroy_mermet_2014:
-  type: article
-  author:
-  - Leroy, M.
-  - Mermet, L.
-  title: Loi GELOSE 96-025 et gestion patrimoniale
-  note: Loi GELOSE 96-025, gestion patrimoniale
-  date: 2014
+# REF? : non lu.
 macarthur_wilson_1967:
   type: book
   author:
@@ -492,7 +460,8 @@ mermet_et_al_2005:
     issue: 2
   page-range: 127-137
   serial-number:
-    doi: 10.1051/nss:2005052
+    doi: 10.1051/nss:2005018
+# DOI corrigé le 02/11/2026 d'après Crossref (10.1051/nss:2005052 renvoyait à un autre article).
 mille_louppe_2015:
   type: book
   author:
@@ -515,21 +484,6 @@ mokany_et_al_2006:
     volume: 12
     issue: 1
   page-range: 84-96
-montgolfier_natali_1987:
-  type: book
-  author:
-  - Montgolfier
-  - J. de
-  - Natali, J.-M.
-  title: Gestion patrimoniale
-  note: Gestion patrimoniale, cité avec Weber (1996)
-  date: 1987
-muttenzer_2010:
-  type: article
-  author:
-  - Muttenzer, A.
-  title: Loi et perceptions locales
-  note: Loi et perceptions locales
 oksanen_et_al_2026:
   type: book
   author:
@@ -547,6 +501,8 @@ ostrom_1990:
   title: 'Governing the commons: The evolution of institutions for collective action'
   publisher: Cambridge University Press
   date: 1990
+  serial-number:
+    doi: 10.1017/CBO9780511807763
 ostrom_2009:
   type: article
   author:
@@ -557,6 +513,7 @@ ostrom_2009:
     type: periodical
     title: Science
     volume: 325
+    issue: 5939
   page-range: 419-422
   serial-number:
     doi: 10.1126/science.1172133
@@ -574,13 +531,6 @@ page_et_al_2021:
   page-range: n71
   serial-number:
     doi: 10.1136/bmj.n71
-pielou_1966:
-  type: book
-  author:
-  - Pielou, E. C.
-  title: Équitabilité
-  note: Équitabilité
-  date: 1966
 pullin_stewart_2006:
   type: article
   author:
@@ -611,13 +561,6 @@ rajaonson_et_al_2010:
     title: Lemur News
     volume: 15
   page-range: 34-39
-ramiandrisoa_2016:
-  type: report
-  author:
-  - Ramiandrisoa, L.
-  title: Document administratif utilisant Vatovavy-Fitovinany pour la région
-  note: Utilise encore 'Vatovavy-Fitovinany' pour la région
-  date: 2016
 rcore_team_2026:
   type: book
   author:
@@ -627,13 +570,14 @@ rcore_team_2026:
   publisher: R Foundation for Statistical Computing
   location: Vienne
   url: https://www.R-project.org/
-requier_1966:
-  type: report
+riquier_1968:
+  type: artwork
   author:
   - Riquier, J.
-  title: '[Carte ou notice pédologique de Madagascar : ferralsols]'
-  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
-  date: 1966
+  date: 1968
+  title: Carte pédologique de Madagascar à 1/1 000 000
+  publisher: ORSTOM (Office de la recherche scientifique et technique outre-mer)
+  note: 'Entrée provisoire d''après l''auteur (remplace l''entrée Riquier 1966) : feuille et lieu d''édition à compléter'
 romiguiere_2025:
   type: thesis
   author:
@@ -641,6 +585,17 @@ romiguiere_2025:
   title: '[Mémoire : étude socio-écologique des fragments forestiers de Vorovoka et de Tsiazombazaha, pour Inter Aide]'
   note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
   date: 2025
+boiteau_et_al_1999:
+  type: book
+  author:
+  - Boiteau, P.
+  - Boiteau, M.
+  - Allorge-Boiteau, L.
+  date: 1999
+  title: Dictionnaire des noms malgaches de végétaux
+  publisher: Éditions Alzieu
+  note: 4 volumes. Consulté en ligne sur Motmalgache.org
+  url: https://motmalgache.org/bins/teny2/dictionnairedesnomsmalgachesdevegetaux
 schatz_2001:
   type: book
   author:
@@ -680,6 +635,7 @@ smith_van_belle_1984:
     volume: 40
     issue: 1
   page-range: 119-129
+# Soulé (1985) : notice vérifiée sur Crossref (DOI 10.2307/1310054) ; définition reprise du sous-titre de l'article (« A new synthetic discipline addresses the dynamics and problems of perturbed species, communities, and ecosystems »). Texte intégral non consulté (accès fermé).
 soule_1985:
   type: article
   author:
@@ -692,6 +648,8 @@ soule_1985:
     volume: 35
     issue: 11
   page-range: 727-734
+  serial-number:
+    doi: 10.2307/1310054
 # Notice corrigée le 02/11/2026 d'après Crossref (titre et auteurs erronés auparavant).
 tilman_et_al_1994:
   type: article
@@ -723,6 +681,7 @@ van_wagner_1968:
     volume: 14
     issue: 1
   page-range: 20-26
+# Résumé de la version publiée lu (OpenAlex, 03/11/2026) : 44 % de perte 1953-2014, 99 000 ha/an en 2010-2014, 46 % de la forêt à moins de 100 m d'une lisière. Taux 2000-2005 (42 000 ha/an) et 27 % en 1973 : tableaux 1 et 2 de la prépublication bioRxiv (10.1101/147827), non contrôlés dans la version publiée.
 vieilledent_et_al_2018:
   type: article
   author:
@@ -752,13 +711,6 @@ walter_lieth_1960:
   publisher: Gustav Fischer
   note: Échelle de Gaussen (P = 2T)
   date: 1960
-weber_1996:
-  type: article
-  author:
-  - Weber, J.
-  title: Médiation patrimoniale
-  note: Médiation patrimoniale
-  date: 1996
 whittaker_1960:
   type: article
   author:
@@ -809,19 +761,6 @@ fabiani_2025:
   title: '[Unités de paysage autour de la forêt de Vorovoka, projet EcoBois]'
   note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
   date: 2025
-madron_2025:
-  type: report
-  author:
-  - Madron, T.
-  title: 5 étapes d'aménagement des forêts communautaires
-  note: 5 étapes d'aménagement des forêts communautaires
-pereches_et_al_2025:
-  type: article
-  author:
-  - Pérèches, J.
-  - et al.
-  title: Typologie de la participation
-  note: Typologie de la participation
 razanaka_et_al_2019:
   type: article
   author:
@@ -829,12 +768,6 @@ razanaka_et_al_2019:
   - et al.
   title: Restauration RNA/active
   note: Restauration RNA/active
-velasco_bautista:
-  type: article
-  author:
-  - Velasco-Bautista, A.
-  title: Placettes circulaires/carrées
-  note: Placettes circulaires/carrées
 voi_maharitra_2025:
   type: report
   author:
@@ -842,18 +775,6 @@ voi_maharitra_2025:
   title: '[Document de renouvellement du transfert de gestion de la forêt de Tsiazombazaha]'
   note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
   date: 2025
-gaquiere_2024:
-  type: report
-  author:
-  - Gaquière, P.
-  title: Taux de chablis en forêt primaire
-  note: Taux de chablis en forêt primaire
-godin_2015:
-  type: report
-  author:
-  - Godin, C.
-  title: Littérature grise
-  note: Littérature grise
 jabiol_et_al_2016:
   type: book
   author:
@@ -862,14 +783,6 @@ jabiol_et_al_2016:
   title: '[Clé d''identification des formes d''humus]'
   note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
   date: 2016
-thomas_paul_2018:
-  type: article
-  author:
-  - Thomas, S. H.
-  - Paul
-  - et al.
-  title: Biais de bordure de placette
-  note: Biais de bordure de placette
 beaud_weber_2010:
   type: book
   author:
@@ -948,6 +861,21 @@ rejou_mechain_et_al_2017:
   page-range: 1163-1167
   serial-number:
     doi: 10.1111/2041-210X.12753
+brokaw_1982:
+  type: article
+  author:
+  - Brokaw, N. V. L.
+  date: 1982
+  title: The definition of treefall gap and its effect on measures of forest dynamics
+  parent:
+    type: periodical
+    title: Biotropica
+    volume: 14
+    issue: 2
+  page-range: 158-160
+  serial-number:
+    doi: 10.2307/2387750
+  note: 'Référence confirmée par l''auteur (03/11/2026)'
 brown_1997:
   type: report
   author:
@@ -1069,6 +997,14 @@ chao_et_al_2014:
   page-range: 45-67
   serial-number:
     doi: 10.1890/13-0133.1
+muller_evers_sd:
+  type: thesis
+  author:
+  - Müller, D. F.
+  - Evers, S. J. T. M.
+  title: Case studies of land access practices in Fianarantsoa province, Madagascar
+  organization: VU University Amsterdam
+  note: 'Sans date (terrain de 2006) ; type de document et année à identifier'
 voi_maharitra_2004:
   type: report
   author:
@@ -1076,25 +1012,23 @@ voi_maharitra_2004:
   title: '[Document de transfert de gestion de la forêt de Tsiazombazaha]'
   note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
   date: 2004
-memoire_foncier_inconnu:
-  type: thesis
-  author:
-  - name: '[Auteur à préciser]'
-  title: '[Mémoire sur le foncier dans les communes riveraines de la forêt de Tsiazombazaha]'
-  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
 memoire_ecotourisme_inconnu:
   type: thesis
   author:
   - name: '[Auteur à préciser]'
   title: '[Mémoire sur le potentiel écotouristique de la forêt de Tsiazombazaha, pour l''association Fiantso]'
   note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
+# Auteurs relevés sur la page le 03/11/2026 (« B. C. avec Phidélys RAOULISON et Bakoly RAZAFINDANDY », site de Bernard Champion) ; page non datée.
 blog_ethnographie_inconnu:
   type: web
   author:
-  - name: '[Auteur à préciser]'
-  title: 'Contribution à l''ethnographie d''un village du sud-est malgache : sur le « choc des cultures »'
-  note: 'Entrée provisoire : référence complète à ajouter par l''auteur'
-  url: https://www.anthropologieenligne.com/pages/zafimahavitaM.html
+  - Champion, B.
+  - Raoulison, P.
+  - Razafindandy, B.
+  title: 'Zafimahavita. Contribution à l''ethnographie d''un village du sud-est malgache : sur le « choc des cultures »'
+  url:
+    value: https://www.anthropologieenligne.com/pages/zafimahavitaM.html
+    date: 2026-11-03
 radford_et_al_2023:
   type: article
   author:
@@ -1114,32 +1048,11 @@ radford_et_al_2023:
 gbif_2026:
   type: web
   author:
-  - name: GBIF
-  date: 2026-04
-  title: 'Global Biodiversity Information Facility : occurrences autour de la forêt de Tsiazombazaha'
-  url: https://www.gbif.org
-  note: Consulté en avril 2026 ; DOI du téléchargement à ajouter si disponible
-plantnet_2026:
-  type: web
-  author:
-  - name: Pl@ntNet
-  title: 'Pl@ntNet : application d''identification des plantes'
-  url: https://identify.plantnet.org
-  note: Date d'accès à préciser
-tropicos_2026:
-  type: web
-  author:
-  - name: Missouri Botanical Garden
-  title: 'Tropicos : Catalogue of the Vascular Plants of Madagascar'
-  url: https://www.tropicos.org/project/mada
-  note: Date d'accès à préciser
-inaturalist_2026:
-  type: web
-  author:
-  - name: iNaturalist
-  title: iNaturalist
-  url: https://www.inaturalist.org
-  note: Date d'accès à préciser
+  - name: GBIF.org
+  date: 2026-11-03
+  title: GBIF Occurrence Download
+  url: https://doi.org/10.15468/dl.8gjvzk
+  note: Téléchargement de 28 taxons (204 occurrences), consulté le 3 novembre 2026 (GBIF.org, 3 November 2026)
 # ---- 02/11/2026 : entrées ajoutées pour l'Introduction (relecture). Toutes « REF? » tant que non vérifiées par l'auteur.
 # REF? : ouvrage non lu ; éditeur et édition à confirmer.
 deschamps_1961:
@@ -1191,7 +1104,7 @@ amelot_2017:
     location: Saint-Denis de La Réunion
   page-range: 32-53
   url: https://hal.science/hal-02359273
-# REF? : notice vérifiée en ligne (02/11/2026), article non lu.
+# Notice et résumé vérifiés sur Crossref (03/11/2026) : 7,6 Mha de forêt humide de l'Est en 1950, 3,8 Mha en 1985, soit 50 %. Article non lu.
 green_sussman_1990:
   type: article
   author:
@@ -1216,7 +1129,7 @@ cepf_2022:
   note: 'Préparé par le groupement Conservation International, Biotope, Missouri Botanical Garden et Asity Madagascar'
   date: 2022-11-10
   url: https://www.cepf.net/resources/documents/working-group-70-madio-ecosystem-profile-full
-# REF? : titre, numéro de collection et DOI à confirmer (FAO Forestry Paper n° 186 ?). Résultat : 88,1 % de la déforestation 2000-2018 due à l'expansion agricole.
+# REF? Titre et DOI vérifiés sur Crossref (03/11/2026) ; numéro de collection non trouvé. Rapport non lu : « plus de 90 % » (part des forêts tropicales dans la déforestation 2000-2018, 157 Mha) d'après le communiqué FAO du 3 mai 2022 ; « près de 90 % » (88,1 %, expansion agricole) d'après le communiqué FAO du 6 novembre 2021.
 fao_2022:
   type: report
   author:
@@ -1285,21 +1198,6 @@ montagne_ramamonjisoa_2006:
   page-range: 9-26
   serial-number:
     doi: 10.4000/economierurale.894
-# REF? : seul le résumé a été lu (continuité entre gestion locale royale et transferts de gestion).
-bertrand_et_al_2009:
-  type: article
-  author:
-  - Bertrand, A.
-  - Rabesahala Horning, N.
-  - Montagne, P.
-  title: 'Gestion communautaire ou préservation des ressources renouvelables : histoire inachevée d''une évolution majeure de la politique environnementale à Madagascar'
-  date: 2009
-  parent:
-    type: periodical
-    title: VertigO
-    volume: 9
-    issue: 3
-  url: https://www.erudit.org/fr/revue/vertigo/2009/v9/n3/044190ar.pdf
 # REF? : ouvrage non lu ; notice vérifiée en ligne (catalogue Nantilus, Quae). Réédition en 2014 (ISBN 978-2-87614-824-6).
 aubert_et_al_2003:
   type: book
@@ -1313,7 +1211,7 @@ aubert_et_al_2003:
   date: 2003
   serial-number:
     isbn: 2-87614-495-6
-# REF? : notice proposée de mémoire, non lue.
+# REF? : notice proposée de mémoire (DOI 10.1038/35002501), non lue.
 myers_et_al_2000:
   type: article
   author:
@@ -1332,30 +1230,7 @@ myers_et_al_2000:
   page-range: 853-858
   serial-number:
     doi: 10.1038/35002501
-# REF? : notice proposée de mémoire, non lue ; liste complète des auteurs à compléter.
-olson_et_al_2001:
-  type: article
-  author:
-  - Olson, D. M.
-  - et al.
-  title: 'Terrestrial ecoregions of the world: a new map of life on Earth'
-  date: 2001
-  parent:
-    type: periodical
-    title: BioScience
-    volume: 51
-    issue: 11
-  page-range: 933-938
-  serial-number:
-    doi: 10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2
 # TODO : date de consultation à indiquer.
-faolex_2026:
-  type: web
-  author:
-  - name: FAO
-  title: 'FAOLEX : base de données de législation nationale'
-  url: https://www.fao.org/faolex
-  date: 2026
 # ---- 02/11/2026 : entrées ajoutées pour la Discussion (endémisme, milieux ouverts, friches de tavy). Notices vérifiées via Crossref ; seuls les résumés ont été lus : « REF? ».
 # REF? : 11 516 plantes vasculaires natives, 82 % d'endémiques ; 1 215 bryophytes, 28 % (communiqué de Kew, à vérifier dans l'article). Liste complète des 84 auteurs reprise de Crossref le 02/11/2026.
 antonelli_et_al_2022:
@@ -1455,156 +1330,6 @@ antonelli_et_al_2022:
   page-range: eabf0869
   serial-number:
     doi: 10.1126/science.abf0869
-# REF? : 11 220 espèces vasculaires ; 82 % d'endémisme pour les vasculaires indigènes, 84 % pour les angiospermes (sources secondaires, à vérifier dans l'article).
-callmander_et_al_2011:
-  type: article
-  author:
-  - Callmander, M. W.
-  - Phillipson, P. B.
-  - Schatz, G. E.
-  - Andriambololonera, S.
-  - Rabarimanarivo, M.
-  - Rakotonirina, N.
-  - Raharimampionona, J.
-  - Chatelain, C.
-  - Gautier, L.
-  - Lowry II, P. P.
-  title: The endemic and non-endemic vascular flora of Madagascar updated
-  date: 2011
-  parent:
-    type: periodical
-    title: Plant Ecology and Evolution
-    volume: 144
-    issue: 2
-  page-range: 121-125
-  serial-number:
-    doi: 10.5091/plecevo.2011.513
-# REF? : 541 graminées dont 217 endémiques (d'après Kew) ; une partie des prairies serait antérieure à l'homme.
-vorontsova_et_al_2016:
-  type: article
-  author:
-  - Vorontsova, M. S.
-  - Besnard, G.
-  - Forest, F.
-  - Malakasi, P.
-  - Moat, J.
-  - Clayton, W. D.
-  - Ficinski, S. Z.
-  - Savva, G. M.
-  - Nanjarisoa, O. P.
-  - Razanatsoa, J.
-  - Randriatsara, F. O.
-  - Kimeu, J. M.
-  - Luke, W. R. Q.
-  - Kayombo, C.
-  - Linder, H. P.
-  title: 'Madagascar''s grasses and grasslands: anthropogenic or natural?'
-  date: 2016
-  parent:
-    type: periodical
-    title: Proceedings of the Royal Society B
-    volume: 283
-    issue: 1823
-  page-range: '20152262'
-  serial-number:
-    doi: 10.1098/rspb.2015.2262
-# REF? : position opposée à Vorontsova et al. (2016) et Bond et al. (2008) pour les hautes terres centrales.
-joseph_seymour_2021:
-  type: article
-  author:
-  - Joseph, G. S.
-  - Seymour, C. L.
-  title: 'The unlikely ‘antiquity of Madagascar''s grasslands’: Disproportionately forest-limited endemic fauna support anthropogenic transformation from woodland'
-  date: 2021
-  parent:
-    type: periodical
-    title: Journal of Biogeography
-    volume: 48
-    issue: 8
-  page-range: 2111-2115
-  serial-number:
-    doi: 10.1111/jbi.14132
-# REF? : réponse à Joseph et Seymour (2021). Mis en ligne en 2022, numéro de mars 2023.
-bond_et_al_2023:
-  type: article
-  author:
-  - Bond, W. J.
-  - Silander, J. A.
-  - Ratsirarson, J.
-  title: Madagascar's grassy biomes are ancient and there is much to learn about their ecology and evolution
-  date: 2023
-  parent:
-    type: periodical
-    title: Journal of Biogeography
-    volume: 50
-    issue: 3
-  page-range: 614-621
-  serial-number:
-    doi: 10.1111/jbi.14494
-# REF? : nord-est de Madagascar, 80 placettes, 355 espèces herbacées (60 endémiques, 180 natives non endémiques, 57 exotiques, 58 d'origine inconnue).
-raveloaritiana_et_al_2021:
-  type: article
-  author:
-  - Raveloaritiana, E.
-  - Wurz, A.
-  - Grass, I.
-  - Osen, K.
-  - Soazafy, M. R.
-  - Martin, D. A.
-  - Faliniaina, L.
-  - Rakotomalala, N. H.
-  - Vorontsova, M. S.
-  - Tscharntke, T.
-  - Rakouth, B.
-  title: Land-use intensification increases richness of native and exotic herbaceous plants, but not endemics, in Malagasy vanilla landscapes
-  date: 2021
-  parent:
-    type: periodical
-    title: Diversity and Distributions
-    volume: 27
-    issue: 5
-  page-range: 784-798
-  serial-number:
-    doi: 10.1111/ddi.13226
-# REF? : région betsimisaraka ; succession des friches de tavy vers des espèces exotiques envahissantes et des herbacées.
-styger_et_al_2007:
-  type: article
-  author:
-  - Styger, E.
-  - Rakotondramasy, H. M.
-  - Pfeffer, M. J.
-  - Fernandes, E. C. M.
-  - Bates, D. M.
-  title: Influence of slash-and-burn farming practices on fallow succession and land degradation in the rainforest region of Madagascar
-  date: 2007
-  parent:
-    type: periodical
-    title: Agriculture, Ecosystems & Environment
-    volume: 119
-  page-range: 257-269
-  serial-number:
-    doi: 10.1016/j.agee.2006.07.012
-# REF? : Ranomafana (altitude plus élevée que Tsiazombazaha). Mis en ligne en 2009, numéro de janvier 2010.
-klanderud_et_al_2010:
-  type: article
-  author:
-  - Klanderud, K.
-  - Mbolatiana, H. Z. H.
-  - Vololomboahangy, M. N.
-  - Radimbison, M. A.
-  - Roger, E.
-  - Totland, Ø.
-  - Rajeriarison, C.
-  title: Recovery of plant species richness and composition after slash-and-burn agriculture in a tropical rainforest in Madagascar
-  date: 2010
-  parent:
-    type: periodical
-    title: Biodiversity and Conservation
-    volume: 19
-    issue: 1
-  page-range: 187-204
-  serial-number:
-    doi: 10.1007/s10531-009-9714-3
 # Lu (PDF journalmcd.com, 02/11/2026). Crise politique de 2009-2010 et exploitation du bois de rose.
 randriamalala_liu_2010:
   type: article
@@ -1660,3 +1385,41 @@ tengo_et_al_2007:
   page-range: 683-691
   serial-number:
     doi: 10.1579/0044-7447(2007)36[683:TAFGIP]2.0.CO;2
+# REF? Notice vérifiée sur Crossref ; résumé seul lu (OpenAlex). Bilan des transferts de gestion, Introduction.
+rasolofoson_et_al_2015:
+  type: article
+  author:
+  - Rasolofoson, R. A.
+  - Ferraro, P. J.
+  - Jenkins, C. N.
+  - Jones, J. P. G.
+  title: Effectiveness of Community Forest Management at reducing deforestation in Madagascar
+  date: 2015
+  parent:
+    type: periodical
+    title: Biological Conservation
+    volume: 184
+  page-range: 271-277
+  serial-number:
+    doi: 10.1016/j.biocon.2015.01.027
+# REF? Notice vérifiée sur Crossref (en ligne 2016, numéro 2017) ; résumé seul lu (OpenAlex).
+rasolofoson_et_al_2017:
+  type: article
+  author:
+  - Rasolofoson, R. A.
+  - Ferraro, P. J.
+  - Ruta, G.
+  - Rasamoelina, M. S.
+  - Randriankolona, P. L.
+  - Larsen, H. O.
+  - Jones, J. P. G.
+  title: Impacts of Community Forest Management on human economic well-being across Madagascar
+  date: 2017
+  parent:
+    type: periodical
+    title: Conservation Letters
+    volume: 10
+    issue: 3
+  page-range: 346-353
+  serial-number:
+    doi: 10.1111/conl.12272

@@ -1,23 +1,16 @@
 #pagebreak(weak: true)
-= Résumé // 1700 caractères espaces compris
+= Résumé
+// Limite du guide GEEFT : 200 mots au maximum (critère 23), sans limite en caractères ; 199 mots au 03/11/2026. TODO : Abstract en anglais obligatoire, sous le résumé français, 200 mots au maximum.
 
-Située dans le sud-est de Madagascar, la forêt de Tsiazombazaha (500 hectares) représente aujourd'hui le plus grand fragment de forêt naturelle de la région Fitovinany.
-c'est pourquoi les politiques de conservation et les ONG mettent des moyens pour sa préservation.
-La forêt est aujourd'hui très peu connue tant sur les plans écologiques que sociologiques et les mesures de conservation et restauration sont prises à l'aveugle.
-Afin de pallier cette incertitude, une revue de littérature sur la forêt a été menée, 50 personnes ont été rencontrées et 34 entretiens semi-directifs, 21 sorties ont été conduits. 28 placettes avec identification au nom vernaculaire de 1999 tiges et mesure de celles >2,5 cm pour 486 tiges et 531 m2.
-// Sources (02/11/2026) : 1999 tiges (structure_resume.csv), 486 tiges mesurées, indéterminées comprises (seuil_diametre_resume.csv), 531 m² (courbe de raréfaction).
+La forêt de Tsiazombazaha (640~ha), plus grand fragment de forêt naturelle de la région Fitovinany (sud-est de Madagascar), est gérée par une communauté de base, le VOI Maharitra, appuyée par l'ONG Inter Aide. Peu connue, elle est protégée sans état de référence. Ce diagnostic écologique et social vise à orienter la stratégie d'Inter Aide. Elle s'appuie sur une revue de la littérature, 34 entretiens semi-directifs et 21 sorties de terrain (53 personnes) et l'inventaire de 1~999 tiges dans 28 placettes (531~m²).
 
-X noms vernaculaires ont été relevés, un nb d'esp de X moyen par placette, une G moyenne de x+-y, une structure typique de...
-La forêt est considérée par les locaux d'un point de vue très utilitaire pour sa provision d'eau et de bois.
-L'organe de gestion communautaire est aujourd'hui dans une période forte et il convient de s'appuyer dessus.
-// dire d'autres choses sur sa considération au besoin !!!
+// TODO : partie sociale et Discussion du résumé à retravailler une fois ResultatsSocio.typ et Discussion.typ finalisés.
+Le peuplement est riche en petites tiges et pauvre en gros arbres (37~569~±~2~552 tiges/ha~; 37,30~±~5,30~m²/ha, moyenne ± erreur-type), un profil compatible avec une forêt perturbée~; il stocke 140,99~tC/ha (IC 95~% : [103,12~; 186,75]). La flore compte 303 noms vernaculaires, dont 242 dans les placettes, à la composition très hétérogène. Les habitants voient surtout dans la forêt une source d'eau, puis de bois, et rattachent feux, coupes et défrichement à la soudure et au manque de terres. La gestion du VOI dispose d'un cadre reconnu mais reste fragile.
 
-La forêt de Tsiazombazaha constitue donc bien une forêt d'importance première à protéger. Des recommendations oéprationnelles sur les actions à mener par Inter Aide sont proposées.
+Cette forêt est donc d'importance première à protéger. Des recommandations opérationnelles sont proposées à Inter Aide.
 
-*Mots-clés :* Madagascar, Forêt tropicale humide, Socioécologie, Inventaire écologique, Organisation non-gouvernementale, Enquête sociale
+*Mots-clés~:* Madagascar, forêt tropicale humide, socioécologie, inventaire écologique, enquête sociale, gestion communautaire, transfert de gestion
 
-#pagebreak(weak: true)
-= Abstract
+= Abstract (TODO)
 
-#pagebreak(weak: true)
-= Famintana
+= Famintana (TODO)

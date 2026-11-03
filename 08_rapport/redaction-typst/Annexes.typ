@@ -1,12 +1,9 @@
 #import "TitresCourts.typ": titre-court
 
-
 #show figure.where(kind: "annexe"): set figure.caption(position: top)
 #set figure(numbering: "1")
 #show figure.where(kind: "annexe"): set block(breakable: true)
 
-// Formatage des valeurs importées des CSV (autorisé par l'auteur le 01/11/2026) :
-// arrondi à `decimales`, virgule décimale, signe moins typographique ; les textes et « NA » sont rendus tels quels.
 #let nombre(x, decimales: 2) = {
   if x.match(regex("^-?[0-9]+(\.[0-9]+)?([eE]-?[0-9]+)?$")) == none { return x }
   let v = calc.round(float(x), digits: decimales)
@@ -17,7 +14,6 @@
   if decimales == 0 { signe + parties.at(0) } else { signe + parties.at(0) + "," + dec }
 }
 
-// Grands tableaux : import csv() depuis analyse-tables/ (copies des sorties R, 01/11/2026) ; petits tableaux : saisie manuelle.
 #let placettesN = csv("analyse-tables/structure_N_placettes.csv").slice(1)
 #let placettesG = csv("analyse-tables/structure_G_placettes.csv").slice(1)
 #let placettesAlpha = csv("analyse-tables/diversite_alpha_placettes.csv").slice(1)
@@ -25,151 +21,176 @@
 #let classesG = csv("analyse-tables/sensibilite_romiguiere_classes_G.csv").slice(1)
 #let classesNGA = csv("analyse-tables/transects_grands_arbres_classes_N.csv").slice(1)
 #let classesGGA = csv("analyse-tables/transects_grands_arbres_classes_G.csv").slice(1)
-#let pointsNMDS = csv("analyse-tables/diversite_beta_nmds_points.csv").slice(1)
+#let pointsNMDS = csv("analyse-tables/diversite_beta_nmds_points_anonyme.csv").slice(1)
 #let ivi = csv("analyse-tables/ivi_especes.csv").slice(1)
 #let rarefaction = csv("analyse-tables/courbe_raréfaction_extrapolation.csv").slice(1)
-// Annexe allégée : toutes les lignes de raréfaction, une ligne d'extrapolation sur quatre (jusqu'au point final, 112 placettes)
-#let rarefactionExtrap = rarefaction.filter(r => r.at(2) == "Extrapolation")
-#let rarefactionAnnexe = rarefaction.filter(r => r.at(2) != "Extrapolation") + rarefactionExtrap.enumerate().filter(((i, r)) => calc.rem(rarefactionExtrap.len() - 1 - i, 4) == 0).map(((i, r)) => r)
-#let carbone = csv("analyse-tables/carbone_stocks.csv").slice(1)
-#let libellesCarbone = ("Grands arbres (transects 10 m)": "Grands arbres des transects", "Tiges placettes (flore)": "Tiges des placettes", "Bois mort au sol (line intersect)": "Bois mort au sol", "Bois mort sur pied (chandelles)": "Bois mort sur pied")
-// Ancien tableau saisi à la main retiré le 01/11/2026 : valeurs antérieures à la mise à jour des longueurs de transects (grands arbres 15,71 tC/ha) et ligne « Total » sommée à la main. TODO : stock total et stocks extrapolés à la forêt (colonnes *_total_* du CSV, 500 ha provisoires) à ajouter une fois la surface QGIS connue et le total exporté par le script.
+#let rarefactionAnnexe = rarefaction
 #let methodes = (Rarefaction: "Interpolation", Observed: "Observé", Extrapolation: "Extrapolation")
 
+#pagebreak(weak: true)
 = Table des annexes
 
 #outline(title: none, target: figure.where(kind: "annexe"))
 
-
-// Structure proposée le 01/11/2026 : une entrée par annexe, dans l'ordre de premier renvoi dans le texte (M&M puis Résultats).
-// Les renvois du texte sont pour l'instant écrits « (ANNEXE : …) » en clair : Resultats.typ et MaterielMethodes.typ compilent seuls et ne voient pas ces étiquettes. Les remplacer par @annexe-… une fois les fichiers réunis dans main.typ.
-// Tableaux tirés des CSV : saisie manuelle arrondie à deux décimales, ou import csv() — l'import brut affiche les décimales à point et non arrondies ; à arbitrer (pas de fonction personnalisée).
-
-#pagebreak(weak: true)
-
-#figure(
-  [
-    // TODO : Carte d'intervention du projet (Inter Aide). Source et droits de reproduction à vérifier. Renvoi : Introduction ou M&M, Site d'étude.
-  ],
-  kind: "annexe",
-  supplement: [Annexe],
-  caption: [Zone d'intervention du projet EcoBois],
-) <annexe-carte-ecobois>
-#titre-court(<annexe-carte-ecobois>)[Zone d'intervention du projet EcoBois]
-
 #pagebreak(weak: true)
 
 #figure(
   table(
-    columns: (1fr, 1.5fr, 2fr, 3fr, 1fr),
-    align: (center, center, center, left, center),
-    table.header([*Code*], [*Date*], [*Fokontany*], [*Motif*], [*Trace GPS*]),
-    // Données depuis metadonnees_enquete-de-terrain_2_sorties.csv
-    ..("S1", "?", "Andriana", "Observation plantation tranobe IA", "Non"),
-    ..("S2", "16/06/26", "Manakana", "Chantier de plantation Manakana", "Non"),
-    ..("S3", "03/07/26", "Mizilo Gara", "Observation de Tsiazombazaha de loin et entretiens", "Non"),
-    ..("S4", "24/07/26", "Manakana", "Prospection des sources", "Oui"),
-    ..("S5", "06/08/26", "Mizilo Gara", "Tracé de la route de FIANTSO", "Oui"),
-    ..("S6", "07/08/26", "Mizilo Gara", "Observation de la flore agricole", "Non"),
-    ..("S7", "17/08/26", "Manakana", "Observation de la flore agricole", "Non"),
-    ..("S8", "18/08/26", "Manakana", "Une placette", "Oui"),
-    ..("S9", "19/08/26", "Manakana", "Chemin Manakana – Andriana", "Oui"),
-    ..("S10", "20/08/26", "Manakana", "Une placette", "Oui"),
-    ..("S11", "25/08/26", "Manakana", "Deux placettes", "Oui"),
-    ..("S12", "26/08/26", "Manakana", "Chemin Manakana – Ambila", "Oui"),
-    ..("S13", "27/08/26", "Manakana", "Quatre placettes", "Oui"),
-    ..("S14", "02/09/26", "Mizilo Gara", "Quatre placettes", "Oui"),
-    ..("S15", "03/09/26", "Mizilo Gara", "Assemblée générale du VOI", "Non"),
-    ..("S16", "04/09/26", "Mizilo Gara", "Une placette, une piscine naturelle, échanges", "Oui"),
-    ..("S17", "08/09/26", "Manakana", "Tournée Sarah – reboisement tranobe en natif", "Non"),
-    ..("S18", "09/09/26", "Andriana", "Tournée Sarah – reboisement VOI", "Non"),
-    ..("S19", "11/09/26", "Mizilo Gara", "Quatre placettes", "Oui"),
-    ..("S20", "15/09/26", "Andriana", "Quatre placettes", "Oui"),
-    ..("S21", "16/09/26", "Andriana", "Quatre placettes", "Oui"),
+    columns: (1fr, 1fr, 2fr, 3fr, 3fr, 1fr,3fr),
+    align: (center, center, center, left, left, center, left),
+    table.header([*Code*], [*Date*], [*Participants*], [*_Fokontany_*], [*Lieu*], [*Durée*], [*Code enquêtés*]),
+    ..("E1", "15/05", "1", "Manakara", "Bureau d’Inter Aide", "02:19", "ENQ01"),
+    ..("E2", "16/06", "1", "Manakana", "Plantation", "01:00", "ENQ02"),
+    ..("E3", "17/06", "2", "Mizilo Gara", "Mairie", "03:30", "ENQ03, ENQ04"),
+    ..("E4", "01/07", "1", "Mizilo Gara", "Mairie", "", "ENQ05"),
+    ..("E5", "01/07", "2", "Tsiazombazaha / Ampasipotsy", "Maison enquêté", "00:43", "ENQ06, ENQ07"),
+    ..("E6", "02/07", "3", "Mizilo Gara", "Marché", "00:52", "ENQ08, ENQ09, ENQ10"),
+    ..("E7", "02/07", "1", "Mizilo Gara", "Mairie", "01:48", "ENQ11"),
+    ..("E8", "02/07", "1", "Mizilo Gara", "Maison enquêté, plantation", "02:04", "ENQ12"),
+    ..("E9", "03/07", "5", "Mizilo Gara", "Maison enquêté", "02:22", "ENQ12, ENQ13, ENQ14, ENQ15, ENQ16"),
+    ..("E10", "08/07", "1", "Andriana", "Maison technicien, maison enquêté, champ", "04:00", "ENQ17"),
+    ..("E11", "08/07", "1", "Andriana", "Maison enquêté", "03:00", "ENQ18"),
+    ..("E12", "09/07", "1", "Andriana", "Maison technicien", "00:48", "ENQ19"),
+    ..("E13", "09/07", "1", "Andriana", "Maison technicien", "", "ENQ20"),
+    ..("E14", "09/07", "1", "Andriana", "Maison technicien", "", "ENQ21"),
+    ..("E15", "10/07", "2", "Andriana", "Maison technicien", "", "ENQ22, ENQ23"),
+    ..("E16", "13/07", "3", "Tsiazombazaha / Ampasipotsy", "Champ", "", "ENQ24, ENQ25, ENQ26"),
+    ..("E17", "21/07", "2", "Mizilo Gara", "Mairie", "03:20", "ENQ03, ENQ12"),
+    ..("E18", "22/07", "2", "Manakana", "Maison enquêté", "06:00", "ENQ27, ENQ28"),
+    ..("E19", "22/07", "2", "Manakana", "Maison louée", "01:28", "ENQ29, ENQ30"),
+    ..("E20", "23/07", "2", "Manakana", "Maison enquêté", "04:04", "ENQ31, ENQ32"),
+    ..("E21", "27/07", "1", "Ambahatrazo", "Mairie", "", "ENQ28"),
+    ..("E22", "30/07", "1", "Ambalavolo", "Maison enquêté", "01:23", "ENQ34"),
+    ..("E23", "30/07", "1", "Ambalavolo", "Rue", "01:37", "ENQ35"),
+    ..("E24", "31/07", "1", "Ambalavolo", "Boutique", "01:54", "ENQ36"),
+    ..("E25", "06/08", "1", "Ambalavolo", "Champ", "01:18", "ENQ37"),
+    ..("E26", "12/08", "2", "Amborodra", [Maison président _fokontany_], "02:30", "ENQ38, ENQ39"),
+    ..("E27", "12/08", "2", "Amborodra", [Maison président _fokontany_], "02:07", "ENQ40, ENQ41"),
+    ..("E28", "13/08", "1", "Amborodra", [Maison président _fokontany_], "01:54", "ENQ42"),
+    ..("E29", "19/08", "1", "Manakana", "Maison louée", "01:37", "ENQ44"),
+    ..("E30", "25/08", "1", "Manakana", "Maison louée", "01:49", "ENQ45"),
+    ..("E31", "27/08", "1", "Manakana", "Maison louée", "01:26", "ENQ46"),
+    ..("E32", "31/08", "3", "Manakana", "Maison enquêté", "01:32", "ENQ47, ENQ48, ENQ49"),
+    ..("E33", "14/09", "2", "Andriana", "Maison enquêté", "", "ENQ50, ENQ51"),
+    ..("E34", "14/09", "1", "Andriana", "Maison enquêté", "", "ENQ52"),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Liste des 21 sorties de terrain. Source : métadonnées enquête de terrain, fichier metadonnees_enquete-de-terrain_2_sorties.csv, n = 21, date de collecte : 15/05–16/09/2026.],
-) <annexe-sorties>
-#titre-court(<annexe-sorties>)[Liste des sorties de terrain]
+  caption: [Liste des 34 entretiens semi-directifs (50 personnes, dont 14 entretiens collectifs). Date : jour et mois de 2026 ; Participants : nombre de participants présents ; Durée : heures et minutes, case vide si non notée ; Code enquêtés : codes de l'annexe Personnes rencontrées.],
+) <annexe-entretiens>
+#titre-court(<annexe-entretiens>)[Entretiens conduits]
 
 #pagebreak(weak: true)
 
 #figure(
   table(
-    columns: (1.5fr, 1fr, 1fr, 2.5fr, 2fr, 2fr),
+    columns: (1fr, 1fr, 1fr, 3fr, 2fr, 2fr),
     align: (center, center, center, left, left, left),
-    table.header([*Code*], [*Genre*], [*Âge*], [*Profession*], [*Lien au VOI*], [*Fokontany*]),
-    // Données anonymisées depuis metadonnees_enquete-de-terrain_3_enquetes.csv
-    ..("ENQ01", "H", "?", "Responsable programme", "N/A", "Manakara"),
-    ..("ENQ02", "H", "30", "Coordinateur socio-environnemental", "N/A", "Manakana"),
+    table.header([*Code*], [*Genre*], [*Âge*], [*Profession*], [*Lien au VOI*], [*_Fokontany_*]),
+    ..("ENQ01", "H", "", "Responsable programme", "", "Manakara"),
+    ..("ENQ02", "H", "30", "Coordinateur programme", "", "Manakana"),
     ..("ENQ03", "H", "65", "Agriculteur", "Vice-président", "Mizilo Gara"),
-    ..("ENQ04", "H", "57", "Agriculteur", "Polisn'ala", "Mizilo Gara"),
-    ..("ENQ05", "H", "?", "Président fokontany", "?", "Mizilo Gara"),
-    ..("ENQ06", "H", "?", "?", "Aucun", "Tsiazombazaha / Ampasipotsy"),
-    ..("ENQ07", "F", "?", "?", "Aucun", "Tsiazombazaha / Ampasipotsy"),
+    ..("ENQ04", "H", "57", "Agriculteur", [_polisinala_], "Mizilo Gara"),
+    ..("ENQ05", "H", "", [Président _fokontany_], "", "Mizilo Gara"),
+    ..("ENQ06", "H", "", "", "Aucun", "Tsiazombazaha / Ampasipotsy"),
+    ..("ENQ07", "F", "", "", "Aucun", "Tsiazombazaha / Ampasipotsy"),
     ..("ENQ08", "H", "36", "Agriculteur", "Aucun", "Mizilo Gara"),
     ..("ENQ09", "H", "40", "Agriculteur", "Aucun", "Mizilo Gara"),
-    ..("ENQ10", "H", "62", "?", "Observateur", "Mizilo Gara"),
-    ..("ENQ11", "H", "?", "Agriculteur, maire", "Membre", "Mizilo Gara"),
+    ..("ENQ10", "H", "62", "", "Observateur", "Mizilo Gara"),
+    ..("ENQ11", "H", "", "Agriculteur, maire", "Membre", "Mizilo Gara"),
     ..("ENQ12", "H", "66", "Agriculteur", "Secrétaire", "Mizilo Gara"),
     ..("ENQ13", "H", "35", "Instituteur", "Membre", "Mizilo Gara"),
     ..("ENQ14", "F", "28", "Agricultrice, vannière", "Membre", "Mizilo Gara"),
     ..("ENQ15", "H", "47", "Agriculteur", "Ancien membre", "Mizilo Gara"),
     ..("ENQ16", "F", "37", "Agricultrice, vannière", "Ancienne membre", "Mizilo Gara"),
-    ..("ENQ17", "H", "?", "Président fokontany", "", "Andriana"),
-    ..("ENQ18", "H", "?", "Agriculteur, éleveur", "Président du VOI", "Andriana"),
-    ..("ENQ19", "H", "?", "Agriculteur", "Pépiniériste, polisn'ala", "Andriana"),
-    ..("ENQ20", "H", "?", "?", "Pépiniériste", "Andriana"),
+    ..("ENQ17", "H", "", [Président _fokontany_], "", "Andriana"),
+    ..("ENQ18", "H", "", "Agriculteur, éleveur", "Président du VOI", "Andriana"),
+    ..("ENQ19", "H", "", "Agriculteur", [Pépiniériste, _polisinala_], "Andriana"),
+    ..("ENQ20", "H", "", "", "Pépiniériste", "Andriana"),
     ..("ENQ21", "F", "54", "Agent communautaire", "Membre", "Andriana"),
-    ..("ENQ22", "H", "26", "Agriculteur", "Polisn'ala", "Andriana"),
-    ..("ENQ23", "H", "?", "?", "Conseiller, polisn'ala", "Andriana"),
-    ..("ENQ24", "H", "?", "?", "Polisn'ala, comité feu", "Ampasipotsy"),
-    ..("ENQ25", "F", "?", "?", "Membre", "Ampasipotsy"),
-    ..("ENQ26", "H", "?", "Président fokontany", "Comité feu", "Ampasipotsy"),
-    ..("ENQ27", "H", "?", "?", "Vice-président", "Ambahatrazo"),
-    ..("ENQ28", "H", "?", "?", "Trésorier", "Manakana"),
-    ..("ENQ29", "H", "?", "Président fokontany", "Polisn'ala", "Manakana"),
-    ..("ENQ30", "H", "?", "Vice-président fokontany", "", "Manakana"),
-    ..("ENQ31", "H", "?", "?", "", "Manakana"),
-    ..("ENQ32", "H", "?", "?", "", "Manakana"),
-    ..("ENQ33", "H", "50", "Agriculteur", "Polisn'ala", "Manakana"),
+    ..("ENQ22", "H", "26", "Agriculteur", [_polisinala_], "Andriana"),
+    ..("ENQ23", "H", "", "", [Conseiller, _polisinala_], "Andriana"),
+    ..("ENQ24", "H", "", "", [_polisinala_, comité feu], "Ampasipotsy"),
+    ..("ENQ25", "F", "", "", "Membre", "Ampasipotsy"),
+    ..("ENQ26", "H", "", [Président _fokontany_], "Comité feu", "Ampasipotsy"),
+    ..("ENQ27", "H", "", "", "Vice-président", "Ambahatrazo"),
+    ..("ENQ28", "H", "", "", "Trésorier", "Manakana"),
+    ..("ENQ29", "H", "", [Président _fokontany_], [_polisinala_], "Manakana"),
+    ..("ENQ30", "H", "", [Vice-président _fokontany_], "", "Manakana"),
+    ..("ENQ31", "H", "", "", "", "Manakana"),
+    ..("ENQ32", "H", "", "", "", "Manakana"),
+    ..("ENQ33", "H", "50", "Agriculteur", [_polisinala_], "Manakana"),
     ..("ENQ34", "F", "38", "Agent communautaire", "Aucun", "Ambalavolo"),
     ..("ENQ35", "H", "25", "Agriculteur", "Aucun", "Ambalavolo"),
     ..("ENQ36", "F", "21", "Agricultrice, commerçante", "Aucun", "Ambalavolo"),
-    ..("ENQ37", "H", "51", "Agriculteur, polisn'ala", "Polisn'ala", "Ambalavolo"),
-    ..("ENQ38", "H", "49", "Ampazaka, agriculteur", "Membre", "Amborodra"),
+    ..("ENQ37", "H", "51", [Agriculteur, _polisinala_], [_polisinala_], "Ambalavolo"),
+    ..("ENQ38", "H", "49", [_Ampazaka_, agriculteur], "Membre", "Amborodra"),
     ..("ENQ39", "H", "65", "Agriculteur", "Ancien membre", "Amborodra"),
-    ..("ENQ40", "H", "55", "Agriculteur, président fokontany", "Membre", "Amborodra"),
+    ..("ENQ40", "H", "55", [Agriculteur, président _fokontany_], "Membre", "Amborodra"),
     ..("ENQ41", "H", "40", "Agriculteur, adjoint", "Membre", "Amborodra"),
     ..("ENQ42", "H", "69", "Agriculteur", "Membre", "Amborodra"),
-    ..("ENQ43", "H", "?", "Agriculteur", "Polisn'ala", "Manakana"),
-    ..("ENQ44", "F", "?", "Technicienne", "Aucun", "Manakana"),
+    ..("ENQ43", "H", "", "Agriculteur", [_polisinala_], "Manakana"),
+    ..("ENQ44", "F", "", "Technicienne programme", "Aucun", "Manakana"),
     ..("ENQ45", "H", "43", "Agriculteur", "Membre", "Manakana"),
-    ..("ENQ46", "H", "35", "Agriculteur, mpanzaka", "Pépiniériste", "Manakana"),
+    ..("ENQ46", "H", "35", [Agriculteur, _ampazaka_], "Pépiniériste", "Manakana"),
     ..("ENQ47", "F", "30", "Agricultrice", "Aucun / Membre", "Manakana"),
     ..("ENQ48", "H", "47", "Agriculteur", "Membre", "Manakana"),
     ..("ENQ49", "F", "38", "", "Membre", "Manakana"),
-    ..("ENQ50", "H", "?", "?", "Polisn'ala", "Andriana"),
-    ..("ENQ51", "H", "?", "?", "Membre", "Andriana"),
-    ..("ENQ52", "H", "?", "?", "Membre", "Andriana"),
-    ..("ENQ100", "H", "54", "Agriculteur, ampazaka", "Polisn'ala", "Mizilo Gara"),
+    ..("ENQ50", "H", "", "", [_polisinala_], "Andriana"),
+    ..("ENQ51", "H", "", "", "Membre", "Andriana"),
+    ..("ENQ52", "H", "", "", "Membre", "Andriana"),
+    ..("ENQ100", "H", "54", [Agriculteur, _ampazaka_], [_polisinala_], "Mizilo Gara"),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Description des personnes rencontrées en entretien ou en sortie (n = 53, dont 50 en entretien). Genre : H = homme, F = femme ; Âge : en années (2026) ; Lien au VOI : polisin'ala = gardien de la forêt. Source : métadonnées enquête de terrain, fichier metadonnees_enquete-de-terrain_3_enquetes.csv, date de collecte : 15/05–16/09/2026. /* TODO : valeurs d'âge à valider pour les cas manquants. */],
+  caption: [Description des personnes rencontrées en entretien ou en sortie (n = 53, dont 50 en entretien). Genre : H = homme, F = femme ; Âge : en années. Case vide : non renseigné ou sans objet.],
 ) <annexe-echantillon-social>
 #titre-court(<annexe-echantillon-social>)[Personnes rencontrées en entretien ou en sortie]
 
 #pagebreak(weak: true)
 
 #figure(
+  table(
+    columns: (1fr, 1fr, 2fr, 5fr),
+    align: (center, center, center, left),
+    table.header([*Code*], [*Date*], [*_Fokontany_*], [*Motif*]),
+    ..("S1", "mai", "Andriana", [Observation plantation _tranobe_ IA]),
+    ..("S2", "16/06", "Manakana", "Chantier de plantation Manakana"),
+    ..("S3", "03/07", "Mizilo Gara", "Observation de Tsiazombazaha de loin et entretiens"),
+    ..("S4", "24/07", "Manakana", "Prospection des sources"),
+    ..("S5", "06/08", "Mizilo Gara", "Tracé de la route de FIANTSO"),
+    ..("S6", "07/08", "Mizilo Gara", "Observation de la flore agricole"),
+    ..("S7", "17/08", "Manakana", "Observation de la flore agricole"),
+    ..("S8", "18/08", "Manakana", "Une placette"),
+    ..("S9", "19/08", "Manakana", "Chemin Manakana – Andriana"),
+    ..("S10", "20/08", "Manakana", "Une placette"),
+    ..("S11", "25/08", "Manakana", "Deux placettes"),
+    ..("S12", "26/08", "Manakana", "Chemin Manakana – Ambila"),
+    ..("S13", "27/08", "Manakana", "Quatre placettes"),
+    ..("S14", "02/09", "Mizilo Gara", "Quatre placettes"),
+    ..("S15", "03/09", "Mizilo Gara", "Assemblée générale du VOI"),
+    ..("S16", "04/09", "Mizilo Gara", "Une placette, une piscine naturelle, échanges"),
+    ..("S17", "08/09", "Manakana", [Tournée Sarah – reboisement _tranobe_ en natif]),
+    ..("S18", "09/09", "Andriana", "Tournée Sarah – reboisement VOI"),
+    ..("S19", "11/09", "Mizilo Gara", "Quatre placettes"),
+    ..("S20", "15/09", "Andriana", "Quatre placettes"),
+    ..("S21", "16/09", "Andriana", "Quatre placettes"),
+  ),
+  kind: "annexe",
+  supplement: [Annexe],
+  caption: [Liste des 21 sorties de terrain et motif.],
+) <annexe-sorties>
+#titre-court(<annexe-sorties>)[Liste des sorties de terrain]
+
+#pagebreak(weak: true)
+
+#figure(
   [
-#lorem(150) // TODO : Insérer ici le canevas d'entretien mis au propre et numéroté. À fournir par l'auteur.
+#lorem(150)
   ],
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Canevas d'entretien. /* TODO : Document à insérer. Renvoi : M&M, Collecte des données. */],
+  caption: [Canevas d'entretien.],
 ) <annexe-canevas>
 #titre-court(<annexe-canevas>)[Canevas d'entretien]
 
@@ -177,11 +198,11 @@
 
 #figure(
   [
-#lorem(150) // TODO : Insérer ici le protocole de relevé (seuils, variables, classes), la liste du matériel et la fiche de relevé vierge.
+#lorem(150)
   ],
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Protocole de relevé et matériel. /* TODO : Documents à insérer. Renvoi : M&M, Dispositif d'échantillonnage et Relevés par placette. */],
+  caption: [Protocole de relevé et matériel.],
 ) <annexe-protocole>
 #titre-court(<annexe-protocole>)[Protocole de relevé et matériel]
 
@@ -189,138 +210,269 @@
 
 #figure(
   table(
-    columns: (1fr, 2fr, 1fr),
-    align: left,
-    table.header([*Fichier*], [*Contenu*], [*Clé et lien*]),
-    [transects.csv], [Itinéraires : date, polisin'ala, placettes visitées, longueurs prospectées, commune], [transect],
-    [placettes.csv], [Variables de placette, surface, régénération, longueur de ligne pour le bois mort], [placette ; lien : transect],
-    [flore.csv], [Tiges mesurées (CBH) et gaulis par espèce, types, usages], [code d'observation ; lien : placette],
-    [bois-mort.csv], [Chandelles et bois mort au sol : CBH, degré de décomposition], [lien : placette],
-    [phenologie.csv], [Fleurs et fruits observés], [lien : placette],
-    [grands-arbres.csv], [Grands arbres : nom vernaculaire, CBH, usages], [code de grand arbre ; lien : transect],
-    [chablis.csv], [Chablis par classe de diamètre], [lien : transect],
-    [autres-observations-flore.csv], [Espèces notées hors placettes], [lien : transect ou placette],
-    [romiguiere-2025-\*.csv], [Relevés de Romiguière (2025) à Tsiazombazaha : tiges et régénération, transects, liste et usages de ses espèces, identifications latines de ses deux sites (extraits de son classeur)], [lien : transect de Romiguière ; correspondance des noms : correspondance-romiguiere-2025.csv],
+    columns: (2fr, 2fr, 3fr, 0.5fr),
+    align: (left, left, left, right),
+    table.header([*Usage*], [*Catégorie*], [*Sous-catégorie*], [*Code*]),
+    ..("Antifoudre", "Social uses", "Religious uses", "0804"),
+    ..("Aphrodisiaque", "Medicines", "Genitourinary system disorders", "1107"),
+    ..("Balai", "Materials", "Wood", "0604"),
+    ..("Batan", "Materials", "Wood", "0604"),
+    ..("Bois de chauffage", "Fuels", "Fuelwood", "0703"),
+    ..("Bois de construction", "Materials", "Wood", "0604"),
+    ..("Canaux d'irrigation", "Materials", "Wood", "0604"),
+    ..("Charpente", "Materials", "Wood", "0604"),
+    ..("Clôture", "Materials", "Wood", "0604"),
+    ..("Colle", "Materials", "Unspecified materials", "0601"),
+    ..("Construction de maison", "Materials", "Wood", "0604"),
+    ..("Corde", "Materials", "Fibres", "0602"),
+    ..("Douleurs dentaires", "Medicines", "Pain", "1119"),
+    ..("Écorce sucrée", "Food", "Bark", "0107"),
+        ..("Fatigue", "Medicines", "Ill-defined symptoms", "1108"),
+    ..("Fixation de toiture", "Materials", "Fibres", "0602"),
+    ..("Fruit comestible", "Food", "Infructescences", "0110"),
+    ..("Gonflements", "Medicines", "Inflammation", "1111"),
+    ..("Guitare", "Materials", "Wood", "0604"),
+    ..("Haie", "Environmental uses", "Boundaries, barriers, supports", "1208"),
+    ..("Insecticide", "Poisons", "Arthropoda", "1009"),
+    ..("Magie", "Social uses", "Religious uses", "0804"),
+    ..("Manche de bêche", "Materials", "Wood", "0604"),
+    ..("Médicinale", "Medicines", "Unspecified medicinal disorders", "1101"),
+    ..("Menuiserie", "Materials", "Wood", "0604"),
+    ..("Outils", "Materials", "Wood", "0604"),
+    ..("Panier", "Materials", "Cane etc.", "0603"),
+    ..("Pilon", "Materials", "Wood", "0604"),
+    ..("Pirogue", "Materials", "Wood", "0604"),
+    ..("Planche", "Materials", "Wood", "0604"),
+    ..("Plancher", "Materials", "Wood", "0604"),
+    ..("Poteau", "Materials", "Wood", "0604"),
+    ..("Poutre", "Materials", "Wood", "0604"),
+    ..("Sculpture", "Materials", "Wood", "0604"),
+    ..("Source d'eau", "Food", "Exudates", "0113"),
+    ..("Thé", "Food", "Unspecified parts", "0101"),
+    ..("Tressage", "Materials", "Cane etc.", "0603"),
+    ..("Vertiges", "Medicines", "Ill-defined symptoms", "1108"),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Fichiers de données issus de la saisie (un fichier CSV par type d'observation) et clés de correspondance entre fichiers.],
-) <annexe-fichiers-donnees>
-#titre-court(<annexe-fichiers-donnees>)[Fichiers de données et clés de correspondance]
-// TODO : ajouter le fichier de faune (« T1-T2-faune ») une fois nettoyé.
-// Ancien contenu de cette annexe (liste des sorties R, en partie redondante avec l'annexe des métadonnées), retiré le 01/11/2026 et conservé ci-dessous. ATTENTION : « 52 entretiens » contredit le M&M (34 entretiens, 50 personnes).
-// #figure(
-//   table(
-//     columns: (3fr, 3.5fr, 1fr),
-//     align: (left, left, left),
-//     table.header([*Fichier*], [*Description*], [*Format*]),
-//     ..("structure_N_placettes.csv", "Densité par placette (28 placettes)", "CSV"),
-//     ..("structure_G_placettes.csv", "Surface terrière par placette (28 placettes)", "CSV"),
-//     ..("diversite_alpha_placettes.csv", "Indices alpha par placette (richesse, Shannon, Simpson, Fisher)", "CSV"),
-//     ..("structure_classes_ic95.csv", "Densité par classe de diamètre avec IC 95 %", "CSV"),
-//     ..("structure_G_classes.csv", "Surface terrière par classe de diamètre", "CSV"),
-//     ..("diversite_beta_nmds_points.csv", "Coordonnées NMDS des placettes", "CSV"),
-//     ..("ivi_especes.csv", "Indice de valeur d'importance par espèce", "CSV"),
-//     ..("courbe_rarefaction_extrapolation.csv", "Courbe de raretéfaction-extrapolation", "CSV"),
-//     ..("carbone_stocks.csv", "Stocks de carbone par compartiment", "CSV"),
-//     ..("metadonnees_enquete-de-terrain_1_entretiens.csv", "Métadonnées des 52 entretiens", "CSV"),
-//     ..("metadonnees_enquete-de-terrain_2_sorties.csv", "Métadonnées des 21 sorties de terrain", "CSV"),
-//     ..("metadonnees_enquete-de-terrain_3_enquetes.csv", "Métadonnées des personnes enquêtées", "CSV"),
-//     ..("correspondance-usages-cook.csv", "Correspondance usages locaux – classification Cook (1995)", "CSV"),
-//     ..("liste-especes-usages-types.csv", "Liste des espèces avec usages et types", "CSV"),
-//     ..("phenologie.csv", "Observations phénologiques", "CSV"),
-//     ..("autres-observations-flore.csv", "Autres observations floristiques hors placettes", "CSV"),
-//     ..("animaux-T1-T2.csv", "Observations faunistiques (Observations)", "CSV"),
-//   ),
-//   kind: "annexe",
-//   supplement: [Annexe],
-//   caption: [Fichiers de données et clés de correspondance. Tous les fichiers sont disponibles en annexe numérique. Source : données de terrain 2026 et référentiels projet. /* REF? Critère 79 du guide GEEFT à vérifier. */],
-
-#pagebreak(weak: true)
-
-#figure(
-  table(
-    columns: (1.5fr, 1fr, 2fr, 1.5fr),
-    align: (left, center, left, left),
-    table.header([*Usage normalisé*], [*Cook N1*], [*Cook N1 (libellé)*], [*Cook N2 (libellé)*]),
-    // Données depuis correspondance-usages-cook.csv
-    ..("anti_foudre", "800", "sociale_culturelle", "Religious Uses"),
-    ..("aucun", "", "", ""),
-    ..("balai", "600", "materiaux", "Wood"),
-    ..("batan", "600", "materiaux", "Wood"),
-    ..("bois_chauffage", "700", "combustible", "Fuelwood"),
-    ..("bois_construction", "600", "materiaux", "Wood"),
-    ..("canaux_irrigation", "600", "materiaux", "Wood"),
-    ..("construction_maison", "600", "materiaux", "Wood"),
-    ..("corde", "600", "materiaux", "Fibres"),
-    ..("douleurs_dentaires", "1100", "medicinale", "Pain"),
-    ..("ecorce_sucree", "100", "alimentaire", "Bark"),
-    ..("fatigue", "1100", "medicinale", "Ill-defined Symptoms"),
-    ..("fixation_toiture", "600", "materiaux", "Fibres"),
-    ..("fruit_comestible", "100", "alimentaire", "Infructescences"),
-    ..("gonflements", "1100", "medicinale", "Inflammation"),
-    ..("guitare", "600", "materiaux", "Wood"),
-    ..("haie", "1200", "environnementale", "Boundaries/Barriers/Supports"),
-    ..("insecticide", "1000", "poison", "Arthropoda"),
-    ..("magie", "800", "sociale_culturelle", "Religious Uses"),
-    ..("manche_beche", "600", "materiaux", "Wood"),
-    ..("medicinale", "1100", "medicinale", "Unspecified Medicinal Disorders"),
-    ..("menuiserie", "600", "materiaux", "Wood"),
-    ..("panier", "600", "materiaux", "Cane etc."),
-    ..("pilon", "600", "materiaux", "Wood"),
-    ..("plancher", "600", "materiaux", "Wood"),
-    ..("planche", "600", "materiaux", "Wood"),
-    ..("pirogue", "600", "materiaux", "Wood"),
-    ..("poutre", "600", "materiaux", "Wood"),
-    ..("the", "100", "alimentaire", "Unspecified Parts"),
-    ..("tressage", "600", "materiaux", "Cane etc."),
-    ..("aphrodisiaque", "1100", "medicinale", "Genitourinary System Disorders"),
-    // Usages de Romiguière (2025), ajoutés le 02/11/2026
-    ..("charpente", "600", "materiaux", "Wood"),
-    ..("cloture", "600", "materiaux", "Wood"),
-    ..("colle", "600", "materiaux", ""),
-    ..("outils", "600", "materiaux", "Wood"),
-    ..("poteau", "600", "materiaux", "Wood"),
-    ..("vertiges", "1100", "medicinale", "Ill-defined Symptoms"),
-  ),
-  kind: "annexe",
-  supplement: [Annexe],
-  caption: [Correspondance entre usages locaux normalisés et classification Cook (1995). Niveau 1 : catégorie principale ; Niveau 2 : sous-catégorie. Source : référentiel projet, fichier correspondance-usages-cook.csv.],
+  caption: [Usages locaux selon la classification de Cook (1995). Catégorie : niveau 1 ; Sous-catégorie : niveau 2 ; Code : sous-catégorie.],
 ) <annexe-codes-cook>
 #titre-court(<annexe-codes-cook>)[Correspondance usages locaux et classification Cook]
 
 #pagebreak(weak: true)
 
-// Liste régénérée le 02/11/2026 par analyse_usages_cook.R (sorties/liste_flore.csv), en remplacement de l'extrait partiel saisi à la main (conservé dans sauvegardes/Annexes_2026-11-02c.typ).
-// Romiguière (2025) ajouté le 02/11/2026. TODO (auteur) : espèces du transfert de gestion de 2004 à ajouter une fois la liste saisie (colonne « Source » : « Transfert de gestion (2004) »).
-#let flore = csv("analyse-tables/liste_flore.csv").slice(1)
-// Nom scientifique : genre et épithète en italique, autorité en romain
-// (plusieurs noms séparés par « / » chez Romiguière ; « sp » et « sp. » en romain)
-#let nomLatin1(n) = {
-  let m = n.split(" ")
-  if n.ends-with("aceae") { n }
-  else if m.len() == 1 { emph(n) }
-  else if m.at(1) in ("sp", "sp.", "spp", "spp.") or m.at(1).starts-with("(") { [#emph(m.at(0)) #m.slice(1).join(" ")] }
-  else { [#emph(m.slice(0, 2).join(" ")) #m.slice(2).join(" ")] }
+#let segment(p, q) = if p != q {
+  let x0 = calc.min(p.at(0), q.at(0))
+  let y0 = calc.min(p.at(1), q.at(1))
+  place(top + left, dx: x0 * 1cm, dy: y0 * 1cm, line(
+    start: ((p.at(0) - x0) * 1cm, (p.at(1) - y0) * 1cm),
+    end: ((q.at(0) - x0) * 1cm, (q.at(1) - y0) * 1cm),
+    stroke: 0.6pt,
+  ))
 }
-#let nomLatin(n) = {
-  if n == "" or n == "++" { return [] }
-  n.split(" / ").map(nomLatin1).join(" / ")
+#let pointe(p, q) = {
+  let (px, py) = p
+  let (qx, qy) = q
+  let dx = qx - px
+  let dy = qy - py
+  let long = calc.sqrt(dx * dx + dy * dy)
+  let ux = dx / long
+  let uy = dy / long
+  let bx = qx - 0.25 * ux
+  let by = qy - 0.25 * uy
+  let sommets = ((qx, qy), (bx - 0.1 * uy, by + 0.1 * ux), (bx + 0.1 * uy, by - 0.1 * ux))
+  let x0 = calc.min(..sommets.map(s => s.at(0)))
+  let y0 = calc.min(..sommets.map(s => s.at(1)))
+  place(top + left, dx: x0 * 1cm, dy: y0 * 1cm, polygon(
+    fill: black,
+    ..sommets.map(((x, y)) => ((x - x0) * 1cm, (y - y0) * 1cm)),
+  ))
 }
-// Sources abrégées pour garder la colonne étroite
-#let codesSources = ("Relevé": "R", "Observation": "O", "Romiguière (2025)": "Rom")
-#let codeSources(x) = if x == "" { "" } else { x.split(", ").map(c => codesSources.at(c, default: c)).join(", ") }
+#let lien(cx, yEnfant, yBus, px, pBas) = {
+  segment((cx, yEnfant), (cx, yBus))
+  segment((cx, yBus), (px, yBus))
+  segment((px, yBus), (px, pBas))
+  pointe((px, yBus), (px, pBas))
+}
+#let etiquette(x, y, texte, largeur: 2.2cm) = place(
+  top + left,
+  dx: x * 1cm - largeur / 2,
+  dy: y * 1cm - 0.2cm,
+  box(width: largeur, align(center, box(fill: white, inset: 1pt, text(size: 7.5pt, texte)))),
+)
+#let fichier(x, y, nom, largeur: 2.6cm, hauteur: 1.3cm) = place(
+  top + left,
+  dx: x * 1cm,
+  dy: y * 1cm,
+  box(width: largeur, height: hauteur, stroke: 0.6pt, fill: white, inset: 2pt, align(center + horizon, par(justify: false, text(size: 7pt, nom)))),
+)
+
 #figure(
-  table(
-    columns: (3fr, 5fr, auto, 3fr, auto),
-    align: (left, left, right, left, left),
-    inset: (x: 4pt, y: 3pt),
-    table.header([*Nom vernaculaire*], [*Nom scientifique*], [*Types*], [*Usages (Cook, niveau 1)*], [*Source*]),
-    ..flore.map(r => (r.at(0), [#nomLatin(r.at(1))#if r.at(5) == "TRUE" [\*]], r.at(2), r.at(3), codeSources(r.at(4)))).flatten(),
+  block(breakable: false, stack(
+    spacing: 0.8cm,
+    align(center, box(width: 15cm, height: 9.6cm)[
+      #fichier(0.0, 0.0, "metadonnees_enquete-de-terrain_1_entretiens.csv", largeur: 3.4cm, hauteur: 1.5cm)
+      #fichier(6.2, 0.0, "metadonnees_enquete-de-terrain_2_sorties.csv", largeur: 3.4cm, hauteur: 1.5cm)
+      #fichier(3.1, 2.6, "metadonnees_enquete-de-terrain_3_enquetes.csv", largeur: 3.4cm, hauteur: 1.5cm)
+      #segment((1.7, 1.5), (1.7, 1.95))
+      #segment((1.7, 1.95), (4.8, 1.95))
+      #segment((4.8, 1.95), (4.8, 2.6))
+      #pointe((4.8, 1.95), (4.8, 2.6))
+      #etiquette(3.2, 1.95, "enquête", largeur: 1.6cm)
+      #segment((6.5, 3.25), (7.9, 3.25))
+      #segment((7.9, 3.25), (7.9, 1.5))
+      #pointe((7.9, 3.25), (7.9, 1.5))
+      #etiquette(7.2, 3.25, "sortie", largeur: 1.2cm)
+    #segment((12.4, 0.65), (9.6, 0.65))
+    #pointe((12.4, 0.65), (9.6, 0.65))
+    #etiquette(11.0, 0.65, "sortie", largeur: 1.2cm)
+
+      #fichier(12.4, 0.0, "transects.csv")
+
+      #fichier(0.0, 5.2, "placettes.csv")
+      #fichier(3.1, 5.2, "grands-arbres.csv")
+      #fichier(6.2, 5.2, "chablis.csv")
+      #fichier(9.3, 5.2, "autres-observations-flore.csv")
+      #fichier(12.4, 5.2, "romiguiere-2025-*.csv")
+      #lien(1.3, 5.2, 4.7, 13.7, 1.3)
+      #lien(4.4, 5.2, 4.7, 13.7, 1.3)
+      #lien(7.5, 5.2, 4.7, 13.7, 1.3)
+      #lien(10.6, 5.2, 4.7, 13.7, 1.3)
+      #lien(13.7, 5.2, 4.7, 13.7, 1.3)
+      #etiquette(9.0, 4.7, "transect", largeur: 1.6cm)
+
+      #fichier(0.0, 8.0, "flore.csv")
+      #fichier(3.1, 8.0, "bois-mort.csv")
+      #fichier(6.2, 8.0, "phenologie.csv")
+      #fichier(12.4, 8.0, "correspondance-romiguiere-2025.csv")
+      #lien(1.3, 8.0, 7.4, 1.3, 6.5)
+      #lien(4.4, 8.0, 7.4, 1.3, 6.5)
+      #lien(7.5, 8.0, 7.4, 1.3, 6.5)
+      #etiquette(5.9, 7.4, "placette", largeur: 1.6cm)
+      #lien(13.7, 8.0, 7.4, 13.7, 6.5)
+      #etiquette(13.7, 7.2, "nom", largeur: 1.0cm)
+    ]),
+    table(
+      columns: (3.4fr, 5fr, 2.4fr),
+      align: (left, left, left),
+      table.header([*Fichier*], [*Contenu*], [*Clé*]),
+      [transects.csv], [Itinéraires : date, _polisinala_, placettes visitées, longueurs prospectées, commune ; sortie correspondante (même date)], [transect, sortie],
+      [placettes.csv], [Variables de placette, surface, régénération, longueur de ligne pour le bois mort], [transect, placette],
+      [flore.csv], [Tiges mesurées (CBH) et gaulis par espèce, types, usages], [placette, observation],
+      [bois-mort.csv], [Chandelles et bois mort au sol : CBH, degré de décomposition], [placette],
+      [phenologie.csv], [Fleurs et fruits observés], [placette],
+      [grands-arbres.csv], [Grands arbres : nom vernaculaire, CBH, usages], [transect, grand arbre],
+      [chablis.csv], [Chablis par classe de circonférence], [transect],
+      [autres-observations-flore.csv], [Espèces notées hors placettes], [transect, placette],
+      [romiguiere-2025-\*.csv], [Relevés de Romiguière (2025) à Tsiazombazaha : tiges et régénération, placettes, liste et usages de ses espèces, identifications latines de ses deux sites (extraits de son classeur)], [transect, nom],
+      [correspondance-romiguiere-2025.csv], [Correspondance entre les noms vernaculaires de Romiguière et les noms latins], [nom],
+      [metadonnees_enquete-de-terrain_1_entretiens.csv], [Entretiens : date, durée, lieu, _fokontany_, nombre d'enquêtés], [entretien, enquête],
+      [metadonnees_enquete-de-terrain_2_sorties.csv], [Sorties de terrain : date, _fokontany_, motif], [sortie],
+      [metadonnees_enquete-de-terrain_3_enquetes.csv], [Personnes enquêtées : genre, âge, profession, lien au VOI], [enquête, entretien, sortie],
+    ),
+  )),
+  kind: "annexe",
+  supplement: [Annexe],
+  caption: [Liens entre les fichiers de données et de métadonnées, et contenu de chaque fichier avec les clés qu'il porte. Chaque flèche part du fichier qui porte la clé et pointe vers le fichier visé ; la clé est indiquée sur la flèche.],
+) <annexe-fichiers-donnees>
+#titre-court(<annexe-fichiers-donnees>)[Fichiers de données et clés de liaison]
+
+#pagebreak(weak: true)
+
+// TODOAVANTDEPOT : mettre à jour l'arborescence, le nombre de fichiers et les poids (état du 03/11/2026 ; depuis : References.typ supprimé, carbone_total_foret.csv ajouté) avant le dépôt final.
+#figure(
+  stack(
+    spacing: 0.8cm,
+      block(width: 100%, text(size: 10pt, raw(block: true, lang: "text", "madagascar-tsiazombazaha/\n├── .gitignore\n├── LICENSE\n├── README.md\n├── 05_Sociologie/\n│   ├── brouillons-redaction/\n│   ├── canevas/\n│   └── donnees/\n├── 06_ecologie/\n│   ├── analyse/\n│   │   ├── donnees/\n│   │   ├── referentiels/\n│   │   ├── scripts/\n│   │   │   ├── fonctions/\n│   │   │   ├── archives/\n│   │   │   └── scripts-a-ne-pas-relancer/\n│   │   └── sorties/\n│   │       ├── figures/\n│   │       └── resumes-pour-rapport/\n│   ├── archivage-donnees/\n│   └── methodologie/\n└── 08_rapport/\n    ├── consignes-redaction-et-templates/\n    ├── documents-brouillons/\n    │   └── points-de-travail/\n    ├── documents-etapes/\n    ├── donnees/\n    └── redaction-typst/\n        ├── analyse-figures/\n        ├── analyse-tables/\n        └── images/"))),
+      table(
+        columns: (3.2fr, 8.2fr, 1.2fr, 1.4fr),
+        align: (left, left, right, right),
+        table.header([*Dossier*], [*Contenu*], [*Fichiers*], [*Poids*]),
+        [./], [Présentation du dépôt (README.md), licence, règles d'exclusion Git (.gitignore).], [3], [8 ko],
+        [./05_Sociologie/brouillons-redaction/], [Brouillons de méthodologie d'enquête et de plan (Word).], [4], [1,7 Mo],
+        [./05_Sociologie/canevas/], [Canevas d'entretien, génériques et pour Mizilo.], [2], [79 ko],
+        [./05_Sociologie/donnees/], [Transcriptions d'entretiens, comptes rendus de sorties et d'observations, tableaux d'activités humaines et de faune, métadonnées de l'enquête (CSV).], [56], [454 ko],
+        [./06_ecologie/analyse/], [Projet R : données, référentiels, scripts et sorties. Contient aussi des fichiers de session R (.RData, .Rhistory, .Rproj.user/) et .AGENTS.md.], [90], [1,6 Mo],
+        [./donnees/], [Données de terrain nettoyées, une table par type d'observation (transects, placettes, flore, bois mort, chablis, grands arbres, phénologie, observations hors placettes).], [8], [64 ko],
+        [./referentiels/], [Tables de correspondance : usages et classification de Cook, types d'espèces, réconciliation taxonomique, normalisation des usages.], [4], [35 ko],
+        [./scripts/], [Scripts R d'analyse, avec un README sur l'ordre d'exécution.], [17], [138 ko],
+        [./fonctions/], [Fonctions partagées : diversité, structure, aire-espèce.], [4], [19 ko],
+        [./archives/], [Anciens scripts, conservés pour mémoire.], [3], [4 ko],
+        [./scripts-a-ne-pas-relancer/], [Script de référence, non relancé (liste définitive des espèces).], [1], [8 ko],
+        [./sorties/], [Résultats produits par les scripts (CSV, SVG) ; source des tables et figures du rapport.], [51], [302 ko],
+        [./figures/], [Figures SVG produites par les scripts.], [6], [90 ko],
+        [./resumes-pour-rapport/], [Résumés d'indices repris dans le rapport.], [6], [20 ko],
+        [./06_ecologie/archivage-donnees/], [Saisies et brouillons d'origine (feuilles de calcul, réconciliation taxonomique ancienne).], [3], [150 ko],
+        [./06_ecologie/methodologie/], [Protocole d'inventaire, fiche de relevés, pré-inventaire, découpage des placettes, documentation sur l'humus.], [6], [963 ko],
+        [./08_rapport/consignes-redaction-et-templates/], [Guides et consignes de l'école, modèle PRISMA, notice Zotero, autorisation de mise en ligne.], [4], [1,9 Mo],
+        [./08_rapport/documents-brouillons/], [Brouillons de résultats (PRISMA), couche de géodonnées, comptes rendus de points de travail.], [5], [101 ko],
+        [./08_rapport/documents-etapes/], [Documents remis aux étapes du stage : projet, présentation, diagramme de Gantt, rapport d'avancement.], [5], [9,8 Mo],
+        [./08_rapport/donnees/], [Données reprises dans le rapport : métadonnées de l'enquête, correspondance des usages, stocks de carbone, phénologie, observations hors placettes.], [8], [35 ko],
+        [./08_rapport/redaction-typst/], [Sources du rapport (chapitres et annexes en Typst, bibliographie hayagriva.yml) ; compilation par main.typ.], [50], [1,1 Mo],
+        [./analyse-figures/], [Figures SVG importées par le rapport.], [6], [90 ko],
+        [./analyse-tables/], [Copies CSV importées par les tableaux et annexes du rapport.], [19], [37 ko],
+        [./images/], [Photographies, logos, carte et données climatiques.], [6], [539 ko],
+      ),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Liste de la flore (#flore.len() espèces ; identités réconciliées, espèces indéterminées exclues). Nom scientifique : espèce, genre ou famille ; case vide si l'espèce n'est pas rattachée ; \* : nom déduit des identifications de Romiguière (2025) sur ses deux sites. Types : nombre de types distingués par le polisin'ala (maximum des valeurs saisies). Usages : catégories de premier niveau de la classification de Cook (1995). Source : R = relevé (placettes et grands arbres des transects) ; O = observation hors relevé (cheminements, phénologie) ; Rom = Romiguière (2025), tiges et régénération relevées à Tsiazombazaha en 2025, noms rattachés par une table de correspondance. Source des données : liste_flore.csv.],
+  caption: [Le dépôt remis à Inter Aide suit l'arborescence de Git à l'état du 03/11/2026. Chaque dossier et sous-dossier est décrit dans le tableau ci-dessous ; les chemins sont donnés par rapport au dossier parent le plus proche. Les fichiers ne sont pas tous listés : ceux qui sont uniques (données brutes, scripts, documents finaux) sont nommés dans la description, et les séries homogènes (sorties R, transcriptions d'entretiens) sont décrites par leur motif de nom. Les colonnes Fichiers et Poids donnent le nombre de fichiers suivis par Git et leur poids cumulé. Poids total du dépôt suivi : 17,8 Mo.],
+) <annexe-arborescence>
+#titre-court(<annexe-arborescence>)[Arborescence du dépôt Git]
+#pagebreak(weak: true)
+
+#let flore = csv("analyse-tables/liste_flore.csv").slice(1)
+#let nomLatin1(n) = {
+  let m = n.split(" ")
+  if n.ends-with("aceae") or n.ends-with("idae") { n }
+  else if m.len() == 1 { [#emph(n) sp.] }
+  else if m.at(1) in ("sp", "sp.", "spp", "spp.", "Sp") { [#emph(m.at(0)) sp.] }
+  else if m.at(1).starts-with("(") { emph(m.at(0)) }
+  else {
+    let k = 2
+    while k < m.len() and m.at(k) == lower(m.at(k)) and not m.at(k).starts-with("(") { k += 1 }
+    [#emph(m.slice(0, k).join(" "))]
+  }
+}
+#let taxo(n) = {
+  let m = n.split(" ")
+  if n == "" { [] }
+  else if m.len() == 1 and n.ends-with("idae") { n }
+  else if m.at(-1) == "sp." { [#emph(m.slice(0, -1).join(" ")) sp.] }
+  else { emph(n) }
+}
+#let nomLatin(n) = {
+  if n == "" { return [] }
+  if n == "++" { return [++] }
+  n.split(" / ").map(nomLatin1).join(" / ")
+}
+#let codesSources = ("Relevé": "R", "Observation": "O", "Romiguière (2025)": "Rom", "Transfert de gestion (2004)": "TFG")
+#let codeSources(x) = if x == "" { "" } else { x.split(", ").map(c => codesSources.at(c, default: c)).join(", ") }
+#let libellesUsages = (
+  "anti_foudre": "Antifoudre", "aphrodisiaque": "Aphrodisiaque", "balai": "Balai", "batan": "Batan",
+  "bois_chauffage": "Bois de chauffage", "bois_construction": "Bois de construction",
+  "canaux_irrigation": "Canaux d'irrigation", "charpente": "Charpente", "cloture": "Clôture",
+  "colle": "Colle", "sculpture": "Sculpture", "construction_maison": "Construction de maison", "corde": "Corde",
+  "douleurs_dentaires": "Douleurs dentaires", "ecorce_sucree": "Écorce sucrée", "fatigue": "Fatigue",
+  "fixation_toiture": "Fixation de toiture", "fruit_comestible": "Fruit comestible",
+  "gonflements": "Gonflements", "guitare": "Guitare", "haie": "Haie", "insecticide": "Insecticide",
+  "magie": "Magie", "manche_beche": "Manche de bêche", "medicinale": "Médicinale",
+  "menuiserie": "Menuiserie", "outils": "Outils", "panier": "Panier", "pilon": "Pilon",
+  "plancher": "Plancher", "planche": "Planche", "pirogue": "Pirogue", "poteau": "Poteau",
+  "poutre": "Poutre", "the": "Thé", "tressage": "Tressage", "vertiges": "Vertiges", "source_eau": "Source d'eau",
+)
+#let usagesFr(s) = if s == "" { "" } else {
+  s.split(" | ").map(u => libellesUsages.at(u, default: u)).dedup().join(", ")
+}
+#figure(
+  table(
+    columns: (3.5fr, 4fr, 1fr, 4fr, 2fr),
+    align: (left, left, right, left, left),
+    table.header([*Nom vernaculaire*], [*Nom scientifique*], [*Types*], [*Usages*], [*Source*]),
+    ..flore.map(r => (r.at(0), [#nomLatin(r.at(1))#if r.at(5) == "TRUE" [\*]#if r.at(7) == "Transfert de gestion (2004)" [†]], r.at(2), usagesFr(r.at(6)), codeSources(r.at(4)))).flatten(),
+  ),
+  kind: "annexe",
+  supplement: [Annexe],
+  caption: [Liste de la flore (#flore.len() noms vernaculaires ; identités réconciliées, spécimens indéterminés exclus). Nom scientifique : espèce, genre ou famille, sans auteur ni date (nom complet dans liste_flore_annexe9.csv) ; ++ : au moins deux familles possibles, aucun nom donné ; case vide si l'espèce n'est pas rattachée ; \* : nom déduit des identifications de Romiguière (2025) sur ses deux sites ; † : nom donné par l'inventaire du transfert de gestion (2004), prioritaire sur Romiguière (2025) et sur les identifications personnelles. Types : nombre de types distingués par le _polisinala_ (« 1/2 » : existence de 1 ou 2 types selon des _polisinala_ différents). Usages : usages cités pour l'espèce. Source : R = relevé ; O = observation hors relevé ; Rom = Romiguière (2025) ; TFG = inventaire d'espèces du transfert de gestion (2004).],
 ) <annexe-flore>
 #titre-court(<annexe-flore>)[Liste de la flore observée]
 
@@ -328,110 +480,198 @@
 
 #figure(
   table(
-    columns: (2fr, 2fr, 2fr, 2fr),
-    align: (left, left, center, left),
-    table.header([*Nom vernaculaire*], [*Taxonomie*], [*Type d'observation*], [*Source*]),
-    // Données depuis animaux-T1-T2.csv et autres-observations-flore.csv (faune)
-    ..("Lambo", "Potamochoerus larvatus", "Recherche de nourriture, souille, coulées", "Observations"),
-    ..("Vitsika", "Formicidae", "Fourmilière", "Observations"),
-    ..("Toloho", "Cuculidae", "Vocalisation", "Observations"),
-    ..("Tetso", "Accipitridae", "Vocalisation", "Observations"),
-    ..("Kitreoka", "NA", "Vocalisation", "Observations"),
-    ..("Leromba", "NA", "Vocalisation", "Observations"),
-    ..("Boeza", "NA", "Vocalisation", "Observations"),
-    ..("Vorondreo", "NA", "Vocalisation", "Observations"),
-    ..("Anjay", "NA", "Vocalisation", "Observations"),
-    ..("Boizo", "NA", "Vocalisation", "Observations"),
-    ..("Papango", "Psittacidae", "Vocalisation", "Observations"),
-    ..("Goaika", "NA", "Vocalisation", "Observations"),
-    ..("Akoragna", "NA", "?", "Observations"),
+
+    columns: (3fr, 3fr, 2fr, 2fr),
+    align: (left, left, left, left),
+    table.header([*Nom vernaculaire*], [*Taxonomie*], [*Groupe*], [*Source*]),
+    ..("Simpona", taxo("Propithecus diadema"), "Lémuriens", "TFG"),
+    ..("Tantana", taxo("Phaner furcifer"), "Lémuriens", "TFG"),
+    ..("Tsitsidy", taxo("Microcebus sp."), "Lémuriens", "TFG"),
+    ..("Varikandana", taxo("Varecia variegata"), "Lémuriens", "TFG"),
+    ..("Varikovoka", taxo("Lemur fulvus rufus"), "Lémuriens", "TFG"),
+    ..("", taxo("Avahi laniger"), "Lémuriens", "Rajaonson"),
+    ..("", taxo("Eulemur rufus"), "Lémuriens", "Rajaonson"),
+    ..("Alazana", "", "Mammifères", "TFG"),
+    ..("Fanaloka", taxo("Eupleres goudotii"), "Mammifères", "TFG"),
+    ..("Fandrefiala", "", "Mammifères", "TFG"),
+    ..("Fosa", taxo("Cryptoprocta ferox"), "Mammifères", "TFG"),
+    ..("Hala", "", "Mammifères", "TFG"),
+    ..("Lambo", taxo("Potamochoerus larvatus"), "Mammifères", "Observation, TFG"),
+    ..("Langoso", "", "Mammifères", "TFG"),
+    ..("Maingoka", "", "Mammifères", "TFG"),
+    ..("Menarana", taxo("Leoheterodon sp."), "Mammifères", "TFG"),
+    ..("Sokina", taxo("Setifer setosus"), "Mammifères", "TFG"),
+    ..("Tombotsodina", taxo("Fossa fossana"), "Mammifères", "TFG"),
+    ..("Trambo", "", "Mammifères", "TFG"),
+    ..("Trandraka", taxo("Tenrec ecaudatus"), "Mammifères", "TFG"),
+    ..("Voalavo be bonga", taxo("Rattus rattus"), "Mammifères", "TFG"),
+    ..("Voalavo fody", taxo("Neosomys rufus"), "Mammifères", "TFG"),
+    ..("Voantsira", taxo("Galidia elegans"), "Mammifères", "TFG"),
+    ..("Voatandroka", "", "Mammifères", "TFG"),
+    ..("Akanga", taxo("Numida meleagris"), "Oiseaux", "TFG"),
+    ..("Akohonala", taxo("Lophotibis cristata"), "Oiseaux", "TFG"),
+    ..("Anjay", "", "Oiseaux", "Observation"),
+    ..("Boeza", "", "Oiseaux", "Observation"),
+    ..("Boizo", "", "Oiseaux", "Observation"),
+    ..("Boloky be", taxo("Coracopsis vasa"), "Oiseaux", "TFG"),
+    ..("Boloky kely", taxo("Coracopsis nigra"), "Oiseaux", "TFG"),
+    ..("Finaingo maitso", taxo("Treron australis"), "Oiseaux", "TFG"),
+    ..("Finaingo manga", taxo("Alectroenas sp."), "Oiseaux", "TFG"),
+    ..("Fody", taxo("Foudia sp."), "Oiseaux", "TFG"),
+    ..("Goaika", taxo("Corvus albus"), "Oiseaux", "Observation, TFG"),
+    ..("Hitsikitsika", taxo("Falco newtoni"), "Oiseaux", "TFG"),
+    ..("Kitreoka", "", "Oiseaux", "Observation"),
+    ..("Leromba", "", "Oiseaux", "Observation"),
+    ..("Marotaina", taxo("Archidothera tristis"), "Oiseaux", "TFG"),
+    ..("Papango", taxo("Milvus aegyptius"), "Oiseaux", "Observation, TFG"),
+    ..("Railovy", taxo("Dicrurus forficatus"), "Oiseaux", "TFG"),
+    ..("Sarivazo", taxo("Agapornis canus"), "Oiseaux", "TFG"),
+    ..("Sohimanga", taxo("Nectarinia notata"), "Oiseaux", "TFG"),
+    ..("Sohimanga", taxo("Nectarinia souimanga"), "Oiseaux", "TFG"),
+    ..("Tetso", taxo("Accipitridae"), "Oiseaux", "Observation"),
+    ..("Toloho", taxo("Centropus toulou"), "Oiseaux", "Observation, TFG"),
+    ..("Tsipoy", taxo("Margaroperdix sp."), "Oiseaux", "TFG"),
+    ..("Vano", taxo("Butorides striata"), "Oiseaux", "TFG"),
+    ..("Vano", taxo("Egretta alba"), "Oiseaux", "TFG"),
+    ..("Vano", taxo("Nycticorax nycticorax"), "Oiseaux", "TFG"),
+    ..("Voromahery", taxo("Accipiter francesii"), "Oiseaux", "TFG"),
+    ..("Voromahery", taxo("Accipiter sp."), "Oiseaux", "TFG"),
+    ..("Vorompotsy", taxo("Bubulcus ibis"), "Oiseaux", "TFG"),
+    ..("Vorondolo", taxo("Asio sp."), "Oiseaux", "TFG"),
+    ..("Vorondreo", "", "Oiseaux", "Observation"),
+    ..("Lapata", "", "Reptiles", "TFG"),
+    ..("Mandotra", taxo("Sauzinia sp."), "Reptiles", "TFG"),
+    ..("Tanapisaka", taxo("Uroplatus sp."), "Reptiles", "TFG"),
+    ..("Tarondro", "", "Reptiles", "TFG"),
+    ..("Voalavo", taxo("Chamaeleo parsonii"), "Reptiles", "TFG"),
+    ..("Sahona", taxo("Mantella sp."), "Amphibiens", "TFG"),
+    ..("Soabakaka", taxo("Rana sp."), "Amphibiens", "TFG"),
+    ..("Vitsika", taxo("Formicidae"), "Arthropodes", "Observation"),
+    ..("", taxo("Clubionidae"), "Arthropodes", "GBIF"),
+    ..("", taxo("Nesticidae"), "Arthropodes", "GBIF"),
+    ..("", taxo("Salticidae"), "Arthropodes", "GBIF"),
+    ..("", taxo("Spirostreptidae"), "Arthropodes", "GBIF"),
+    ..("", taxo("Zodariidae"), "Arthropodes", "GBIF"),
+    ..("", taxo("Acavidae"), "Mollusques", "GBIF"),
+    ..("", taxo("Ampelita sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Boucardicus sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Cyathopoma sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Embertoniphanta farafanga"), "Mollusques", "GBIF"),
+    ..("", [Gastropoda], "Mollusques", "GBIF"),
+    ..("", [Gastropoda], "Mollusques", "GBIF"),
+    ..("", [Gastropoda], "Mollusques", "GBIF"),
+    ..("", taxo("Gulella sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Hainesia sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Helicophanta bicingulata"), "Mollusques", "GBIF"),
+    ..("", taxo("Helicophanta souverbiana"), "Mollusques", "GBIF"),
+    ..("", taxo("Helicophanta sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Kalidos sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Kaliella sp."), "Mollusques", "GBIF"),
+    ..("", [Littorinimorpha], "Mollusques", "GBIF"),
+    ..("", taxo("Malagarion sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Microcystis sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Parvedentulina sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Reticulapex sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Sitala sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Subulina sp."), "Mollusques", "GBIF"),
+    ..("", taxo("Tropidophora sp."), "Mollusques", "GBIF"),
+    ..("Akoragna", "", "Non identifiés", "Observation"),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Liste de la faune établie. Sources : Observations (2026), transfert 2004, GBIF, Rajaonson et al. (2010). /* TODO : Compléter avec les observations hors transects et valider les identifications taxonomiques. */],
+  caption: [Liste de la faune établie. Taxonomie : nom scientifique sans auteur ni date ; nom complet dans liste_faune_annexe10.csv. Sources : Observation (observations de terrain, 2026) ; TFG : transfert de gestion du VOI Maharitra (2004) ; Rajaonson : Rajaonson et al. (2010) ; GBIF : téléchargement du 3 novembre 2026, cité en @gbif_2026, 28 taxons de non-vertébrés relevés à Tsiazombazaha, 204 occurrences au total. Les espèces citées par le transfert n'ont pas été observées par l'auteur.],
 ) <annexe-faune>
 #titre-court(<annexe-faune>)[Liste de la faune établie]
 
 #pagebreak(weak: true)
 
-// Annexe phénologie retirée (02/11/2026, choix de l'auteur) : sans lien avec la problématique ; données conservées dans phenologie.csv.
-// #figure(
-//   table(
-//     columns: (1fr, 1fr, 2fr, 1fr, 3fr),
-//     align: (center, left, left, left, left),
-//     table.header([*Placette*], [*Type*], [*Espèce*], [*Nombre*], [*Remarque*]),
-//     // Données depuis phenologie.csv
-//     ..("P07", "Fruit", "Vayivayi", "0–2", "Baie rouge encore accrochée à la plante"),
-//     ..("P14", "Fleur", "Kasakasa", ">10", "Herbacée"),
-//     ..("P16", "Fruit", "Hazomainty", ">10", "Cauliflorie, fruits ronds déjà sec"),
-//     ..("P18", "Fleur", "Fagnamohazo", "0–2", "Cauliflorie, une unique grappe"),
-//     ..("P20", "Fleur", "Hazomainty", ">10", "Cauliflorie, sorte de petits bâtons en bas du tronc, en haut du même tronc déjà fruits"),
-//     ..("P20", "Fruit", "Hazomainty", ">10", "Cauliflorie, fruits ronds déjà sec en hauteur"),
-//     ..("P26", "Fruit", "Hasina (type à petites feuilles)", "3–10", "Trois grappes, cauliflorie"),
-//     ..("P27", "Fleur", "Sp. inconnue", "3–10", "Un arbre, cauliflorie"),
-//   ),
-//   kind: "annexe",
-//   supplement: [Annexe],
-//   caption: [Observations phénologiques complémentaires. Type : Fleur ou Fruit ; Nombre : classes 0–2, 3–10, >10. Source : phenologie.csv, n = 8 observations, date de collecte : 2026.],
-// ) <annexe-observations>
-// #titre-court(<annexe-observations>)[Observations phénologiques complémentaires]
-// 
-// #pagebreak(weak: true)
-
 #figure(
   [
     #table(
       columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
       align: (left, right, right, right, right, right),
-      table.header([*Placette*], [*Surface (m²)*], [*Tiges mesurées*], [*Gaulis*], [*N (tiges/ha)*], [*G (m²/ha)*]),
-      ..placettesN.zip(placettesG).map(((n, g)) => (n.at(0), nombre(n.at(1), decimales: 1), n.at(2), n.at(3), nombre(n.at(6), decimales: 0), nombre(g.at(4)))).flatten(),
+      table.header([*Placette*], [*Surface*], [*Tiges mesurées*], [*Gaulis*], [*N*], [*G*]),
+      ..placettesN.map(n => {
+        let g = placettesG.find(r => r.at(0) == n.at(0))
+        (n.at(0), nombre(n.at(1), decimales: 1), n.at(2), n.at(3), nombre(n.at(6), decimales: 0), nombre(g.at(4), decimales: 1))
+      }).flatten(),
     )
+    #v(1em)
     #table(
-      columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
-      align: (left, right, right, right, right, right),
-      table.header([*Placette*], [*S*], [*H′*], [*¹D*], [*²D*], [*α de Fisher*]),
-      ..placettesAlpha.map(r => (r.at(0), r.at(1), nombre(r.at(2)), nombre(r.at(3)), nombre(r.at(4)), nombre(r.at(6)))).flatten(),
+      columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+      align: (left, right, right, right, right),
+      table.header([*Placette*], [*S*], [*H*], [*1/Simpson*], [*α de Fisher*]),
+      ..placettesN.map(n => {
+        let a = placettesAlpha.find(r => r.at(0) == n.at(0))
+        (n.at(0), a.at(1), nombre(a.at(2)), nombre(a.at(4), decimales: 1), nombre(a.at(6), decimales: 1))
+      }).flatten(),
     )
   ],
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Indices par placette. Surface horizontale ; N : densité (tiges mesurées et gaulis) ; G : surface terrière (tiges mesurées). Indices alpha calculés sur toutes les tiges comptées, tiges indéterminées exclues ; ¹D et ²D sous leur forme brute. Sources : structure_N_placettes.csv, structure_G_placettes.csv, diversite_alpha_placettes.csv.],
+  caption: [Indices par placette. Surface horizontale en m² ; N : densité en tiges par hectare (tiges mesurées et gaulis) ; G : surface terrière en m² par hectare (tiges mesurées). S : richesse spécifique ; H : indice de Shannon (H′) ; 1/Simpson : inverse de l'indice de Simpson ; α de Fisher : paramètre de la distribution log-série. Indices calculés sur toutes les tiges comptées, tiges indéterminées exclues.],
 ) <annexe-indices-placettes>
 #titre-court(<annexe-indices-placettes>)[Indices par placette]
 
 #pagebreak(weak: true)
 
+#let caracParPlacette = csv("analyse-tables/placettes_caracteristiques.csv").slice(1)
+#page(flipped: true)[
 #figure(
   [
+    #show table: set text(size: 8.5pt)
     #table(
-      columns: (1fr, 1fr, 1fr),
-      align: (left, right, right),
-      table.header([*Classe de diamètre (cm)*], [*Densité (tiges/ha)*], [*IC 95 %*]),
-      ..classesN.map(r => (nombre(r.at(0), decimales: 1) + " – " + nombre(str(float(r.at(0)) + 2.5), decimales: 1), nombre(r.at(1), decimales: 0), "[" + nombre(r.at(2), decimales: 0) + " ; " + nombre(r.at(3), decimales: 0) + "]")).flatten(),
-    )
-    #table(
-      columns: (1fr, 1fr, 1fr),
-      align: (left, right, right),
-      table.header([*Classe de diamètre (cm)*], [*G (m²/ha)*], [*IC 95 %*]),
-      ..classesG.map(r => (nombre(r.at(4), decimales: 1) + " – " + nombre(r.at(5), decimales: 1), nombre(r.at(1)), "[" + nombre(r.at(2)) + " ; " + nombre(r.at(3)) + "]")).flatten(),
-    )
-    // Grands arbres des transects : densités à deux décimales (valeurs inférieures à 4 arbres/ha, l'arrondi à l'unité les rendrait illisibles).
-    #table(
-      columns: (1fr, 1fr, 1fr),
-      align: (left, right, right),
-      table.header([*Classe de diamètre (cm), transects*], [*Arbres*], [*Densité (arbres/ha)*]),
-      ..classesNGA.map(r => (nombre(r.at(0), decimales: 1) + " – " + nombre(str(float(r.at(0)) + 2.5), decimales: 1), r.at(1), nombre(r.at(2)))).flatten(),
-    )
-    #table(
-      columns: (1fr, 1fr, 1fr),
-      align: (left, right, right),
-      table.header([*Classe de diamètre (cm), transects*], [*Arbres*], [*G (m²/ha)*]),
-      ..classesGGA.map(r => (nombre(r.at(0), decimales: 1) + " – " + nombre(r.at(1), decimales: 1), r.at(2), nombre(r.at(4)))).flatten(),
+      columns: 12 * (auto,),
+      align: (left, left, right, center, left, left, left, center, center, center, center, center),
+      inset: (x: 4pt, y: 2.5pt),
+      table.header([*Placette*], [*Itinéraire*], [*Pente (%)*], [*Canopée (%) \ N / E / S / O*], [*Strates*], [*Humus*], [*Sol*], [*Épiphytes*], [*Mousses*], [*Lichens*], [*Lianes*], [*Champignons*]),
+      ..caracParPlacette.flatten().map(x => if x == "NA" { "" } else { x }),
     )
   ],
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Densité et surface terrière par classe de diamètre : moyenne entre placettes et IC 95 % par la loi de Student : 28 placettes de l'étude et 8 placettes de 40 m² de Romiguière (2025), sauf pour la classe 0 – 2,5 cm (28 placettes de l'étude) (bornes inférieures négatives non tronquées, contrairement aux figures). La classe 0 – 2,5 cm inclut les gaulis ; les classes sans tige sont absentes. Deux derniers tableaux : grands arbres des transects (CBH ≥ 126 cm, soit un DBH d'au moins 40 cm), effectif et surface terrière rapportés aux 53 050 m² de bande prospectée sur cinq transects, sans intervalle de confiance. Sources : sensibilite_romiguiere_classes_N.csv, sensibilite_romiguiere_classes_G.csv, transects_grands_arbres_classes_N.csv, transects_grands_arbres_classes_G.csv.],
+  caption: [Caractéristiques par placette. Canopée : classe de recouvrement estimée dans les quadrants nord, est, sud et ouest. Strates présentes : H, herbacée (0 à 2~m) ; A, sous-bois ou arbustive (2 à 10~m) ; Ci, canopée inférieure (10 à 20~m) ; Cs, canopée supérieure (plus de 20~m). Humus selon Jabiol et al. (2016) ; deux types séparés par « / » : types notés ensemble sur le terrain. Sol : humidité du sol au toucher. Épiphytes, mousses, lichens, lianes et champignons : nombre d'arbres porteurs (0-2, 3-10, > 10). Case vide : non noté. Source : placettes_caracteristiques.csv.],
+) <annexe-caracteristiques-placettes>
+#titre-court(<annexe-caracteristiques-placettes>)[Caractéristiques par placette]
+]
+
+#pagebreak(weak: true)
+
+#figure(
+  [
+    #grid(
+      columns: (1fr, 1fr),
+      column-gutter: 1.2em,
+      row-gutter: 1.2em,
+      table(
+        columns: (1fr, 1fr, 1fr),
+        align: (left, right, right),
+        table.header([*Classe de diamètre*], [*Densité*], [*IC 95*]),
+        ..classesN.map(r => (nombre(r.at(0), decimales: 1) + " – " + nombre(str(float(r.at(0)) + 2.5), decimales: 1), nombre(r.at(1), decimales: 0), "[" + nombre(r.at(2), decimales: 0) + " ; " + nombre(r.at(3), decimales: 0) + "]")).flatten(),
+      ),
+      table(
+        columns: (1fr, 1fr, 1fr),
+        align: (left, right, right),
+        table.header([*Classe de diamètre*], [*G*], [*IC 95*]),
+        ..classesG.map(r => (nombre(r.at(4), decimales: 1) + " – " + nombre(r.at(5), decimales: 1), nombre(r.at(1)), "[" + nombre(r.at(2)) + " ; " + nombre(r.at(3)) + "]")).flatten(),
+      ),
+      table(
+        columns: (1fr, 1fr, 1fr),
+        align: (left, right, right),
+        table.header([*Classe de diamètre, transects*], [*Arbres*], [*Densité*]),
+        ..classesNGA.map(r => (nombre(r.at(0), decimales: 1) + " – " + nombre(str(float(r.at(0)) + 2.5), decimales: 1), r.at(1), nombre(r.at(2)))).flatten(),
+      ),
+      table(
+        columns: (1fr, 1fr, 1fr),
+        align: (left, right, right),
+        table.header([*Classe de diamètre, transects*], [*Arbres*], [*G*]),
+        ..classesGGA.map(r => (nombre(r.at(0), decimales: 1) + " – " + nombre(r.at(1), decimales: 1), r.at(2), nombre(r.at(4)))).flatten(),
+      ),
+    )
+  ],
+  kind: "annexe",
+  supplement: [Annexe],
+  caption: [Densité et surface terrière par classe de diamètre (classes en cm ; densité en tiges par hectare, sauf pour les transects en arbres par hectare ; G en m² par hectare ; IC 95 % : intervalle de confiance à 95 %) : moyenne entre placettes et IC par la loi de Student : 28 placettes de l'étude et 8 placettes de 40 m² de Romiguière (2025), sauf pour la classe 0 – 2,5 cm (28 placettes de l'étude) (bornes inférieures négatives non tronquées, contrairement aux figures). La classe 0 – 2,5 cm inclut les gaulis ; les classes sans tige sont absentes. Deux derniers tableaux : grands arbres des transects (CBH ≥ 126 cm, soit un DBH d'au moins 40 cm), effectif et surface terrière rapportés aux 53 050 m² de bande prospectée sur cinq transects, sans intervalle de confiance.],
 ) <annexe-classes-diametre>
 #titre-court(<annexe-classes-diametre>)[Densité et surface terrière par classe de diamètre]
 
@@ -439,51 +679,29 @@
 
 #figure(
   table(
-    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
-    align: (left, right, right, right, right),
-    table.header([*Compartiment*], [*Volume (m³/ha)*], [*Biomasse (tMS/ha)*], [*Carbone (tC/ha)*], [*CO₂ (tCO₂/ha)*]),
-    ..carbone.map(r => (
-      libellesCarbone.at(r.at(0), default: r.at(0)),
-      [#nombre(r.at(2)) \ [#nombre(r.at(3)) ; #nombre(r.at(4))]],
-      [#nombre(r.at(5)) \ [#nombre(r.at(6)) ; #nombre(r.at(7))]],
-      [#nombre(r.at(8)) \ [#nombre(r.at(9)) ; #nombre(r.at(10))]],
-      [#nombre(r.at(11)) \ [#nombre(r.at(12)) ; #nombre(r.at(13))]],
-    )).flatten(),
+    columns: (1fr, 1fr, 1fr, 1.2fr, 1.2fr, 1.6fr),
+    align: (left, right, right, left, left, left),
+    table.header([*Placette*], [*NMDS1*], [*NMDS2*], [*Itinéraire*], [*_Polisinala_*], [*Commune*]),
+    ..pointsNMDS.map(r => (r.at(0), nombre(r.at(1)), nombre(r.at(2)), r.at(3), r.at(4), r.at(5))).flatten(),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Volume, biomasse, carbone et CO₂ par compartiment, à l'hectare ; entre crochets, IC 95 % par bootstrap (1~000 rééchantillonnages des placettes ou des transects, graine 2026). Volume et biomasse : parties aériennes ; carbone et CO₂ du vivant : biomasse souterraine incluse ($R = "0,20"$). Source : carbone_stocks.csv (sortie du 01/11/2026).],
-) <annexe-carbone>
-#titre-court(<annexe-carbone>)[Stocks de carbone par compartiment]
-
-#pagebreak(weak: true)
-
-#figure(
-  table(
-    columns: (3fr, 1fr, 1fr, 1.5fr, 1fr),
-    align: (left, right, right, left, left),
-    table.header([*Placette*], [*NMDS1*], [*NMDS2*], [*Itinéraire*], [*Commune*]),
-    ..pointsNMDS.map(r => (r.at(0), nombre(r.at(1)), nombre(r.at(2)), r.at(3), r.at(5))).flatten(),
-  ),
-  kind: "annexe",
-  supplement: [Annexe],
-  caption: [Coordonnées des 28 placettes dans l'ordination NMDS (dissimilarité de Bray-Curtis, deux dimensions, stress = 0,23), avec leur itinéraire et leur commune. Source : diversite_beta_nmds_points.csv.],
+  caption: [Coordonnées des 28 placettes dans l'ordination NMDS (dissimilarité de Bray-Curtis, deux dimensions, stress = 0,23), avec leur itinéraire, leur commune et le code de leur _polisinala_ (code d'enquêté, voir @annexe-echantillon-social). Source : diversite_beta_nmds_points.csv, noms remplacés par les codes d'enquêté.],
 ) <annexe-beta>
 #titre-court(<annexe-beta>)[Coordonnées des placettes (NMDS)]
-// ATTENTION : colonne polisin'ala retirée — le CSV contient des noms réels (Morafeno, Célestin, Claude JEAN, Séraphin) à côté de codes ENQ. Si la colonne est utile, la remplacer par des codes anonymes (polisin'ala A, B…) dans une copie du CSV pour le rapport.
 
 #pagebreak(weak: true)
 
 #figure(
   table(
-    columns: (1fr, 2.5fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
-    align: (right, left, right, right, right, right, right, right),
-    table.header([*Rang*], [*Espèce*], [*Tiges*], [*Placettes*], [*DR (%)*], [*DoR (%)*], [*FR (%)*], [*IVI*]),
-    ..ivi.map(r => (r.at(0), r.at(1), r.at(2), r.at(3), nombre(r.at(5)), nombre(r.at(6)), nombre(r.at(7)), nombre(r.at(8)))).flatten(),
+    columns: (1fr, 2.5fr, 1fr, 1fr, 1fr, 1fr),
+    align: (right, left, right, right, right, right),
+    table.header([*Rang*], [*Espèce*], [*DR*], [*DoR*], [*FR*], [*IVI*]),
+    ..ivi.map(r => (r.at(0), r.at(1), nombre(r.at(5)), nombre(r.at(6)), nombre(r.at(7)), nombre(r.at(8)))).flatten(),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Indice de valeur d'importance (IVI) des 124 espèces (28 placettes ; 479 tiges mesurées, gaulis et tiges indéterminées exclus). DR : densité relative ; DoR : dominance relative ; FR : fréquence relative ; IVI = (DR + DoR + FR) / 3, sur 100. Espèces : identités réconciliées. Source : ivi_especes.csv.],
+  caption: [Indice de valeur d'importance (IVI) des 124 espèces (28 placettes ; 479 tiges mesurées, gaulis et tiges indéterminées exclus). DR : densité relative ; DoR : dominance relative ; FR : fréquence relative ; IVI = (DR + DoR + FR) / 3 ; DR, DoR, FR et IVI en % (sur 100).],
 ) <annexe-ivi>
 #titre-court(<annexe-ivi>)[Indice de valeur d'importance (IVI)]
 
@@ -493,51 +711,12 @@
   table(
     columns: (1fr, 1.4fr, 1.2fr, 1.2fr, 2fr, 1.1fr),
     align: (right, left, right, right, right, right),
-    table.header([*Placettes*], [*Méthode*], [*Surface (m²)*], [*Richesse (espèces)*], [*IC 95 %*], [*Couverture*]),
+    table.header([*Placettes*], [*Méthode*], [*Surface*], [*Richesse*], [*IC 95*], [*Couverture*]),
     ..rarefactionAnnexe.map(r => (r.at(1), methodes.at(r.at(2)), nombre(r.at(10), decimales: 1), nombre(r.at(4)), "[" + nombre(r.at(5)) + " ; " + nombre(r.at(6)) + "]", nombre(r.at(7)))).flatten(),
   ),
   kind: "annexe",
   supplement: [Annexe],
-  caption: [Courbe de raréfaction-extrapolation de la richesse spécifique (modèle d'incidence, ordre q = 0) : richesse et couverture d'échantillonnage selon le nombre de placettes et la surface horizontale cumulée ; IC 95 % par bootstrap. Extrapolation : un point sur quatre. Les estimateurs asymptotiques figurent dans le corps du texte. Source : courbe_raréfaction_extrapolation.csv.],
+  caption: [Courbe de raréfaction-extrapolation de la richesse spécifique (modèle d'incidence, ordre q = 0) : richesse (nombre d'espèces) et couverture d'échantillonnage (proportion, de 0 à 1) selon le nombre de placettes et la surface horizontale cumulée (en m²) ; IC 95 % (intervalle de confiance à 95 %) par bootstrap. Extrapolation : tous les points calculés. Les estimateurs asymptotiques figurent dans le corps du texte.],
 ) <annexe-richesse>
 #titre-court(<annexe-richesse>)[Courbe de raréfaction-extrapolation]
 
-#pagebreak(weak: true)
-
-#figure(
-  table(
-    columns: (1fr, 2fr, 1fr),
-    align: (left, left, left),
-    table.header([*Fichier*], [*Description*], [*Conditions d'accès*]),
-    // Dossiers nommés comme dans le dépôt de travail (02/11/2026) ; TODO (auteur) : adapter à l'arborescence du dépôt final.
-    [06_ecologie/analyse/donnees/], [Données brutes des relevés écologiques : placettes, tiges, transects, grands arbres, bois mort (8 fichiers CSV, détail en @annexe-fichiers-donnees)], [Accès libre],
-    [06_ecologie/analyse/referentiels/], [Réconciliation taxonomique des noms vernaculaires, normalisation des usages (étude et Romiguière, 2025), correspondance avec Cook (1995) et avec les noms de Romiguière (2025) (fichiers CSV)], [Accès libre],
-    [06_ecologie/analyse/scripts/], [Scripts R des analyses et des figures], [Accès libre],
-    [06_ecologie/analyse/sorties/], [Tableaux (CSV) et figures (SVG) produits par les scripts], [Accès libre],
-    [05_Sociologie/donnees/], [Notes des 34 entretiens et des 21 sorties (texte)], [Accès restreint – demande motivée],
-    [05_Sociologie/donnees/ (métadonnées)], [Métadonnées des entretiens, des sorties et des personnes rencontrées (CSV)], [Accès libre],
-    // ATTENTION : metadonnees_enquete-de-terrain_3_enquetes.csv contient une colonne « Nom » : la vider avant tout dépôt en accès libre. Les notes d'entretien ne sont pas encore toutes présentes ni anonymisées.
-    [05_Sociologie/canevas/], [Canevas d'entretien], [Accès libre],
-    // TODO (auteur) : dossier des cartes (QGIS) à préciser.
-    [cartes/], [Cartes de localisation et d'intervention (QGIS)], [Accès libre],
-  ),
-  kind: "annexe",
-  supplement: [Annexe],
-  caption: [Métadonnées des fichiers complémentaires déposés avec le mémoire. Formats : CSV, texte, SVG, scripts R. /* TODO : Préciser les modalités d'accès et le DOI ou lien de dépôt une fois disponibles. */],
-) <annexe-metadonnees>
-#titre-court(<annexe-metadonnees>)[Métadonnées des fichiers complémentaires]
-
-#pagebreak(weak: true)
-
-// Liste initiale de l'auteur (conservée pour mémoire) :
-// - Carte d'intervention du projet EcoBois (?)
-// - Canevas d'entretien
-// - Liste des enquetes / sorties
-// - Protocole des relevés de terrain (si besoin) / Matériel utilisé
-// - Feuille de relevé
-// - Liste des plantes établie (nom vernaculaire) avec IVI
-// - Autres espèces de plantes observées/mentionnées en dehors des placettes
-// - Liste des animaux
-// - Table des logiciels et programmes utilisés
-// - Métadonnées des fichiers complémentaires du rapport (données écologiques, transcription des entretiens)
-// Non repris : « Table des logiciels » (versions déjà données en M&M, Conventions) ; « Autres espèces hors placettes » fusionné dans la liste de la flore (colonne source).

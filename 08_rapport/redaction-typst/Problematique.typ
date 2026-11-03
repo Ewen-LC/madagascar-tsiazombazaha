@@ -1,190 +1,125 @@
-= Problématique <debut-corps>
+#pagebreak(weak: true)
+= Problématique
+
+Cette partie présente le commanditaire et sa commande, l'analyse de celle-ci, puis la problématique et le cadre d'analyse qui en découlent.
 
 == Commanditaire, commande et enjeux
 
 === Inter Aide
 
-Inter Aide est une organisation non gouvernementale (ONG) française, créée en 1980, qui conçoit et met en œuvre des programmes de développement auprès de populations rurales défavorisées (https://interaide.org/). Le fonctionnement de l'ONG repose sur la séparation entre un siège qui s'occupe de l'administratif et de la collecte de fonds et des équipes de terrain entièrement techniques et aux prises avec la réalité du terrain. // @organigramme 
+Inter Aide est une organisation non gouvernementale (ONG) française, créée en 1980, qui conçoit et met en œuvre des programmes de développement auprès des populations rurales défavorisées. Elle intervient aujourd'hui dans sept pays sur l'agriculture familiale et la préservation des ressources naturelles, l'accès à l'eau et la santé communautaire (Inter Aide et WeForest, 2025). Son fonctionnement repose sur la séparation entre un siège, en France, qui assure l'administration, la collecte de fonds et l'orientation stratégique des programmes, et des équipes techniques chargées de la mise en œuvre sur le terrain (@fig-organigramme).
 
-// #figure(
-// ) <organigramme>
-// Organigramme descendant du fonctionnement d'Inter Aide
-// Siège <-> BDF
-// Siège Madagascar (Antananarivo)
-// Projets agro (Manakara)
-// RP / vice-RP -> RH / coordo -> techniciens <-> bénéficiaires
+#figure(
+  {
+    set text(size: 10pt)
+    set par(justify: false)
+    block(width: 15cm, height: 12.7cm, {
+      place(top + left, dx: 0cm, dy: 1.5cm, rect(width: 15cm, height: 9.8cm, stroke: (thickness: 0.6pt, dash: "dashed")))
+      place(top + left, line(start: (0cm, 4.3cm), end: (15cm, 4.3cm), stroke: (thickness: 0.4pt, dash: "dotted")))
+      place(top + left, line(start: (0cm, 6.3cm), end: (15cm, 6.3cm), stroke: (thickness: 0.4pt, dash: "dotted")))
+      place(top + left, dx: 0.3cm, dy: 2.75cm, [_International_])
+      place(top + left, dx: 0.3cm, dy: 5.15cm, [_National_])
+      place(top + left, dx: 0.3cm, dy: 8.65cm, [_Local_])
+      place(top + left, dx: 12.4cm, dy: 10.7cm, [*Inter Aide*])
+      place(top + left, dx: 3.0cm, dy: 0cm, rect(width: 9.0cm, height: 1.1cm, stroke: 0.6pt, align(center + horizon)[Bailleurs de fonds \ (FFEM, AFD, Jersey Overseas Aid, fondations)]))
+      place(top + left, dx: 3.8cm, dy: 1.9cm, rect(width: 7.4cm, height: 2.0cm, stroke: 0.6pt, align(center + horizon)[*Siège France* (Versailles, Montpellier) \ administration, collecte de fonds, \ responsables de secteur géographique]))
+      place(top + left, dx: 8.4cm, dy: 4.7cm, rect(width: 3.6cm, height: 1.2cm, stroke: 0.6pt, align(center + horizon)[*Siège Madagascar* \ (Antananarivo)]))
+      place(top + left, dx: 3.2cm, dy: 6.7cm, rect(width: 8.6cm, height: 4.2cm, stroke: 0.6pt))
+      place(top + left, dx: 3.2cm, dy: 6.85cm, box(width: 8.6cm, align(center)[*Programme de Manakara*]))
+      place(top + left, dx: 3.7cm, dy: 7.3cm, rect(width: 7.6cm, height: 0.6cm, stroke: 0.6pt, inset: 2pt, align(center + horizon)[Responsable de programme et adjoint]))
+      place(top + left, dx: 3.7cm, dy: 8.7cm, rect(width: 7.6cm, height: 0.6cm, stroke: 0.6pt, inset: 2pt, align(center + horizon)[Coordination et ressources humaines]))
+      place(top + left, dx: 3.7cm, dy: 10.1cm, rect(width: 7.6cm, height: 0.6cm, stroke: 0.6pt, inset: 2pt, align(center + horizon)[Techniciens résidant dans les _fokontany_]))
+      place(top + left, dx: 4.5cm, dy: 11.5cm, rect(width: 6.0cm, height: 1.1cm, stroke: 0.6pt, align(center + horizon)[Bénéficiaires \ lignages (_tranobe_, _lohatrano_), VOI]))
+      place(top + left, line(start: (7.5cm, 1.30cm), end: (7.5cm, 1.70cm), stroke: 0.7pt))
+      place(top + left, polygon(fill: black, (7.41cm, 1.68cm), (7.59cm, 1.68cm), (7.5cm, 1.9cm)))
+      place(top + left, polygon(fill: black, (7.41cm, 1.32cm), (7.59cm, 1.32cm), (7.5cm, 1.1cm)))
+      place(top + left, line(start: (7.5cm, 3.90cm), end: (7.5cm, 6.50cm), stroke: 0.7pt))
+      place(top + left, polygon(fill: black, (7.41cm, 6.48cm), (7.59cm, 6.48cm), (7.5cm, 6.7cm)))
+      place(top + left, line(start: (10.2cm, 3.90cm), end: (10.2cm, 4.50cm), stroke: 0.7pt))
+      place(top + left, polygon(fill: black, (10.11cm, 4.48cm), (10.29cm, 4.48cm), (10.2cm, 4.7cm)))
+      place(top + left, line(start: (10.2cm, 5.90cm), end: (10.2cm, 6.50cm), stroke: 0.7pt))
+      place(top + left, polygon(fill: black, (10.11cm, 6.48cm), (10.29cm, 6.48cm), (10.2cm, 6.7cm)))
+      place(top + left, line(start: (7.5cm, 7.90cm), end: (7.5cm, 8.50cm), stroke: 0.7pt))
+      place(top + left, polygon(fill: black, (7.41cm, 8.48cm), (7.59cm, 8.48cm), (7.5cm, 8.7cm)))
+      place(top + left, line(start: (7.5cm, 9.30cm), end: (7.5cm, 9.90cm), stroke: 0.7pt))
+      place(top + left, polygon(fill: black, (7.41cm, 9.88cm), (7.59cm, 9.88cm), (7.5cm, 10.1cm)))
+      place(top + left, line(start: (7.5cm, 10.90cm), end: (7.5cm, 11.30cm), stroke: 0.7pt))
+      place(top + left, polygon(fill: black, (7.41cm, 11.28cm), (7.59cm, 11.28cm), (7.5cm, 11.5cm)))
+      place(top + left, polygon(fill: black, (7.41cm, 10.92cm), (7.59cm, 10.92cm), (7.5cm, 10.7cm)))
+    })
+  },
+  caption: [Organisation d'Inter Aide autour du programme de Manakara. Le cadre en tirets délimite Inter Aide, les pointillés séparent les échelles internationale, nationale et locale. Les flèches simples indiquent la hiérarchie, les flèches doubles les échanges~; les responsables de secteur du siège France encadrent directement le responsable de programme et le siège Madagascar. D'après Inter Aide et WeForest (2025) et les observations de l'auteur.],
+) <fig-organigramme>
 
-L'ONG est présente dans le sud-est de Madagascar sur des projets d'agriculture, d'eau et de santé. Le programme agriculture de Manakara a été lancé dans les années 1990, travaillant d'abord sur des programmes d'intensification de l'agriculture, de diversification des cultures et de construction de barrages. L'équipe de Manakara compte actuellement sept membres de bureau ainsi qu'une douzaine de techniciens résidant dans les fokontany d'intervention du projet EcoBois. 
+L'ONG est présente à Madagascar depuis 1994 et y dispose d'un siège national à Antananarivo. Dans les régions Vatovavy et Fitovinany, elle a mené des programmes d'agriculture, de reboisement et de santé~; à Manakara, le programme d'eau et d'assainissement est conduit depuis 2012 avec l'association Tehyna (Inter Aide, s. d.). L'équipe de Manakara compte actuellement sept membres de bureau ainsi qu'une douzaine de techniciens résidant dans les _fokontany_ d'intervention du projet EcoBois.
 
-// à reprendre
-Depuis 2016, l'équipe travaille sur le reboisement des collines dégradées (_tanety_) avec essences exotiques : acacia mangium _Acacia mangium_ Willd. et Kinina _Eucalyptus sp._, afin de restaurer les collines abandonnées et a déjà planté 2,5 millions d'arbres. Cette approche s'appuie sur les communautés lignagères tranobe (une famille au sens large avec père + tous les fils, oncles, cousins, etc), lohatrano (un ménage père + fils) pour réaliser les reboisements et les payements par des parcelles collectives. Chez les Antemoro des communes riveraines de Tsiazombazaha, le _tranobe_ désigne aussi la grande maison sacrée où chaque lignage accomplit les rituels ancestraux, ainsi que le grand tombeau du lignage~; au milieu des années 2000, ces lignages étaient au nombre de treize, chacun représenté par un chef, l'_ampanjaka_ (Müller et Evers, s. d.).
-// REF? Müller, D. F. & Evers, S. J. T. M. (s. d.). Case studies of land access practices in Fianarantsoa province, Madagascar. VU University Amsterdam. — lu (note 70, p. 3) ; terrain de 2006 ; support de publication et année à identifier (le chapitre IRD d'OpenEdition proposé le 01/11/2026 est un autre texte : Moreau, 2005).
-// TODO : vérifier auprès des enquêtés ou d'Inter Aide que le nombre de lignages et leur organisation sont toujours d'actualité.
+Les programmes agricoles ont d'abord visé à promouvoir des innovations techniques et des variétés performantes pour permettre aux familles d'augmenter et de diversifier leurs productions. À partir de 2011, l'approche vise les familles précaires disposant de collines dégradées et peu fertiles, les _tanety_ (Inter Aide, 2015)~; depuis 2016, l'équipe de Manakara abandonne les activités agricoles et se consacre pleinement au reboisement de ces collines avec des essences exotiques à croissance rapide, principalement l'acacia (_Acacia_ sp.) et le _kininina_ (_Eucalyptus_ sp.), afin de répondre aux besoins en bois des ménages et de restaurer les terres.
+
+Les reboisements sont réalisés sur les parcelles collectives des terres lignagères, avec les lignages (_tranobe_, la famille élargie~: un père, tous ses fils, les oncles et les cousins) et leurs subdivisions (_lohatrano_, le ménage d'un père et de ses fils). Les planteurs reçoivent une «~prime à l'arbre vivant~», versée pendant la période de soudure et conditionnée à la survie des arbres au bout de deux ans et à l'entretien des parcelles. Près de 2,5 millions d'arbres ont ainsi été plantés à Madagascar sur 1~600~ha de collines déboisées. En 2022, une évaluation externe a jugé ces reboisements pertinents et recommandé leur extension. Le projet EcoBois prolonge donc cette démarche et y adjoint la préservation des forêts naturelles, sujet nouveau pour Inter Aide (Inter Aide et WeForest, 2025).
 
 === Le projet EcoBois
 
-Depuis 2025, Inter Aide met en œuvre avec l'ONG WeForest le projet EcoBois («~Concilier préservation des écosystèmes et autonomie en bois~»), prévu sur cinq ans à Madagascar et au Malawi, pour un budget total de 4~953~020~euros (Inter Aide et WeForest, 2025). Le Fonds français pour l'environnement mondial (FFEM) y contribue à hauteur de 1~875~000~euros, soit 38~% du total, aux côtés de l'Agence française de développement (AFD), de Jersey Overseas Aid et de fondations privées. Le projet s'organise en trois composantes : répondre aux besoins en bois des familles par une production agroforestière ou sylvicole ; mobiliser les acteurs locaux pour une gestion durable des paysages agricoles et forestiers ; définir les conditions de reproduction et de mise à l'échelle des solutions et en capitaliser les enseignements (Inter Aide et WeForest, 2025).
-// TODO : ajouter FFEM et AFD à la liste des abréviations (critère 115).
+Depuis le second semestre 2025, Inter Aide met en œuvre avec WeForest, ONG spécialisée dans la restauration des forêts tropicales, le projet EcoBois («~Concilier préservation des écosystèmes et autonomie en bois~»), au Malawi et à Madagascar. Prévu sur cinq ans, il vise à «~créer les conditions pour préserver les ressources naturelles et les forêts, en permettant à des populations vulnérables affectées par le changement climatique de répondre durablement à leurs besoins en bois par la sylviculture, l'agroforesterie et le repeuplement en essences natives~». Son budget total est de 4~953~020~euros, financé par le Fonds français pour l'environnement mondial (FFEM) aux côtés de l'Agence française de développement (AFD), de Jersey Overseas Aid et de fondations privées (Inter Aide et WeForest, 2025).
 
-L'étude s'inscrit dans la deuxième composante, intitulée «~Mobiliser l'ensemble des acteurs locaux pour co-construire et mettre en œuvre des modalités adaptées pour une gestion durable et intégrée des paysages agricoles et forestiers~». Elle relève principalement de l'activité 2.1 : «~Réaliser un diagnostic de quatre espaces forestiers du sud-est de Madagascar (diagnostic forestier, modes de gestion et compréhension des interactions avec les communautés avoisinantes)~». Ce diagnostic doit notamment permettre «~de comprendre les modalités de gestion et le niveau d'activité et de performance des COBA~». L'étude alimente aussi l'activité 2.3, qui vise à Madagascar à «~comprendre et renforcer la gestion communautaire et la préservation d'au moins deux des quatre forêts naturelles identifiées et diagnostiquées dans les zones ciblées~», et, dans une moindre mesure, l'activité 2.2, consacrée à des indicateurs et outils de suivi destinés aux acteurs locaux. Elle fait enfin partie du programme de stages du dispositif de suivi-évaluation : AgroParisTech y prévoit un stage par an dans chacun des deux pays, coordonné par un professeur référent, pour travailler sur les trois questions évaluatives du projet.
-// Note : l'étude contribue à « comprendre » (2.3) mais pas à « renforcer » la gestion ; ne pas surestimer la contribution.
+Le projet s'organise en trois composantes~: répondre aux besoins en bois des familles par une production agroforestière ou sylvicole~; mobiliser les acteurs locaux pour une gestion durable des paysages agricoles et forestiers~; définir les conditions de reproduction et de mise à l'échelle des solutions et en capitaliser les enseignements. La présente étude s'inscrit dans la deuxième composante, consacrée à la préservation des espaces forestiers et à leur gouvernance. Elle relève principalement de l'activité 2.1~: «~Réaliser un diagnostic de quatre espaces forestiers du sud-est de Madagascar (diagnostic forestier, modes de gestion et compréhension des interactions avec les communautés avoisinantes)~». L'étude alimente aussi l'activité 2.3, qui vise à comprendre et renforcer la gestion communautaire d'au moins deux des quatre forêts, et, dans une moindre mesure, l'activité 2.2, consacrée à des indicateurs et outils de suivi destinés aux acteurs locaux (Inter Aide et WeForest, 2025).
 
-À Madagascar, le projet intervient dans les régions Vatovavy et Fitovinany, autour de Manakara (//@fig-carte-ecobois). 
-Il ne subsiste dans cette zone que quelques fragments de forêt naturelle, de tailles et d'accessibilités variables, parmi lesquels Lakia (environ 150~ha), Vorovoka (environ 250~ha), Tsiazombazaha (environ 500~ha) et Vatovavy. Au sein de la zone d'intervention, elles constituent les derniers reliquats forestiers de taille significative où l'on peut encore trouver des essences natives. Le projet retient en priorité les forêts de Vorovoka et Tsiazombazaha, toutes deux tributaires d'un transfert de gestion des ressources naturelles, avec un constat réservé.
+Le stage s'inscrit dans le dispositif de suivi-évaluation du projet, pour lequel l'#box[UFR GEN-V] d'AgroParisTech envoie un stagiaire par an dans chacun des deux pays. Ce dispositif doit répondre à trois questions évaluatives, qui portent sur la couverture des besoins en bois des familles, sur la préservation des forêts et sur les transformations paysagères (Inter Aide et WeForest, 2025). L'étude relève de la deuxième~: «~Le développement de la production de bois au sein des espaces agricoles, couplé aux actions menées au sein des réserves forestières, contribue-t-il à une meilleure préservation et à une amélioration de la biodiversité dans ces espaces forestiers menacés~?~».
 
-// #figure(
-//   image("figures/carte-ecobois.png", width: 100%),
-//   // TODO : chemin et nom du fichier image.
-//   caption: [Communes et fokontany d'intervention du projet EcoBois dans les régions Vatovavy et Fitovinany, et fragments de forêt naturelle de la zone. D'après Inter Aide (2025).],
-// ) <fig-carte-ecobois>
+À Madagascar, le projet intervient autour de Manakara (@fig-carte-ecobois). Il ne subsiste dans cette zone que quelques fragments de forêt naturelle de taille significative où l'on trouve encore des essences natives~: Lakia (environ 150~ha), où aucune restriction d'usage n'existe, Vorovoka (environ 250~ha), dont la gestion a été transférée en 2022 au VOI Tsimanavaka, Tsiazombazaha (environ 640~ha~; VOI Maharitra, 2025), gérée par le VOI Maharitra depuis 2004, et la forêt de Vatovavy, au nord. Le projet retient en priorité les forêts de Vorovoka et de Tsiazombazaha (Inter Aide et WeForest, 2025).
 
-// à décaler en introduction, où le TFG devrait être déjà défini.
-// 
-// La gestion repose sur le transfert de gestion des ressources naturelles de l'État à des communautés de base (COBA), appelées _Vondron'Olona Ifotony_ (VOI) en malgache. Un VOI est un groupement de villageois ou de communautés qui résident autour des ressources naturelles ou les exploitent, créé ou formalisé lors d'un transfert de gestion ; il regroupe selon les cas les habitants d'un hameau, d'un village ou d'un groupe de villages (Inter Aide et WeForest, 2025). Le transfert associe le VOI, la commune et le service forestier. Ce dernier est représenté localement par le chef de cantonnement, dont le ressort couvre plusieurs communes, et à l'échelon régional par la Direction régionale de l'environnement et du développement durable (DREDD). Les organisations lignagères (_tranobe_ et _lohatrano_), partenaires historiques d'Inter Aide pour le reboisement, comptent souvent parmi leurs membres des membres du VOI (Inter Aide et WeForest, 2025).
-// // REF? : NEP, note 24 (définition) et partie 7.8. Préférer à terme une définition tirée d'un texte réglementaire (critère 78).
-// // TODO : vérifier que DREDD, tranobe et lohatrano ne sont pas déjà développés plus haut ; sinon, retirer le développé ici.
-// // ATTENTION : la NEP écrit aussi « DiREDD » (Direction inter-régionale du développement durable) : vérifier l'appellation en vigueur.
-
-// A RELIRE ET VOIR SI IMPORTANT
-// 
-// La NEP dresse un constat réservé de ce dispositif. Les textes sur la gestion forestière et sur la décentralisation sont jugés complexes et parfois ambigus, et la collaboration entre le VOI, la commune et le service forestier très faible. Les COBA «~sont confrontées à de nombreuses difficultés pour assumer leur mandat de gestionnaire~», et les structures locales de concertation prévues par les textes ne semblent pas fonctionnelles dans les communes d'intervention. L'administration forestière dispose d'effectifs et de moyens très limités, et son double rôle de répression et de conseil lui rend difficile de gagner la confiance de la population. Dans ce contexte, Inter Aide entend appuyer les VOI dans l'identification participative de zones de reboisement en bordure de forêt, avec des espèces natives, afin de «~poser les bases d'une collaboration entre service forestier -- COBA et commune, aujourd'hui inexistante~». Le cadre légal des transferts de gestion est présenté en introduction, et l'histoire du VOI Maharitra, gestionnaire de Tsiazombazaha, dans la description du site d'étude.
-// // TODO : remplacer les deux renvois par des références Typst vers les sections concernées une fois leurs étiquettes posées.
+#figure(
+  image("images/carte-perimetre-ecobois-v06-03-26-source-Inter-Aide.jpg", width: 100%),
+  caption: [Périmètre du projet EcoBois en 2025-2026 autour des forêts de Vorovoka (VOI Tsimanavaka) et de Tsiazombazaha (VOI Maharitra)~: communes, _fokontany_ de la zone des VOI et _fokontany_ associés. Carte produite par Inter Aide (version du 6 mars 2026), reproduite sans modification.],
+) <fig-carte-ecobois>
 
 === La commande et ses enjeux
 
-// --- La commande ---
+La commande émane du siège d'Inter Aide. Elle porte sur l'état écologique de la forêt de Tsiazombazaha, sur les usages et les perceptions qu'en ont les populations, et sur sa gestion actuelle par les acteurs locaux. Son but est de mieux définir les enjeux de préservation et de gestion des reliquats forestiers, en lien avec les reboisements menés dans les territoires voisins. Elle doit fournir un état initial de la forêt et de sa gestion, et éclairer les orientations du projet dans les années à venir. Les résultats s'adressent à l'équipe de Manakara et au siège.
 
-// À RÉDIGER :
-// 1. La commande en tes mots (2 ou 3 phrases) : quoi, pour qui, pour quoi faire
-//    (aide à la stratégie d'Inter Aide pour Tsiazombazaha ; état de départ pour le suivi-évaluation).
-La commande est une demande du siège d'Inter Aide, pas de l'équipe de terrain de Manakara. Elle vise à établir un état initial de la forêt, de sa gestion, et à comprendre les dynamiques locales pour orienter les projets dans les années à venir. Les résultats sont à destination de l'équipe et du siège pour orienter les décisions du projet.
-// 2. Le contenu proposé par l'Offre, en une phrase (le détail va dans le tableau de 2.2).
-La commande demande l'étude de l'état écologique, des usages, des perceptions et de la gestion actuelle par les populations et acteurs locaux du fragment de Tsiazombazaha, afin de mieux définir les enjeux de préservation et de gestion des reliquats forestiers en lien avec les actions de reboisement menées dans les territoires avoisinants.
-// 3. Les livrables (Offre) : rapport, fichiers de données, synthèse illustrée de 5 pages, notes thématiques.
-Les livrables sont : le présent rapport de stage, une note de synthèse de cinq pages à destination de l'équipe, une note de synthèse d'une page à destination des bénéficiaires, les fichiers de données acquises lors du stage organisées avec métadonnées, des feuilles de protocole séparées.
+Le stage s'est déroulé du 15 avril au 14 octobre 2026, répartis entre cinq mois au sein de l'équipe de Manakara et un mois en télétravail en France. Les livrables attendus sont le présent mémoire, une note de synthèse de cinq pages destinée à l'équipe, une note d'une page destinée aux bénéficiaires, les données acquises accompagnées de leurs métadonnées, et des fiches de protocole séparées.
 
-// 4. Le cadre : stage du 15 avril au 14 octobre 2026, basé à Manakara.
-Le stage s'est déroulé du 15 avril 2026 au 14 octobre 2026, avec cinq mois au sein de l'équipe de Manakara et un mois en télétravail en France.
+Pour Inter Aide, la commande répond d'abord à un manque de connaissances. Les forêts naturelles ne sont entrées dans le champ d'action de l'ONG qu'avec le projet EcoBois, et il n'existe que peu de données disponibles sur les deux forêts ciblées (Inter Aide et WeForest, 2025). À Tsiazombazaha, seules deux semaines de terrain exploratoire, lors d'un stage consacré en 2025 à Vorovoka, ont précédé cette étude (Romiguière, 2025). Inter Aide attend donc une connaissance de base de la forêt~: son état de dégradation, le lien qu'entretiennent les populations avec elle, sa valeur patrimoniale et son histoire.
 
+Ces connaissances doivent aider l'ONG à répondre à des questions plus précises. L'intérêt du projet pour les forêts tient en partie à leur rôle dans l'alimentation en eau des rizières, notamment pour la culture de petite saison. Lors de ses visites, Inter Aide a par ailleurs relevé des coupes de bois précieux, des défrichements et la production de charbon, sans savoir lesquelles de ces pressions pèsent le plus sur la forêt ni comment les réduire. Quant à la gestion, l'histoire du transfert est mal connue de l'ONG, qui s'interroge sur la pertinence de s'appuyer sur le VOI pour préserver et restaurer la forêt.
 
-// --- Les enjeux (un court paragraphe chacun, 2 à 4 phrases) ---
-// À RÉDIGER :
-// a. Écologique : connaissances lacunaires (« peu de données disponibles, à notre connaissance, pour
-//    les deux forêts résiduelles ciblées », NEP, p. 35) ; espèces menacées déjà signalées
-//    (Romiguière, 2025 ; Rajaonson et al., 2010).
-Étant donné que le projet vise récemment les forêts, il n'y a aucune connaissance au sein d'Inter Aide vis à vis des forêts du projet. Celle de Vorovoka a été réalisée par Romiguière (2025) au cours d'un stage de trois mois. Pour Tsiazombazaha, la seule donnée disponible provient de ce même stage : deux semaines de terrain exploratoire, avec cinq entretiens et huit relevés de placettes. Il s'agit d'évaluer l'état de dégradation de la forêt, sa patrimonialité par la présence d'espèces menacées, et l'historique de sa dégradation.
-
-// b. Hydrique et agricole : l'Offre qualifie l'eau, notamment pour les rizières, de « préoccupation
-//    prioritaire pour les populations environnantes ».
-L'idée du projet EcoBois de travailler sur les forêts vient de l'importance de la forêt dans la production hydrique pour les rizières en petite saison. Il s'agit d'évaluer qualitativement l'apport de la forêt au réseau hydrique pour les cultures.
-
-// c. Gouvernance et foncier : transfert de gestion récent, difficultés des COBA (NEP, partie 7.8).
-L'histoire du transfert de gestion est encore peu comprise par Inter Aide, et l'ONG se demande la pertinence de s'appuyer sur l'organe de gestion pour travailler sur la préservation et la restauration de la forêt. Il s'agit de comprendre mieux son fonctionnement, son impact sur la forêt, et d'évaluer la solidité et les lacunes de la gestion communautaire de la forêt.
-
-// d. Pressions : bois précieux, abattis-brûlis, charbon (Projet, d'après les visites d'Inter Aide ;
-Il s'agit également d'indentifier et de hériarchiser les pressions actuelles sur la forêt pour diriger des actions contre celles-ci.
-//    REF? à étayer par une source écrite ou présenter comme constat du commanditaire).
-
-// e. Opérationnel pour Inter Aide : la NEP prévoit d'étudier, après les diagnostics, la pertinence
-//    d'étendre les réseaux de placettes permanentes aux quatre forêts (partie 4.2, p. 56) ; l'étude
-//    éclaire cette décision et la stratégie d'Inter Aide envers le VOI.
-Le stage vise également à identifier des indicateurs de suivi pertinents dans le cadre du dispositif de suivi-évaluation du projet sur la question évaluative suivante : «~Le développement de la production de bois au sein des espaces agricoles, couplé aux actions menées au sein des réserves forestières, contribue-t-il à une meilleure préservation et à une amélioration de la biodiversité dans ces espaces forestiers menacés~?~» (Inter Aide et WeForest, 2025).
-// Pas d'empilement de chiffres : ce qui n'argumente pas va en annexe (critère 5).
+Enfin, l'étude doit proposer des indicateurs de suivi pour la deuxième question évaluative, en vue notamment d'un éventuel réseau de parcelles de surveillance permanente (Inter Aide et WeForest, 2025).
 
 == Analyse de la commande
 
-// RÔLE (critère 27) : montrer les biais et points aveugles de la commande à partir de l'état des
-// connaissances (documents, littérature), puis dire ce que l'étude retient. Pas de terrain ici.
-// FORME : un paragraphe par point retenu, toujours dans le même ordre :
-//   (1) ce que la commande suppose ; (2) ce que montrent les documents ou la littérature ;
-//   (3) ce que l'étude en fait (choix, reformulation, limite assumée).
-// LONGUEUR : 4 ou 5 points maximum parmi les candidats ci-dessous (concision, critère 86).
+La problématique validée lors du projet de stage, en mai 2026, était une question de conservation~: «~Pourquoi et comment conserver la forêt de Tsiazombazaha~?~». Elle tenait pour acquis que la forêt devait être conservée et que le VOI en était le levier. L'étude revient au diagnostic demandé par le document de projet (Inter Aide et WeForest, 2025)~: elle décrit l'état de la forêt et de sa gestion, et n'en tire des orientations qu'en discussion.
 
-// POINTS CANDIDATS (à trier) :
-// (a) Trois formulations de la commande : l'Offre demande une caractérisation, le Projet une question
-//     de conservation (« Pourquoi et comment conserver… ? »), la NEP un diagnostic. Descriptif ou
-//     prescriptif : lequel structure le mémoire, et pourquoi.
-// (b) Suivi-évaluation : la question évaluative est causale ; une étude ponctuelle, sans état antérieur
-//     ni zone témoin, ne peut pas y répondre. Elle fournit un état de départ. La NEP prévoit justement
-//     de décider après les diagnostics d'un suivi par placettes permanentes.
-// (c) L'objet de l'étude : forêt, fragment ou périmètre transféré au VOI ?
-//     ATTENTION : 500~ha (NEP), 450~ha (Résumé), 1~068~ha (périmètre transféré en 2025),
-//     environ 1~000~ha (note de Matériel et méthodes). Dire de quel objet on parle et s'y tenir.
-// (d) Le lien postulé entre reboisement des territoires voisins et préservation de la forêt : postulat
-//     de la commande, à examiner avec la littérature (REF? à chercher). Ce que disent les entretiens
-//     relève de la Discussion.
-// (e) « Niveau d'activité et de performance des COBA » (NEP, activité 2.1) : selon quels critères ?
-//     Les limites du dispositif de transfert de gestion sont documentées (la NEP, note 12, renvoie à
-//     https://agritrop.cirad.fr/580839/ et https://journals.openedition.org/etudescaribeennes/3664 ;
-//     REF? non lus). Dire aussi que l'évaluation de la contribution du VOI repose ici sur des entretiens,
-//     donc sur des perceptions.
+L'objet de l'étude varie selon les documents~: le document de projet vise la forêt, tandis que le contrat de transfert de gestion porte sur un périmètre de 1~068~ha, qui inclut, autour d'environ 640~ha de forêt, des rizières et des zones dégradées (VOI Maharitra, 2025). L'étude distingue donc trois échelles~: la forêt, sur laquelle porte le volet écologique, puis le périmètre transféré et les _fokontany_ membres du VOI, sur lesquels porte le volet social.
+La commande demande d'évaluer la valeur patrimoniale de la forêt. Le document de projet la justifie par des lémuriens menacés cités pour Madagascar en général, sans données propres à Tsiazombazaha (Inter Aide et WeForest, 2025). Les seules données sur la faune de la forêt sont une liste de cinq lémuriens jointe au contrat de transfert de 2004, sans méthode ni auteur (VOI Maharitra, 2004), et une journée de prospection en 2009, qui n'atteste que deux espèces, _Avahi laniger_ et _Eulemur rufus_ (Rajaonson et al., 2010). La valeur patrimoniale de la forêt reste donc à établir~; l'étude, centrée sur la flore ligneuse, avec des noms vernaculaires, ne la traite pas.
+Le document de projet demande aussi de comprendre «~le niveau d'activité et de performance des COBA~», sans en préciser les critères. Juger la performance du VOI supposerait de savoir ce qu'aurait été la forêt sans lui~; à l'échelle nationale, les transferts de gestion n'ont d'ailleurs en moyenne que des effets modestes sur la déforestation (Rasolofoson et al., 2015). L'étude ne mesure donc pas cette performance~: elle décrit le fonctionnement du VOI, ses règles et leur application, au regard des conditions d'une gestion durable des ressources communes (Ostrom, 1990).
 
-// (g) Espèces phares : l'argumentaire de la NEP cite l'aye-aye, le lémur à crinière noire et blanche et
-//     le grand hapalémur ; à Tsiazombazaha, seuls Eulemur rufus et Avahi laniger sont attestés à ce jour
-//     (Rajaonson et al., 2010, p. 37 : visite du 25/01/2009, lu le 01/11/2026).
+La commande émane du siège, mais le stage est accueilli par l'équipe de Manakara, dont les attentes diffèrent. L'équipe de terrain l'a perçu comme une contrainte supplémentaire plutôt que comme une opportunité. L'étude en tient compte~: une note de synthèse lui est destinée, et une partie des recommandations formulées en discussion porte sur ses activités.
 
-
-// (h) Position du stagiaire : stage inscrit dans le dispositif d'un projet dont AgroParisTech est
-//     partenaire (NEP, partie 3.2.2) ; enquêteur associé à une ONG, d'où des discours possiblement
-//     adaptés à l'interlocuteur (Muttenzer, 2010, cité dans le Projet ; REF?).
-
-
-
-// --- Ce que l'étude retient de la commande ---
-// À RÉDIGER : une phrase d'introduction, puis le tableau ci-dessous, puis 2 ou 3 phrases de synthèse
-// (ce qui a été recentré : relevés écologiques et entretiens).
-// TODO : tableau « Contenu de la commande et traitement dans le mémoire » (légende au-dessus,
-// critère 158 ; pas de trait vertical, critère 159 ; texte aligné à gauche, critère 163).
-// Colonnes : Élément de la commande (Offre) | Traitement dans le mémoire | Raison (à remplir par toi).
-// Lignes :
-//   Analyse bibliographique et cartographique           | Réalisée (revue de littérature) ; cartographie partielle
-//   Évolution du couvert forestier                      | Réduite
-//   Caractérisation de l'état écologique                | Réalisée (placettes)
-//   Cartographie de la forêt par zones                  | Non réalisée ; cartographie sommaire des observations (Site d'étude)
-//   Réseau hydrique                                     | Non réalisé (à confirmer)
-//   Acteurs, usagers et VOI                             | Réalisé (entretiens)
-//   Contribution du VOI à la préservation de la forêt   | Réalisée (entretiens)
-//   Évolution des perceptions, usages et gestion        | Réalisée (entretiens)
-//   Cartographie des pressions                          | Non réalisée ; pressions identifiées par commune (entretiens)
-//   Appui à la sélection des placettes de Vorovoka      | Non réalisé
+Enfin, la deuxième question évaluative porte sur un effet du projet. Le mesurer suppose de comparer la forêt avant et après l'intervention, ou avec des forêts sans intervention. Une étude ponctuelle sur une seule forêt ne le permet pas. L'étude fournit donc un état de départ et des indicateurs pour un suivi ultérieur.
+Deux enjeux de la commande ne sont traités qu'indirectement~: l'enjeu hydrique, par les seules perceptions des habitants, et l'histoire de la dégradation, par des données existantes sur le couvert forestier.
 
 == Problématique et cadre d'analyse
 
 === Question et sous-questions
 
-L'analyse de la commande conduit à centrer l'étude sur un diagnostic : décrire l'état actuel du fragment et comprendre ce qui l'éclaire. 
+Recentrée sur le diagnostic, l'étude répond à la question centrale suivante~: quel est l'état de conservation de la forêt de Tsiazombazaha, quelles pressions et quelle gestion permettent de le comprendre, et quelles orientations en tirer pour la stratégie d'Inter Aide~?
 
-La question centrale est la suivante : quel est l'état de conservation de la forêt de Tsiazombazaha, quels facteurs écologiques et sociaux l'éclairent, et quelles orientations en tirer pour la stratégie d'Inter Aide ? 
+Elle se décline en trois sous-questions (SQ)~:
++ SQ1~: Quel est l'état écologique actuel de la forêt~?
++ SQ2~: Quels usages les habitants des _fokontany_ membres du VOI font-ils de la forêt, comment la perçoivent-ils, et quelles pressions y sont rapportées ou observées~?
++ SQ3~: Comment s'organise la gestion de la forêt~: par qui, selon quelles règles, et comment ces règles sont-elles appliquées et perçues~?
 
-Elle se décline en trois sous-questions :
-+ SQ1 : Quel est l'état écologique actuel de la forêt~? (section Résultats, volet écologique)
-+ SQ2~: Quels usages les habitants des fokontany voisins font-ils de la forêt, comment la perçoivent-ils, et quelles pressions y sont rapportées ou observées~? (section Résultats, volet social 1)
-+ SQ3~: Comment s'organise la gestion de la forêt~: par qui, selon quelles règles, et comment ces règles sont-elles appliquées et perçues~? (section Résultats, volet social 2)
-// TODO : remplacer les renvois entre parenthèses par des références Typst aux sections.
+Ces sous-questions sont descriptives~: l'étude ne teste pas d'hypothèse. Elle combine deux volets. Le premier, écologique, repose sur un inventaire forestier et l'examen de données existantes (SQ1). Le second, social, repose sur des échanges menés avec les habitants sous forme d'entretiens semi-directifs et lors de sorties en forêt (SQ2 et SQ3). Les deux volets ont été menés et analysés séparément, puis croisés en discussion pour répondre à la question centrale et formuler des recommandations pour Inter Aide. 
 
-L'étude combine ainsi deux volets. Le premier, écologique, repose sur un inventaire forestier en placettes et l'observation des images satellites (SQ1). Le second, social, repose sur des entretiens semi-directifs, des sorties en forêt avec des habitants et l'étude des documents de transfert de gestion (SQ2 et SQ3). Les deux volets ont été menés et analysés séparément, puis croisés en discussion à l'aide de la grille socio-écologique pour répondre à la question centrale et formuler des recommandations pour Inter Aide. Les protocoles sont détaillés dans la section Matériel et méthodes. 
-
-// Ces questions sont exploratoires : aucune hypothèse n'est testée. (???)
 
 === Cadre d'analyse
 
-L'étude mobilise un cadre d'écologie pour caractériser l'état de la forêt et deux cadres de sciences sociales pour analyser sa gestion. Une grille socio-écologique sert ensuite à croiser les deux volets en discussion.
+L'étude mobilise un cadre d'écologie pour caractériser l'état de la forêt et deux cadres de sciences sociales pour analyser sa gestion.
 
-Le volet écologique s'inscrit dans la biologie de la conservation, qui étudie l'état de la diversité biologique pour éclairer sa préservation (Soulé, 1985). 
-Il mobilise les outils classiques de l'écologie des communautés : 
-structure du peuplement // REF? (Mille et Louppe, 2015), 
-diversité alpha et bêta // REF
-et estimation de la richesse spécifique totale // REF
-Les analyses tiennent de la statistique classique, non-bayésienne. 
-Les valeurs obtenues sont ensuite mise en comparaison avec celles d'autres forêts tropicales humides, de Madagascar ou d'ailleurs.
-// REF? : Soulé, M. E. (1985). What is conservation biology? BioScience, 35(11), 727-734. Proposée de mémoire, non vérifiée, non lue.
-// TODO : vérifier que Mille et Louppe (2015)
+Le volet écologique relève de la biologie de la conservation, qui étudie les espèces, les communautés et les écosystèmes perturbés (Soulé, 1985). La forêt de Tsiazombazaha en est un cas~: un fragment isolé, soumis à des coupes et à des défrichements.
+Ce volet mobilise les outils classiques de l'écologie forestière et de l'écologie des communautés~: structure du peuplement (Mille et Louppe, 2015), stock de carbone (Chave et al., 2014), diversité alpha et bêta (Whittaker, 1960~; Jost, 2006) et estimation de la richesse spécifique totale (Chao, 1987~; Chao et al., 2014). Les valeurs obtenues sont ensuite comparées à celles d'autres forêts tropicales humides, de Madagascar ou d'ailleurs.
 
-L'analyse stratégique de la gestion environnementale (ASGE) (Mermet et al., 2005) part d'un objet écologique dont on cherche à améliorer l'état, ici la forêt de Tsiazombazaha. Elle distingue la gestion effective, l'ensemble des actions qui modifient de fait l'état de l'objet, de la gestion intentionnelle, menée explicitement par certains acteurs pour l'améliorer. L'analyste n'est pas neutre : il se range du côté de l'objet écologique et recherche des actions stratégiques pour améliorer son état. Ce cadre sert à lire la commande et à situer les acteurs qui agissent sur la forêt.
-// REF? : Mermet et al. (2005), https://hal.science/hal-01466591 ; revue, volume et pages à compléter.
-La forêt est également analysée comme une ressource commune au sens d'Ostrom (1990) : l'exclusion des usagers est coûteuse et le bien est exclusif. L'accès à la forêt était auparavant libre, mais le transfert de gestion introduit des règles d'exclusion sur une forêt qui reste propriété de l'État. 
-Ce cadre permet de décrire, les droits en jeu, les règles et les sanctions, et de les confronter aux conditions d'une gestion durable des ressources communes identifiées par Ostrom.
-// REF? : Ostrom, E. (1990). Governing the Commons. Cambridge University Press. Non lu.
+L'analyse stratégique de la gestion environnementale (ASGE~; Mermet et al., 2005) prend l'état de la forêt comme référence. Elle distingue la gestion effective, l'ensemble des actions humaines qui influent sur cet état, de la gestion intentionnelle, menée par les acteurs qui cherchent à la changer en faveur de la forêt, sans présumer qui tient ce rôle. L'analyste n'est pas neutre~: il produit une lecture utile à un acteur qui veut améliorer l'état de la forêt.
+La forêt est également analysée comme une ressource commune au sens d'Ostrom (1990)~: il est coûteux, sans être impossible, d'en exclure des usagers, et ce que l'un d'entre eux prélève n'est plus disponible pour les autres. Les transferts de gestion de 2004 et de 2025 introduisent des règles d'exclusion sur une forêt qui reste propriété de l'État. 
+Ce cadre permet de décrire les droits en jeu, les règles et les sanctions, et de les confronter aux conditions d'une gestion durable des ressources communes identifiées par Ostrom.
 
-La grille des systèmes socio-écologiques d'Ostrom (2009) sert finalement à croiser ces deux volets. Elle décrit une situation de gestion selon des catégories : système de ressource, unités de ressource, système de gouvernance, usagers, interactions et résultats.
-// REF? : Ostrom, E. (2009). Science, 325, 419-422. https://pubmed.ncbi.nlm.nih.gov/19628857/ ; DOI à vérifier. Catégories de la grille données de mémoire, à vérifier sur la figure 1.
+La grille des systèmes socio-écologiques d'Ostrom (2009) sert enfin à croiser les volets écologique et social. Elle décompose un système en quatre ensembles, la ressource, ses unités, les usagers et le système de gouvernance, et analyse les interactions entre ces ensembles et leurs effets sur la ressource et sur les usagers, en tenant compte du contexte social, économique et politique.
