@@ -1,0 +1,10 @@
+#pagebreak(weak: true)
+= Postface
+
+Je ne peux cacher la déception que ce travail se soit déroulé sous des contraintes très fortes, d'ordre temporel, humain et logistique. J'aurais aimé disposer d'échanges plus nombreux et plus riches, et de davantage de relevés et de sorties de terrain~; j'ai souvent vu mes ambitions de collecte de données se réduire au fil des jours. De même, je n'ai pas pu suffisamment exploiter le matériau de mon enquête de terrain en raison du peu de temps que j'avais pour l'analyse. C'est malheureusement le même schéma que mon stage de M1~: un stage trop ambitieux de base et qui en plus met trop de temps à se mettre en place avec des données qui n'arrivent que dans la seconde moitié.
+
+L'accès aux données et au matériel a constitué un autre frein~: points GPS lisibles seulement avec l'application de l'éditeur, flore consultable uniquement en PDF chiffré en ligne, sites inaccessibles depuis Madagascar, articles introuvables même avec les accès AgroParisTech. Ces obstacles m'ont convaincu de l'intérêt des solutions libres et ouvertes dans la suite de ma carrière. Pouvoir travailler ne devrait pas dépendre de restrictions d'accès.
+
+Mon intégration dans l'équipe est restée limitée, en partie du fait de mon statut de stagiaire, mais surtout de la barrière de la langue. Je n'ai été ni invité ni même informé des réunions qui concernaient mon sujet de stage, et aucune personne de l'équipe concernée par mon sujet n'a fait un seul pas en avant pour échanger sur ce qu'elle savait du sujet ou s'intéresser à mes travaux. Cela m'a fait mesurer l'importance de la cohésion d'une équipe, du management et des ressources humaines afin de créer un environnement de travail sain, serein et propice au travail. 
+
+Enfin, le renvoi incessant à ma condition d'étranger m'a fait prendre la mesure de ce que demande une vie en expatriation, et je ne suis pas certain de vouloir la poursuivre, tout du moins en Afrique subsaharienne ou dans un pays dont je ne maîtrise pas la langue principale.

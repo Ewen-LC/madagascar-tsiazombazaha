@@ -1,0 +1,40 @@
+variable,unite,classe,nombre
+Pente (%),placettes,Minimum,0
+Pente (%),placettes,Médiane,21.5
+Pente (%),placettes,Maximum,53
+Recouvrement de la canopée (quadrants),quadrants,0-25 %,25
+Recouvrement de la canopée (quadrants),quadrants,25-50 %,49
+Recouvrement de la canopée (quadrants),quadrants,50-75 %,33
+Recouvrement de la canopée (quadrants),quadrants,75-100 %,5
+Strates présentes,placettes,Herbacée (0 à 2 m),28
+Strates présentes,placettes,Sous-bois ou arbustive (2 à 10 m),28
+Strates présentes,placettes,Canopée inférieure (10 à 20 m),17
+Strates présentes,placettes,Canopée supérieure (> 20 m),7
+Humus,placettes,Oligomull,8
+Humus,placettes,Dysmull,5
+Humus,placettes,Mesomull,4
+Humus,placettes,Non déterminé,3
+Humus,placettes,Dysmull / Oligomull,2
+Humus,placettes,Mull,2
+Humus,placettes,Dysmull / Hemimoder,1
+Humus,placettes,Hydromull,1
+Humus,placettes,Mull / Hemimoder,1
+Humus,placettes,Oligomull / Mesomull,1
+Humidité du sol,placettes,Sec,25
+Humidité du sol,placettes,Humide,3
+Épiphytes (arbres porteurs),placettes,0-2,21
+Épiphytes (arbres porteurs),placettes,3-10,2
+Épiphytes (arbres porteurs),placettes,>10,1
+Épiphytes (arbres porteurs),placettes,NA,4
+Mousses (arbres porteurs),placettes,0-2,18
+Mousses (arbres porteurs),placettes,3-10,5
+Mousses (arbres porteurs),placettes,>10,1
+Mousses (arbres porteurs),placettes,NA,4
+Lichens (arbres porteurs),placettes,>10,24
+Lichens (arbres porteurs),placettes,NA,4
+Lianes (arbres porteurs),placettes,0-2,1
+Lianes (arbres porteurs),placettes,3-10,2
+Lianes (arbres porteurs),placettes,>10,21
+Lianes (arbres porteurs),placettes,NA,4
+Champignons (arbres porteurs),placettes,0-2,24
+Champignons (arbres porteurs),placettes,NA,4

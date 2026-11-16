@@ -1,0 +1,9 @@
+section,indice,valeur,ic95_bas,ic95_haut,p_value,n,details
+Beta multiplicatif (Whittaker),Beta = gamma / alpha moyen,8.263414634146342,NA,NA,NA,NA,"alpha moyen = 29.3, gamma = 242"
+Beta additif,Beta additif = gamma - alpha moyen,212.71428571428572,NA,NA,NA,NA,"alpha moyen = 29.3, gamma = 242"
+NMDS (Jaccard),Stress,0.21812968338844163,NA,NA,NA,28,"k = 2, Jaccard presence-absence"
+Jaccard (toutes paires),Moyenne,0.8472850656278146,NA,NA,NA,378,moyenne ± ecart-type = 0.847 ± 0.071
+Jaccard par niveau,Même transect,0.7099764564635664,NA,NA,NA,37,moyenne ± ecart-type = 0.71 ± 0.068
+Jaccard par niveau,Même polisn'ala,0.7423646094744207,NA,NA,NA,16,moyenne ± ecart-type = 0.742 ± 0.086
+Jaccard par niveau,Même commune,0.8846739456024326,NA,NA,NA,70,moyenne ± ecart-type = 0.885 ± 0.037
+Jaccard par niveau,Entre communes,0.8635279057819644,NA,NA,NA,255,moyenne ± ecart-type = 0.864 ± 0.043
