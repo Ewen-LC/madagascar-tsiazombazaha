@@ -1,20 +1,16 @@
-# 05_Sociologie
-05_Sociologie/
+# R
+.RData
+.Rhistory
+.Rproj.user/
 
-# 06_ecologie
-06_ecologie/
-06_ecologie/methodologie/
-06_ecologie/releves/
-06_ecologie/scripts/sorties
+# Sortie nominative régénérée par 03-scripts/analyse-diversite-beta.R
+04-sorties/diversite-beta-nmds-points.csv
 
-# 08_rapport
-08_rapport/documents-brouillons/
-08_rapport/documents-etapes/
-08_rapport/consignes-redaction-et-templates/
-08_rapport/redaction-typst/images/
-08_rapport/redaction-typst/analyse-figures/
-08_rapport/redaction-typst/analyse-tables/
-08_rapport/redaction-typst/bibliographie-temp/
+# Python
+__pycache__/
 
 # Système
 .DS_Store
+
+# Données GPS brutes de terrain (traces et waypoints liés aux codes d entretien) : dépôt public
+06-geomatique/donnees-brutes/terrain/

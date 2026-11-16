@@ -1,0 +1,9 @@
+transect,date,milieu,nb-strates,caracteristiques-arborees,caracteristiques-arbustives,caracteristiques-herbacees,hauteur-strate-arboree,hauteur-strate-arboree-1,type-sol,recouvrement-canopee,recouvrement-sol,remarques,altitude,latitude,longitude
+1,2025-07-16,Ambalavolo,3,Fadriamacanga,na,na,12,na,"Limon, brun et humide",35,30,"Envahit de liane, herbe et régen au sol, fermé par arbustive",150,-21.891547,47.965152
+2,2025-07-16,Ambalavolo,3,"Elatrangidina, Menahihy",Ravinala,"Palmier, voatrotrokala",15,na,"Marron foncé, limon peu humide",30,30,"Herbe au sol, regen palmier et coupe d'arbre",158,-21.891075,47.966491
+3,2025-07-17,Forêt protégée,3,"Ravenala, babona, Tavia",Abre natif,"Regen native, hasina",17,na,Limon brun foncé,30,25,"Grosse strate arbustive, ravenala et bien fermée",68,-21.88904,47.955971
+4,2025-07-17,Forêt protégée,3,Marobody,na,"Voatrotrokala, palmier hasina",20,na,"Limon brun foncé, littière",30,15,"Gros abre morte, trace coupe, milieux ouvret par ouverture canopée",94,-21.890699,47.955059
+5,2025-07-23,AndasyVazaha,3,Hazomainty,Arbre natif,Palmier,15,na,na,60,10,"Beaucoup petit arbre, grosse canopée et peu d'arbuste",72,-21.888729,47.948065
+6,2025-07-23,AndasyVazaha,3,Kabokala,"Natif, palmier","Natif, palmier, seky",12,na,na,35,15,"Ouvert par chablis, peu d'arbre en général",66,-21.889059,47.949149
+7,2025-07-24,Bevoatavy,3,"Madiorano, Raharaha","Palmier, arbre natif",Palmier,12,na,na,60,20,"Bon état, grosse canopée, pas d'espèce invasive, pas encore de grosgros abre",45,-21.893927,47.94211
+8,2025-07-24,Bevoatavy,3,Babona,"Tsirikala, arbre natif","Voatrotrokala, Seky",15,na,na,35,10,"Chablis batserai, régénération non négligeable",83,-21.894272,47.942111

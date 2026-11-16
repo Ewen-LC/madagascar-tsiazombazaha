@@ -1,0 +1,29 @@
+placette,itineraire,point_gps,lon_wgs84,lat_wgs84,x_utm38s,y_utm38s,remarque
+P01,T01,P1,47.947408,-21.889845,804566.0,7576443.2,rattaché par date et ordre de passage
+P02,T03,P2,47.942572,-21.892671,804060.0,7576139.7,"point GPS de la placette P2 d'origine, commun à P02-P05 ; symboles décalés sur la carte"
+P03,T03,P2,47.942572,-21.892671,804060.0,7576139.7,"point GPS de la placette P2 d'origine, commun à P02-P05 ; symboles décalés sur la carte"
+P04,T03,P2,47.942572,-21.892671,804060.0,7576139.7,"point GPS de la placette P2 d'origine, commun à P02-P05 ; symboles décalés sur la carte"
+P05,T03,P2,47.942572,-21.892671,804060.0,7576139.7,"point GPS de la placette P2 d'origine, commun à P02-P05 ; symboles décalés sur la carte"
+P06,T04,P3,47.946549,-21.887895,804481.4,7576661.0,"point GPS de la placette P2 d'origine, commun à P02-P05 ; symboles décalés sur la carte"
+P07,T04,P4,47.946907,-21.887985,804518.2,7576650.2,"point GPS de la placette P2 d'origine, commun à P02-P05 ; symboles décalés sur la carte"
+P08,T05,P5,47.955067,-21.891216,805355.0,7576276.0,rattaché par date et ordre de passage
+P09,T05,P6,47.954378,-21.892162,805281.8,7576172.6,rattaché par date et ordre de passage
+P10,T05,P7,47.956771,-21.892346,805528.8,7576147.5,rattaché par date et ordre de passage
+P11,T05,P8,47.955920,-21.891877,805441.8,7576201.2,rattaché par date et ordre de passage
+P12,T14,P9,47.939249,-21.898185,803704.7,7575535.4,rattaché par date et ordre de passage
+P13,T14,P10,47.939606,-21.898712,803740.4,7575476.3,rattaché par date et ordre de passage
+P14,T14,,47.938554,-21.896980,803635.4,7575670.3,coordonnées fournies par l'auteur (03/11/2026)
+P15,T14,P12,47.938076,-21.897102,803585.7,7575657.6,rattaché par date et ordre de passage
+P16,T16,P13,47.947386,-21.913734,804512.9,7573796.6,rattaché par date et ordre de passage
+P17,T19,P14,47.940412,-21.905859,803808.7,7574682.8,rattaché par date et ordre de passage
+P18,T19,P15,47.940788,-21.902348,803854.9,7575071.1,rattaché par date et ordre de passage
+P19,T19,P16,47.943076,-21.897918,804100.9,7575557.4,rattaché par date et ordre de passage
+P20,T19,,47.943576,-21.900348,804147.5,7575287.2,coordonnées fournies par l'auteur (03/11/2026)
+P21,T20,P18,47.958974,-21.898012,805744.5,7575515.3,rattaché par date et ordre de passage
+P22,T20,P19,47.958500,-21.896804,805698.0,7575650.1,rattaché par date et ordre de passage
+P23,T20,P20,47.955875,-21.894577,805431.3,7575902.1,rattaché par date et ordre de passage
+P24,T20,P21,47.954930,-21.893893,805335.2,7575979.8,rattaché par date et ordre de passage
+P25,T21,P22,47.955851,-21.901518,805414.1,7575133.1,rattaché par date et ordre de passage
+P26,T21,P23,47.952635,-21.899830,805085.2,7575326.5,rattaché par date et ordre de passage
+P27,T21,P24,47.951838,-21.897033,805008.7,7575638.0,rattaché par date et ordre de passage
+P28,T21,P25,47.949111,-21.896129,804728.7,7575743.7,rattaché par date et ordre de passage
